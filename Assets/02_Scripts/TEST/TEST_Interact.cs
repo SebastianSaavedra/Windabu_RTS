@@ -9,6 +9,7 @@ public class TEST_Interact : MonoBehaviour
 
     private void Update()
     {
+        if (!objectToInteract) return;
         if (Input.GetKeyDown(KeyCode.E))
         {
             if (objectToInteract.GetComponent<I_Interactable>()!=null)

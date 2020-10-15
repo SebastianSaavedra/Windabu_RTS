@@ -87,15 +87,15 @@ public class Launcher : MonoBehaviourPunCallbacks
                     break;
                 case 2:
                     Debug.Log("Load for 2 person");
-                    PhotonNetwork.LoadLevel("Room for 2");
+                    PhotonNetwork.LoadLevel("VarelaTest");
                     break;
                 case 3:
                     Debug.Log("Load for 3 person");
-                    PhotonNetwork.LoadLevel("Room for 3");
+                    PhotonNetwork.LoadLevel("VarelaTest");
                     break;
                 case 4:
                     Debug.Log("Load for 4 person");
-                    PhotonNetwork.LoadLevel("Room for 4");
+                    PhotonNetwork.LoadLevel("VarelaTest");
                     break;
 
             }

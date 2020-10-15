@@ -46,7 +46,7 @@ public class GameManager : MonoBehaviourPunCallbacks
                 Debug.LogError("No master Client");
             }
             Debug.LogFormat("Loading Level" + PhotonNetwork.CurrentRoom.PlayerCount);
-            PhotonNetwork.LoadLevel("Room for" + PhotonNetwork.CurrentRoom.PlayerCount);
+            PhotonNetwork.LoadLevel("VarelaTest");
         }
         #endregion
         #region Public Methods
