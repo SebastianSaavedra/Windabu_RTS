@@ -1,17 +1,18 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-public class TaskDropDown : MonoBehaviour
+using DG.Tweening;
+public class TaskDropDown : MonoBehaviour,I_Interactable
 {
-    void Start()
+    [SerializeField] GameObject taskBarPanel;
+
+    public void OnInteract() 
     {
+        Debug.Log("Hola");
+        taskBarPanel.transform.DOMoveY(540,1);
     }
-
-    // Update is called once per frame
-    void Update()
+    public void OnLeavePanel()
     {
-        
+        taskBarPanel.transform.DOMoveY(1540, 1);
     }
-
-
 }
