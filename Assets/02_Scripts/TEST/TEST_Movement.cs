@@ -56,7 +56,10 @@ namespace Com.MaluCompany.TestGame
 
     private void FixedUpdate()
     {
+            if (photonView.IsMine) 
+            {
         rb2d.MovePosition(rb2d.position + objVelocity * Time.fixedDeltaTime);
+            }
     }
 }
 }
