@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
 using Photon.Realtime;
+using Cinemachine;
 
 namespace Com.MaluCompany.TestGame
 {
@@ -12,6 +13,8 @@ namespace Com.MaluCompany.TestGame
     //Editables
     [SerializeField] float movSpeed;
     [SerializeField] float runSpeed;
+    [SerializeField] GameObject cameraPlayer;
+    [SerializeField] CinemachineVirtualCamera playerCamera;
 
     //Privadas
     Rigidbody2D rb2d;
@@ -20,6 +23,15 @@ namespace Com.MaluCompany.TestGame
     void Start()
     {
         rb2d = GetComponent<Rigidbody2D>();
+            if (playerCamera== null) 
+            {
+                if (photonView.IsMine) 
+                {
+                    GameObject camera = Instantiate(cameraPlayer, cameraPlayer.transform.position, Quaternion.identity);
+                    playerCamera = camera.gameObject.GetComponent<CinemachineVirtualCamera>();
+                    playerCamera.Follow = this.transform;
+                }
+            }
     }
 
 

@@ -40,7 +40,7 @@ public class GameManager : MonoBehaviourPunCallbacks
             {
                 Debug.LogFormat("PlayerEnter MasterClient", PhotonNetwork.IsMasterClient);
 
-                LoadArena();
+                //LoadArena();
             }
         }
 
@@ -51,7 +51,7 @@ public class GameManager : MonoBehaviourPunCallbacks
             {
                 Debug.LogFormat("PlayerLeft MasterClient", PhotonNetwork.IsMasterClient);
 
-                LoadArena();
+               // LoadArena();
             }
         }
         #endregion

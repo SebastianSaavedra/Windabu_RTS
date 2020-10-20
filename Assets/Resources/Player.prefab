@@ -135,6 +135,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movSpeed: 10
   runSpeed: 10
+  cameraPlayer: {fileID: 6332663845582510409, guid: 5914003c39768d740b5e39c91e1c6515,
+    type: 3}
+  playerCamera: {fileID: 0}
 --- !u!50 &5816013650376650912
 Rigidbody2D:
   serializedVersion: 4
