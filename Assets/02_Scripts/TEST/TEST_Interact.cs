@@ -1,8 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Photon.Pun;
+using Photon.Realtime;
 
-public class TEST_Interact : MonoBehaviour
+public class TEST_Interact : MonoBehaviourPunCallbacks
 {
     [SerializeField]
     GameObject objectToInteract;
@@ -10,6 +12,9 @@ public class TEST_Interact : MonoBehaviour
     private void Update()
     {
         if (!objectToInteract) return;
+        if (photonView.IsMine) 
+        {
+        
         if (Input.GetKeyDown(KeyCode.E))
         {
             if (objectToInteract.GetComponent<I_Interactable>()!=null)
@@ -21,15 +26,22 @@ public class TEST_Interact : MonoBehaviour
         {
             objectToInteract.GetComponent<I_Interactable>().OnLeavePanel();
         }
+        }
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        if (photonView.IsMine) 
+        {
         objectToInteract = collision.gameObject;
+        }
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
+        if (photonView.IsMine) 
+        {
         objectToInteract.GetComponent<I_Interactable>().OnLeavePanel();
         objectToInteract = null;
+        }
     }
 
 }
