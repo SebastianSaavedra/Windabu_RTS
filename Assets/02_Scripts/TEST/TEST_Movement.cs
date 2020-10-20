@@ -1,9 +1,14 @@
-﻿using System.Collections;
+﻿using Photon.Pun;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Photon.Pun;
+using Photon.Realtime;
 
-public class TEST_Movement : MonoBehaviour
+namespace Com.MaluCompany.TestGame
 {
+    public class TEST_Movement : MonoBehaviourPunCallbacks
+    {
     //Editables
     [SerializeField] float movSpeed;
     [SerializeField] float runSpeed;
@@ -23,6 +28,9 @@ public class TEST_Movement : MonoBehaviour
         Vector2 moveInput = new Vector2(Input.GetAxisRaw("Horizontal"),Input.GetAxisRaw("Vertical"));
         objVelocity = moveInput.normalized * movSpeed;
 
+       if (photonView.IsMine)
+       {
+            
         if (Input.GetKeyDown(KeyCode.LeftShift))
         {
             movSpeed += runSpeed;
@@ -31,10 +39,12 @@ public class TEST_Movement : MonoBehaviour
         {
             movSpeed -= runSpeed;
         }
+        }
     }
 
     private void FixedUpdate()
     {
         rb2d.MovePosition(rb2d.position + objVelocity * Time.fixedDeltaTime);
     }
+}
 }

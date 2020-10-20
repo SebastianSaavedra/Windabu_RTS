@@ -9,6 +9,24 @@ namespace Com.MaluCompany.TestGame
 {
 public class GameManager : MonoBehaviourPunCallbacks
 {
+
+        #region Var
+        [Tooltip("Prefab Player")]
+        [SerializeField] GameObject playerPref;
+        #endregion
+
+        private void Start()
+        {
+            if (playerPref == null) 
+            {
+                Debug.LogError("Bruh");
+            }
+            else 
+            {
+                Debug.LogFormat("Instantiating Player");
+                PhotonNetwork.Instantiate(this.playerPref.name, new Vector3(0, 0, 0), Quaternion.identity, 0);
+            }
+        }
         #region Photon call
         public override void OnLeftRoom() 
         {
