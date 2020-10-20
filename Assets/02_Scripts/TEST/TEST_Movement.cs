@@ -22,26 +22,26 @@ namespace Com.MaluCompany.TestGame
 
     void Start()
     {
+            if (photonView.IsMine) 
+            { 
         rb2d = GetComponent<Rigidbody2D>();
             if (playerCamera== null) 
             {
-                if (photonView.IsMine) 
-                {
                     GameObject camera = Instantiate(cameraPlayer, cameraPlayer.transform.position, Quaternion.identity);
                     playerCamera = camera.gameObject.GetComponent<CinemachineVirtualCamera>();
-                    playerCamera.Follow = this.transform;
-                }
+                    playerCamera.Follow = this.transform;                
+            }
             }
     }
 
 
     void Update()
     {
-        Vector2 moveInput = new Vector2(Input.GetAxisRaw("Horizontal"),Input.GetAxisRaw("Vertical"));
-        objVelocity = moveInput.normalized * movSpeed;
 
        if (photonView.IsMine)
        {
+        Vector2 moveInput = new Vector2(Input.GetAxisRaw("Horizontal"),Input.GetAxisRaw("Vertical"));
+        objVelocity = moveInput.normalized * movSpeed;
             
         if (Input.GetKeyDown(KeyCode.LeftShift))
         {
