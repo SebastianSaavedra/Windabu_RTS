@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Shader Graphs_Outline
+  m_Name: Outline
   m_Shader: {fileID: -6465566751694194690, guid: 2b6a3685685f57642b040e8e0b41a41d,
     type: 3}
   m_ShaderKeywords: ETC1_EXTERNAL_ALPHA
@@ -28,3 +28,4 @@ Material:
     - Vector1_49B20A8: 0.002
     m_Colors:
     - Color_84CA4B76: {r: 1, g: 0, b: 0, a: 1}
+    - _OutlineColor: {r: 0, g: 0, b: 0, a: 1}
