@@ -16,6 +16,7 @@ namespace Com.MaluCompany.TestGame
     [SerializeField] float movSpeed;
     [SerializeField] float runSpeed;
     [SerializeField] GameObject playerUiPrefab;
+        [SerializeField] Transform UiPos;
         //Privadas
         Rigidbody2D rb2d;
     Vector2 objVelocity;
@@ -30,6 +31,7 @@ namespace Com.MaluCompany.TestGame
             {
                 GameObject _UI = Instantiate(playerUiPrefab);
                 _UI.transform.parent = transform;
+                _UI.transform.position = UiPos.position;
                 _UI.SendMessage("SetTarget", this, SendMessageOptions.RequireReceiver);
             }
         }
