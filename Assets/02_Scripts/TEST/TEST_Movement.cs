@@ -5,6 +5,7 @@ using UnityEngine;
 using Photon.Pun;
 using Photon.Realtime;
 using Cinemachine;
+using TMPro;
 
 namespace Com.MaluCompany.TestGame
 {
@@ -15,15 +16,18 @@ namespace Com.MaluCompany.TestGame
     [SerializeField] float runSpeed;
     [SerializeField] GameObject cameraPlayer;
     [SerializeField] CinemachineVirtualCamera playerCamera;
+    [SerializeField] TextMeshProUGUI playerName;
 
-    //Privadas
-    Rigidbody2D rb2d;
+        //Privadas
+        Rigidbody2D rb2d;
     Vector2 objVelocity;
 
     void Start()
     {
             if (photonView.IsMine) 
-            { 
+            {
+                playerName = GetComponentInChildren<TextMeshProUGUI>();
+                playerName.text = photonView.Owner.NickName;
         rb2d = GetComponent<Rigidbody2D>();
             if (playerCamera== null) 
             {
