@@ -23,7 +23,7 @@ public class MoneyClicker : MonoBehaviour
         }
         else { Debug.Log("Full Money"); }
 
-        if(likes <= 0)
+        if(!shareButton.activeInHierarchy)
         {
             shareButton.SetActive(true);
         }
@@ -51,19 +51,23 @@ public class MoneyClicker : MonoBehaviour
         Debug.Log("$$$");
 
         // Minijuegos.m_clicks(likes);
-
-        int macroLike = 0;
-        while(macroLike <= likes - 10)
+        if (isPublic)
         {
-            macroLike += 10;
+            int macroLike = 0;
+            while (macroLike <= likes - 10)
+            {
+                macroLike += 10;
+            }
+            Minijuegos.m_clicks(macroLike / 10);
+
+            likes -= macroLike;
         }
 
-        Minijuegos.m_clicks(macroLike / 10);
-
         //Reset
-        likes -= macroLike;
         isPublic = false;
         sharePanel.SetActive(false);
         shareButton.SetActive(false);
+
+        Debug.Log("Reset");
     }
 }
