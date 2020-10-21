@@ -16,17 +16,18 @@ public class MoneyClicker : MonoBehaviour
 
     public void Like()
     {
-        //Limit
+         if(likes <= 0)
+        {
+            shareButton.SetActive(true);
+        }//Limit
         if(likes <= 99)
         {
             likes += 1;
+            Debug.Log(likes);
         }
         else { Debug.Log("Full Money"); }
 
-        if(likes <= 0)
-        {
-            shareButton.SetActive(true);
-        }
+  
     }
 
     public void Share()
