@@ -7,5 +7,6 @@ public class MoneyClicker : MonoBehaviour
     public void AddMoney(int money)
     {
         Debug.Log("$$$");
+        Minijuegos.m_clicks(money);
     }
 }
