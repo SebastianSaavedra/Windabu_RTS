@@ -22808,6 +22808,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4089827891650604871, guid: 9a8f34c7b0dfefd478870bfb76b95e99,
         type: 3}
+      propertyPath: players.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4089827891650604871, guid: 9a8f34c7b0dfefd478870bfb76b95e99,
+        type: 3}
+      propertyPath: players.Array.data[0].player.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4089827891650604871, guid: 9a8f34c7b0dfefd478870bfb76b95e99,
+        type: 3}
       propertyPath: playerPref
       value: 
       objectReference: {fileID: 5816013650376650916, guid: 9e3ced048fb28354387e5130d568af02,

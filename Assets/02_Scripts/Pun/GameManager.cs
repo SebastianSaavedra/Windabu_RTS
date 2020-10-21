@@ -15,6 +15,7 @@ public class GameManager : MonoBehaviourPunCallbacks
         [Tooltip("Prefab Player")]
         [SerializeField] GameObject playerPref;
         [SerializeField] GameObject joinedPlayer;
+        public List<GameObject> players;
         #endregion
 
         private void Start()
@@ -38,6 +39,7 @@ public class GameManager : MonoBehaviourPunCallbacks
         public override void OnPlayerEnteredRoom(Player newPlayer)
         {
             Debug.LogFormat("Player", newPlayer.NickName);
+            
 
             if (PhotonNetwork.IsMasterClient) 
             {
