@@ -2,16 +2,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Photon.Pun;
 
-public class PlayerId : MonoBehaviour
+public class PlayerId : MonoBehaviourPunCallbacks
 {
-    [SerializeField] GameManager gameManager;
     public int id;
 
-    private void Awake()
+    private void Start()
     {
-        gameManager = GameObject.Find("Game Manager").GetComponent<GameManager>();
-        gameManager.players.Add(gameObject);
-        id = gameManager.players.IndexOf(gameObject) +1;
+        id= photonView.OwnerActorNr;
     }
 }

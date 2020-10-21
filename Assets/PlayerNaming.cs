@@ -9,6 +9,7 @@ public class PlayerNaming : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI playerName;
     [SerializeField] TextMeshProUGUI playerId;
+    [SerializeField] GameManager gameManager;
     private TEST_Movement target;
 
     public void SetTarget(TEST_Movement _target)
@@ -21,7 +22,7 @@ public class PlayerNaming : MonoBehaviour
         if (playerName != null)
         {
             playerName.text = target.photonView.Owner.NickName;
-            playerId.text = ""+ target.gameObject.GetComponentInParent<PlayerId>().id;
+            playerId.text = "" + target.photonView.OwnerActorNr;
         }
     }
 }
