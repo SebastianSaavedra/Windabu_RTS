@@ -14,7 +14,7 @@ public class MinigameManager : MonoBehaviourPunCallbacks
 {
     #region Variables
     int carteles;
-    int currency;
+    int likes;
     #endregion
 
     void Start()
@@ -26,9 +26,14 @@ public class MinigameManager : MonoBehaviourPunCallbacks
     void Carteles(int valor)
     {
         carteles += valor;
+
+        if(carteles >= 10)
+        {
+            // Gano algun player (?
+        }
     }
     void Clicks(int valor)
     {
-        currency += valor;
+        likes += valor;
     }
 }

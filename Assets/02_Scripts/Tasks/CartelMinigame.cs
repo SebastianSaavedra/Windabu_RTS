@@ -26,12 +26,12 @@ public class CartelMinigame : MonoBehaviour
             // Esquina es pegada;
             esquinas++;
             collision.GetComponent<Collider2D>().enabled = false;
-        }
 
-        else if(collision.CompareTag("Esquina") && esquinas >= 4)
-        {
-            sgteCor = StartCoroutine("SgteCartel");
-            esquinas = 0;
+            if (esquinas >= 4)
+            {
+                sgteCor = StartCoroutine("SgteCartel");
+                esquinas = 0;
+            }
         }
     }
 

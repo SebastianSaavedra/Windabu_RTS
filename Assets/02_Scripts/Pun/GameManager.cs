@@ -26,7 +26,7 @@ public class GameManager : MonoBehaviourPunCallbacks
             else 
             {
                 Debug.LogFormat("Instantiating Player");
-               joinedPlayer= PhotonNetwork.Instantiate(this.playerPref.name, new Vector3(0, 0, 0), Quaternion.identity, 0);
+               PhotonNetwork.Instantiate(this.playerPref.name, new Vector3(0, 0, 0), Quaternion.identity, 0);
             }
         }
         #region Photon call
@@ -37,8 +37,8 @@ public class GameManager : MonoBehaviourPunCallbacks
 
         public override void OnPlayerEnteredRoom(Player newPlayer)
         {
-            joinedPlayer.GetComponentInChildren<TextMeshProUGUI>().text = newPlayer.NickName;
             Debug.LogFormat("Player", newPlayer.NickName);
+
             if (PhotonNetwork.IsMasterClient) 
             {
                 Debug.LogFormat("PlayerEnter MasterClient", PhotonNetwork.IsMasterClient);

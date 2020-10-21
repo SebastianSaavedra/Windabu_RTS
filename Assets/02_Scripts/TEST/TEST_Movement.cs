@@ -6,6 +6,7 @@ using Photon.Pun;
 using Photon.Realtime;
 using Cinemachine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 namespace Com.MaluCompany.TestGame
 {
@@ -14,10 +15,8 @@ namespace Com.MaluCompany.TestGame
     //Editables
     [SerializeField] float movSpeed;
     [SerializeField] float runSpeed;
-    [SerializeField] GameObject cameraPlayer;
-    [SerializeField] CinemachineVirtualCamera playerCamera;
-    [SerializeField] TextMeshProUGUI playerName;
-
+    [SerializeField] GameObject playerUiPrefab;
+        [SerializeField] Transform UiPos;
         //Privadas
         Rigidbody2D rb2d;
     Vector2 objVelocity;
@@ -26,17 +25,16 @@ namespace Com.MaluCompany.TestGame
     {
             if (photonView.IsMine) 
             {
-                playerName = GetComponentInChildren<TextMeshProUGUI>();
-                playerName.text = photonView.Owner.NickName;
         rb2d = GetComponent<Rigidbody2D>();
-            if (playerCamera== null) 
+            }
+            if (playerUiPrefab != null)
             {
-                    GameObject camera = Instantiate(cameraPlayer, cameraPlayer.transform.position, Quaternion.identity);
-                    playerCamera = camera.gameObject.GetComponent<CinemachineVirtualCamera>();
-                    playerCamera.Follow = this.transform;                
+                GameObject _UI = Instantiate(playerUiPrefab);
+                _UI.transform.parent = transform;
+                _UI.transform.position = UiPos.position;
+                _UI.SendMessage("SetTarget", this, SendMessageOptions.RequireReceiver);
             }
-            }
-    }
+        }
 
 
     void Update()
@@ -57,8 +55,13 @@ namespace Com.MaluCompany.TestGame
         }
         }
     }
+        public override void OnPlayerEnteredRoom(Player newPlayer)
+        {
+            /*GameObject _UI = Instantiate(this.playerUiPrefab);
+            _UI.SendMessage("SetTarget", this, SendMessageOptions.RequireReceiver);]*/
+        }
 
-    private void FixedUpdate()
+        private void FixedUpdate()
     {
             if (photonView.IsMine) 
             {
