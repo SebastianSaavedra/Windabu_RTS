@@ -55,8 +55,8 @@ namespace Com.MaluCompany.TestGame
     }
         public override void OnPlayerEnteredRoom(Player newPlayer)
         {
-            GameObject _UI = Instantiate(this.playerUiPrefab);
-            _UI.SendMessage("SetTarget", this, SendMessageOptions.RequireReceiver);
+            /*GameObject _UI = Instantiate(this.playerUiPrefab);
+            _UI.SendMessage("SetTarget", this, SendMessageOptions.RequireReceiver);]*/
         }
 
         private void FixedUpdate()

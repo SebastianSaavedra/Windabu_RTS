@@ -8,16 +8,7 @@ public class PlayerNaming : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI playerName;
     private TEST_Movement target;
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
     public void SetTarget(TEST_Movement _target)
     {
         if (_target == null)

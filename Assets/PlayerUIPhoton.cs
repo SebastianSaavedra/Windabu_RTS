@@ -19,8 +19,6 @@ namespace Com.MaluCompany.TestGame
     {
             if (photonView.IsMine)
             {
-              //  playerName = GetComponentInChildren<TextMeshProUGUI>();
-              //playerName.text = photonView.Owner.NickName;
                 if (playerCamera == null)
                 {
                     GameObject camera = Instantiate(cameraPlayer, cameraPlayer.transform.position, Quaternion.identity);
