@@ -71,6 +71,7 @@ public class Launcher : MonoBehaviourPunCallbacks
             controlPanel.SetActive(true);
             Debug.LogWarningFormat("Pun disconnected");
         }
+       
 
         public override void OnJoinRandomFailed(short returnCode, string message)
         {
