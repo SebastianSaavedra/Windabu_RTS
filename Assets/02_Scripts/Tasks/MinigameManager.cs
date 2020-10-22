@@ -29,9 +29,10 @@ public class MinigameManager : MonoBehaviourPunCallbacks
 
         if(carteles >= 10)
         {
-            // Gano algun player (?
+            // Gano algun equipo (?
         }
     }
+
     void Clicks(int valor)
     {
         likes += valor;

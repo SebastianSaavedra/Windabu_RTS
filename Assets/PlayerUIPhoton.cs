@@ -23,6 +23,7 @@ namespace Com.MaluCompany.TestGame
                 {
                     GameObject camera = Instantiate(cameraPlayer, cameraPlayer.transform.position, Quaternion.identity);
                     playerCamera = camera.gameObject.GetComponent<CinemachineVirtualCamera>();
+                    //camera.tag = "CinemaCamera";
                     playerCamera.Follow = this.transform;
                 }
             }
