@@ -4,5 +4,5 @@ using UnityEngine;
 
 public class TeamManager : MonoBehaviour
 {
-    float money;
+    public float money;
 }
