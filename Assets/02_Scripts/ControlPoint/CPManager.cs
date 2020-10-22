@@ -2,8 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
-public class CPManager : MonoBehaviour
+using Photon.Pun;
+using Photon.Realtime;
+public class CPManager :MonoBehaviourPunCallbacks
 {
     [SerializeField]
     GameObject teamManager1, teamManager2;
@@ -11,15 +12,16 @@ public class CPManager : MonoBehaviour
     [SerializeField]
     float fameAdded;
     [SerializeField]
-    Slider slider;
+    Slider slider,slider2;
 
     bool blueControlling;
-
+    PhotonView PV;
     #region Testing Code
     Color colorNeutral, colorTeam1, colorTeam2;
 
     public void Awake()
     {
+        PV = GetComponent<PhotonView>();
         colorNeutral = gameObject.GetComponent<SpriteRenderer>().color;
 
         colorTeam1 = Color.blue;
@@ -31,6 +33,7 @@ public class CPManager : MonoBehaviour
     public void Team1()
     {
         blueControlling = true;
+        //PV.RPC("ChangeMat", RpcTarget.AllBuffered, this.gameObject.GetComponent<SpriteRenderer>().color);
         gameObject.GetComponent<SpriteRenderer>().color = colorTeam1;
         GainPoints();
     }
@@ -47,8 +50,14 @@ public class CPManager : MonoBehaviour
     {
         if(blueControlling)
         {
-            teamManager1.GetComponent<TeamManager>().fame += fameAdded;
+            teamManager1.GetComponent<TeamManager>().fameA += fameAdded;
             slider.value += fameAdded;
+            StartCoroutine(Wait());
+        }
+        else 
+        {
+            teamManager1.GetComponent<TeamManager>().fameB += fameAdded;
+            slider2.value += fameAdded;
             StartCoroutine(Wait());
         }
     }
@@ -59,4 +68,11 @@ public class CPManager : MonoBehaviour
         GainPoints();
         yield break;
     }
+
+    [PunRPC]
+    void ChangeMat(GameObject sprite) 
+    {
+        sprite = sprite.GetComponent<SpriteRenderer>().gameObject;
+    }
+
 }

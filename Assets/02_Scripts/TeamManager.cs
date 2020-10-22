@@ -6,5 +6,6 @@ using UnityEngine.UI;
 public class TeamManager : MonoBehaviour
 {
     public float money;
-    public float fame;
+    public float fameA;
+    public float fameB;
 }

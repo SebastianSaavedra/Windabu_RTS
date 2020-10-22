@@ -44,6 +44,7 @@ public class CartelMinigame : MonoBehaviour
         cartel.hayCartel = false;
         yield return new WaitForSeconds(.25f);
         Destroy(cartel.cartelito);
+        this.transform.parent.GetComponentInChildren<Cartel>().SpawnCartel();
         yield break;
     }
 }
