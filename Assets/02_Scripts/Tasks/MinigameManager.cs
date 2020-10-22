@@ -30,12 +30,35 @@ public class MinigameManager : MonoBehaviourPunCallbacks
 
         if (carteles >= 10)
         {
-            // Gano algun equipo (?
+            carteles = 0;
+            FinishTask();
+            
         }
     }
 
     void Clicks(int valor)
     {
         dinero += valor;
+    }
+
+    void FinishTask() 
+    {
+        foreach (GameObject player in GameObject.FindGameObjectsWithTag("Player"))
+        {
+            Debug.Log(player.name);
+            if (player.GetComponentInParent<PlayerId>().id == PhotonNetwork.LocalPlayer.ActorNumber)
+            {
+                player.GetComponentInParent<TEST_Interact>().objectToInteract.GetComponent<I_Interactable>().OnLeavePanel();
+                if (player.GetComponentInParent<PlayerTeam>().TeamA) 
+                {
+                    player.GetComponentInParent<TEST_Interact>().objectToInteract.GetComponentInParent<CPManager>().Team1();
+                }
+                if (player.GetComponentInParent<PlayerTeam>().TeamB)
+                {
+                    player.GetComponentInParent<TEST_Interact>().objectToInteract.GetComponentInParent<CPManager>().Team2();
+                }
+
+            }
+        }
     }
 }

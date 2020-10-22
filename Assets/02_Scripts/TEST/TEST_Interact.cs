@@ -6,7 +6,7 @@ using Photon.Realtime;
 
 public class TEST_Interact : MonoBehaviourPunCallbacks
 {
-    [SerializeField]
+    public
     GameObject objectToInteract;
 
     private void Update()
