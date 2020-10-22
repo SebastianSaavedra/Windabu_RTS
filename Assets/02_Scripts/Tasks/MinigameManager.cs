@@ -14,7 +14,7 @@ public class MinigameManager : MonoBehaviourPunCallbacks
 {
     #region Variables
     int carteles;
-    int likes;
+    public static int dinero;
     #endregion
 
     void Start()
@@ -36,6 +36,6 @@ public class MinigameManager : MonoBehaviourPunCallbacks
 
     void Clicks(int valor)
     {
-        likes += valor;
+        dinero += valor;
     }
 }
