@@ -21,10 +21,11 @@ public class ShopManager : MonoBehaviour
 
     public void Impresora()
     {
-        if(gameObject.GetComponent<TeamManager>().money >= impresoraCost)
+        if(MinigameManager.dinero >= impresoraCost)// volver a referencia teamManager
         {
             StartCoroutine(SpawnItem(impresoraDelay, impresora));
-            gameObject.GetComponent<TeamManager>().money -= impresoraCost;
+            MinigameManager.dinero -= (int)impresoraCost;
+            //gameObject.GetComponent<TeamManager>().money -= impresoraCost;
         }
         else
         {
