@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -1459,7 +1459,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf9d7fb8632369541a2d08241c203120, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxPlayerPerRoom: 4
+  maxPlayerPerRoom: 6
   controlPanel: {fileID: 779580147}
   progressLabel: {fileID: 1253616986}
 --- !u!4 &1290547096
