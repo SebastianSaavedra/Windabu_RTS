@@ -8,12 +8,11 @@ using UnityEngine;
 public class JoinTeamB : MonoBehaviourPunCallbacks
 {
     int playerPos;
+
     public void JoinTeam()
     {
-        Debug.Log("TeamB");
         foreach (GameObject player in GameObject.FindGameObjectsWithTag("Player"))
         {
-            Debug.Log(player.name);
             if (player.GetComponentInParent<PlayerId>().id == PhotonNetwork.LocalPlayer.ActorNumber)
             {
                 if (player.GetComponentInParent<PlayerTeam>().TeamA == true || player.GetComponentInParent<PlayerTeam>().TeamB == true)
@@ -25,4 +24,6 @@ public class JoinTeamB : MonoBehaviourPunCallbacks
         }
         playerPos = playerPos + 1;
     }
+
+
 }

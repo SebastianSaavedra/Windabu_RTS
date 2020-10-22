@@ -49,7 +49,6 @@ public class MoneyClicker : MonoBehaviour
 
     public void Confirm()
     {
-        Debug.Log("$$$");
 
         // Minijuegos.m_clicks(likes);
         if (isPublic)

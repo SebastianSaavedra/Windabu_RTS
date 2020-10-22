@@ -45,7 +45,6 @@ public class MinigameManager : MonoBehaviourPunCallbacks
     {
         foreach (GameObject player in GameObject.FindGameObjectsWithTag("Player"))
         {
-            Debug.Log(player.name);
             if (player.GetComponentInParent<PlayerId>().id == PhotonNetwork.LocalPlayer.ActorNumber)
             {
                 player.GetComponentInParent<TEST_Interact>().objectToInteract.GetComponent<I_Interactable>().OnLeavePanel();
