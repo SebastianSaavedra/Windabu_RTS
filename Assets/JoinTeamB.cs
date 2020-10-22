@@ -16,6 +16,8 @@ public class JoinTeamB : MonoBehaviourPunCallbacks
             Debug.Log(player.name);
             if (player.GetComponentInParent<PlayerId>().id == PhotonNetwork.LocalPlayer.ActorNumber)
             {
+                if (player.GetComponentInParent<PlayerTeam>().TeamA == true || player.GetComponentInParent<PlayerTeam>().TeamB == true)
+                    return;
                 player.GetComponentInParent<PlayerTeam>().TeamB = true;
                 FakeLobbyUsers.users2[playerPos].gameObject.SetActive(true);
                 FakeLobbyUsers.users2[playerPos].text = PhotonNetwork.LocalPlayer.NickName;
