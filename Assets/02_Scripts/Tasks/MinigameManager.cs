@@ -57,7 +57,6 @@ public class MinigameManager : MonoBehaviourPunCallbacks
                 {
                     player.GetComponentInParent<TEST_Interact>().objectToInteract.GetComponentInParent<CPManager>().Team2();
                 }
-
             }
         }
     }
