@@ -5,4 +5,5 @@ using UnityEngine;
 public class TeamManager : MonoBehaviour
 {
     public float money;
+    public float fame;
 }
