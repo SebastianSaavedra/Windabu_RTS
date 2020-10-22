@@ -12,7 +12,7 @@ public class Launcher : MonoBehaviourPunCallbacks
         #region Private S Fields
         [Tooltip("Maximum player per room")]
         [SerializeField]
-        private byte maxPlayerPerRoom = 4;
+        private byte maxPlayerPerRoom = 6;
         [Tooltip("Ui Panel")]
         [SerializeField] private GameObject controlPanel;   
         [Tooltip("UI Label")]
@@ -80,27 +80,26 @@ public class Launcher : MonoBehaviourPunCallbacks
         }
         public override void OnJoinedRoom()
         {
-            switch (PhotonNetwork.CurrentRoom.PlayerCount) 
-            {
-                case 1:
-                    Debug.Log("Load for 1 person");
-                    PhotonNetwork.LoadLevel("VarelaTest");
-                    break;
-                case 2:
-                    Debug.Log("Load for 2 person");
-                    PhotonNetwork.LoadLevel("VarelaTest");
-                    break;
-                case 3:
-                    Debug.Log("Load for 3 person");
-                    PhotonNetwork.LoadLevel("VarelaTest");
-                    break;
-                case 4:
-                    Debug.Log("Load for 4 person");
-                    PhotonNetwork.LoadLevel("VarelaTest");
-                    break;
-
-            }
-
+            //switch (PhotonNetwork.CurrentRoom.PlayerCount) 
+            //{
+            //    case 1:
+            //        Debug.Log("Load for 1 person");
+            //       PhotonNetwork.LoadLevel("VarelaTest");
+            //        break;
+            //    case 2:
+            //        Debug.Log("Load for 2 person");
+            //        PhotonNetwork.LoadLevel("VarelaTest");
+            //        break;
+            //    case 3:
+            //        Debug.Log("Load for 3 person");
+            //        PhotonNetwork.LoadLevel("VarelaTest");
+            //        break;
+            //    case 4:
+            //        Debug.Log("Load for 4 person");
+            //        PhotonNetwork.LoadLevel("VarelaTest");
+            //        break;              
+            //}
+            PhotonNetwork.LoadLevel("VarelaTest");
 
         }
         #endregion
