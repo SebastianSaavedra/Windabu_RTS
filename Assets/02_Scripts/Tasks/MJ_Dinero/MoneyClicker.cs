@@ -20,6 +20,7 @@ public class MoneyClicker : MonoBehaviour
         if(likes <= 99)
         {
             likes += 1;
+            Debug.Log("Cantidad de Likes: " + likes);
         }
         else { Debug.Log("Full Money"); }
 

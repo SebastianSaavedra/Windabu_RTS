@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class CartelMinigame : MonoBehaviour
 {
-    BoxCollider2D col2d;
+    [SerializeField] BoxCollider2D col2d;
     //Rigidbody2D rb2d;
     Coroutine sgteCor;
-
+    [SerializeField] Cartel cartel;
     int esquinas;
     private void Awake()
     {
@@ -39,11 +39,11 @@ public class CartelMinigame : MonoBehaviour
 
     IEnumerator SgteCartel()
     {
-        Debug.Log("Entro a la corutina o.0!!!");
+        //Debug.Log("Entro a la corutina");
         Minijuegos.m_cartel(1);
+        cartel.hayCartel = false;
         yield return new WaitForSeconds(.25f);
-        Debug.Log("PASO EL WAIT FOR SECONDS");
-        Destroy(gameObject);
+        Destroy(cartel.cartelito);
         yield break;
     }
 }

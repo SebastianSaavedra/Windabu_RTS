@@ -26,8 +26,9 @@ public class MinigameManager : MonoBehaviourPunCallbacks
     void Carteles(int valor)
     {
         carteles += valor;
+        Debug.Log("Numero de carteles: " + carteles);
 
-        if(carteles >= 10)
+        if (carteles >= 10)
         {
             // Gano algun equipo (?
         }
