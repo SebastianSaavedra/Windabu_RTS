@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CPManager : MonoBehaviour
 {
@@ -9,6 +10,8 @@ public class CPManager : MonoBehaviour
 
     [SerializeField]
     float fameAdded;
+    [SerializeField]
+    Slider slider;
 
     bool blueControlling;
 
@@ -45,6 +48,7 @@ public class CPManager : MonoBehaviour
         if(blueControlling)
         {
             teamManager1.GetComponent<TeamManager>().fame += fameAdded;
+            slider.value += fameAdded;
             StartCoroutine(Wait());
         }
     }
