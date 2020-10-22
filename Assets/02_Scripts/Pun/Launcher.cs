@@ -99,7 +99,7 @@ public class Launcher : MonoBehaviourPunCallbacks
             //        PhotonNetwork.LoadLevel("VarelaTest");
             //        break;              
             //}
-            PhotonNetwork.LoadLevel("VarelaTest");
+            PhotonNetwork.LoadLevel("VarelaTestarudo");
 
         }
         #endregion

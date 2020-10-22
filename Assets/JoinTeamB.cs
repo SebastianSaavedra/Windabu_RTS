@@ -1,4 +1,5 @@
 ﻿using Photon.Pun;
+using Photon.Pun.UtilityScripts;
 using Photon.Realtime;
 using System.Collections;
 using System.Collections.Generic;
@@ -6,7 +7,7 @@ using UnityEngine;
 
 public class JoinTeamB : MonoBehaviourPunCallbacks
 {
-    // Start is called before the first frame update
+    int playerPos;
     public void JoinTeam()
     {
         Debug.Log("TeamB");
@@ -16,7 +17,10 @@ public class JoinTeamB : MonoBehaviourPunCallbacks
             if (player.GetComponentInParent<PlayerId>().id == PhotonNetwork.LocalPlayer.ActorNumber)
             {
                 player.GetComponentInParent<PlayerTeam>().TeamB = true;
+                FakeLobbyUsers.users2[playerPos].gameObject.SetActive(true);
+                FakeLobbyUsers.users2[playerPos].text = PhotonNetwork.LocalPlayer.NickName;
             }
         }
+        playerPos = playerPos + 1;
     }
 }

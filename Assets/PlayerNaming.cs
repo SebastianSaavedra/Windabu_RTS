@@ -25,8 +25,6 @@ public class PlayerNaming : MonoBehaviour
             playerId.text = "" + target.photonView.OwnerActorNr;
 
             //ActiveFakUserCanva
-            FakeLobbyUsers.users[target.photonView.OwnerActorNr-1].gameObject.SetActive(true);
-            FakeLobbyUsers.users[target.photonView.OwnerActorNr-1].text= target.photonView.OwnerActorNr+ ": " + target.photonView.Owner.NickName;
         }
     }
 }
