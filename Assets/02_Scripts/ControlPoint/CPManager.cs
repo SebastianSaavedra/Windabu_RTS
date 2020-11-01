@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using Photon.Pun;
 using Photon.Realtime;
-public class CPManager :MonoBehaviourPunCallbacks
+public class CPManager :MonoBehaviourPunCallbacks,IPunObservable
 {
     [SerializeField]
     GameObject teamManager1, teamManager2;
@@ -26,6 +26,8 @@ public class CPManager :MonoBehaviourPunCallbacks
 
         colorTeam1 = Color.blue;
         colorTeam2 = Color.red;
+        PhotonNetwork.SendRate = 20;
+        PhotonNetwork.SerializationRate = 10;
     }
     #endregion
 
@@ -33,46 +35,78 @@ public class CPManager :MonoBehaviourPunCallbacks
     public void Team1()
     {
         blueControlling = true;
-        //PV.RPC("ChangeMat", RpcTarget.AllBuffered, this.gameObject.GetComponent<SpriteRenderer>().color);
-        gameObject.GetComponent<SpriteRenderer>().color = colorTeam1;
-        GainPoints();
+        photonView.RPC("ChangeTeamColor", RpcTarget.AllBuffered, blueControlling);
+        photonView.RPC("RPCGainPoints", RpcTarget.MasterClient);
     }
+    [PunRPC]
+    public void ChangeTeamColor(bool whatTeam) 
+    {
+        if(whatTeam)
+        {
+        gameObject.GetComponent<SpriteRenderer>().color = colorTeam1;
+        }
+        else 
+        {
+            gameObject.GetComponent<SpriteRenderer>().color = colorTeam2;
+        }
+    }
+
 
     //Change to team2
     public void Team2()
     {
         blueControlling = false;
-        gameObject.GetComponent<SpriteRenderer>().color = colorTeam2;
-        GainPoints();
+        photonView.RPC("ChangeTeamColor", RpcTarget.AllBuffered, blueControlling);
+        photonView.RPC("RPCGainPoints", RpcTarget.MasterClient);
     }
 
-    public void GainPoints()
+    [PunRPC]
+    public void GainPoints(bool whatTeam)
     {
-        if(blueControlling)
+        Debug.Log("Llamado");
+        if(whatTeam)
         {
             teamManager1.GetComponent<TeamManager>().fameA += fameAdded;
             slider.value += fameAdded;
-            StartCoroutine(Wait());
         }
         else 
         {
             teamManager1.GetComponent<TeamManager>().fameB += fameAdded;
             slider2.value += fameAdded;
-            StartCoroutine(Wait());
         }
     }
 
+    [PunRPC]
+    public void RPCGainPoints()
+    {
+        StartCoroutine(Wait());
+    }
     IEnumerator Wait()
     {
         yield return new WaitForSeconds(10f);
-        GainPoints();
+        photonView.RPC("GainPoints", RpcTarget.MasterClient,blueControlling);
+        yield return new WaitForSeconds(.5f);
+        photonView.RPC("RPCGainPoints", RpcTarget.MasterClient);
         yield break;
     }
 
-    [PunRPC]
     void ChangeMat(GameObject sprite) 
     {
         sprite = sprite.GetComponent<SpriteRenderer>().gameObject;
     }
 
+    public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info) 
+    {
+       if (stream.IsWriting) 
+       {
+            stream.SendNext(slider.value);
+            stream.SendNext(slider2.value);
+      }
+      else if (stream.IsReading) 
+      {
+           slider.value =(float)stream.ReceiveNext();
+           slider2.value =(float)stream.ReceiveNext();
+      }
+      }
+    
 }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
 using Photon.Realtime;
+using Com.MaluCompany.TestGame;
 
 public class TEST_Interact : MonoBehaviourPunCallbacks
 {
@@ -20,11 +21,13 @@ public class TEST_Interact : MonoBehaviourPunCallbacks
             if (objectToInteract.GetComponent<I_Interactable>()!=null)
             {
                 objectToInteract.GetComponent<I_Interactable>().OnInteract();
+                    GetComponent<TEST_Movement>().enabled = false;
             }
         }
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             objectToInteract.GetComponent<I_Interactable>().OnLeavePanel();
+                    GetComponent<TEST_Movement>().enabled = true;
         }
         }
     }

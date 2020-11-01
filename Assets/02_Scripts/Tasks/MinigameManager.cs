@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using Com.MaluCompany.TestGame;
 using Photon.Pun;
 using Photon.Realtime;
 using UnityEngine;
@@ -28,11 +29,10 @@ public class MinigameManager : MonoBehaviourPunCallbacks
         carteles += valor;
         Debug.Log("Numero de carteles: " + carteles);
 
-        if (carteles >= 10)
+        if (carteles >= 3)
         {
             carteles = 0;
             FinishTask();
-            photonView.RPC("FinishTask", RpcTarget.MasterClient);
         }
     }
 
@@ -40,8 +40,6 @@ public class MinigameManager : MonoBehaviourPunCallbacks
     {
         dinero += valor;
     }
-
-    [PunRPC]
     void FinishTask() 
     {
         foreach (GameObject player in GameObject.FindGameObjectsWithTag("Player"))
@@ -49,11 +47,12 @@ public class MinigameManager : MonoBehaviourPunCallbacks
             if (player.GetComponentInParent<PlayerId>().id == PhotonNetwork.LocalPlayer.ActorNumber)
             {
                 player.GetComponentInParent<TEST_Interact>().objectToInteract.GetComponent<I_Interactable>().OnLeavePanel();
+                player.GetComponentInParent<TEST_Movement>().enabled = true;
                 if (player.GetComponentInParent<PlayerTeam>().TeamA) 
                 {
                     player.GetComponentInParent<TEST_Interact>().objectToInteract.GetComponentInParent<CPManager>().Team1();
                 }
-                if (player.GetComponentInParent<PlayerTeam>().TeamB)
+               else if (player.GetComponentInParent<PlayerTeam>().TeamB)
                 {
                     player.GetComponentInParent<TEST_Interact>().objectToInteract.GetComponentInParent<CPManager>().Team2();
                 }
