@@ -22,7 +22,7 @@ public class PlayerNaming : MonoBehaviour
         if (playerName != null)
         {
             playerName.text = target.photonView.Owner.NickName;
-            playerId.text = "" + target.photonView.OwnerActorNr;
+            playerId.text = "" + (target.photonView.OwnerActorNr -1);
 
             //ActiveFakUserCanva
         }

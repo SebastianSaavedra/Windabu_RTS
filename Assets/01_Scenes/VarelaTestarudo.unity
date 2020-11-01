@@ -1182,7 +1182,7 @@ GameObject:
   - component: {fileID: 156974877}
   - component: {fileID: 156974876}
   m_Layer: 5
-  m_Name: Button
+  m_Name: Play
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2442,6 +2442,11 @@ PrefabInstance:
       propertyPath: fakeCanvas
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 4089827891650604871, guid: 9a8f34c7b0dfefd478870bfb76b95e99,
+        type: 3}
+      propertyPath: lobbyCanvas
+      value: 
+      objectReference: {fileID: 740603439}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9a8f34c7b0dfefd478870bfb76b95e99, type: 3}
 --- !u!4 &472717829 stripped
@@ -2725,7 +2730,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 739, y: 0}
-  m_SizeDelta: {x: 173.99756, y: 0}
+  m_SizeDelta: {x: 173.99756, y: -1080}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &516284665
 MonoBehaviour:
@@ -3224,7 +3229,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &740603440
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -28576,7 +28581,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 1227, y: 0}
-  m_SizeDelta: {x: 173.99756, y: 0}
+  m_SizeDelta: {x: 173.99756, y: -1080}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2022785297
 MonoBehaviour:

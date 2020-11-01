@@ -41,6 +41,14 @@ MonoBehaviour:
   - ChangeMat
   - JoinTeam
   - RpcInfo
+  - ActualizarUIMasterClient
+  - AvisarActualizacionMinijuego1
+  - EnviarRPCAlOtroJugadorMinijuego1
+  - IntentarActualizarEstadoMiniJuego1
+  - JugadorComienzaMinijuego1
+  - MiniJuegoComenzadoDosJugadores
+  - MiniJuegoComenzadoUnJugador
+  - FinishTask
   DisableAutoOpenWizard: 1
   ShowSettings: 0
   DevRegionSetOnce: 1

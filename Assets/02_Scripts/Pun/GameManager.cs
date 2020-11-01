@@ -15,10 +15,12 @@ public class GameManager : MonoBehaviourPunCallbacks
         [Tooltip("Prefab Player")]
         [SerializeField] GameObject playerPref;
         [SerializeField] GameObject joinedPlayer;
+        [SerializeField] GameObject lobbyCanvas;
         #endregion
 
         private void Start()
         {
+                lobbyCanvas.SetActive(true);
             if (playerPref == null) 
             {
                 Debug.LogError("Bruh");
@@ -27,7 +29,7 @@ public class GameManager : MonoBehaviourPunCallbacks
             {
                 Debug.LogFormat("Instantiating Player");
                PhotonNetwork.Instantiate(this.playerPref.name, new Vector3(0, 0, 0), Quaternion.identity, 0);
-            }
+            }            
         }
         #region Photon call
         public override void OnLeftRoom() 

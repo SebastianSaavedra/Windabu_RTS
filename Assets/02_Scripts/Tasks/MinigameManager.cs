@@ -32,7 +32,7 @@ public class MinigameManager : MonoBehaviourPunCallbacks
         {
             carteles = 0;
             FinishTask();
-            
+            photonView.RPC("FinishTask", RpcTarget.MasterClient);
         }
     }
 
@@ -41,6 +41,7 @@ public class MinigameManager : MonoBehaviourPunCallbacks
         dinero += valor;
     }
 
+    [PunRPC]
     void FinishTask() 
     {
         foreach (GameObject player in GameObject.FindGameObjectsWithTag("Player"))
