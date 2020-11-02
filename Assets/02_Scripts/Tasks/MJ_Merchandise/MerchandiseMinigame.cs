@@ -57,7 +57,7 @@ public class MerchandiseMinigame : MonoBehaviourPunCallbacks
         {
             if (player.GetComponentInParent<PlayerId>().id == PhotonNetwork.LocalPlayer.ActorNumber)
             {
-                player.GetComponentInParent<TEST_Interact>().objectToInteract.GetComponent<I_Interactable>().OnLeavePanel();
+                player.GetComponentInParent<TEST_Interact>().objectToInteract.GetComponent<I_Interactable>().OnFinishTask();
                 player.GetComponentInParent<TEST_Movement>().enabled = true;
             }
         }

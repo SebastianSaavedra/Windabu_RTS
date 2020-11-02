@@ -18,7 +18,7 @@ public class TEST_Interact : MonoBehaviourPunCallbacks
         
         if (Input.GetKeyDown(KeyCode.E))
         {
-            if (objectToInteract.GetComponent<I_Interactable>()!=null)
+            if (objectToInteract.GetComponent<I_Interactable>()!=null && objectToInteract.GetComponent<TaskDropDown>().canInteract)
             {
                 objectToInteract.GetComponent<I_Interactable>().OnInteract();
                     GetComponent<TEST_Movement>().enabled = false;

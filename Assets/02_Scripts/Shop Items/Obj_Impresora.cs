@@ -13,4 +13,13 @@ public class Obj_Impresora : MonoBehaviour,I_Interactable
     public void OnLeavePanel()
     {
     }
+
+    public void OnFinishTask() 
+    { 
+    }
+
+    public void RPCdata() 
+    {
+
+    }
 }

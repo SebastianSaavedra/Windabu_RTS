@@ -46,7 +46,6 @@ public class MinigameManager : MonoBehaviourPunCallbacks
         {
             if (player.GetComponentInParent<PlayerId>().id == PhotonNetwork.LocalPlayer.ActorNumber)
             {
-                player.GetComponentInParent<TEST_Interact>().objectToInteract.GetComponent<I_Interactable>().OnLeavePanel();
                 player.GetComponentInParent<TEST_Movement>().enabled = true;
                 if (player.GetComponentInParent<PlayerTeam>().TeamA) 
                 {
@@ -56,6 +55,8 @@ public class MinigameManager : MonoBehaviourPunCallbacks
                 {
                     player.GetComponentInParent<TEST_Interact>().objectToInteract.GetComponentInParent<CPManager>().Team2();
                 }
+                player.GetComponentInParent<TEST_Interact>().objectToInteract.GetComponent<I_Interactable>().OnLeavePanel();
+                player.GetComponentInParent<TEST_Interact>().objectToInteract.GetComponent<I_Interactable>().RPCdata();
             }
         }
     }

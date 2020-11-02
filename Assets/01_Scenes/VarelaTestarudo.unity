@@ -1651,6 +1651,7 @@ GameObject:
   - component: {fileID: 321967050}
   - component: {fileID: 321967052}
   - component: {fileID: 321967051}
+  - component: {fileID: 321967053}
   m_Layer: 0
   m_Name: w (1)
   m_TagString: Untagged
@@ -1685,6 +1686,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   taskBarPanel: {fileID: 845782804}
+  canInteract: 0
 --- !u!61 &321967052
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1711,6 +1713,28 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.78, y: 0.94}
   m_EdgeRadius: 0
+--- !u!114 &321967053
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 321967049}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  observableSearch: 2
+  Synchronization: 3
+  OwnershipTransfer: 0
+  ObservedComponents: []
+  viewIdField: 16
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
 --- !u!1 &344549558
 GameObject:
   m_ObjectHideFlags: 0
@@ -22099,6 +22123,7 @@ GameObject:
   - component: {fileID: 811612493}
   - component: {fileID: 811612495}
   - component: {fileID: 811612494}
+  - component: {fileID: 811612496}
   m_Layer: 0
   m_Name: w (3)
   m_TagString: Untagged
@@ -22133,6 +22158,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   taskBarPanel: {fileID: 362641746}
+  canInteract: 0
 --- !u!61 &811612495
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -22159,6 +22185,28 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.78, y: 0.94}
   m_EdgeRadius: 0
+--- !u!114 &811612496
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 811612492}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  observableSearch: 2
+  Synchronization: 3
+  OwnershipTransfer: 0
+  ObservedComponents: []
+  viewIdField: 15
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
 --- !u!1001 &845782802
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -27854,6 +27902,7 @@ GameObject:
   - component: {fileID: 1697509197}
   - component: {fileID: 1697509198}
   - component: {fileID: 1697509199}
+  - component: {fileID: 1697509200}
   m_Layer: 0
   m_Name: w
   m_TagString: Untagged
@@ -27914,6 +27963,29 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   taskBarPanel: {fileID: 1889526653}
+  canInteract: 0
+--- !u!114 &1697509200
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1697509196}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  observableSearch: 2
+  Synchronization: 3
+  OwnershipTransfer: 0
+  ObservedComponents: []
+  viewIdField: 14
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
 --- !u!1 &1712145364
 GameObject:
   m_ObjectHideFlags: 0
@@ -29169,6 +29241,7 @@ GameObject:
   - component: {fileID: 2041074584}
   - component: {fileID: 2041074586}
   - component: {fileID: 2041074585}
+  - component: {fileID: 2041074587}
   m_Layer: 0
   m_Name: w (2)
   m_TagString: Untagged
@@ -29203,6 +29276,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   taskBarPanel: {fileID: 2134731344}
+  canInteract: 0
 --- !u!61 &2041074586
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -29229,6 +29303,28 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.78, y: 0.94}
   m_EdgeRadius: 0
+--- !u!114 &2041074587
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2041074583}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  observableSearch: 2
+  Synchronization: 3
+  OwnershipTransfer: 0
+  ObservedComponents: []
+  viewIdField: 12
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
 --- !u!1 &2080506310
 GameObject:
   m_ObjectHideFlags: 0
@@ -29240,6 +29336,7 @@ GameObject:
   - component: {fileID: 2080506311}
   - component: {fileID: 2080506313}
   - component: {fileID: 2080506312}
+  - component: {fileID: 2080506314}
   m_Layer: 0
   m_Name: w
   m_TagString: Untagged
@@ -29274,6 +29371,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   taskBarPanel: {fileID: 1889526653}
+  canInteract: 0
 --- !u!61 &2080506313
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -29300,6 +29398,28 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.78, y: 0.94}
   m_EdgeRadius: 0
+--- !u!114 &2080506314
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2080506310}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  observableSearch: 2
+  Synchronization: 3
+  OwnershipTransfer: 0
+  ObservedComponents: []
+  viewIdField: 13
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
 --- !u!1 &2093210542
 GameObject:
   m_ObjectHideFlags: 0
