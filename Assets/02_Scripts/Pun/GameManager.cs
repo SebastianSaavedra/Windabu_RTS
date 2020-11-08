@@ -10,12 +10,13 @@ namespace Com.MaluCompany.TestGame
 {
 public class GameManager : MonoBehaviourPunCallbacks
 {
-
+        public static List<Player> playersActuales = new List<Player>();
         #region Var
         [Tooltip("Prefab Player")]
         [SerializeField] GameObject playerPref;
         [SerializeField] GameObject joinedPlayer;
         [SerializeField] GameObject lobbyCanvas;
+
         #endregion
 
         private void Start()
@@ -32,6 +33,28 @@ public class GameManager : MonoBehaviourPunCallbacks
             }            
         }
         #region Photon call
+
+        Player TargetPlayerByActorNumber(int playerActorNumber)
+        {
+            //Solamente se tiene para mostrar el número de jugadores y su actorNumber
+            foreach (var item in playersActuales)
+            {
+                Debug.Log("Players: " + item.ActorNumber);
+            }
+
+            //Determina a qué jugador debemos enviarle el RPC según su actor number 
+            //(identificador de cada jugador en esta sala de juego)
+            Player playerToReturn = null;
+            for (int i = 0; i < playersActuales.Count; i++)
+            {
+                if (playersActuales[i].ActorNumber == playerActorNumber)
+                {
+                    playerToReturn = playersActuales[i];
+                    break;
+                }
+            }
+            return playerToReturn;
+        }
         public override void OnLeftRoom() 
         {
             SceneManager.LoadScene(0);

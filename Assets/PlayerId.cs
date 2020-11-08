@@ -7,11 +7,13 @@ using Photon.Pun;
 public class PlayerId : MonoBehaviourPunCallbacks
 {
     public int id;
+    public string name;
     [SerializeField] Renderer playerRenderer;
     [SerializeField] Color[] colors;
     private void Start()
     {
         id = photonView.OwnerActorNr;
+        name = PhotonNetwork.LocalPlayer.NickName;
         MaterialAssign(id);
     }
 

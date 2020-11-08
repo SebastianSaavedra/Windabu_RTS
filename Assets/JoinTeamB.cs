@@ -8,7 +8,6 @@ using UnityEngine;
 public class JoinTeamB : MonoBehaviourPunCallbacks
 {
     int playerPos;
-
     public void JoinTeam()
     {
         foreach (GameObject player in GameObject.FindGameObjectsWithTag("Player"))
@@ -18,12 +17,18 @@ public class JoinTeamB : MonoBehaviourPunCallbacks
                 if (player.GetComponentInParent<PlayerTeam>().TeamA == true || player.GetComponentInParent<PlayerTeam>().TeamB == true)
                     return;
                 player.GetComponentInParent<PlayerTeam>().TeamB = true;
-                FakeLobbyUsers.users2[playerPos].gameObject.SetActive(true);
-                FakeLobbyUsers.users2[playerPos].text = PhotonNetwork.LocalPlayer.NickName;
+                photonView.RPC("ActivateText", RpcTarget.AllBuffered, player.GetComponentInParent<PlayerId>().name);
             }
         }
-        playerPos = playerPos + 1;
     }
 
+    [PunRPC]
+    public void ActivateText(string name)
+    {
+        Debug.Log("Llamado");
+        FakeLobbyUsers.users2[playerPos].gameObject.SetActive(true);
+        FakeLobbyUsers.users2[playerPos].text = name;
+        playerPos = playerPos + 1;
+    }
 
 }
