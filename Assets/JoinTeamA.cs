@@ -28,7 +28,7 @@ public class JoinTeamA : MonoBehaviourPunCallbacks
         Debug.Log("Llamado");
         FakeLobbyUsers.users[playerPos].gameObject.SetActive(true);
         FakeLobbyUsers.users[playerPos].text = name;
-        playerPos = playerPos + 1;
+        playerPos = playerPos + 1;     
     }
 
 }
