@@ -4,10 +4,12 @@ using UnityEngine;
 using DG.Tweening;
 using System.Runtime.CompilerServices;
 using Photon.Pun;
+using Photon.Realtime;
 
 public class TaskDropDown : MonoBehaviourPunCallbacks,I_Interactable
 {
     [SerializeField] GameObject taskBarPanel;
+    [SerializeField] ManagerMinijuegos managerMinijuegos;
     public bool canInteract;
 
     private void Start()
@@ -23,6 +25,17 @@ public class TaskDropDown : MonoBehaviourPunCallbacks,I_Interactable
     {
         Debug.Log("Hola");
         taskBarPanel.transform.DOMoveY(540,1);
+
+        int playerActorNumber = PhotonNetwork.LocalPlayer.ActorNumber;
+        Debug.Log("Desde el script TaskDropDown se printea el playerActor number: " + playerActorNumber);
+        photonView.RPC("JugadorComienzaMinijuego1", RpcTarget.MasterClient, playerActorNumber);
+    }
+
+    [PunRPC] //esto lo llama el jugador
+    public void JugadorComienzaMinijuego1(int playerActorNumber)
+    {
+        managerMinijuegos.ComenzarUnMinijuego(0, playerActorNumber);
+        Debug.Log("El minijuego lo comenzo el jugador: " + playerActorNumber);
     }
     public void OnLeavePanel()
     {
@@ -39,7 +52,7 @@ public class TaskDropDown : MonoBehaviourPunCallbacks,I_Interactable
     {
         photonView.RPC("OnFinishTask", RpcTarget.AllBuffered);
     }
-    
+
     [PunRPC]
     IEnumerator BlockTask() 
     {

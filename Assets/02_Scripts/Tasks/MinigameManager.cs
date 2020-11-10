@@ -36,6 +36,12 @@ public class MinigameManager : MonoBehaviourPunCallbacks
         }
     }
 
+    [PunRPC]
+    public void ResetCarteles()
+    {
+        carteles = 0;
+    }
+
     void Clicks(int valor)
     {
         dinero += valor;

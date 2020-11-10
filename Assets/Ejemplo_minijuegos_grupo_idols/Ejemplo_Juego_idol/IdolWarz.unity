@@ -507,13 +507,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 477ae709558aa1647815fd59245f49de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  textInfoMaster: {fileID: 1594562030}
-  botonesMinijuego:
-  - {fileID: 1988736218}
   parentObjetosMinijuegosUNPlayer:
   - {fileID: 1508128527}
   parentObjetosMinijuegosDOSPlayers:
-  - {fileID: 1200399497}
+  - {fileID: 246301146645870529}
   minijuegos:
   - {fileID: 11400000, guid: a5b62e92e2ba9fd4cb2de69b0f678d82, type: 2}
   - {fileID: 11400000, guid: 219eaa058d1b66c4391c7129996f9075, type: 2}
@@ -1849,7 +1846,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: New Text
+  m_text: 0
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -4938,7 +4935,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6bc690486e28ce14d89587bd3b96f475, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cartelesColocados: 0
+  contadorJugador2: {fileID: 0}
   col2d: {fileID: 0}
   cartel: {fileID: 0}
 --- !u!4 &1081553293
@@ -5456,7 +5453,7 @@ RectTransform:
   - {fileID: 601395673}
   - {fileID: 1594119261}
   m_Father: {fileID: 1363726276}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -6501,9 +6498,9 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 1598552017}
+  - {fileID: 246301146645870528}
   - {fileID: 2137333789}
   - {fileID: 1200399498}
-  - {fileID: 246301146645870528}
   m_Father: {fileID: 0}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -7141,7 +7138,28 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 587945075}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1623911094
+--- !u!61 &1623911096 stripped
+BoxCollider2D:
+  m_CorrespondingSourceObject: {fileID: 2270875841865880237, guid: cccb3ba68219bfb4486c2387d3f4adf7,
+    type: 3}
+  m_PrefabInstance: {fileID: 587945075}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1623911101
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1623911093}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6bc690486e28ce14d89587bd3b96f475, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  contadorJugador2: {fileID: 366893403}
+  col2d: {fileID: 1623911096}
+  cartel: {fileID: 1550052241}
+--- !u!114 &1623911102
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -7163,27 +7181,6 @@ MonoBehaviour:
   viewIdField: 5
   InstantiationId: 0
   isRuntimeInstantiated: 0
---- !u!61 &1623911096 stripped
-BoxCollider2D:
-  m_CorrespondingSourceObject: {fileID: 2270875841865880237, guid: cccb3ba68219bfb4486c2387d3f4adf7,
-    type: 3}
-  m_PrefabInstance: {fileID: 587945075}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1623911101
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1623911093}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6bc690486e28ce14d89587bd3b96f475, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cartelesColocados: 0
-  col2d: {fileID: 1623911096}
-  cartel: {fileID: 1550052241}
 --- !u!1 &1626961008
 GameObject:
   m_ObjectHideFlags: 0
@@ -9616,7 +9613,7 @@ RectTransform:
   - {fileID: 140676178}
   - {fileID: 1415838760}
   m_Father: {fileID: 1363726276}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -9807,7 +9804,7 @@ RectTransform:
   - {fileID: 674932463204463083}
   - {fileID: 246301148333965818}
   m_Father: {fileID: 1363726276}
-  m_RootOrder: 3
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -9829,7 +9826,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!222 &246301146973632662
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -10118,7 +10115,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6bc690486e28ce14d89587bd3b96f475, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cartelesColocados: 0
+  contadorJugador2: {fileID: 366893403}
   col2d: {fileID: 6041116930637642559}
   cartel: {fileID: 8648250545625203656}
 --- !u!224 &246301147786441293

@@ -13,22 +13,22 @@ public class ManagerMinijuegos : MonoBehaviourPunCallbacks
     //Lista que guarda los jugadores que están en la sala
     public List<Player> playersActuales = new List<Player>();
 
-    public TextMeshProUGUI textInfoMaster;
+    //public TextMeshProUGUI textInfoMaster;
     //con respecto a si están o no disponibles para ser jugados
-    public Button[] botonesMinijuego;
+    //public Button[] botonesMinijuego;
     public GameObject[] parentObjetosMinijuegosUNPlayer;
     public GameObject[] parentObjetosMinijuegosDOSPlayers;
 
     public List<Minijuego> minijuegos = new List<Minijuego>();
     
 
-    private void Awake()
-    {
-        //esto en algún lugar debería estar, en el launcher probablemente
-        PhotonNetwork.AutomaticallySyncScene = true;
-    }
+    //private void Awake()
+    //{
+    //    //esto en algún lugar debería estar, en el launcher probablemente
+    //    PhotonNetwork.AutomaticallySyncScene = true;
+    //}
 
-    bool isConnecting;
+    //bool isConnecting;
 
     // Start is called before the first frame update
     void Start()
@@ -37,7 +37,7 @@ public class ManagerMinijuegos : MonoBehaviourPunCallbacks
         {
             minijuego.ResetearValoresMinijuego();
         }
-        Connect();
+        //Connect();
     }
 
     //Player al que enviarle el rpc
@@ -158,14 +158,14 @@ public class ManagerMinijuegos : MonoBehaviourPunCallbacks
     #endregion
     //-------------
 
-    [PunRPC]
-    void ActualizarUIMasterClient()
-    {
-        if (PhotonNetwork.IsMasterClient)
-        {
-            SetearUIMasterClient();
-        }
-    }
+    //[PunRPC]
+    //void ActualizarUIMasterClient()
+    //{
+    //    if (PhotonNetwork.IsMasterClient)
+    //    {
+    //        SetearUIMasterClient();
+    //    }
+    //}
 
 
 
@@ -178,7 +178,7 @@ public class ManagerMinijuegos : MonoBehaviourPunCallbacks
         EncenderUIMinijuegoUnJugador(indexMiniJuego);
 
         
-        photonView.RPC("ActualizarUIMasterClient", RpcTarget.MasterClient);     
+        //photonView.RPC("ActualizarUIMasterClient", RpcTarget.MasterClient);     
     }
 
     [PunRPC]
@@ -189,7 +189,7 @@ public class ManagerMinijuegos : MonoBehaviourPunCallbacks
         EncenderUIMinijuegoDOSJugadores(indexMiniJuego);
 
 
-        photonView.RPC("ActualizarUIMasterClient", RpcTarget.MasterClient);
+        //photonView.RPC("ActualizarUIMasterClient", RpcTarget.MasterClient);
     }
 
 
@@ -228,46 +228,46 @@ public class ManagerMinijuegos : MonoBehaviourPunCallbacks
         playersActuales.Remove(otherPlayer);
     }
 
-    void ApagarBotonMinijuego(int indexMinijuego)
-    {
-        botonesMinijuego[indexMinijuego].interactable = false;
-    }
+    //void ApagarBotonMinijuego(int indexMinijuego)
+    //{
+    //    botonesMinijuego[indexMinijuego].interactable = false;
+    //}
 
 
     #region No importa
 
-    public void Connect()
-    {
-        Debug.Log("conectando");
-        // we check if we are connected or not, we join if we are , else we initiate the connection to the server.
-        if (PhotonNetwork.IsConnected)
-        {
-            // #Critical we need at this point to attempt joining a Random Room. If it fails, we'll get notified in OnJoinRandomFailed() and we'll create one.
-            PhotonNetwork.JoinRandomRoom();
-        }
-        else
-        {
-            // #Critical, we must first and foremost connect to Photon Online Server.
-            // keep track of the will to join a room, because when we come back from the game we will get a callback that we are connected, so we need to know what to do then
-            isConnecting = PhotonNetwork.ConnectUsingSettings();
+    //public void Connect()
+    //{
+    //    Debug.Log("conectando");
+    //    // we check if we are connected or not, we join if we are , else we initiate the connection to the server.
+    //    if (PhotonNetwork.IsConnected)
+    //    {
+    //        // #Critical we need at this point to attempt joining a Random Room. If it fails, we'll get notified in OnJoinRandomFailed() and we'll create one.
+    //        PhotonNetwork.JoinRandomRoom();
+    //    }
+    //    else
+    //    {
+    //        // #Critical, we must first and foremost connect to Photon Online Server.
+    //        // keep track of the will to join a room, because when we come back from the game we will get a callback that we are connected, so we need to know what to do then
+    //        isConnecting = PhotonNetwork.ConnectUsingSettings();
 
-        }
-    }
+    //    }
+    //}
 
-    public override void OnConnectedToMaster()
-    {
-        Debug.Log("PUN Basics Tutorial/Launcher: OnConnectedToMaster() was called by PUN");
-        // #Critical: The first we try to do is to join a potential existing room. If there is, good, else, we'll be called back with OnJoinRandomFailed()
-        // we don't want to do anything if we are not attempting to join a room.
-        // this case where isConnecting is false is typically when you lost or quit the game, when this level is loaded, OnConnectedToMaster will be called, in that case
-        // we don't want to do anything.
-        if (isConnecting)
-        {
-            // #Critical: The first we try to do is to join a potential existing room. If there is, good, else, we'll be called back with OnJoinRandomFailed()
-            PhotonNetwork.JoinRandomRoom();
-            isConnecting = false;
-        }
-    }
+    //public override void OnConnectedToMaster()
+    //{
+    //    Debug.Log("PUN Basics Tutorial/Launcher: OnConnectedToMaster() was called by PUN");
+    //    // #Critical: The first we try to do is to join a potential existing room. If there is, good, else, we'll be called back with OnJoinRandomFailed()
+    //    // we don't want to do anything if we are not attempting to join a room.
+    //    // this case where isConnecting is false is typically when you lost or quit the game, when this level is loaded, OnConnectedToMaster will be called, in that case
+    //    // we don't want to do anything.
+    //    if (isConnecting)
+    //    {
+    //        // #Critical: The first we try to do is to join a potential existing room. If there is, good, else, we'll be called back with OnJoinRandomFailed()
+    //        PhotonNetwork.JoinRandomRoom();
+    //        isConnecting = false;
+    //    }
+    //}
 
     #endregion
 
@@ -276,39 +276,41 @@ public class ManagerMinijuegos : MonoBehaviourPunCallbacks
     public override void OnJoinedRoom()
     {
         if (PhotonNetwork.IsMasterClient)
-        {            
-            SetearUIMasterClient();
-            playersActuales.Add(PhotonNetwork.LocalPlayer);
-        }
-        else
         {
-            SeterUIClienteNormal();
+            //SetearUIMasterClient();
+            playersActuales.Add(PhotonNetwork.LocalPlayer);
+
         }
-        
     }
+        //else
+        //{
+        //    SeterUIClienteNormal();
+        //}
 
-    #region No importa
+        //}
 
-    public override void OnJoinRandomFailed(short returnCode, string message)
-    {
-        Debug.Log("PUN Basics Tutorial/Launcher:OnJoinRandomFailed() was called by PUN. No random room available, so we create one.\nCalling: PhotonNetwork.CreateRoom");
+        #region No importa
 
-        // #Critical: we failed to join a random room, maybe none exists or they are all full. No worries, we create a new room.
-        PhotonNetwork.CreateRoom(null, new RoomOptions { MaxPlayers = 6 });
+        //public override void OnJoinRandomFailed(short returnCode, string message)
+        //{
+        //    Debug.Log("PUN Basics Tutorial/Launcher:OnJoinRandomFailed() was called by PUN. No random room available, so we create one.\nCalling: PhotonNetwork.CreateRoom");
+
+        //    // #Critical: we failed to join a random room, maybe none exists or they are all full. No worries, we create a new room.
+        //    PhotonNetwork.CreateRoom(null, new RoomOptions { MaxPlayers = 6 });
+        //}
+
+        #endregion
+
+
+        //Esto solamente hace el cambio visual en el ui de la pantalla
+        //void SetearUIMasterClient()
+        //{
+        //    textInfoMaster.text = "CLIENTE MAESTRO " + "Minijuego 1"+ minijuegos[0].estadoDelMinijuego + " Minijuego 2:" + minijuegos[1].estadoDelMinijuego;
+        //}
+
+        //void SeterUIClienteNormal()
+        //{
+        //    textInfoMaster.text = "Cliente normal";
+        //}
+
     }
-
-    #endregion
-
-
-    //Esto solamente hace el cambio visual en el ui de la pantalla
-    void SetearUIMasterClient()
-    {
-        textInfoMaster.text = "CLIENTE MAESTRO " + "Minijuego 1"+ minijuegos[0].estadoDelMinijuego + " Minijuego 2:" + minijuegos[1].estadoDelMinijuego;
-    }
-
-    void SeterUIClienteNormal()
-    {
-        textInfoMaster.text = "Cliente normal";
-    }
-
-}

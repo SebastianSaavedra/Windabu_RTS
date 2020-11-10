@@ -11,6 +11,7 @@ public class MiniJuegoCarteles : MonoBehaviour
 {
     //No es necesariamente el cliente maestro;
     ManagerMinijuegos managerLocal;
+    MinigameManager managerMinigame;
 
     const float tiempoParaRealizarMinijuego = 30;
 
@@ -18,7 +19,7 @@ public class MiniJuegoCarteles : MonoBehaviour
     public TextMeshProUGUI contadorJugador2;
 
     //la cantidad de carteles que yo he colocado
-    public int cartelesColocados = 0;
+    //public int cartelesColocados = 0;
     
     [SerializeField] BoxCollider2D col2d;
     Coroutine sgteCor;
@@ -33,9 +34,11 @@ public class MiniJuegoCarteles : MonoBehaviour
     void Start()
     {
         esquinas = 0;
-        cartelesColocados = 0;
+        managerMinigame = GameObject.Find("MinijuegosManager").GetComponent<MinigameManager>();
+
+        managerMinigame.ResetCarteles();
         
-        managerLocal = GameObject.Find("ManagerMinijuegos_ClientMasterOnly").GetComponent<ManagerMinijuegos>();
+        managerLocal = GameObject.Find("MinijuegosManager").GetComponent<ManagerMinijuegos>();
     }
 
     //Coloco un cartel
@@ -43,7 +46,7 @@ public class MiniJuegoCarteles : MonoBehaviour
     public void ColocarCartel()
     {
         Debug.Log("Pego 1 cartel");
-        cartelesColocados++;
+        Minijuegos.m_cartel(1);
         DecirleAMasterClienteQueHiceUnCambio();
         sgteCor = StartCoroutine("SgteCartel");
         esquinas = 0;
@@ -63,7 +66,6 @@ public class MiniJuegoCarteles : MonoBehaviour
             }
         }
     }
-
 
     void DecirleAMasterClienteQueHiceUnCambio()
     {
