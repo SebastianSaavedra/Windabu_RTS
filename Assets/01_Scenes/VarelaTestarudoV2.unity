@@ -3046,6 +3046,8 @@ MonoBehaviour:
   fameAdded: 1
   slider: {fileID: 317285960}
   slider2: {fileID: 1731900661}
+  whatTeamInControl: 0
+  alreadyContested: 0
 --- !u!224 &475347076
 RectTransform:
   m_ObjectHideFlags: 0
@@ -26347,6 +26349,8 @@ MonoBehaviour:
   fameAdded: 1
   slider: {fileID: 317285960}
   slider2: {fileID: 1731900661}
+  whatTeamInControl: 0
+  alreadyContested: 0
 --- !u!212 &1178188887
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -29924,6 +29928,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1216706948}
     m_Modifications:
+    - target: {fileID: 1889526655, guid: cccb3ba68219bfb4486c2387d3f4adf7, type: 3}
+      propertyPath: contadorJugador2
+      value: 
+      objectReference: {fileID: 471767968}
+    - target: {fileID: 1889526659, guid: cccb3ba68219bfb4486c2387d3f4adf7, type: 3}
+      propertyPath: viewIdField
+      value: 19
+      objectReference: {fileID: 0}
     - target: {fileID: 5710168272259161682, guid: cccb3ba68219bfb4486c2387d3f4adf7,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -30034,8 +30046,7 @@ PrefabInstance:
       propertyPath: m_Name
       value: MJ_Poster
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 2290176378400321678, guid: cccb3ba68219bfb4486c2387d3f4adf7, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cccb3ba68219bfb4486c2387d3f4adf7, type: 3}
 --- !u!224 &1889526652 stripped
 RectTransform:
@@ -30049,67 +30060,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1889526651}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1889526654 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5710168273271331105, guid: cccb3ba68219bfb4486c2387d3f4adf7,
-    type: 3}
-  m_PrefabInstance: {fileID: 1889526651}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1889526655
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1889526654}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6bc690486e28ce14d89587bd3b96f475, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  contadorJugador2: {fileID: 471767968}
-  col2d: {fileID: 1889526657}
-  cartel: {fileID: 1889526656}
---- !u!114 &1889526656 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3769895869113838170, guid: cccb3ba68219bfb4486c2387d3f4adf7,
-    type: 3}
-  m_PrefabInstance: {fileID: 1889526651}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 55657ee21d4e28344894b5cbb95887ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!61 &1889526657 stripped
-BoxCollider2D:
-  m_CorrespondingSourceObject: {fileID: 2270875841865880237, guid: cccb3ba68219bfb4486c2387d3f4adf7,
-    type: 3}
-  m_PrefabInstance: {fileID: 1889526651}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1889526659
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1889526654}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ObservedComponentsFoldoutOpen: 1
-  Group: 0
-  prefixField: -1
-  observableSearch: 2
-  Synchronization: 3
-  OwnershipTransfer: 0
-  ObservedComponents: []
-  viewIdField: 19
-  InstantiationId: 0
-  isRuntimeInstantiated: 0
 --- !u!1 &2013361918
 GameObject:
   m_ObjectHideFlags: 0

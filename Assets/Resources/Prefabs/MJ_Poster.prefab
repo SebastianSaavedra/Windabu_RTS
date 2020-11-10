@@ -372,10 +372,11 @@ GameObject:
   - component: {fileID: 5710168273271331133}
   - component: {fileID: 5710168273271331106}
   - component: {fileID: 5710168273271331107}
-  - component: {fileID: 2290176378400321678}
   - component: {fileID: 5710168273271331132}
   - component: {fileID: 2270875841865880237}
   - component: {fileID: 2519074871701371293}
+  - component: {fileID: 1889526655}
+  - component: {fileID: 1889526659}
   m_Layer: 5
   m_Name: Rodillo
   m_TagString: Untagged
@@ -452,20 +453,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canvas: {fileID: 0}
---- !u!114 &2290176378400321678
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5710168273271331105}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eda534163d957e142a4c4d673ce620cd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  col2d: {fileID: 2270875841865880237}
-  cartel: {fileID: 3769895869113838170}
 --- !u!225 &5710168273271331132
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -525,6 +512,43 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &1889526655
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5710168273271331105}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6bc690486e28ce14d89587bd3b96f475, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  contadorJugador2: {fileID: 0}
+  col2d: {fileID: 2270875841865880237}
+  cartel: {fileID: 3769895869113838170}
+--- !u!114 &1889526659
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5710168273271331105}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  observableSearch: 2
+  Synchronization: 3
+  OwnershipTransfer: 0
+  ObservedComponents: []
+  viewIdField: 0
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
 --- !u!1 &5710168273400323036
 GameObject:
   m_ObjectHideFlags: 0
@@ -707,4 +731,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cartel: {fileID: 4221384122699855420, guid: 1edb6b88e688aeb4eb7bf23d657b7a97, type: 3}
   theParent: {fileID: 1415628230967228070}
+  cartelito: {fileID: 0}
   hayCartel: 0
