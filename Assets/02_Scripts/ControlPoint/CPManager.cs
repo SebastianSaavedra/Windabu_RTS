@@ -13,11 +13,14 @@ public class CPManager :MonoBehaviourPunCallbacks,IPunObservable
     float fameAdded;
     [SerializeField]
     Slider slider,slider2;
-
+    [SerializeField]
+    bool whatTeamInControl,alreadyContested;
+    bool contested;
     bool blueControlling;
     PhotonView PV;
     #region Testing Code
-    Color colorNeutral, colorTeam1, colorTeam2;
+    Color colorNeutral, colorTeam1, colorTeam2; 
+
 
     public void Awake()
     {
@@ -34,10 +37,39 @@ public class CPManager :MonoBehaviourPunCallbacks,IPunObservable
     //Change to team1
     public void Team1()
     {
+        if (!contested) { 
         blueControlling = true;
         photonView.RPC("ChangeTeamColor", RpcTarget.AllBuffered, blueControlling);
         photonView.RPC("RPCGainPoints", RpcTarget.MasterClient);
+        contested = true;
+            photonView.RPC("ChangeControlledBy", RpcTarget.MasterClient, contested, blueControlling);
+        }
+        else if (contested)
+        {
+            blueControlling = true;
+            photonView.RPC("ChangeTeamColor", RpcTarget.AllBuffered, blueControlling);
+            photonView.RPC("ChangeControlledBy", RpcTarget.MasterClient, contested, blueControlling);
+        }
     }
+    //Change to team2
+    public void Team2()
+    {
+        if (!contested)
+        {
+            blueControlling = false;
+            photonView.RPC("ChangeTeamColor", RpcTarget.AllBuffered, blueControlling);
+            photonView.RPC("RPCGainPoints", RpcTarget.MasterClient);
+            contested = true;
+            photonView.RPC("ChangeControlledBy", RpcTarget.MasterClient, contested, blueControlling);
+        }
+       else if(contested)
+        {
+            blueControlling = false;
+            photonView.RPC("ChangeTeamColor", RpcTarget.AllBuffered, blueControlling);
+            photonView.RPC("ChangeControlledBy", RpcTarget.MasterClient,contested,blueControlling);
+        }
+    }
+
     [PunRPC]
     public void ChangeTeamColor(bool whatTeam) 
     {
@@ -50,21 +82,19 @@ public class CPManager :MonoBehaviourPunCallbacks,IPunObservable
             gameObject.GetComponent<SpriteRenderer>().color = colorTeam2;
         }
     }
-
-
-    //Change to team2
-    public void Team2()
+    [PunRPC]
+    public void ChangeControlledBy(bool isContested,bool controlledBy) 
     {
-        blueControlling = false;
-        photonView.RPC("ChangeTeamColor", RpcTarget.AllBuffered, blueControlling);
-        photonView.RPC("RPCGainPoints", RpcTarget.MasterClient);
+        alreadyContested = isContested;
+        whatTeamInControl = controlledBy;
     }
 
+
     [PunRPC]
-    public void GainPoints(bool whatTeam)
+    public void GainPoints()
     {
-        Debug.Log("Llamado");
-        if(whatTeam)
+        Debug.Log("Llamado " + whatTeamInControl);
+        if(whatTeamInControl)
         {
             teamManager1.GetComponent<TeamManager>().fameA += fameAdded;
             slider.value += fameAdded;
@@ -79,14 +109,15 @@ public class CPManager :MonoBehaviourPunCallbacks,IPunObservable
     [PunRPC]
     public void RPCGainPoints()
     {
-        StartCoroutine(Wait());
+        if (alreadyContested) return;            
+       StartCoroutine(Wait());
     }
     IEnumerator Wait()
     {
         yield return new WaitForSeconds(10f);
-        photonView.RPC("GainPoints", RpcTarget.MasterClient,blueControlling);
+        photonView.RPC("GainPoints", RpcTarget.MasterClient);       
         yield return new WaitForSeconds(.5f);
-        photonView.RPC("RPCGainPoints", RpcTarget.MasterClient);
+        StartCoroutine(Wait());
         yield break;
     }
 
