@@ -7,7 +7,7 @@ public class Minijuego : ScriptableObject
 {
     public enum Estados { Disponible, SiendoJugado, Bloqueado}
 
-    public Estados estadoDelJuego = Estados.Disponible;
+    public Estados estadoDelMinijuego = Estados.Disponible;
 
     public int numeroDeJugadores = 0;
 
@@ -25,18 +25,18 @@ public class Minijuego : ScriptableObject
 
     public void MinijuegoCompletado()
     {
-        estadoDelJuego = Estados.Bloqueado;
+        estadoDelMinijuego = Estados.Bloqueado;
         //comenzar timer;
         //resetea minijuego
     }
 
     public void ComenzarMinijuego()
     {
-        estadoDelJuego = Estados.SiendoJugado;
+        estadoDelMinijuego = Estados.SiendoJugado;
     }
 
     public void MinijuegoDisponible()
     {
-        estadoDelJuego = Estados.Disponible;
+        estadoDelMinijuego = Estados.Disponible;
     }
 }

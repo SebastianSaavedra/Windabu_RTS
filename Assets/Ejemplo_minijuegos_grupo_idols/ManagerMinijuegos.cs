@@ -37,16 +37,7 @@ public class ManagerMinijuegos : MonoBehaviourPunCallbacks
         {
             minijuego.ResetearValoresMinijuego();
         }
-
         Connect();
-    }
-
-    
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     //Player al que enviarle el rpc
@@ -71,7 +62,6 @@ public class ManagerMinijuegos : MonoBehaviourPunCallbacks
         }
         return playerToReturn;
     }
-
 
     //---------Minijuegos------
     //Este método solamente los debe ejecutar el ciente maestro
@@ -163,13 +153,10 @@ public class ManagerMinijuegos : MonoBehaviourPunCallbacks
     void AvisarActualizacionMinijuego1()
     {
         Debug.Log("Intengo actualizar minijuego 1");
-        GameObject.Find("ManagerMinijuego1").GetComponent<MiniJuego1>().ReciboActualizacionDeOtroJugador();
+        GameObject.Find("Rodillo").GetComponent<MiniJuegoCarteles>().ReciboActualizacionDeOtroJugador();
     }
     #endregion
     //-------------
-
-
-
 
     [PunRPC]
     void ActualizarUIMasterClient()
@@ -222,6 +209,7 @@ public class ManagerMinijuegos : MonoBehaviourPunCallbacks
     void EncenderUIMinijuegoDOSJugadores(int indexMinijuego)
     {
         //Si se hace algo como esto, apagar el ui que ya estaba encendida en el jugador inicial
+        parentObjetosMinijuegosUNPlayer[indexMinijuego].SetActive(false);
         parentObjetosMinijuegosDOSPlayers[indexMinijuego].SetActive(true);
     }
 
@@ -315,7 +303,7 @@ public class ManagerMinijuegos : MonoBehaviourPunCallbacks
     //Esto solamente hace el cambio visual en el ui de la pantalla
     void SetearUIMasterClient()
     {
-        textInfoMaster.text = "CLIENTE MAESTRO " + "Minijuego 1"+ minijuegos[0].estadoDelJuego + " Minijuego 2:" + minijuegos[1].estadoDelJuego;
+        textInfoMaster.text = "CLIENTE MAESTRO " + "Minijuego 1"+ minijuegos[0].estadoDelMinijuego + " Minijuego 2:" + minijuegos[1].estadoDelMinijuego;
     }
 
     void SeterUIClienteNormal()

@@ -9,7 +9,6 @@ public class RPCparaClienteMaestro : MonoBehaviourPunCallbacks
 {
     [SerializeField] ManagerMinijuegos managerMinijuegos;
 
-
     //Presiono boton jugar minijuego1 
     public void QuieroJugarMinijuego1()
     {
@@ -23,9 +22,4 @@ public class RPCparaClienteMaestro : MonoBehaviourPunCallbacks
     {
         managerMinijuegos.ComenzarUnMinijuego(0, playerActorNumber);
     }
-
-
-
-
-
 }
