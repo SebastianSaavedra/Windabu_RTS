@@ -21,6 +21,7 @@ public class ManagerMinijuegos : MonoBehaviourPunCallbacks
     public GameObject[] parentObjetosMinijuegosDOSPlayers;
     public int player1_ID;
     public int player2_ID;
+    public int wichMinigamePanel;
 
     public List<Minijuego> minijuegos = new List<Minijuego>();
     
@@ -78,8 +79,7 @@ public class ManagerMinijuegos : MonoBehaviourPunCallbacks
     //---------Minijuegos------
     //Este método solamente los debe ejecutar el ciente maestro
     public void ComenzarUnMinijuego(int minijuegoAComenzar, int playerActorNumber)
-    {
-        minijuegos[minijuegoAComenzar].ResetearValoresMinijuego();
+    {       
         minijuegos[minijuegoAComenzar].ComenzarMinijuego();
         minijuegos[minijuegoAComenzar].numeroDeJugadores++; //agrego un jugador
 
@@ -213,12 +213,17 @@ public class ManagerMinijuegos : MonoBehaviourPunCallbacks
         {
             if (player.GetComponentInParent<PlayerId>().id == playerId)
             {
-                player.GetComponentInParent<TEST_Interact>().objectToInteract = parentObjetosMinijuegosDOSPlayers[minijuego];
+                player.GetComponentInParent<TEST_Interact>().objectToInteract = parentObjetosMinijuegosDOSPlayers[0];
              }
         }
     }
 
-
+    public void ResetearMuchosValores(int minigame) 
+    {
+        minijuegos[minigame].ResetearValoresMinijuego();
+        player1_ID = 0;
+        player2_ID = 0;
+    }
 
     
 
@@ -229,7 +234,7 @@ public class ManagerMinijuegos : MonoBehaviourPunCallbacks
     //generalizar a cualquier juego
     void EncenderUIMinijuegoUnJugador(int indexMinijuego)
     {
-        parentObjetosMinijuegosUNPlayer[indexMinijuego].SetActive(true);
+        parentObjetosMinijuegosUNPlayer[0].SetActive(true);
         Debug.Log("Se activa UI Minijuego 1");
     }
 
@@ -237,8 +242,8 @@ public class ManagerMinijuegos : MonoBehaviourPunCallbacks
     {
         //Si se hace algo como esto, apagar el ui que ya estaba encendida en el jugador inicial
         Debug.Log("Se activa UI Minijuego 2");
-        parentObjetosMinijuegosUNPlayer[indexMinijuego].SetActive(false);
-        parentObjetosMinijuegosDOSPlayers[indexMinijuego].SetActive(true);
+        parentObjetosMinijuegosUNPlayer[0].SetActive(false);
+        parentObjetosMinijuegosDOSPlayers[0].SetActive(true);
         photonView.RPC("CambiarInteractable", TargetPlayerByActorNumber(player1_ID), player1_ID, indexMinijuego);
         photonView.RPC("CambiarInteractable", TargetPlayerByActorNumber(player2_ID), player2_ID, indexMinijuego);      
     }

@@ -1724,6 +1724,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   taskBarPanel: {fileID: 845782804}
   managerMinijuegos: {fileID: 0}
+  thisMinigame: 0
   canInteract: 0
 --- !u!61 &321967052
 BoxCollider2D:
@@ -2604,7 +2605,7 @@ GameObject:
   - component: {fileID: 475347075}
   - component: {fileID: 475347077}
   m_Layer: 0
-  m_Name: MiniJuego1
+  m_Name: MiniJuego1_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -22444,6 +22445,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   taskBarPanel: {fileID: 362641746}
   managerMinijuegos: {fileID: 0}
+  thisMinigame: 0
   canInteract: 0
 --- !u!61 &811612495
 BoxCollider2D:
@@ -26001,7 +26003,7 @@ GameObject:
   - component: {fileID: 1178188886}
   - component: {fileID: 1178188885}
   m_Layer: 0
-  m_Name: MiniJuego1 (1)
+  m_Name: MiniJuego1_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -28849,6 +28851,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   taskBarPanel: {fileID: 1889526653}
   managerMinijuegos: {fileID: 2013361922}
+  thisMinigame: 0
   canInteract: 0
 --- !u!114 &1697509200
 MonoBehaviour:
@@ -30247,6 +30250,8 @@ MonoBehaviour:
   - {fileID: 1889526653}
   parentObjetosMinijuegosDOSPlayers:
   - {fileID: 2134128905}
+  player1_ID: 0
+  player2_ID: 0
   minijuegos:
   - {fileID: 11400000, guid: a5b62e92e2ba9fd4cb2de69b0f678d82, type: 2}
   - {fileID: 11400000, guid: 219eaa058d1b66c4391c7129996f9075, type: 2}
@@ -30376,6 +30381,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   taskBarPanel: {fileID: 2134731344}
   managerMinijuegos: {fileID: 0}
+  thisMinigame: 0
   canInteract: 0
 --- !u!61 &2041074586
 BoxCollider2D:
@@ -30605,6 +30611,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   taskBarPanel: {fileID: 1889526653}
   managerMinijuegos: {fileID: 2013361922}
+  thisMinigame: 1
   canInteract: 0
 --- !u!61 &2080506313
 BoxCollider2D:
