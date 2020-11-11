@@ -37,6 +37,15 @@ public class ManagerMinijuegos : MonoBehaviourPunCallbacks
         {
             minijuego.ResetearValoresMinijuego();
         }
+
+        if (PhotonNetwork.IsMasterClient)   //Tener en mente que este codigo puede producir errores a futuro.
+        {
+            //SetearUIMasterClient();
+            playersActuales.Add(PhotonNetwork.LocalPlayer);
+            Debug.Log("On joined room ha sido debugea2 (?");
+
+        }
+
         //Connect();
     }
 
@@ -204,11 +213,13 @@ public class ManagerMinijuegos : MonoBehaviourPunCallbacks
     void EncenderUIMinijuegoUnJugador(int indexMinijuego)
     {
         parentObjetosMinijuegosUNPlayer[indexMinijuego].SetActive(true);
+        Debug.Log("Se activa UI Minijuego 1");
     }
 
     void EncenderUIMinijuegoDOSJugadores(int indexMinijuego)
     {
         //Si se hace algo como esto, apagar el ui que ya estaba encendida en el jugador inicial
+        Debug.Log("Se activa UI Minijuego 2");
         parentObjetosMinijuegosUNPlayer[indexMinijuego].SetActive(false);
         parentObjetosMinijuegosDOSPlayers[indexMinijuego].SetActive(true);
     }
@@ -273,15 +284,16 @@ public class ManagerMinijuegos : MonoBehaviourPunCallbacks
 
     //---------Actualización visual, no es importante--------
     //Get info si soy cliente maestro o no
-    public override void OnJoinedRoom()
-    {
-        if (PhotonNetwork.IsMasterClient)
-        {
-            //SetearUIMasterClient();
-            playersActuales.Add(PhotonNetwork.LocalPlayer);
+    //public override void OnJoinedRoom()
+    //{
+    //    if (PhotonNetwork.IsMasterClient)
+    //    {
+    //        //SetearUIMasterClient();
+    //        playersActuales.Add(PhotonNetwork.LocalPlayer);
+    //        Debug.Log("On joined room ha sido debugea2 (?");
 
-        }
-    }
+    //    }
+    //}
         //else
         //{
         //    SeterUIClienteNormal();
