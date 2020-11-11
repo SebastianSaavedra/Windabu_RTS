@@ -35,10 +35,13 @@ public class MiniJuegoCarteles : MonoBehaviour
     {
         esquinas = 0;
         managerMinigame = GameObject.Find("MinijuegosManager").GetComponent<MinigameManager>();
-
-        managerMinigame.ResetCarteles();
         
         managerLocal = GameObject.Find("MinijuegosManager").GetComponent<ManagerMinijuegos>();
+    }
+
+    private void OnEnable()
+    {
+        managerMinigame.ResetCarteles();
     }
 
     //Coloco un cartel

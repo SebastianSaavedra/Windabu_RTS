@@ -37,10 +37,7 @@ public class DragAndDrop : MonoBehaviour, IDragHandler, IPointerDownHandler, IBe
     {
         canvasGroup.alpha = .6f;
         canvasGroup.blocksRaycasts = false;
-        //if (objetos == OBJETO.RODILLO)
-        //{
-            rectTransform.localScale = new Vector3(2f, 2f, 1f);
-        //}
+        rectTransform.localScale = new Vector3(2f, 2f, 1f);
     }
 
     //Every frame dragged
@@ -56,9 +53,14 @@ public class DragAndDrop : MonoBehaviour, IDragHandler, IPointerDownHandler, IBe
         canvasGroup.alpha = 1f;
         canvasGroup.blocksRaycasts = true;
         rectTransform.localScale = new Vector3(1f, 1f, 1f);
-        //if(objetos == OBJETO.RODILLO)
-        //{
-            rectTransform.localPosition = posInicial;
-        //}
+        rectTransform.localPosition = posInicial;
+    }
+
+    private void OnDisable()
+    {
+        canvasGroup.alpha = 1f;
+        canvasGroup.blocksRaycasts = true;
+        rectTransform.localScale = new Vector3(1f, 1f, 1f);
+        rectTransform.localPosition = posInicial;
     }
 }

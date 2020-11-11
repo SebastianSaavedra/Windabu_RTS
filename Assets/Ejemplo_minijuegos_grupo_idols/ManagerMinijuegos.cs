@@ -24,6 +24,8 @@ public class ManagerMinijuegos : MonoBehaviourPunCallbacks
     public int wichMinigamePanel;
 
     public List<Minijuego> minijuegos = new List<Minijuego>();
+
+    MinigameManager Mm;
     
 
     //private void Awake()
@@ -225,8 +227,10 @@ public class ManagerMinijuegos : MonoBehaviourPunCallbacks
         player2_ID = 0;
     }
 
-    
-
+    //public void ReseteoDeCarteles()   // HAY QUE REINICIAR LOS CARTELES
+    //{
+    //    photonView.RPC("ResetCarteles",TargetPlayerByActorNumber());
+    //}
 
     //AQUÍ YA DEBERÍA VERSE TODA LA LÓGICA DEL MINIJUEGO,
     //ir enviando actualizaciones para el Cliente Maestro
