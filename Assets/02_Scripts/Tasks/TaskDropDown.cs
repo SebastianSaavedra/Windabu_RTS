@@ -23,6 +23,7 @@ public class TaskDropDown : MonoBehaviourPunCallbacks,I_Interactable
 
     public void OnInteract() 
     {
+        taskBarPanel.SetActive(true);
         Debug.Log("Hola");
         taskBarPanel.transform.DOMoveY(540,1);
 

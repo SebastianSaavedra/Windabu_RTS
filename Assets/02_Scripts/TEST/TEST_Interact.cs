@@ -7,8 +7,9 @@ using Com.MaluCompany.TestGame;
 
 public class TEST_Interact : MonoBehaviourPunCallbacks
 {
-    public
-    GameObject objectToInteract;
+    public GameObject objectToInteract;
+    public CPManager speakingTo;
+    public TaskDropDown thisTask;
 
     private void Update()
     {
@@ -27,8 +28,8 @@ public class TEST_Interact : MonoBehaviourPunCallbacks
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             objectToInteract.GetComponent<I_Interactable>().OnLeavePanel();
-                    GetComponent<TEST_Movement>().enabled = true;
-        }
+                GetComponent<TEST_Movement>().enabled = true;
+            }
         }
     }
     private void OnTriggerEnter2D(Collider2D collision)
@@ -36,6 +37,8 @@ public class TEST_Interact : MonoBehaviourPunCallbacks
         if (photonView.IsMine) 
         {
         objectToInteract = collision.gameObject;
+            speakingTo = collision.GetComponentInParent<CPManager>();
+            thisTask = collision.GetComponent<TaskDropDown>();
         }
     }
     private void OnTriggerExit2D(Collider2D collision)
@@ -43,7 +46,9 @@ public class TEST_Interact : MonoBehaviourPunCallbacks
         if (photonView.IsMine) 
         {
         objectToInteract.GetComponent<I_Interactable>().OnLeavePanel();
-        objectToInteract = null;
+            objectToInteract = null;
+            speakingTo = null;
+            thisTask = null;
         }
     }
 

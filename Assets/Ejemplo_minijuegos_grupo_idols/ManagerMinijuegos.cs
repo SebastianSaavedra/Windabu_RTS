@@ -7,6 +7,7 @@ using TMPro;
 using Photon.Pun;
 using Photon.Realtime;
 using UnityEditor;
+using System.Xml.Schema;
 
 public class ManagerMinijuegos : MonoBehaviourPunCallbacks
 {
@@ -18,6 +19,8 @@ public class ManagerMinijuegos : MonoBehaviourPunCallbacks
     //public Button[] botonesMinijuego;
     public GameObject[] parentObjetosMinijuegosUNPlayer;
     public GameObject[] parentObjetosMinijuegosDOSPlayers;
+    public int player1_ID;
+    public int player2_ID;
 
     public List<Minijuego> minijuegos = new List<Minijuego>();
     
@@ -76,6 +79,7 @@ public class ManagerMinijuegos : MonoBehaviourPunCallbacks
     //Este método solamente los debe ejecutar el ciente maestro
     public void ComenzarUnMinijuego(int minijuegoAComenzar, int playerActorNumber)
     {
+        minijuegos[minijuegoAComenzar].ResetearValoresMinijuego();
         minijuegos[minijuegoAComenzar].ComenzarMinijuego();
         minijuegos[minijuegoAComenzar].numeroDeJugadores++; //agrego un jugador
 
@@ -85,10 +89,12 @@ public class ManagerMinijuegos : MonoBehaviourPunCallbacks
         if (minijuegos[minijuegoAComenzar].numeroDeJugadores == 1)
         {
             minijuegos[minijuegoAComenzar].jugadorUno = playerActorNumber;
+            player1_ID = playerActorNumber;
         }
         else if (minijuegos[minijuegoAComenzar].numeroDeJugadores == 2)
         {
             minijuegos[minijuegoAComenzar].jugadorDos = playerActorNumber;
+            player2_ID = playerActorNumber;
         }
         
         
@@ -200,6 +206,17 @@ public class ManagerMinijuegos : MonoBehaviourPunCallbacks
 
         //photonView.RPC("ActualizarUIMasterClient", RpcTarget.MasterClient);
     }
+   [PunRPC]
+    void CambiarInteractable(int playerId, int minijuego) 
+    {
+        foreach (GameObject player in GameObject.FindGameObjectsWithTag("Player"))
+        {
+            if (player.GetComponentInParent<PlayerId>().id == playerId)
+            {
+                player.GetComponentInParent<TEST_Interact>().objectToInteract = parentObjetosMinijuegosDOSPlayers[minijuego];
+             }
+        }
+    }
 
 
 
@@ -222,6 +239,8 @@ public class ManagerMinijuegos : MonoBehaviourPunCallbacks
         Debug.Log("Se activa UI Minijuego 2");
         parentObjetosMinijuegosUNPlayer[indexMinijuego].SetActive(false);
         parentObjetosMinijuegosDOSPlayers[indexMinijuego].SetActive(true);
+        photonView.RPC("CambiarInteractable", TargetPlayerByActorNumber(player1_ID), player1_ID, indexMinijuego);
+        photonView.RPC("CambiarInteractable", TargetPlayerByActorNumber(player2_ID), player2_ID, indexMinijuego);      
     }
 
 
