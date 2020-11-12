@@ -9,6 +9,7 @@ public class FansSpawner : MonoBehaviour
     public float timer = 1;
     [Space(5)]
     public bool puedeSpawnear;
+    [SerializeField] Transform[] waypoints;
 
     Coroutine spawnCor = null;
 
@@ -16,7 +17,8 @@ public class FansSpawner : MonoBehaviour
     {
         while(puedeSpawnear)
         {
-            Instantiate(tipoDeFan, spawnPoint.transform.position, Quaternion.identity);
+         GameObject fan=  Instantiate(tipoDeFan, spawnPoint.transform.position, Quaternion.identity);
+            fan.GetComponent<WaypointsFans>().waypoints = waypoints;
             yield return new WaitForSeconds(timer);
         }
     }

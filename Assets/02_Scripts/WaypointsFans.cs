@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class WaypointsFans : MonoBehaviour
 {
-    [SerializeField] Transform[] waypoints;
+    public Transform[] waypoints;
     [SerializeField] float speed = 2f;
 
     int waypointIndex = 0;

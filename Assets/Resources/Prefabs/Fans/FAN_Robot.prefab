@@ -96,7 +96,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eee5f90c9ee7b654fb2bff5fdd2de9d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  waypoints: []
+  waypoints:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   speed: 5
 --- !u!58 &4312060850811413573
 CircleCollider2D:

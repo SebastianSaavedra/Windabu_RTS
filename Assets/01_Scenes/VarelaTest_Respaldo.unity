@@ -492,6 +492,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   taskBarPanel: {fileID: 845782804}
+  managerMinijuegos: {fileID: 0}
+  thisMinigame: 0
+  canInteract: 0
+  thisMinigameis: 0
 --- !u!61 &321967052
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -19184,6 +19188,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   taskBarPanel: {fileID: 362641746}
+  managerMinijuegos: {fileID: 0}
+  thisMinigame: 0
+  canInteract: 0
+  thisMinigameis: 0
 --- !u!61 &811612495
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -22310,6 +22318,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   taskBarPanel: {fileID: 1889526653}
+  managerMinijuegos: {fileID: 0}
+  thisMinigame: 0
+  canInteract: 0
+  thisMinigameis: 0
 --- !u!1 &1712145364
 GameObject:
   m_ObjectHideFlags: 0
@@ -22391,6 +22403,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1216706948}
     m_Modifications:
+    - target: {fileID: 1889526659, guid: cccb3ba68219bfb4486c2387d3f4adf7, type: 3}
+      propertyPath: viewIdField
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5710168272259161682, guid: cccb3ba68219bfb4486c2387d3f4adf7,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -22560,6 +22576,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   taskBarPanel: {fileID: 1020630123}
+  managerMinijuegos: {fileID: 0}
+  thisMinigame: 0
+  canInteract: 0
+  thisMinigameis: 0
 --- !u!61 &2041074586
 BoxCollider2D:
   m_ObjectHideFlags: 0
