@@ -10,7 +10,7 @@ public class DragAndDrop : MonoBehaviour, IDragHandler, IPointerDownHandler, IBe
     //    RODILLO,OTRO
     //};
     //[SerializeField] OBJETO objetos = OBJETO.RODILLO;
-    [SerializeField] private Canvas canvas;
+    //[SerializeField] private Canvas canvas;
 
     Vector3 posInicial;
     private RectTransform rectTransform;
