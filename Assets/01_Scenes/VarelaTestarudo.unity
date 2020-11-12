@@ -1894,7 +1894,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 2100000, guid: 68e37f39e17e8de40b2dae5966fa3aa0, type: 2}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_Maskable: 1
@@ -4003,7 +4003,7 @@ MonoBehaviour:
     m_Bits: 1
   m_VolumeTrigger: {fileID: 0}
   m_RenderPostProcessing: 1
-  m_Antialiasing: 0
+  m_Antialiasing: 1
   m_AntialiasingQuality: 2
   m_StopNaN: 0
   m_Dithering: 0
@@ -4342,7 +4342,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 2100000, guid: 129ca27c3dad09640b004611c144eff2, type: 2}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_Maskable: 1
@@ -27082,6 +27082,51 @@ PrefabInstance:
       propertyPath: m_Name
       value: mapa ciudad alpha
       objectReference: {fileID: 0}
+    - target: {fileID: 4360453703057429237, guid: 6050de8c49395f748b654ed42be83340,
+        type: 3}
+      propertyPath: m_Points.Array.size
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 4360453703057429237, guid: 6050de8c49395f748b654ed42be83340,
+        type: 3}
+      propertyPath: m_Points.Array.data[6].y
+      value: -0.7926152
+      objectReference: {fileID: 0}
+    - target: {fileID: 4360453703057429237, guid: 6050de8c49395f748b654ed42be83340,
+        type: 3}
+      propertyPath: m_Points.Array.data[6].x
+      value: 0.17818889
+      objectReference: {fileID: 0}
+    - target: {fileID: 4360453703057429237, guid: 6050de8c49395f748b654ed42be83340,
+        type: 3}
+      propertyPath: m_Points.Array.data[5].x
+      value: 0.16019282
+      objectReference: {fileID: 0}
+    - target: {fileID: 4360453703057429237, guid: 6050de8c49395f748b654ed42be83340,
+        type: 3}
+      propertyPath: m_Points.Array.data[5].y
+      value: -1.5815161
+      objectReference: {fileID: 0}
+    - target: {fileID: 4360453703057429237, guid: 6050de8c49395f748b654ed42be83340,
+        type: 3}
+      propertyPath: m_Points.Array.data[7].x
+      value: -0.466902
+      objectReference: {fileID: 0}
+    - target: {fileID: 4360453703057429237, guid: 6050de8c49395f748b654ed42be83340,
+        type: 3}
+      propertyPath: m_Points.Array.data[7].y
+      value: -0.79664284
+      objectReference: {fileID: 0}
+    - target: {fileID: 4360453703057429237, guid: 6050de8c49395f748b654ed42be83340,
+        type: 3}
+      propertyPath: m_Points.Array.data[8].x
+      value: -0.46674994
+      objectReference: {fileID: 0}
+    - target: {fileID: 4360453703057429237, guid: 6050de8c49395f748b654ed42be83340,
+        type: 3}
+      propertyPath: m_Points.Array.data[8].y
+      value: -0.0041103363
+      objectReference: {fileID: 0}
     - target: {fileID: 4360453703719275020, guid: 6050de8c49395f748b654ed42be83340,
         type: 3}
       propertyPath: m_Points.Array.size
@@ -28502,17 +28547,17 @@ Canvas:
   m_GameObject: {fileID: 1216706944}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 0
-  m_Camera: {fileID: 0}
+  m_RenderMode: 1
+  m_Camera: {fileID: 519420031}
   m_PlaneDistance: 100
-  m_PixelPerfect: 0
+  m_PixelPerfect: 1
   m_ReceivesEvents: 1
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_TargetDisplay: 0
 --- !u!224 &1216706948
 RectTransform:
@@ -32476,7 +32521,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: -25, y: 0}
-  m_SizeDelta: {x: 50, y: 0}
+  m_SizeDelta: {x: 20, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1985184107
 MonoBehaviour:
