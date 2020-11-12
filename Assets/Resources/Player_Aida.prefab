@@ -174,7 +174,6 @@ GameObject:
   - component: {fileID: 5816013650376650914}
   - component: {fileID: 5816013650376650943}
   - component: {fileID: 5816013650376650940}
-  - component: {fileID: -5458501441215945504}
   - component: {fileID: 1951634111931228394}
   - component: {fileID: 2907592072639719747}
   - component: {fileID: 8271775530220370060}
@@ -219,6 +218,7 @@ MonoBehaviour:
   runSpeed: 10
   playerUiPrefab: {fileID: 4621911535087846869, guid: 1adf855db2858aa49a587c7cfd2b8302,
     type: 3}
+  playerAnim: {fileID: 5229141824825159873}
   UiPos: {fileID: 1717742956211600656}
 --- !u!50 &5816013650376650912
 Rigidbody2D:
@@ -339,22 +339,6 @@ MonoBehaviour:
   viewIdField: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
---- !u!114 &-5458501441215945504
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5816013650376650916}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9b8c4a61274f60b4ea5fb4299cfdbf14, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ShowLayerWeightsInspector: 1
-  ShowParameterInspector: 1
-  m_SynchronizeParameters: []
-  m_SynchronizeLayers: []
 --- !u!114 &1951634111931228394
 MonoBehaviour:
   m_ObjectHideFlags: 0
