@@ -35,6 +35,7 @@ public class TaskDropDown : MonoBehaviourPunCallbacks,I_Interactable
         int playerActorNumber = PhotonNetwork.LocalPlayer.ActorNumber;
         Debug.Log("Desde el script TaskDropDown se printea el playerActor number: " + playerActorNumber);
         photonView.RPC("JugadorComienzaMinijuego1", RpcTarget.MasterClient, playerActorNumber,(int)thisMinigame);
+        managerMinijuegos.idMinijuego = (int)thisMinigame;
     }
 
     [PunRPC] //esto lo llama el jugador

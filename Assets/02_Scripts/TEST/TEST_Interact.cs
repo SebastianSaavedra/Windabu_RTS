@@ -47,7 +47,7 @@ public class TEST_Interact : MonoBehaviourPunCallbacks
     {
         if (photonView.IsMine) 
         {
-        objectToInteract.GetComponent<I_Interactable>().OnLeavePanel();
+            objectToInteract.GetComponent<I_Interactable>().OnLeavePanel();
             objectToInteract = null;
             speakingTo = null;
             thisTask = null;

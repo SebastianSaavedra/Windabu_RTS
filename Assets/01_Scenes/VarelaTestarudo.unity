@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -1726,6 +1726,7 @@ MonoBehaviour:
   managerMinijuegos: {fileID: 0}
   thisMinigame: 0
   canInteract: 0
+  thisMinigameis: 0
 --- !u!61 &321967052
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -22447,6 +22448,7 @@ MonoBehaviour:
   managerMinijuegos: {fileID: 0}
   thisMinigame: 0
   canInteract: 0
+  thisMinigameis: 0
 --- !u!61 &811612495
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -28853,6 +28855,7 @@ MonoBehaviour:
   managerMinijuegos: {fileID: 2013361922}
   thisMinigame: 0
   canInteract: 0
+  thisMinigameis: 0
 --- !u!114 &1697509200
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -28983,6 +28986,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1721243985 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1415628230967228070, guid: cccb3ba68219bfb4486c2387d3f4adf7,
+    type: 3}
+  m_PrefabInstance: {fileID: 1889526651}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1731900659
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -29887,7 +29896,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6bc690486e28ce14d89587bd3b96f475, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  carteles: 0
   contadorJugador2: {fileID: 493629874}
+  cartelesSpot: {fileID: 129143346}
   col2d: {fileID: 1858787669}
   cartel: {fileID: 1283961910}
 --- !u!50 &1858787668
@@ -30039,6 +30050,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1216706948}
     m_Modifications:
+    - target: {fileID: 1889526655, guid: cccb3ba68219bfb4486c2387d3f4adf7, type: 3}
+      propertyPath: cartelesSpot
+      value: 
+      objectReference: {fileID: 1721243985}
+    - target: {fileID: 1889526655, guid: cccb3ba68219bfb4486c2387d3f4adf7, type: 3}
+      propertyPath: contadorJugador2
+      value: 
+      objectReference: {fileID: 493629874}
     - target: {fileID: 1889526659, guid: cccb3ba68219bfb4486c2387d3f4adf7, type: 3}
       propertyPath: viewIdField
       value: 18
@@ -30252,9 +30271,11 @@ MonoBehaviour:
   - {fileID: 2134128905}
   player1_ID: 0
   player2_ID: 0
+  wichMinigamePanel: 0
   minijuegos:
   - {fileID: 11400000, guid: a5b62e92e2ba9fd4cb2de69b0f678d82, type: 2}
   - {fileID: 11400000, guid: 219eaa058d1b66c4391c7129996f9075, type: 2}
+  minijuegoCarteles: {fileID: 1858787667}
 --- !u!1 &2022785294
 GameObject:
   m_ObjectHideFlags: 0
@@ -30383,6 +30404,7 @@ MonoBehaviour:
   managerMinijuegos: {fileID: 0}
   thisMinigame: 0
   canInteract: 0
+  thisMinigameis: 0
 --- !u!61 &2041074586
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -30613,6 +30635,7 @@ MonoBehaviour:
   managerMinijuegos: {fileID: 2013361922}
   thisMinigame: 1
   canInteract: 0
+  thisMinigameis: 0
 --- !u!61 &2080506313
 BoxCollider2D:
   m_ObjectHideFlags: 0

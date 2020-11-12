@@ -22,10 +22,11 @@ public class ManagerMinijuegos : MonoBehaviourPunCallbacks
     public int player1_ID;
     public int player2_ID;
     public int wichMinigamePanel;
+    [HideInInspector] public int idMinijuego;
 
     public List<Minijuego> minijuegos = new List<Minijuego>();
 
-    MinigameManager Mm;
+    [SerializeField] MiniJuegoCarteles minijuegoCarteles;
     
 
     //private void Awake()
@@ -39,7 +40,6 @@ public class ManagerMinijuegos : MonoBehaviourPunCallbacks
     // Start is called before the first frame update
     void Start()
     {
-        Mm = this.GetComponent<MinigameManager>();
         foreach (var minijuego in minijuegos)
         {
             minijuego.ResetearValoresMinijuego();
@@ -139,15 +139,15 @@ public class ManagerMinijuegos : MonoBehaviourPunCallbacks
     void IntentarActualizarEstadoMiniJuego1(int playerActorNumber)
     {
         //determino a cuál de los dos jugadores le debo enviar este mensaje
-        if (minijuegos[0].jugadorUno == playerActorNumber)
+        if (minijuegos[idMinijuego].jugadorUno == playerActorNumber)
         {
             photonView.RPC("EnviarRPCAlOtroJugadorMinijuego1", RpcTarget.MasterClient
-                , minijuegos[0].jugadorDos);
+                , minijuegos[idMinijuego].jugadorDos);
         }
-        else if (minijuegos[0].jugadorDos == playerActorNumber)
+        else if (minijuegos[idMinijuego].jugadorDos == playerActorNumber)
         {
             photonView.RPC("EnviarRPCAlOtroJugadorMinijuego1", RpcTarget.MasterClient
-                , minijuegos[0].jugadorUno);
+                , minijuegos[idMinijuego].jugadorUno);
         }
     }
 
@@ -232,12 +232,12 @@ public class ManagerMinijuegos : MonoBehaviourPunCallbacks
     {
         if (minijuegos[minigame].numeroDeJugadores == 1) 
         {
-        Mm.photonView.RPC("ResetCarteles", TargetPlayerByActorNumber(player1_ID),0);
+        minijuegoCarteles.photonView.RPC("ResetCarteles", TargetPlayerByActorNumber(player1_ID),0);
         }
         else if (minijuegos[minigame].numeroDeJugadores == 2)
         {
-            Mm.photonView.RPC("ResetCarteles", TargetPlayerByActorNumber(player1_ID),0);
-            Mm.photonView.RPC("ResetCarteles", TargetPlayerByActorNumber(player2_ID),0);
+            minijuegoCarteles.photonView.RPC("ResetCarteles", TargetPlayerByActorNumber(player1_ID),0);
+            minijuegoCarteles.photonView.RPC("ResetCarteles", TargetPlayerByActorNumber(player2_ID),0);
         }
         // photonView.RPC("ResetCarteles",TargetPlayerByActorNumber());
     }
