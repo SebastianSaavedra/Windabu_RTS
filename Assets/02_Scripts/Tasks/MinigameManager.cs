@@ -14,14 +14,15 @@ public static class Minijuegos
 public class MinigameManager : MonoBehaviourPunCallbacks
 {
     #region Variables
-    int carteles;
+    [SerializeField]
+     int carteles;
     public static int dinero;
     ManagerMinijuegos managerMinijuegos;
     #endregion
 
     private void Awake()
     {
-        managerMinijuegos.GetComponent<ManagerMinijuegos>();
+        managerMinijuegos = this.GetComponent<ManagerMinijuegos>();
     }
 
     void Start()
@@ -33,20 +34,21 @@ public class MinigameManager : MonoBehaviourPunCallbacks
     void Carteles(int valor)
     {
         carteles += valor;
-        Debug.Log("Numero de carteles: " + carteles);
+        
 
         if (carteles >= 3)
         {
-            carteles = 0;
+            //carteles = 0;
             FinishTask();
         }
     }
 
     [PunRPC]
-    public void ResetCarteles()
+    public void ResetCarteles(int cartelesBaseValue)
     {
         Debug.Log("Se Reseteo o.0");
-        carteles = 0;
+        carteles = cartelesBaseValue;
+        Debug.Log(carteles);
     }
 
     void Clicks(int valor)
@@ -68,9 +70,9 @@ public class MinigameManager : MonoBehaviourPunCallbacks
                 {
                     player.GetComponentInParent<TEST_Interact>().speakingTo.Team2();
                 }
+                managerMinijuegos.ReseteoDeCarteles(player.GetComponentInParent<TEST_Interact>().minigameID);
                 player.GetComponentInParent<TEST_Interact>().objectToInteract.GetComponent<I_Interactable>().OnLeavePanel();
                 player.GetComponentInParent<TEST_Interact>().thisTask.RPCdata();
-                //managerMinijuegos.ReseteoDeCarteles();    // HAY QUE REINICIAR LOS CARTELES
             }
         }
     }

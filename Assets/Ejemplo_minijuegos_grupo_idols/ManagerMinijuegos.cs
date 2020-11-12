@@ -39,6 +39,7 @@ public class ManagerMinijuegos : MonoBehaviourPunCallbacks
     // Start is called before the first frame update
     void Start()
     {
+        Mm = this.GetComponent<MinigameManager>();
         foreach (var minijuego in minijuegos)
         {
             minijuego.ResetearValoresMinijuego();
@@ -190,7 +191,7 @@ public class ManagerMinijuegos : MonoBehaviourPunCallbacks
     [PunRPC]
     void MiniJuegoComenzadoUnJugador(int indexMiniJuego)
     {
-        Debug.Log("Minijuego iniciado: " + indexMiniJuego);
+        
         //de no estar activado el minijuego, lo activa para un jugador 
         EncenderUIMinijuegoUnJugador(indexMiniJuego);
 
@@ -201,7 +202,7 @@ public class ManagerMinijuegos : MonoBehaviourPunCallbacks
     [PunRPC]
     void MiniJuegoComenzadoDosJugadores(int indexMiniJuego)
     {
-        Debug.Log("Minijuego iniciado: " + indexMiniJuego);
+        
         //de no estar activado el minijuego, lo activa para un jugador 
         EncenderUIMinijuegoDOSJugadores(indexMiniJuego);
 
@@ -227,10 +228,19 @@ public class ManagerMinijuegos : MonoBehaviourPunCallbacks
         player2_ID = 0;
     }
 
-    //public void ReseteoDeCarteles()   // HAY QUE REINICIAR LOS CARTELES
-    //{
-    //    photonView.RPC("ResetCarteles",TargetPlayerByActorNumber());
-    //}
+    public void ReseteoDeCarteles(int minigame)   // HAY QUE REINICIAR LOS CARTELES
+    {
+        if (minijuegos[minigame].numeroDeJugadores == 1) 
+        {
+        Mm.photonView.RPC("ResetCarteles", TargetPlayerByActorNumber(player1_ID),0);
+        }
+        else if (minijuegos[minigame].numeroDeJugadores == 2)
+        {
+            Mm.photonView.RPC("ResetCarteles", TargetPlayerByActorNumber(player1_ID),0);
+            Mm.photonView.RPC("ResetCarteles", TargetPlayerByActorNumber(player2_ID),0);
+        }
+        // photonView.RPC("ResetCarteles",TargetPlayerByActorNumber());
+    }
 
     //AQUÍ YA DEBERÍA VERSE TODA LA LÓGICA DEL MINIJUEGO,
     //ir enviando actualizaciones para el Cliente Maestro

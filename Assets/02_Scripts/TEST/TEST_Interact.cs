@@ -10,6 +10,7 @@ public class TEST_Interact : MonoBehaviourPunCallbacks
     public GameObject objectToInteract;
     public CPManager speakingTo;
     public TaskDropDown thisTask;
+    public int minigameID;
 
     private void Update()
     {
@@ -21,6 +22,7 @@ public class TEST_Interact : MonoBehaviourPunCallbacks
         {
             if (objectToInteract.GetComponent<I_Interactable>()!=null && objectToInteract.GetComponent<TaskDropDown>().canInteract)
             {
+                    minigameID = (int)objectToInteract.GetComponent<TaskDropDown>().thisMinigame;
                 objectToInteract.GetComponent<I_Interactable>().OnInteract();
                     GetComponent<TEST_Movement>().enabled = false;
             }

@@ -93,7 +93,7 @@ public class CPManager :MonoBehaviourPunCallbacks,IPunObservable
     [PunRPC]
     public void GainPoints()
     {
-        Debug.Log("Llamado " + whatTeamInControl);
+        
         if(whatTeamInControl)
         {
             teamManager1.GetComponent<TeamManager>().fameA += fameAdded;

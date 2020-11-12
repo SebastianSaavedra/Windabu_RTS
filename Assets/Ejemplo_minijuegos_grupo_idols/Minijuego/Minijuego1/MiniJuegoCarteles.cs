@@ -34,21 +34,25 @@ public class MiniJuegoCarteles : MonoBehaviour
     void Start()
     {
         esquinas = 0;
-        managerMinigame = GameObject.Find("MinijuegosManager").GetComponent<MinigameManager>();
-        
+        managerMinigame = GameObject.Find("MinijuegosManager").GetComponent<MinigameManager>();      
         managerLocal = GameObject.Find("MinijuegosManager").GetComponent<ManagerMinijuegos>();
     }
 
     private void OnEnable()
     {
-        managerMinigame.ResetCarteles();
+        managerMinigame.ResetCarteles(0);
+        contadorJugador2.text = cartelesJugador2.ToString();
+    }
+    private void OnDisable()
+    {
+        cartelesJugador2 = 0;
+        esquinas = 0;
     }
 
     //Coloco un cartel
     //Le aviso al Master Client que hice un cambio
     public void ColocarCartel()
-    {
-        Debug.Log("Pego 1 cartel");
+    {      
         Minijuegos.m_cartel(1);
         DecirleAMasterClienteQueHiceUnCambio();
         sgteCor = StartCoroutine("SgteCartel");
@@ -59,11 +63,11 @@ public class MiniJuegoCarteles : MonoBehaviour
         if (collision.CompareTag("Esquina"))
         {
             // Esquina es pegada;
-            Debug.Log("Esquina Pegada");
+            
             esquinas++;
             collision.GetComponent<BoxCollider2D>().enabled = false;
 
-            if (esquinas >= 4)
+            if (esquinas >= 4 && cartelesJugador2<3)
             {
                 ColocarCartel();
             }
