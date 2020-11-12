@@ -22,15 +22,15 @@ public class GameManager : MonoBehaviourPunCallbacks
         private void Start()
         {
                 lobbyCanvas.SetActive(true);
-            if (playerPref == null) 
-            {
-                Debug.LogError("Bruh");
-            }
-            else 
-            {
-                Debug.LogFormat("Instantiating Player");
-               PhotonNetwork.Instantiate(this.playerPref.name, new Vector3(0, 0, 0), Quaternion.identity, 0);
-            }            
+            //if (playerPref == null) 
+            //{
+            //    Debug.LogError("Bruh");
+            //}
+            //else 
+            //{
+            //    Debug.LogFormat("Instantiating Player");
+            //   PhotonNetwork.Instantiate(this.playerPref.name, new Vector3(0, 0, 0), Quaternion.identity, 0);
+            //}            
         }
         #region Photon call
 
