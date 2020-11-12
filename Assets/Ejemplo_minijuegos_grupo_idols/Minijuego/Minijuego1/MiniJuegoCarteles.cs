@@ -7,7 +7,7 @@ using TMPro;
 using Photon.Realtime;
 using Photon.Pun;
 
-public class MiniJuegoCarteles : MonoBehaviour
+public class MiniJuegoCarteles : MonoBehaviourPunCallbacks
 {
     //No es necesariamente el cliente maestro;
     ManagerMinijuegos managerLocal;
@@ -15,11 +15,14 @@ public class MiniJuegoCarteles : MonoBehaviour
 
     const float tiempoParaRealizarMinijuego = 30;
 
+    [HideInInspector] public int carteles;
+    //int owo;
+
     int cartelesJugador2 = 0;
     public TextMeshProUGUI contadorJugador2;
 
     //la cantidad de carteles que yo he colocado
-    //public int cartelesColocados = 0;
+    [SerializeField] GameObject cartelesSpot;
     
     [SerializeField] BoxCollider2D col2d;
     Coroutine sgteCor;
@@ -34,29 +37,63 @@ public class MiniJuegoCarteles : MonoBehaviour
     void Start()
     {
         esquinas = 0;
-        managerMinigame = GameObject.Find("MinijuegosManager").GetComponent<MinigameManager>();
-
-        managerMinigame.ResetCarteles();
-        
+        managerMinigame = GameObject.Find("MinijuegosManager").GetComponent<MinigameManager>();      
         managerLocal = GameObject.Find("MinijuegosManager").GetComponent<ManagerMinijuegos>();
+    }
+
+    public override void OnEnable()
+    {
+        ResetCarteles(0);
+        cartelesJugador2 = 0;
+        esquinas = 0;
+        contadorJugador2.text = cartelesJugador2.ToString();
+        foreach (Transform child in cartelesSpot.transform)
+        {
+            Destroy(child.gameObject);
+        }
+        //owo++;
+        //Debug.Log("Se activo el minijuego de carteles! o.0!! " + owo);
+        //if (cartelesSpot.transform.parent != null)
+        //{
+        //    Destroy(cartelesSpot.transform.parent);
+        //    Debug.Log("llego acá??");
+        //}
+    }
+    public override void OnDisable()
+    {
+        ResetCarteles(0);
+        cartelesJugador2 = 0;
+        esquinas = 0;
     }
 
     //Coloco un cartel
     //Le aviso al Master Client que hice un cambio
     public void ColocarCartel()
-    {
-        Debug.Log("Pego 1 cartel");
-        Minijuegos.m_cartel(1);
-        DecirleAMasterClienteQueHiceUnCambio();
+    {      
         sgteCor = StartCoroutine("SgteCartel");
+        Carteles(1);
         esquinas = 0;
+        DecirleAMasterClienteQueHiceUnCambio();
     }
+
+    void Carteles(int valor)
+    {
+        carteles += valor;
+
+
+        if (carteles >= 3)
+        {
+            //carteles = 0;
+            managerMinigame.FinishTask();
+        }
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Esquina"))
         {
             // Esquina es pegada;
-            Debug.Log("Esquina Pegada");
+            
             esquinas++;
             collision.GetComponent<BoxCollider2D>().enabled = false;
 
@@ -80,6 +117,14 @@ public class MiniJuegoCarteles : MonoBehaviour
         //Actualizar ui
     }
 
+    [PunRPC]
+    public void ResetCarteles(int cartelesBaseValue)
+    {
+        Debug.Log("Se Reseteo o.0");
+        carteles = cartelesBaseValue;
+        Debug.Log(carteles);
+    }
+
     IEnumerator SgteCartel()
     {
         //Debug.Log("Entro a la corutina");
@@ -87,7 +132,7 @@ public class MiniJuegoCarteles : MonoBehaviour
         yield return new WaitForSeconds(.25f);
         // añadir animación pal lado
         // wait for the animation
-        Destroy(cartel.cartelito); 
+        Destroy(cartel.cartelito);
         this.transform.parent.GetComponentInChildren<Cartel>().SpawnCartel();
         yield break;
     }

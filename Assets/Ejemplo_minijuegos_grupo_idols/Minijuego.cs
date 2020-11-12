@@ -19,7 +19,7 @@ public class Minijuego : ScriptableObject
     {
         numeroDeJugadores = 0;
         jugadorUno = 0;
-        jugadorDos = 0;
+        jugadorDos = 0;       
         MinijuegoDisponible();
     }
 

@@ -47,7 +47,7 @@ GameObject:
   - component: {fileID: 5816013650162724349}
   m_Layer: 0
   m_Name: PlayerContainer
-  m_TagString: Player
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -254,6 +254,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectToInteract: {fileID: 0}
+  speakingTo: {fileID: 0}
+  thisTask: {fileID: 0}
+  minigameID: 0
 --- !u!114 &5816013650376650943
 MonoBehaviour:
   m_ObjectHideFlags: 0

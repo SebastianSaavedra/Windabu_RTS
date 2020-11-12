@@ -7,8 +7,10 @@ using Com.MaluCompany.TestGame;
 
 public class TEST_Interact : MonoBehaviourPunCallbacks
 {
-    public
-    GameObject objectToInteract;
+    public GameObject objectToInteract;
+    public CPManager speakingTo;
+    public TaskDropDown thisTask;
+    public int minigameID;
 
     private void Update()
     {
@@ -20,6 +22,7 @@ public class TEST_Interact : MonoBehaviourPunCallbacks
         {
             if (objectToInteract.GetComponent<I_Interactable>()!=null && objectToInteract.GetComponent<TaskDropDown>().canInteract)
             {
+                    minigameID = (int)objectToInteract.GetComponent<TaskDropDown>().thisMinigame;
                 objectToInteract.GetComponent<I_Interactable>().OnInteract();
                     GetComponent<TEST_Movement>().enabled = false;
             }
@@ -27,8 +30,8 @@ public class TEST_Interact : MonoBehaviourPunCallbacks
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             objectToInteract.GetComponent<I_Interactable>().OnLeavePanel();
-                    GetComponent<TEST_Movement>().enabled = true;
-        }
+                GetComponent<TEST_Movement>().enabled = true;
+            }
         }
     }
     private void OnTriggerEnter2D(Collider2D collision)
@@ -36,14 +39,18 @@ public class TEST_Interact : MonoBehaviourPunCallbacks
         if (photonView.IsMine) 
         {
         objectToInteract = collision.gameObject;
+            speakingTo = collision.GetComponentInParent<CPManager>();
+            thisTask = collision.GetComponent<TaskDropDown>();
         }
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
         if (photonView.IsMine) 
         {
-        objectToInteract.GetComponent<I_Interactable>().OnLeavePanel();
-        objectToInteract = null;
+            objectToInteract.GetComponent<I_Interactable>().OnLeavePanel();
+            objectToInteract = null;
+            speakingTo = null;
+            thisTask = null;
         }
     }
 

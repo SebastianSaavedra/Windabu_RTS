@@ -7,6 +7,7 @@ using TMPro;
 using Photon.Pun;
 using Photon.Realtime;
 using UnityEditor;
+using System.Xml.Schema;
 
 public class ManagerMinijuegos : MonoBehaviourPunCallbacks
 {
@@ -18,8 +19,14 @@ public class ManagerMinijuegos : MonoBehaviourPunCallbacks
     //public Button[] botonesMinijuego;
     public GameObject[] parentObjetosMinijuegosUNPlayer;
     public GameObject[] parentObjetosMinijuegosDOSPlayers;
+    public int player1_ID;
+    public int player2_ID;
+    public int wichMinigamePanel;
+    [HideInInspector] public int idMinijuego;
 
     public List<Minijuego> minijuegos = new List<Minijuego>();
+
+    [SerializeField] MiniJuegoCarteles minijuegoCarteles;
     
 
     //private void Awake()
@@ -37,6 +44,15 @@ public class ManagerMinijuegos : MonoBehaviourPunCallbacks
         {
             minijuego.ResetearValoresMinijuego();
         }
+
+        if (PhotonNetwork.IsMasterClient)   //Tener en mente que este codigo puede producir errores a futuro.
+        {
+            //SetearUIMasterClient();
+            playersActuales.Add(PhotonNetwork.LocalPlayer);
+            Debug.Log("On joined room ha sido debugea2 (?");
+
+        }
+
         //Connect();
     }
 
@@ -66,7 +82,7 @@ public class ManagerMinijuegos : MonoBehaviourPunCallbacks
     //---------Minijuegos------
     //Este método solamente los debe ejecutar el ciente maestro
     public void ComenzarUnMinijuego(int minijuegoAComenzar, int playerActorNumber)
-    {
+    {       
         minijuegos[minijuegoAComenzar].ComenzarMinijuego();
         minijuegos[minijuegoAComenzar].numeroDeJugadores++; //agrego un jugador
 
@@ -76,10 +92,12 @@ public class ManagerMinijuegos : MonoBehaviourPunCallbacks
         if (minijuegos[minijuegoAComenzar].numeroDeJugadores == 1)
         {
             minijuegos[minijuegoAComenzar].jugadorUno = playerActorNumber;
+            player1_ID = playerActorNumber;
         }
         else if (minijuegos[minijuegoAComenzar].numeroDeJugadores == 2)
         {
             minijuegos[minijuegoAComenzar].jugadorDos = playerActorNumber;
+            player2_ID = playerActorNumber;
         }
         
         
@@ -121,15 +139,15 @@ public class ManagerMinijuegos : MonoBehaviourPunCallbacks
     void IntentarActualizarEstadoMiniJuego1(int playerActorNumber)
     {
         //determino a cuál de los dos jugadores le debo enviar este mensaje
-        if (minijuegos[0].jugadorUno == playerActorNumber)
+        if (minijuegos[idMinijuego].jugadorUno == playerActorNumber)
         {
             photonView.RPC("EnviarRPCAlOtroJugadorMinijuego1", RpcTarget.MasterClient
-                , minijuegos[0].jugadorDos);
+                , minijuegos[idMinijuego].jugadorDos);
         }
-        else if (minijuegos[0].jugadorDos == playerActorNumber)
+        else if (minijuegos[idMinijuego].jugadorDos == playerActorNumber)
         {
             photonView.RPC("EnviarRPCAlOtroJugadorMinijuego1", RpcTarget.MasterClient
-                , minijuegos[0].jugadorUno);
+                , minijuegos[idMinijuego].jugadorUno);
         }
     }
 
@@ -173,7 +191,7 @@ public class ManagerMinijuegos : MonoBehaviourPunCallbacks
     [PunRPC]
     void MiniJuegoComenzadoUnJugador(int indexMiniJuego)
     {
-        Debug.Log("Minijuego iniciado: " + indexMiniJuego);
+        
         //de no estar activado el minijuego, lo activa para un jugador 
         EncenderUIMinijuegoUnJugador(indexMiniJuego);
 
@@ -184,18 +202,45 @@ public class ManagerMinijuegos : MonoBehaviourPunCallbacks
     [PunRPC]
     void MiniJuegoComenzadoDosJugadores(int indexMiniJuego)
     {
-        Debug.Log("Minijuego iniciado: " + indexMiniJuego);
+        
         //de no estar activado el minijuego, lo activa para un jugador 
         EncenderUIMinijuegoDOSJugadores(indexMiniJuego);
 
 
         //photonView.RPC("ActualizarUIMasterClient", RpcTarget.MasterClient);
     }
+   [PunRPC]
+    void CambiarInteractable(int playerId, int minijuego) 
+    {
+        foreach (GameObject player in GameObject.FindGameObjectsWithTag("Player"))
+        {
+            if (player.GetComponentInParent<PlayerId>().id == playerId)
+            {
+                player.GetComponentInParent<TEST_Interact>().objectToInteract = parentObjetosMinijuegosDOSPlayers[0];
+             }
+        }
+    }
 
+    public void ResetearMuchosValores(int minigame) 
+    {
+        minijuegos[minigame].ResetearValoresMinijuego();
+        player1_ID = 0;
+        player2_ID = 0;
+    }
 
-
-    
-
+    public void ReseteoDeCarteles(int minigame)   // HAY QUE REINICIAR LOS CARTELES
+    {
+        if (minijuegos[minigame].numeroDeJugadores == 1) 
+        {
+        minijuegoCarteles.photonView.RPC("ResetCarteles", TargetPlayerByActorNumber(player1_ID),0);
+        }
+        else if (minijuegos[minigame].numeroDeJugadores == 2)
+        {
+            minijuegoCarteles.photonView.RPC("ResetCarteles", TargetPlayerByActorNumber(player1_ID),0);
+            minijuegoCarteles.photonView.RPC("ResetCarteles", TargetPlayerByActorNumber(player2_ID),0);
+        }
+        // photonView.RPC("ResetCarteles",TargetPlayerByActorNumber());
+    }
 
     //AQUÍ YA DEBERÍA VERSE TODA LA LÓGICA DEL MINIJUEGO,
     //ir enviando actualizaciones para el Cliente Maestro
@@ -203,14 +248,18 @@ public class ManagerMinijuegos : MonoBehaviourPunCallbacks
     //generalizar a cualquier juego
     void EncenderUIMinijuegoUnJugador(int indexMinijuego)
     {
-        parentObjetosMinijuegosUNPlayer[indexMinijuego].SetActive(true);
+        parentObjetosMinijuegosUNPlayer[0].SetActive(true);
+        Debug.Log("Se activa UI Minijuego 1");
     }
 
     void EncenderUIMinijuegoDOSJugadores(int indexMinijuego)
     {
         //Si se hace algo como esto, apagar el ui que ya estaba encendida en el jugador inicial
-        parentObjetosMinijuegosUNPlayer[indexMinijuego].SetActive(false);
-        parentObjetosMinijuegosDOSPlayers[indexMinijuego].SetActive(true);
+        Debug.Log("Se activa UI Minijuego 2");
+        parentObjetosMinijuegosUNPlayer[0].SetActive(false);
+        parentObjetosMinijuegosDOSPlayers[0].SetActive(true);
+        photonView.RPC("CambiarInteractable", TargetPlayerByActorNumber(player1_ID), player1_ID, indexMinijuego);
+        photonView.RPC("CambiarInteractable", TargetPlayerByActorNumber(player2_ID), player2_ID, indexMinijuego);      
     }
 
 
@@ -273,15 +322,16 @@ public class ManagerMinijuegos : MonoBehaviourPunCallbacks
 
     //---------Actualización visual, no es importante--------
     //Get info si soy cliente maestro o no
-    public override void OnJoinedRoom()
-    {
-        if (PhotonNetwork.IsMasterClient)
-        {
-            //SetearUIMasterClient();
-            playersActuales.Add(PhotonNetwork.LocalPlayer);
+    //public override void OnJoinedRoom()
+    //{
+    //    if (PhotonNetwork.IsMasterClient)
+    //    {
+    //        //SetearUIMasterClient();
+    //        playersActuales.Add(PhotonNetwork.LocalPlayer);
+    //        Debug.Log("On joined room ha sido debugea2 (?");
 
-        }
-    }
+    //    }
+    //}
         //else
         //{
         //    SeterUIClienteNormal();

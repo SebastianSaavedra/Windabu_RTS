@@ -7,7 +7,7 @@ using Photon.Realtime;
 public class CPManager :MonoBehaviourPunCallbacks,IPunObservable
 {
     [SerializeField]
-    GameObject teamManager1, teamManager2;
+    GameObject teamManager1;
 
     [SerializeField]
     float fameAdded;
@@ -93,7 +93,7 @@ public class CPManager :MonoBehaviourPunCallbacks,IPunObservable
     [PunRPC]
     public void GainPoints()
     {
-        Debug.Log("Llamado " + whatTeamInControl);
+        
         if(whatTeamInControl)
         {
             teamManager1.GetComponent<TeamManager>().fameA += fameAdded;
