@@ -9,12 +9,12 @@ public class MerchandiseMinigame : MonoBehaviourPunCallbacks
 {
     // Keys to mash
     KeyCode[] keysToMash = new KeyCode[] {
-        KeyCode.K,       KeyCode.L,        KeyCode.Q,       KeyCode.W,
-        KeyCode.R,        KeyCode.T,        KeyCode.Y,        KeyCode.U,
-        KeyCode.I,        KeyCode.O,        KeyCode.P,       KeyCode.A,
-        KeyCode.S,        KeyCode.D,      KeyCode.F,       KeyCode.J,    
-        KeyCode.Z,       KeyCode.X,     KeyCode.C,     KeyCode.V,
-       KeyCode.B,      KeyCode.N,     KeyCode.M,
+        KeyCode.K,       KeyCode.L,      KeyCode.Q,       KeyCode.W,
+        KeyCode.R,       KeyCode.T,      KeyCode.Y,       KeyCode.U,
+        KeyCode.I,       KeyCode.O,      KeyCode.P,       KeyCode.A,
+        KeyCode.S,       KeyCode.D,      KeyCode.F,       KeyCode.J,    
+        KeyCode.Z,       KeyCode.X,      KeyCode.C,       KeyCode.V,
+        KeyCode.B,       KeyCode.N,      KeyCode.M,
     };
 
     public int mashLimit = 10;
