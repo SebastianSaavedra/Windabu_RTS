@@ -5,7 +5,7 @@ using UnityEngine;
 public class ShopManager : MonoBehaviour
 {
     GameObject itemSpawner;
-    Transform itemSpawnerPos;
+    [SerializeField] Transform itemSpawnerPos;
 
     //Stats
     [SerializeField]
@@ -16,7 +16,6 @@ public class ShopManager : MonoBehaviour
 
     private void Start()
     {
-        itemSpawnerPos = itemSpawner.transform;
     }
 
     public void Impresora()
