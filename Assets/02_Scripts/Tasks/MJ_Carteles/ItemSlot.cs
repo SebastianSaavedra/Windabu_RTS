@@ -8,6 +8,13 @@ public class ItemSlot : MonoBehaviour, IDropHandler
     public float slotId;
     private float draggedId;
 
+    private int partesCounter;
+
+    private void Start()
+    {
+        partesCounter = 0;
+    }
+
     public void OnDrop(PointerEventData eventData)
     {
         Debug.Log("drop");
@@ -21,8 +28,15 @@ public class ItemSlot : MonoBehaviour, IDropHandler
             {
                 // Move to slot
                 eventData.pointerDrag.GetComponent<RectTransform>().anchoredPosition = GetComponent<RectTransform>().anchoredPosition;
-                // Lock
                 eventData.pointerDrag.GetComponent<DragDropStay>().locked = true;
+
+                // Complete Impresora
+                partesCounter++;
+                if(partesCounter == 8)
+                {
+                    LocalPlayerManager.tieneImpresora = true;
+                }
+
                 //Disable
                 gameObject.SetActive(false);
             }
