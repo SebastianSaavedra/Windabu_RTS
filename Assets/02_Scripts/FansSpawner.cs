@@ -4,21 +4,35 @@ using UnityEngine;
 
 public class FansSpawner : MonoBehaviour
 {
-    public GameObject tipoDeFan;
+    public GameObject tipoDeFanA;
+    public GameObject tipoDeFanB;
     public Transform spawnPoint;
     public float timer = 1;
     [Space(5)]
     public bool puedeSpawnear;
-    [SerializeField] Transform[] waypoints;
+    [SerializeField] Transform[] waypointsA;
+    [SerializeField] Transform[] waypointsB;
+    [SerializeField] CPManager cpManager;
 
     Coroutine spawnCor = null;
 
     public IEnumerator Spawner()
     {
+        yield return new WaitUntil(() => cpManager.alreadyContested);
         while(puedeSpawnear)
         {
-         GameObject fan=  Instantiate(tipoDeFan, spawnPoint.transform.position, Quaternion.identity);
-            fan.GetComponent<WaypointsFans>().waypoints = waypoints;
+            Debug.Log("Aqui");
+            if (cpManager.whatTeamInControl)
+            {
+         GameObject fan=  Instantiate(tipoDeFanA, spawnPoint.transform.position, Quaternion.identity);
+            fan.GetComponent<WaypointsFans>().waypoints = waypointsA;
+            }
+            else if (!GetComponent<CPManager>().whatTeamInControl) 
+            {
+         GameObject fan=  Instantiate(tipoDeFanB, spawnPoint.transform.position, Quaternion.identity);
+            fan.GetComponent<WaypointsFans>().waypoints = waypointsB;
+            }
+            Debug.Log("Aqui2");
             yield return new WaitForSeconds(timer);
         }
     }
@@ -27,7 +41,7 @@ public class FansSpawner : MonoBehaviour
     {
         while (puedeSpawnear)
         {
-            Instantiate(tipoDeFan, spawnP.transform.position, Quaternion.identity);
+            //Instantiate(tipoDeFan, spawnP.transform.position, Quaternion.identity);
             yield return new WaitForSeconds(time);
         }
     }

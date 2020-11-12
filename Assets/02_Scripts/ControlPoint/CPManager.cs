@@ -13,7 +13,7 @@ public class CPManager :MonoBehaviourPunCallbacks,IPunObservable
     float fameAdded;
     [SerializeField]
     Slider slider,slider2;
-    [SerializeField]
+    public
     bool whatTeamInControl,alreadyContested;
     bool contested;
     bool blueControlling;
