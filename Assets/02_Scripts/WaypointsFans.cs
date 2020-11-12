@@ -10,9 +10,13 @@ public class WaypointsFans : MonoBehaviour
     int waypointIndex = 0;
     bool llego = true;
 
+    [SerializeField] Animator fansAnim;
+
     void Start()
     {
-        transform.position = waypoints[waypointIndex].transform.position;;
+        transform.position = waypoints[waypointIndex].transform.position;
+        fansAnim.GetComponent<Animator>();
+        fansAnim.SetBool("Caminando",true);
     }
 
     private void Update()
