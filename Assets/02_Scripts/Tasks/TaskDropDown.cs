@@ -14,7 +14,6 @@ public class TaskDropDown : MonoBehaviourPunCallbacks,I_Interactable
     public WiiMinigame thisMinigame;
     
     public bool canInteract;
-    [SerializeField] GameObject lockedImg;
     [SerializeField] int thisMinigameis;
 
     private void Start()
@@ -66,9 +65,7 @@ public class TaskDropDown : MonoBehaviourPunCallbacks,I_Interactable
     IEnumerator BlockTask() 
     {
         canInteract = false;
-        lockedImg.SetActive(true);
         yield return new WaitForSeconds(5f);
-        lockedImg.SetActive(false);
         canInteract = true;
         yield break;
     }

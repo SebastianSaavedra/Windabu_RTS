@@ -17,6 +17,7 @@ public class CPManager :MonoBehaviourPunCallbacks,IPunObservable
     bool whatTeamInControl,alreadyContested;
     bool contested;
     bool blueControlling;
+    [SerializeField] TaskDropDown canInteract;
     [SerializeField] GameObject teamACartel, teamACartel_Locked, teamBCartel, teamBCartel_Locked;
     PhotonView PV;
     #region Testing Code
@@ -43,13 +44,15 @@ public class CPManager :MonoBehaviourPunCallbacks,IPunObservable
         photonView.RPC("ChangeTeamColor", RpcTarget.AllBuffered, blueControlling);
         photonView.RPC("RPCGainPoints", RpcTarget.MasterClient);
         contested = true;
-            photonView.RPC("ChangeControlledBy", RpcTarget.MasterClient, contested, blueControlling);
+        photonView.RPC("ChangeControlledBy", RpcTarget.MasterClient, contested, blueControlling);
+            RPCLockA();
         }
         else if (contested)
         {
             blueControlling = true;
             photonView.RPC("ChangeTeamColor", RpcTarget.AllBuffered, blueControlling);
             photonView.RPC("ChangeControlledBy", RpcTarget.MasterClient, contested, blueControlling);
+            RPCLockA();
         }
     }
     //Change to team2
@@ -62,12 +65,14 @@ public class CPManager :MonoBehaviourPunCallbacks,IPunObservable
             photonView.RPC("RPCGainPoints", RpcTarget.MasterClient);
             contested = true;
             photonView.RPC("ChangeControlledBy", RpcTarget.MasterClient, contested, blueControlling);
+            RPCLockB();
         }
        else if(contested)
         {
             blueControlling = false;
             photonView.RPC("ChangeTeamColor", RpcTarget.AllBuffered, blueControlling);
-            photonView.RPC("ChangeControlledBy", RpcTarget.MasterClient,contested,blueControlling);
+            photonView.RPC("ChangeControlledBy", RpcTarget.MasterClient, contested, blueControlling);
+            RPCLockB();
         }
     }
 
@@ -77,10 +82,12 @@ public class CPManager :MonoBehaviourPunCallbacks,IPunObservable
         if(whatTeam)
         {
         gameObject.GetComponent<SpriteRenderer>().color = colorTeam1;
+            teamACartel.SetActive(true);
         }
         else 
         {
             gameObject.GetComponent<SpriteRenderer>().color = colorTeam2;
+            teamBCartel.SetActive(true);
         }
     }
     [PunRPC]
@@ -127,18 +134,69 @@ public class CPManager :MonoBehaviourPunCallbacks,IPunObservable
         sprite = sprite.GetComponent<SpriteRenderer>().gameObject;
     }
 
+    public void RPCLockA() 
+    {
+        photonView.RPC("LockTeamA",RpcTarget.AllViaServer);
+    }
+    public void RPCLockB()
+    {
+        photonView.RPC("LockTeamB",RpcTarget.AllViaServer);
+    }
+
+    [PunRPC]
+    public void LockTeamA() 
+    {
+        StopCoroutine(LockTeamACor());
+        StartCoroutine(LockTeamACor());
+    }
+    [PunRPC]
+    public void LockTeamB() 
+    {
+        StartCoroutine(LockTeamBCor());
+    }
+
+
+    [PunRPC]
+    IEnumerator LockTeamACor() 
+    {
+        teamACartel_Locked.SetActive(true);
+        teamBCartel.SetActive(false);
+        yield return new WaitForSeconds(5f);
+        teamACartel_Locked.SetActive(false);      
+        yield break;
+    }
+    [PunRPC]
+    IEnumerator LockTeamBCor()
+    {
+        teamBCartel_Locked.SetActive(true);
+        teamACartel.SetActive(false);
+        yield return new WaitForSeconds(5f);
+        teamBCartel_Locked.SetActive(false);
+        yield break;
+    }
+
+    [PunRPC]
+    public void UnlockInteractable() 
+    {
+        teamACartel_Locked.SetActive(false);
+        teamBCartel_Locked.SetActive(false);
+    }
+
     public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info) 
     {
-       if (stream.IsWriting) 
-       {
+       if (stream.IsWriting)
+        {
             stream.SendNext(slider.value);
             stream.SendNext(slider2.value);
-      }
-      else if (stream.IsReading) 
-      {
+        }
+        
+       
+      else if (stream.IsReading)
+        {
+
            slider.value =(float)stream.ReceiveNext();
            slider2.value =(float)stream.ReceiveNext();
-      }
-      }
-    
+        }
+      
+      }        
 }
