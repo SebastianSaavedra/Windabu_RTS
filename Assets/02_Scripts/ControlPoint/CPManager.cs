@@ -17,6 +17,7 @@ public class CPManager :MonoBehaviourPunCallbacks,IPunObservable
     bool whatTeamInControl,alreadyContested;
     bool contested;
     bool blueControlling;
+    [SerializeField] GameObject teamACartel, teamACartel_Locked, teamBCartel, teamBCartel_Locked;
     PhotonView PV;
     #region Testing Code
     Color colorNeutral, colorTeam1, colorTeam2; 
