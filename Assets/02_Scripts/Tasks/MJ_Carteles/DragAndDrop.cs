@@ -26,6 +26,7 @@ public class DragAndDrop : MonoBehaviour, IDragHandler, IPointerDownHandler, IBe
     {
         posInicial = rectTransform.localPosition;
     }
+
     //Click
     public void OnPointerDown(PointerEventData eventData)
     {
@@ -37,7 +38,6 @@ public class DragAndDrop : MonoBehaviour, IDragHandler, IPointerDownHandler, IBe
     {
         canvasGroup.alpha = .6f;
         canvasGroup.blocksRaycasts = false;
-        rectTransform.localScale = new Vector3(2f, 2f, 1f);
     }
 
     //Every frame dragged
@@ -52,7 +52,6 @@ public class DragAndDrop : MonoBehaviour, IDragHandler, IPointerDownHandler, IBe
     {
         canvasGroup.alpha = 1f;
         canvasGroup.blocksRaycasts = true;
-        rectTransform.localScale = new Vector3(1f, 1f, 1f);
         rectTransform.localPosition = posInicial;
     }
 
@@ -60,7 +59,6 @@ public class DragAndDrop : MonoBehaviour, IDragHandler, IPointerDownHandler, IBe
     {
         canvasGroup.alpha = 1f;
         canvasGroup.blocksRaycasts = true;
-        rectTransform.localScale = new Vector3(1f, 1f, 1f);
         rectTransform.localPosition = posInicial;
     }
 }
