@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -147,7 +147,7 @@ Transform:
   m_GameObject: {fileID: 11004071}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -2.8, y: -1.6, z: 238.09}
-  m_LocalScale: {x: 12.8634, y: 12.8634, z: 12.8634}
+  m_LocalScale: {x: 13.120668, y: 13.120668, z: 13.120668}
   m_Children: []
   m_Father: {fileID: 1175497281}
   m_RootOrder: 0
@@ -190,7 +190,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -8
   m_Sprite: {fileID: 21300000, guid: c29f546ba7543fb4284939b3ff02910a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -2357,7 +2357,6 @@ MonoBehaviour:
   managerMinijuegos: {fileID: 0}
   thisMinigame: 0
   canInteract: 0
-  lockedImg: {fileID: 0}
   thisMinigameis: 0
 --- !u!61 &321967052
 BoxCollider2D:
@@ -3089,7 +3088,6 @@ MonoBehaviour:
   managerMinijuegos: {fileID: 0}
   thisMinigame: 0
   canInteract: 0
-  lockedImg: {fileID: 0}
   thisMinigameis: 0
 --- !u!61 &419576607
 BoxCollider2D:
@@ -3747,6 +3745,7 @@ MonoBehaviour:
   slider2: {fileID: 1145742252}
   whatTeamInControl: 0
   alreadyContested: 0
+  canInteract: {fileID: 0}
   teamACartel: {fileID: 179454107}
   teamACartel_Locked: {fileID: 1794247312}
   teamBCartel: {fileID: 1680280478}
@@ -23730,7 +23729,6 @@ MonoBehaviour:
   managerMinijuegos: {fileID: 0}
   thisMinigame: 0
   canInteract: 0
-  lockedImg: {fileID: 0}
   thisMinigameis: 0
 --- !u!61 &811612495
 BoxCollider2D:
@@ -27967,7 +27965,6 @@ MonoBehaviour:
   managerMinijuegos: {fileID: 0}
   thisMinigame: 0
   canInteract: 0
-  lockedImg: {fileID: 0}
   thisMinigameis: 0
 --- !u!61 &1079032863
 BoxCollider2D:
@@ -28567,6 +28564,7 @@ MonoBehaviour:
   slider2: {fileID: 1145742252}
   whatTeamInControl: 0
   alreadyContested: 0
+  canInteract: {fileID: 0}
   teamACartel: {fileID: 1138960922}
   teamACartel_Locked: {fileID: 712846371}
   teamBCartel: {fileID: 829546612}
@@ -31864,7 +31862,6 @@ MonoBehaviour:
   managerMinijuegos: {fileID: 2013361922}
   thisMinigame: 0
   canInteract: 0
-  lockedImg: {fileID: 1478887555}
   thisMinigameis: 0
 --- !u!114 &1697509200
 MonoBehaviour:
@@ -33441,7 +33438,6 @@ MonoBehaviour:
   managerMinijuegos: {fileID: 0}
   thisMinigame: 0
   canInteract: 0
-  lockedImg: {fileID: 0}
   thisMinigameis: 0
 --- !u!61 &2041074586
 BoxCollider2D:
@@ -33775,7 +33771,6 @@ MonoBehaviour:
   managerMinijuegos: {fileID: 2013361922}
   thisMinigame: 1
   canInteract: 0
-  lockedImg: {fileID: 0}
   thisMinigameis: 0
 --- !u!61 &2080506313
 BoxCollider2D:
