@@ -12,7 +12,7 @@ public class CPManager :MonoBehaviourPunCallbacks,IPunObservable
     [SerializeField]
     float fameAdded;
     [SerializeField]
-    Slider slider,slider2;
+    Image slider,slider2;
     public
     bool whatTeamInControl,alreadyContested;
     bool contested;
@@ -105,12 +105,12 @@ public class CPManager :MonoBehaviourPunCallbacks,IPunObservable
         if(whatTeamInControl)
         {
             teamManager1.GetComponent<TeamManager>().fameA += fameAdded;
-            slider.value += fameAdded;
+            slider.fillAmount += (fameAdded*0.2f);
         }
         else 
         {
             teamManager1.GetComponent<TeamManager>().fameB += fameAdded;
-            slider2.value += fameAdded;
+            slider2.fillAmount += (fameAdded * 0.2f);
         }
     }
 
@@ -186,16 +186,15 @@ public class CPManager :MonoBehaviourPunCallbacks,IPunObservable
     {
        if (stream.IsWriting)
         {
-            stream.SendNext(slider.value);
-            stream.SendNext(slider2.value);
+            stream.SendNext(slider.fillAmount);
+            stream.SendNext(slider2.fillAmount);
         }
         
        
       else if (stream.IsReading)
         {
-
-           slider.value =(float)stream.ReceiveNext();
-           slider2.value =(float)stream.ReceiveNext();
+           slider.fillAmount =(float)stream.ReceiveNext();
+           slider2.fillAmount =(float)stream.ReceiveNext();
         }
       
       }        

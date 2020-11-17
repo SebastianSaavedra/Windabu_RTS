@@ -1,8 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Photon.Pun;
+using Photon.Realtime;
 
-public class FansSpawner : MonoBehaviour
+public class FansSpawner : MonoBehaviourPunCallbacks
 {
     public GameObject tipoDeFanA;
     public GameObject tipoDeFanB;
@@ -24,19 +26,28 @@ public class FansSpawner : MonoBehaviour
             Debug.Log("Aqui");
             if (cpManager.whatTeamInControl)
             {
-         GameObject fan=  Instantiate(tipoDeFanA, spawnPoint.transform.position, Quaternion.identity);
-            fan.GetComponent<WaypointsFans>().waypoints = waypointsA;
+                photonView.RPC("SpawnA", RpcTarget.AllViaServer);
             }
             else if (!GetComponent<CPManager>().whatTeamInControl) 
             {
-         GameObject fan=  Instantiate(tipoDeFanB, spawnPoint.transform.position, Quaternion.identity);
-            fan.GetComponent<WaypointsFans>().waypoints = waypointsB;
+                photonView.RPC("SpawnB", RpcTarget.AllViaServer);
             }
             Debug.Log("Aqui2");
             yield return new WaitForSeconds(timer);
         }
     }
-
+    [PunRPC]
+    public void SpawnA() 
+    {
+        GameObject fan = Instantiate(tipoDeFanA, spawnPoint.transform.position, Quaternion.identity);
+        fan.GetComponent<WaypointsFans>().waypoints = waypointsA;
+    }
+    [PunRPC]
+    public void SpawnB()
+    {
+        GameObject fan = Instantiate(tipoDeFanB, spawnPoint.transform.position, Quaternion.identity);
+        fan.GetComponent<WaypointsFans>().waypoints = waypointsB;
+    }
     public IEnumerator SpawnerConParametros(float time, Transform spawnP)
     {
         while (puedeSpawnear)
