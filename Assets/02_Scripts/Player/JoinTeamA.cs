@@ -39,12 +39,10 @@ public class JoinTeamA : MonoBehaviourPunCallbacks
         FakeLobbyUsers.users[playerPos].text = name;
         playerPos = playerPos + 1;     
     }
+    [PunRPC]
     public void AddPlayerId(int id) 
     {
-        if (photonView.IsMine)
-        {
-            PhotonManager.teamA_id[idPos] = id;
-        }
+        PhotonManager.teamA_id[idPos] = id;
         idPos = idPos + 1;
     }
     public void InstPlayer()

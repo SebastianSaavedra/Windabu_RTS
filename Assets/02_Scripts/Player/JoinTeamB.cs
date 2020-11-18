@@ -34,6 +34,7 @@ public class JoinTeamB : MonoBehaviourPunCallbacks
         FakeLobbyUsers.users2[playerPos].text = name;
         playerPos = playerPos + 1;
     }
+    [PunRPC]
     public void AddPlayerId(int id)
     {
         if (photonView.IsMine)
