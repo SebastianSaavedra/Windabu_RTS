@@ -28373,6 +28373,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1111155383}
+  - component: {fileID: 1111155384}
   m_Layer: 0
   m_Name: PhotonManager
   m_TagString: Untagged
@@ -28394,6 +28395,20 @@ Transform:
   m_Father: {fileID: 1712438406}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1111155384
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1111155382}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3bec23f1a7d1317469d65abb0645e955, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  teamA_Id_Var: 
+  teamB_Id_Var: 
 --- !u!1 &1138960922 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4630133706987349092, guid: a3149a40513b9544ba50dbc360b4355c,
@@ -28621,6 +28636,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1160458837}
   - component: {fileID: 1160458838}
+  - component: {fileID: 1160458839}
   m_Layer: 0
   m_Name: UIManager
   m_TagString: Untagged
@@ -28656,6 +28672,34 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moneyText: {fileID: 466865434}
   moneyText2: {fileID: 752345241}
+  teamAHudParent: {fileID: 1328016833}
+  teamBHudParent: {fileID: 1328016832}
+  objectToSpawn: {fileID: 4790449286434151780, guid: 85dbfda6aa555c9448cb85fe28a54868,
+    type: 3}
+  counterA: 0
+  counterB: 0
+--- !u!114 &1160458839
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1160458836}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  observableSearch: 2
+  Synchronization: 3
+  OwnershipTransfer: 0
+  ObservedComponents: []
+  viewIdField: 22
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
 --- !u!1 &1175497277
 GameObject:
   m_ObjectHideFlags: 0
@@ -30232,6 +30276,18 @@ RectTransform:
 --- !u!224 &1328016831 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 2383533857168979972, guid: a3149a40513b9544ba50dbc360b4355c,
+    type: 3}
+  m_PrefabInstance: {fileID: 1328016825}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1328016832 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4972606870114137059, guid: a3149a40513b9544ba50dbc360b4355c,
+    type: 3}
+  m_PrefabInstance: {fileID: 1328016825}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1328016833 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7198172561548620347, guid: a3149a40513b9544ba50dbc360b4355c,
     type: 3}
   m_PrefabInstance: {fileID: 1328016825}
   m_PrefabAsset: {fileID: 0}
@@ -32179,8 +32235,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: Impresora
+      - m_Target: {fileID: 1160458838}
+        m_MethodName: RPCInstantiateInTeamA
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

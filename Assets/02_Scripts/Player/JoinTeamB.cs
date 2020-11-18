@@ -16,17 +16,24 @@ public class JoinTeamB : MonoBehaviourPunCallbacks
         {
             if (player.GetComponentInParent<PlayerId>().id == PhotonNetwork.LocalPlayer.ActorNumber)
             {
-                photonView.RPC("ActivateText", RpcTarget.AllBuffered, player.GetComponentInParent<PlayerId>().name);
+                if (player.GetComponentInParent<PlayerTeam>().TeamA && player.GetComponentInParent<PlayerTeam>().TeamB)
+                    return;
+                player.GetComponentInParent<PlayerTeam>().TeamB = true;
+                photonView.RPC("ActivateText", RpcTarget.AllBuffered, player.GetComponentInParent<PlayerId>().name, player.GetComponentInParent<PlayerId>().id);
             }
         }
     }
 
     [PunRPC]
-    public void ActivateText(string name)
+    public void ActivateText(string name, int id)
     {
         Debug.Log("Llamado");
         FakeLobbyUsers.users2[playerPos].gameObject.SetActive(true);
         FakeLobbyUsers.users2[playerPos].text = name;
+        if (photonView.IsMine) 
+        {
+            PhotonManager.teamB_id[playerPos] = id;
+        }
         playerPos = playerPos + 1;
     }
     public void InstPlayer()

@@ -20,18 +20,25 @@ public class JoinTeamA : MonoBehaviourPunCallbacks
         foreach (GameObject player in GameObject.FindGameObjectsWithTag("Player"))
         {
             if (player.GetComponentInParent<PlayerId>().id == PhotonNetwork.LocalPlayer.ActorNumber)
-            {             
-        photonView.RPC("ActivateText", RpcTarget.AllBuffered,player.GetComponentInParent<PlayerId>().name);
+            {
+                if (player.GetComponentInParent<PlayerTeam>().TeamA && player.GetComponentInParent<PlayerTeam>().TeamB)
+                    return;
+                player.GetComponentInParent<PlayerTeam>().TeamA = true;
+                photonView.RPC("ActivateText", RpcTarget.AllBuffered, player.GetComponentInParent<PlayerId>().name, player.GetComponentInParent<PlayerId>().id);
             }
         }
   }
 
     [PunRPC]
-    public void ActivateText(string name) 
+    public void ActivateText(string name, int id)
     {
         Debug.Log("Llamado");
         FakeLobbyUsers.users[playerPos].gameObject.SetActive(true);
         FakeLobbyUsers.users[playerPos].text = name;
+        if (photonView.IsMine) 
+        {
+        PhotonManager.teamA_id[playerPos] = id;
+        }
         playerPos = playerPos + 1;     
     }
     public void InstPlayer()
@@ -45,8 +52,7 @@ public class JoinTeamA : MonoBehaviourPunCallbacks
         else
         {
             Debug.LogFormat("Instantiating Player");
-           GameObject player=  PhotonNetwork.Instantiate(this.playerPref.name, new Vector3(0, 0, 0), Quaternion.identity, 0);
-            player.GetComponentInParent<PlayerTeam>().TeamA = true;
+           GameObject player=  PhotonNetwork.Instantiate(this.playerPref.name, new Vector3(0, 0, 0), Quaternion.identity, 0);           
             callJoin = true;
             Debug.Log("Llegaste aqui");
         }
