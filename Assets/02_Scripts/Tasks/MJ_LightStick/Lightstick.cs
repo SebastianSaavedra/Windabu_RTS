@@ -3,11 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Lightstick : MonoBehaviour
-{
-    CapsuleCollider2D col2d;
+{   
+    //privadas
+    ManagerMinijuegos managerLocal;
+    MinigameManager managerMinigame;
+    [SerializeField] CapsuleCollider2D col2d;
     bool estaJugando;
     Transform transInicial;
 
+    Coroutine sgteCor;
     [SerializeField] float velRot;
     [SerializeField] Transform pivot;
 
@@ -15,6 +19,8 @@ public class Lightstick : MonoBehaviour
     private void Awake()
     {
         col2d.GetComponent<CapsuleCollider2D>();
+        managerMinigame = GameObject.Find("MinijuegosManager").GetComponent<MinigameManager>();
+        managerLocal = GameObject.Find("MinijuegosManager").GetComponent<ManagerMinijuegos>();
     }
 
     private void Start()
@@ -26,11 +32,23 @@ public class Lightstick : MonoBehaviour
     {
         estaJugando = true;
         transform.rotation = transInicial.rotation;
+        sgteCor = StartCoroutine("Actividad");
     }
 
     void Update()
     {
         if (estaJugando)
+        {
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                col2d.enabled = true;
+            }
+        }
+    }
+
+    public IEnumerator Actividad()
+    {
+        while (estaJugando)
         {
             pivot.transform.Rotate(new Vector3(0f, 0f, .1f * velRot));
 
@@ -42,12 +60,13 @@ public class Lightstick : MonoBehaviour
             {
                 velRot = -1f;
             }
-
-            if (Input.GetKeyDown(KeyCode.Space))
-            {
-                col2d.enabled = true;
-            }
         }
+        yield break;
+    }
+
+    public void RepetirActividad()
+    {
+        StartCoroutine(sgteCor.ToString());
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
