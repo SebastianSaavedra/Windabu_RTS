@@ -10,12 +10,26 @@ public class UIManager : MonoBehaviourPunCallbacks
 {
     [SerializeField] TextMeshProUGUI moneyText;
     [SerializeField] TextMeshProUGUI moneyText2;
-    [SerializeField] GameObject teamAHudParent;
-    [SerializeField] GameObject teamBHudParent;
+    [SerializeField] GameObject teamAHudParentTop;
+    [SerializeField] GameObject teamAHudParentDown;
+    [SerializeField] GameObject teamBHudParentTop;
+    [SerializeField] GameObject teamBHudParentDown;
     [SerializeField] GameObject objectToSpawn;
     public int counterA;
     public int counterB; 
     public static List<Player> playersActuales = new List<Player>();
+
+
+    private void Start()
+    {
+        if (PhotonNetwork.IsMasterClient)   //Tener en mente que este codigo puede producir errores a futuro.
+        {
+            //SetearUIMasterClient();
+            playersActuales.Add(PhotonNetwork.LocalPlayer);
+            Debug.Log("On joined room ha sido debugea2 (?");
+
+        }
+    }
     void Update()
     {
         moneyText.text = MinigameManager.dinero.ToString();
@@ -42,28 +56,47 @@ public class UIManager : MonoBehaviourPunCallbacks
         }
         return playerToReturn;
     }
-    public void RPCInstantiateInTeamA() 
+    public void RPCInstantiateInTeamA()
     {
-            photonView.RPC("InstantiateInTeamA",RpcTarget.AllViaServer);
-         foreach(int x in PhotonManager.teamA_id) 
-        {
-            if (x != 0) 
-            {
-                Debug.Log("Bruhhhhhhhh");
-                Debug.Log(x);
-            }
-        }
+        // photonView.RPC("InstantiateInTeamA", RpcTarget.AllViaServer);
+        photonView.RPC("InstantiateInTeamA", TargetPlayerByActorNumber(PhotonManager.teamA_id[0]));
+        photonView.RPC("InstantiateInTeamA", TargetPlayerByActorNumber(PhotonManager.teamA_id[1]));
+        photonView.RPC("InstantiateInTeamA", TargetPlayerByActorNumber(PhotonManager.teamA_id[2]));
+        Debug.Log("Llegue");
+    }
+    public void RPCInstantiateInTeamB()
+    {
+        photonView.RPC("InstantiateInTeamA", RpcTarget.AllViaServer);
     }
 
     public void InstantiateInTeamB()
     {
-
+        if (counterA < 4)
+        {
+            GameObject objectToQue = Instantiate(objectToSpawn, teamBHudParentTop.transform.position, objectToSpawn.transform.rotation);
+            objectToQue.transform.parent = teamBHudParentTop.transform;
+            Debug.Log("Estoy aqui hermanito");
+        }
+        else
+        {
+            GameObject objectToQue = Instantiate(objectToSpawn, teamBHudParentDown.transform.position, objectToSpawn.transform.rotation);
+            objectToQue.transform.parent = teamBHudParentDown.transform;
+        }
     }
 
     [PunRPC]
     public void InstantiateInTeamA()
     {
-        GameObject objectToQue = Instantiate(objectToSpawn, teamAHudParent.transform.position, objectToSpawn.transform.rotation);
-        objectToQue.transform.parent = teamAHudParent.transform;
+        if (counterA < 4)
+        {
+            GameObject objectToQue = Instantiate(objectToSpawn, teamAHudParentTop.transform.position, objectToSpawn.transform.rotation);
+            objectToQue.transform.parent = teamAHudParentTop.transform;
+        }
+        else
+        {
+            GameObject objectToQue = Instantiate(objectToSpawn, teamAHudParentDown.transform.position, objectToSpawn.transform.rotation);
+            objectToQue.transform.parent = teamAHudParentDown.transform;
+        }
+
     }
 }

@@ -28374,6 +28374,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1111155383}
   - component: {fileID: 1111155384}
+  - component: {fileID: 1111155385}
   m_Layer: 0
   m_Name: PhotonManager
   m_TagString: Untagged
@@ -28409,6 +28410,29 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   teamA_Id_Var: 
   teamB_Id_Var: 
+--- !u!114 &1111155385
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1111155382}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  observableSearch: 2
+  Synchronization: 3
+  OwnershipTransfer: 0
+  ObservedComponents:
+  - {fileID: 1111155384}
+  viewIdField: 25
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
 --- !u!1 &1138960922 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4630133706987349092, guid: a3149a40513b9544ba50dbc360b4355c,
@@ -28672,8 +28696,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moneyText: {fileID: 466865434}
   moneyText2: {fileID: 752345241}
-  teamAHudParent: {fileID: 1328016833}
-  teamBHudParent: {fileID: 1328016832}
+  teamAHudParentTop: {fileID: 1328016833}
+  teamAHudParentDown: {fileID: 1328016835}
+  teamBHudParentTop: {fileID: 1328016832}
+  teamBHudParentDown: {fileID: 1328016834}
   objectToSpawn: {fileID: 4790449286434151780, guid: 85dbfda6aa555c9448cb85fe28a54868,
     type: 3}
   counterA: 0
@@ -30112,7 +30138,7 @@ PrefabInstance:
     - target: {fileID: 3318485813108980121, guid: a3149a40513b9544ba50dbc360b4355c,
         type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3625162969964091682, guid: a3149a40513b9544ba50dbc360b4355c,
         type: 3}
@@ -30164,6 +30190,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5798364566599221765, guid: a3149a40513b9544ba50dbc360b4355c,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 5912470721485536719, guid: a3149a40513b9544ba50dbc360b4355c,
         type: 3}
       propertyPath: m_RootOrder
@@ -30177,7 +30208,7 @@ PrefabInstance:
     - target: {fileID: 6640429381049770826, guid: a3149a40513b9544ba50dbc360b4355c,
         type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 6804217096247626867, guid: a3149a40513b9544ba50dbc360b4355c,
         type: 3}
@@ -30288,6 +30319,18 @@ GameObject:
 --- !u!1 &1328016833 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7198172561548620347, guid: a3149a40513b9544ba50dbc360b4355c,
+    type: 3}
+  m_PrefabInstance: {fileID: 1328016825}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1328016834 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7930377476826491571, guid: a3149a40513b9544ba50dbc360b4355c,
+    type: 3}
+  m_PrefabInstance: {fileID: 1328016825}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1328016835 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6753238502003321614, guid: a3149a40513b9544ba50dbc360b4355c,
     type: 3}
   m_PrefabInstance: {fileID: 1328016825}
   m_PrefabAsset: {fileID: 0}

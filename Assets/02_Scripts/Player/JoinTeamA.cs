@@ -9,6 +9,7 @@ using UnityEngine.UI;
 public class JoinTeamA : MonoBehaviourPunCallbacks
 {
     int playerPos;
+    int idPos;
     [SerializeField] GameObject playerPref;
     bool callJoin;
     private void Start()
@@ -24,22 +25,27 @@ public class JoinTeamA : MonoBehaviourPunCallbacks
                 if (player.GetComponentInParent<PlayerTeam>().TeamA && player.GetComponentInParent<PlayerTeam>().TeamB)
                     return;
                 player.GetComponentInParent<PlayerTeam>().TeamA = true;
-                photonView.RPC("ActivateText", RpcTarget.AllBuffered, player.GetComponentInParent<PlayerId>().name, player.GetComponentInParent<PlayerId>().id);
+                photonView.RPC("ActivateText", RpcTarget.AllBuffered, player.GetComponentInParent<PlayerId>().name);
+                photonView.RPC("AddPlayerId", RpcTarget.MasterClient, player.GetComponentInParent<PlayerId>().id);
             }
         }
   }
 
     [PunRPC]
-    public void ActivateText(string name, int id)
+    public void ActivateText(string name)
     {
         Debug.Log("Llamado");
         FakeLobbyUsers.users[playerPos].gameObject.SetActive(true);
         FakeLobbyUsers.users[playerPos].text = name;
-        if (photonView.IsMine) 
-        {
-        PhotonManager.teamA_id[playerPos] = id;
-        }
         playerPos = playerPos + 1;     
+    }
+    public void AddPlayerId(int id) 
+    {
+        if (photonView.IsMine)
+        {
+            PhotonManager.teamA_id[idPos] = id;
+        }
+        idPos = idPos + 1;
     }
     public void InstPlayer()
     {

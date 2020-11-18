@@ -4,7 +4,7 @@ using UnityEngine;
 using Photon.Realtime;
 using Photon.Pun;
 
-public class PhotonManager : MonoBehaviourPunCallbacks
+public class PhotonManager : MonoBehaviourPunCallbacks,IPunObservable
 {
     public static int[] teamA_id;
     public static int[] teamB_id;
@@ -22,5 +22,18 @@ public class PhotonManager : MonoBehaviourPunCallbacks
         teamA_Id_Var = teamA_id;     
         teamB_Id_Var = teamB_id;     
     }
-    
+    public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
+    {
+        if (stream.IsWriting)
+        {
+            stream.SendNext(teamA_id);
+            stream.SendNext(teamB_id);
+        }
+        else if (stream.IsReading)
+        {           
+            teamA_id = (int[])stream.ReceiveNext();
+            teamB_id= (int[])stream.ReceiveNext();
+        }
+    }
+
 }
