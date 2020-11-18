@@ -44,6 +44,20 @@ public class TaskDropDown : MonoBehaviourPunCallbacks,I_Interactable
         managerMinijuegos.ComenzarUnMinijuego(minigame, playerActorNumber);
         Debug.Log("El minijuego lo comenzo el jugador: " + playerActorNumber);
     }
+
+    //[PunRPC] //esto lo llama el jugador
+    //public void JugadorComienzaMinijuego2(int playerActorNumber, int minigame)
+    //{
+    //    managerMinijuegos.ComenzarUnMinijuego(minigame, playerActorNumber);
+    //    Debug.Log("El minijuego lo comenzo el jugador: " + playerActorNumber);
+    //}
+
+    //[PunRPC] //esto lo llama el jugador
+    //public void JugadorComienzaMinijuego3(int playerActorNumber, int minigame)
+    //{
+    //    managerMinijuegos.ComenzarUnMinijuego(minigame, playerActorNumber);
+    //    Debug.Log("El minijuego lo comenzo el jugador: " + playerActorNumber);
+    //}
     public void OnLeavePanel()
     {
         taskBarPanel.transform.DOMoveY(1540, 1);
