@@ -33,6 +33,7 @@ public class Lightstick : MonoBehaviour
         estaJugando = true;
         transform.rotation = transInicial.rotation;
         sgteCor = StartCoroutine("Actividad");
+        Debug.Log("Lightstick se activo");
     }
 
     void Update()
