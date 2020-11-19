@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using TMPro;
 
 
@@ -16,10 +17,10 @@ public class MiniJuegoCarteles : MonoBehaviourPunCallbacks
     const float tiempoParaRealizarMinijuego = 30;
 
     [HideInInspector] public int carteles;
-    //int owo;
+    public Image cartelesBarra;
 
     int cartelesJugador2 = 0;
-    public TextMeshProUGUI contadorJugador2;
+    public Image contadorJugador2;
 
     //la cantidad de carteles que yo he colocado
     [SerializeField] GameObject cartelesSpot;
@@ -46,7 +47,7 @@ public class MiniJuegoCarteles : MonoBehaviourPunCallbacks
         ResetCarteles(0);
         cartelesJugador2 = 0;
         esquinas = 0;
-        contadorJugador2.text = cartelesJugador2.ToString();
+        //contadorJugador2.text = cartelesJugador2.ToString();
         foreach (Transform child in cartelesSpot.transform)
         {
             Destroy(child.gameObject);
@@ -113,7 +114,7 @@ public class MiniJuegoCarteles : MonoBehaviourPunCallbacks
     public void ReciboActualizacionDeOtroJugador()
     {
         cartelesJugador2++;
-        contadorJugador2.text = cartelesJugador2.ToString();
+        //contadorJugador2.text = cartelesJugador2.ToString();
         //Actualizar ui
     }
 
