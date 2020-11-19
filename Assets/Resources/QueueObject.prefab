@@ -62,14 +62,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
   m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -90,6 +90,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 097c23b4352f6ac40a346ea3dd1a09b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  quedeData:
+  - {fileID: 11400000, guid: d125fe95f05484e44be9d708e82e6c87, type: 2}
+  - {fileID: 11400000, guid: cc9eda77720b2514ca3ab52f2eefd452, type: 2}
+  - {fileID: 11400000, guid: 57d958f3452d4db418275d67de78c515, type: 2}
+  sprite: {fileID: 5604172112475296213}
+  timeToDissapear: 0
+  panelTimer: {fileID: 1701119450374663187}
+  teamA: 0
+  teamB: 0
 --- !u!114 &3121282714107356422
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -186,7 +195,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.7924528, g: 0.5719117, b: 0.5719117, a: 1}
   m_RaycastTarget: 1
   m_Maskable: 1
   m_OnCullStateChanged:

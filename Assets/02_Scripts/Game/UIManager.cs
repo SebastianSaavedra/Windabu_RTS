@@ -58,7 +58,7 @@ public class UIManager : MonoBehaviourPunCallbacks
     }
     public void RPCInstantiateInTeamA()
     {
-        photonView.RPC("InstantiateInTeamA", RpcTarget.AllViaServer);
+        photonView.RPC("InstantiateInTeamA", RpcTarget.AllViaServer,0);
         //photonView.RPC("InstantiateInTeamA", TargetPlayerByActorNumber(PhotonManager.teamA_id[0]));
         //photonView.RPC("InstantiateInTeamA", TargetPlayerByActorNumber(PhotonManager.teamA_id[1]));
         //photonView.RPC("InstantiateInTeamA", TargetPlayerByActorNumber(PhotonManager.teamA_id[2]));
@@ -71,19 +71,21 @@ public class UIManager : MonoBehaviourPunCallbacks
         //photonView.RPC("InstantiateInTeamB", TargetPlayerByActorNumber(PhotonManager.teamB_id[2]));
     }
 
-    public void InstantiateInTeamB()
+    public void InstantiateInTeamB(int toSpawn)
     {
         if (counterA < 4)
         {
             GameObject objectToQue = Instantiate(objectToSpawn, teamBHudParentTop.transform.position, objectToSpawn.transform.rotation);
             objectToQue.transform.parent = teamBHudParentTop.transform;
             objectToQue.transform.localScale = teamBHudParentTop.transform.localScale;
+            objectToQue.GetComponent<QueueObjLogic>().ChangeAppearence(toSpawn);
         }
         else
         {
             GameObject objectToQue = Instantiate(objectToSpawn, teamBHudParentDown.transform.position, objectToSpawn.transform.rotation);
             objectToQue.transform.parent = teamBHudParentDown.transform;
             objectToQue.transform.localScale = teamBHudParentDown.transform.localScale;
+            objectToQue.GetComponent<QueueObjLogic>().ChangeAppearence(toSpawn);
         }
     }
     public override void OnPlayerEnteredRoom(Player newPlayer)
@@ -92,21 +94,47 @@ public class UIManager : MonoBehaviourPunCallbacks
     }
 
     [PunRPC]
-    public void InstantiateInTeamA()
+    public void InstantiateInTeamA(int toSpawn)
     {
         counterA++;
         if (counterA < 4)
         {
             GameObject objectToQue = Instantiate(objectToSpawn, teamAHudParentTop.transform.position, Quaternion.identity);
             objectToQue.transform.parent = teamAHudParentTop.transform;
-            objectToQue.transform.localScale=teamAHudParentTop.transform.localScale;
+            objectToQue.transform.localScale = teamAHudParentTop.transform.localScale;
+            objectToQue.GetComponent<QueueObjLogic>().ChangeAppearence(toSpawn);
+            objectToQue.GetComponent<QueueObjLogic>().teamA = true;
         }
         else
         {
             GameObject objectToQue = Instantiate(objectToSpawn, teamAHudParentDown.transform.position, Quaternion.identity);
             objectToQue.transform.parent = teamAHudParentDown.transform;
             objectToQue.transform.localScale = teamAHudParentDown.transform.localScale;
+            objectToQue.GetComponent<QueueObjLogic>().ChangeAppearence(toSpawn);
+            objectToQue.GetComponent<QueueObjLogic>().teamA = true;
         }
-
     }
+
+
+    public void DeValueCounterA() 
+    {
+        photonView.RPC("DeValueCounterARPC", RpcTarget.AllBuffered);
+    }
+
+    public void DeValueCounterB()
+    {
+        photonView.RPC("DeValueCounterBRPC", RpcTarget.AllBuffered);
+    }
+    [PunRPC]
+    public void DeValueCounterARPC()
+    {
+        counterA--;
+    }
+
+    [PunRPC]
+    public void DeValueCounterBRPC()
+    {
+        counterB--;
+    }
+
 }
