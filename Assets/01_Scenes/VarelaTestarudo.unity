@@ -328,9 +328,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemSpawnerPos: {fileID: 1756523334}
   impresoraCost: 10
-  impresoraDelay: 5
+  impresoraDelay: 15
   impresora: {fileID: 4073144790399955248, guid: 27f628dd141df584d81a36e777a36b23,
     type: 3}
+  team: 0
+  uiMan: {fileID: 1160458838}
 --- !u!114 &15769759
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3581,9 +3583,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemSpawnerPos: {fileID: 1085434232}
   impresoraCost: 10
-  impresoraDelay: 5
+  impresoraDelay: 15
   impresora: {fileID: 4073144790399955248, guid: 27f628dd141df584d81a36e777a36b23,
     type: 3}
+  team: 1
+  uiMan: {fileID: 1160458838}
 --- !u!1 &435301273
 GameObject:
   m_ObjectHideFlags: 0
@@ -29663,6 +29667,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slotId: 0
+  partesAmount: 0
 --- !u!114 &1196952989
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -33085,18 +33090,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1689171238}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1160458838}
-        m_MethodName: RPCInstantiateInTeamA
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &1689171238
 MonoBehaviour:
   m_ObjectHideFlags: 0

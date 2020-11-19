@@ -22,12 +22,9 @@ public class UIManager : MonoBehaviourPunCallbacks
 
     private void Start()
     {
-        if (PhotonNetwork.IsMasterClient)   //Tener en mente que este codigo puede producir errores a futuro.
+        if (PhotonNetwork.IsMasterClient)
         {
-            //SetearUIMasterClient();
             playersActuales.Add(PhotonNetwork.LocalPlayer);
-            Debug.Log("On joined room ha sido debugea2 (?");
-
         }
     }
     void Update()
@@ -35,26 +32,17 @@ public class UIManager : MonoBehaviourPunCallbacks
         moneyText.text = MinigameManager.dinero.ToString();
         moneyText2.text = MinigameManager.dinero.ToString();
     }
-    Player TargetPlayerByActorNumber(int playerActorNumber)
+    #region InstLogic
+    public void CallRpc(bool call) 
     {
-        //Solamente se tiene para mostrar el número de jugadores y su actorNumber
-        foreach (var item in playersActuales)
+        if (call) 
         {
-            Debug.Log("Players: " + item.ActorNumber);
+            RPCInstantiateInTeamA();
         }
-
-        //Determina a qué jugador debemos enviarle el RPC según su actor number 
-        //(identificador de cada jugador en esta sala de juego)
-        Player playerToReturn = null;
-        for (int i = 0; i < playersActuales.Count; i++)
+        else 
         {
-            if (playersActuales[i].ActorNumber == playerActorNumber)
-            {
-                playerToReturn = playersActuales[i];
-                break;
-            }
+            RPCInstantiateInTeamB();
         }
-        return playerToReturn;
     }
     public void RPCInstantiateInTeamA()
     {
@@ -70,15 +58,15 @@ public class UIManager : MonoBehaviourPunCallbacks
         //photonView.RPC("InstantiateInTeamB", TargetPlayerByActorNumber(PhotonManager.teamB_id[1]));
         //photonView.RPC("InstantiateInTeamB", TargetPlayerByActorNumber(PhotonManager.teamB_id[2]));
     }
-
     public void InstantiateInTeamB(int toSpawn)
     {
-        if (counterA < 4)
+        if (counterB < 4)
         {
             GameObject objectToQue = Instantiate(objectToSpawn, teamBHudParentTop.transform.position, objectToSpawn.transform.rotation);
             objectToQue.transform.parent = teamBHudParentTop.transform;
             objectToQue.transform.localScale = teamBHudParentTop.transform.localScale;
             objectToQue.GetComponent<QueueObjLogic>().ChangeAppearence(toSpawn);
+            objectToQue.GetComponent<QueueObjLogic>().teamB=true;
         }
         else
         {
@@ -86,11 +74,8 @@ public class UIManager : MonoBehaviourPunCallbacks
             objectToQue.transform.parent = teamBHudParentDown.transform;
             objectToQue.transform.localScale = teamBHudParentDown.transform.localScale;
             objectToQue.GetComponent<QueueObjLogic>().ChangeAppearence(toSpawn);
+            objectToQue.GetComponent<QueueObjLogic>().teamB=true;
         }
-    }
-    public override void OnPlayerEnteredRoom(Player newPlayer)
-    {
-        playersActuales.Add(newPlayer);
     }
 
     [PunRPC]
@@ -135,6 +120,32 @@ public class UIManager : MonoBehaviourPunCallbacks
     public void DeValueCounterBRPC()
     {
         counterB--;
+    }
+    #endregion
+    Player TargetPlayerByActorNumber(int playerActorNumber)
+    {
+        //Solamente se tiene para mostrar el número de jugadores y su actorNumber
+        foreach (var item in playersActuales)
+        {
+           
+        }
+
+        //Determina a qué jugador debemos enviarle el RPC según su actor number 
+        //(identificador de cada jugador en esta sala de juego)
+        Player playerToReturn = null;
+        for (int i = 0; i < playersActuales.Count; i++)
+        {
+            if (playersActuales[i].ActorNumber == playerActorNumber)
+            {
+                playerToReturn = playersActuales[i];
+                break;
+            }
+        }
+        return playerToReturn;
+    }
+    public override void OnPlayerEnteredRoom(Player newPlayer)
+    {
+        playersActuales.Add(newPlayer);
     }
 
 }
