@@ -218,85 +218,19 @@ public class ManagerMinijuegos : MonoBehaviourPunCallbacks
         {
             if (player.GetComponentInParent<PlayerId>().id == playerId)
             {
-                player.GetComponentInParent<TEST_Interact>().objectToInteract = parentObjetosMinijuegosDOSPlayers[minijuego];
                 if (player.GetComponentInParent<PlayerTeam>().TeamA) 
-                {
-                    Debug.Log("AAAAAAAAAA");
-    switch (minijuego) 
-        {
-            case 0:
-               panel = Instantiate(minigameData[0].PanelVSA, parentObjetosMinijuegosUNPlayer[0].transform.position, Quaternion.identity);
+                {             
+               panel = Instantiate(minigameData[minijuego].PanelVSA, parentObjetosMinijuegosUNPlayer[0].transform.position, Quaternion.identity);
                panel.transform.parent = parentObjetosMinijuegosUNPlayer[0].transform;
                panel.transform.localScale = new Vector3(1, 1, 1);
-                break;
-           
-          case 1:
-             panel = Instantiate(minigameData[0].PanelVSA, parentObjetosMinijuegosUNPlayer[0].transform.position, Quaternion.identity);
-             panel.transform.parent = parentObjetosMinijuegosUNPlayer[0].transform;
-             panel.transform.localScale = new Vector3(1, 1, 1);
-             break;
-         case 2:
-           panel = Instantiate(minigameData[1].PanelVSA, parentObjetosMinijuegosUNPlayer[0].transform.position, Quaternion.identity);
-           panel.transform.parent = parentObjetosMinijuegosUNPlayer[0].transform;
-           panel.transform.localScale = new Vector3(1, 1, 1);
-                            break;
-
-          case 3:
-           panel = Instantiate(minigameData[1].PanelVSA, parentObjetosMinijuegosUNPlayer[0].transform.position, Quaternion.identity);
-           panel.transform.parent = parentObjetosMinijuegosUNPlayer[0].transform;
-           panel.transform.localScale = new Vector3(1, 1, 1);
-                            break;
-                        case 4:
-                            panel = Instantiate(minigameData[2].PanelVSA, parentObjetosMinijuegosUNPlayer[0].transform.position, Quaternion.identity);
-                            panel.transform.parent = parentObjetosMinijuegosUNPlayer[0].transform;
-                            panel.transform.localScale = new Vector3(1, 1, 1);
-                            break;
-
-                        case 5:
-                            panel = Instantiate(minigameData[2].PanelVSA, parentObjetosMinijuegosUNPlayer[0].transform.position, Quaternion.identity);
-                            panel.transform.parent = parentObjetosMinijuegosUNPlayer[0].transform;
-                            panel.transform.localScale = new Vector3(1, 1, 1);
-                            break;
-                    }
+               player.GetComponentInParent<TEST_Interact>().objectToInteract = panel;
                 }
                 if (player.GetComponentInParent<PlayerTeam>().TeamB)
                 {
-                    switch (minijuego)
-                    {
-                        case 0:
-                            panel = Instantiate(minigameData[0].PanelVSB, parentObjetosMinijuegosUNPlayer[0].transform.position, Quaternion.identity);
+                            panel = Instantiate(minigameData[minijuego].PanelVSB, parentObjetosMinijuegosUNPlayer[0].transform.position, Quaternion.identity);
                             panel.transform.parent = parentObjetosMinijuegosUNPlayer[0].transform;
                             panel.transform.localScale = new Vector3(1, 1, 1);
-                            break;
-
-                        case 1:
-                            panel = Instantiate(minigameData[0].PanelVSB, parentObjetosMinijuegosUNPlayer[0].transform.position, Quaternion.identity);
-                            panel.transform.parent = parentObjetosMinijuegosUNPlayer[0].transform;
-                            panel.transform.localScale = new Vector3(1, 1, 1);
-                            break;
-                        case 2:
-                            panel = Instantiate(minigameData[1].PanelVSB, parentObjetosMinijuegosUNPlayer[0].transform.position, Quaternion.identity);
-                            panel.transform.parent = parentObjetosMinijuegosUNPlayer[0].transform;
-                            panel.transform.localScale = new Vector3(1, 1, 1);
-                            break;
-
-                        case 3:
-                            panel = Instantiate(minigameData[1].PanelVSB, parentObjetosMinijuegosUNPlayer[0].transform.position, Quaternion.identity);
-                            panel.transform.parent = parentObjetosMinijuegosUNPlayer[0].transform;
-                            panel.transform.localScale = new Vector3(1, 1, 1);
-                            break;
-                        case 4:
-                            panel = Instantiate(minigameData[2].PanelVSB, parentObjetosMinijuegosUNPlayer[0].transform.position, Quaternion.identity);
-                            panel.transform.parent = parentObjetosMinijuegosUNPlayer[0].transform;
-                            panel.transform.localScale = new Vector3(1, 1, 1);
-                            break;
-
-                        case 5:
-                            panel = Instantiate(minigameData[2].PanelVSB, parentObjetosMinijuegosUNPlayer[0].transform.position, Quaternion.identity);
-                            panel.transform.parent = parentObjetosMinijuegosUNPlayer[0].transform;
-                            panel.transform.localScale = new Vector3(1, 1, 1);
-                            break;
-                    }
+               player.GetComponentInParent<TEST_Interact>().objectToInteract = panel;
                 }
             }
         }
