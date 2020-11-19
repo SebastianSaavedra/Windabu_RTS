@@ -8,7 +8,8 @@ using Photon.Realtime;
 
 public class TaskDropDown : MonoBehaviourPunCallbacks,I_Interactable
 {
-    [SerializeField] GameObject taskBarPanel;
+    [SerializeField] GameObject taskBarPanelA;
+    [SerializeField] GameObject taskBarPanelB;
     [SerializeField] ManagerMinijuegos managerMinijuegos;
     public enum WiiMinigame {m1_1=0,m1_2=1,m2_1=2,m2_2=3,m3_1=4,m3_2=5};
     public WiiMinigame thisMinigame;
@@ -20,18 +21,26 @@ public class TaskDropDown : MonoBehaviourPunCallbacks,I_Interactable
     {
         thisMinigameis = (int)thisMinigame;
         canInteract = true;
-        if (taskBarPanel == null) 
+        if (taskBarPanelA || taskBarPanelB == null) 
         {
 
         }
     }
 
-    public void OnInteract() 
+    public void OnInteract(bool call) 
     {
-        taskBarPanel.SetActive(true);
+        if (call) 
+        {
+        taskBarPanelA.SetActive(true);
+        taskBarPanelA.transform.DOMoveY(136, 1);
         Debug.Log("Hola");
-        taskBarPanel.transform.DOMoveY(540,1);
-
+        }
+        else 
+        {
+            taskBarPanelB.SetActive(true);
+            taskBarPanelB.transform.DOMoveY(136, 1);
+            Debug.Log("Hola");
+        }
         int playerActorNumber = PhotonNetwork.LocalPlayer.ActorNumber;
         Debug.Log("Desde el script TaskDropDown se printea el playerActor number: " + playerActorNumber);
         photonView.RPC("JugadorComienzaMinijuego1", RpcTarget.MasterClient, playerActorNumber,(int)thisMinigame);
@@ -58,9 +67,16 @@ public class TaskDropDown : MonoBehaviourPunCallbacks,I_Interactable
     //    managerMinijuegos.ComenzarUnMinijuego(minigame, playerActorNumber);
     //    Debug.Log("El minijuego lo comenzo el jugador: " + playerActorNumber);
     //}
-    public void OnLeavePanel()
+    public void OnLeavePanel(bool call)
     {
-        taskBarPanel.transform.DOMoveY(1540, 1);
+        if (call) 
+        {
+        taskBarPanelA.transform.DOMoveY(201, 1);
+        }
+        else 
+        {
+        taskBarPanelB.transform.DOMoveY(201, 1);
+        }
     }
    
     [PunRPC]

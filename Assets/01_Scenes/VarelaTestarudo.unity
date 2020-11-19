@@ -2640,7 +2640,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba3d8771f5a3f6043bc59de72de367f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  taskBarPanel: {fileID: 845782804}
+  taskBarPanelA: {fileID: 0}
+  taskBarPanelB: {fileID: 0}
   managerMinijuegos: {fileID: 0}
   thisMinigame: 0
   canInteract: 0
@@ -4870,7 +4871,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba3d8771f5a3f6043bc59de72de367f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  taskBarPanel: {fileID: 845782804}
+  taskBarPanelA: {fileID: 0}
+  taskBarPanelB: {fileID: 0}
   managerMinijuegos: {fileID: 0}
   thisMinigame: 0
   canInteract: 0
@@ -5248,7 +5250,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba3d8771f5a3f6043bc59de72de367f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  taskBarPanel: {fileID: 1213445407}
+  taskBarPanelA: {fileID: 0}
+  taskBarPanelB: {fileID: 0}
   managerMinijuegos: {fileID: 2013361922}
   thisMinigame: 5
   canInteract: 0
@@ -24589,7 +24592,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba3d8771f5a3f6043bc59de72de367f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  taskBarPanel: {fileID: 1213445407}
+  taskBarPanelA: {fileID: 0}
+  taskBarPanelB: {fileID: 0}
   managerMinijuegos: {fileID: 2013361922}
   thisMinigame: 4
   canInteract: 0
@@ -24904,12 +24908,6 @@ PrefabInstance:
 --- !u!224 &845782803 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 1499045785868562662, guid: fd244381c501bcc4599656add10a85fe,
-    type: 3}
-  m_PrefabInstance: {fileID: 845782802}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &845782804 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1499045785868562661, guid: fd244381c501bcc4599656add10a85fe,
     type: 3}
   m_PrefabInstance: {fileID: 845782802}
   m_PrefabAsset: {fileID: 0}
@@ -30547,6 +30545,11 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 1915623000864735837, guid: a3149a40513b9544ba50dbc360b4355c,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 364
+      objectReference: {fileID: 0}
     - target: {fileID: 1987159338703892242, guid: a3149a40513b9544ba50dbc360b4355c,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -30971,6 +30974,18 @@ GameObject:
 --- !u!1 &1328016843 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6119044309406266426, guid: a3149a40513b9544ba50dbc360b4355c,
+    type: 3}
+  m_PrefabInstance: {fileID: 1328016825}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1328016844 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6760374190858017215, guid: a3149a40513b9544ba50dbc360b4355c,
+    type: 3}
+  m_PrefabInstance: {fileID: 1328016825}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1328016845 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5665018622315700026, guid: a3149a40513b9544ba50dbc360b4355c,
     type: 3}
   m_PrefabInstance: {fileID: 1328016825}
   m_PrefabAsset: {fileID: 0}
@@ -33199,7 +33214,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba3d8771f5a3f6043bc59de72de367f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  taskBarPanel: {fileID: 1889526653}
+  taskBarPanelA: {fileID: 1328016845}
+  taskBarPanelB: {fileID: 1328016844}
   managerMinijuegos: {fileID: 2013361922}
   thisMinigame: 0
   canInteract: 0
@@ -33829,7 +33845,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba3d8771f5a3f6043bc59de72de367f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  taskBarPanel: {fileID: 2134731344}
+  taskBarPanelA: {fileID: 0}
+  taskBarPanelB: {fileID: 0}
   managerMinijuegos: {fileID: 2013361922}
   thisMinigame: 3
   canInteract: 0
@@ -35042,7 +35059,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba3d8771f5a3f6043bc59de72de367f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  taskBarPanel: {fileID: 2134731344}
+  taskBarPanelA: {fileID: 0}
+  taskBarPanelB: {fileID: 0}
   managerMinijuegos: {fileID: 2013361922}
   thisMinigame: 2
   canInteract: 0
@@ -35375,7 +35393,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba3d8771f5a3f6043bc59de72de367f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  taskBarPanel: {fileID: 1889526653}
+  taskBarPanelA: {fileID: 1328016845}
+  taskBarPanelB: {fileID: 1328016844}
   managerMinijuegos: {fileID: 2013361922}
   thisMinigame: 1
   canInteract: 0

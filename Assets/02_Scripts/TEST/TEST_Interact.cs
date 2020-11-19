@@ -22,14 +22,14 @@ public class TEST_Interact : MonoBehaviourPunCallbacks
         {
             if (objectToInteract.GetComponent<I_Interactable>()!=null && objectToInteract.GetComponent<TaskDropDown>().canInteract)
             {
-                    minigameID = (int)objectToInteract.GetComponent<TaskDropDown>().thisMinigame;
-                objectToInteract.GetComponent<I_Interactable>().OnInteract();
+                 minigameID = (int)objectToInteract.GetComponent<TaskDropDown>().thisMinigame;
+                objectToInteract.GetComponent<I_Interactable>().OnInteract(GetComponent<PlayerTeam>().team);
                     GetComponent<TEST_Movement>().enabled = false;
             }
         }
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            objectToInteract.GetComponent<I_Interactable>().OnLeavePanel();
+            objectToInteract.GetComponent<I_Interactable>().OnLeavePanel(GetComponent<PlayerTeam>().team);
                 GetComponent<TEST_Movement>().enabled = true;
             }
         }
@@ -47,7 +47,7 @@ public class TEST_Interact : MonoBehaviourPunCallbacks
     {
         if (photonView.IsMine) 
         {
-            objectToInteract.GetComponent<I_Interactable>().OnLeavePanel();
+            objectToInteract.GetComponent<I_Interactable>().OnLeavePanel(GetComponent<PlayerTeam>().team);
             objectToInteract = null;
             speakingTo = null;
             thisTask = null;

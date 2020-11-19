@@ -7,11 +7,11 @@ using Photon.Pun;
 public class InteractablePanel : MonoBehaviourPunCallbacks,I_Interactable
 {
 
-    public void OnInteract() 
+    public void OnInteract(bool call) 
     {
 
     }
-    public void OnLeavePanel()
+    public void OnLeavePanel(bool call)
     {
         this.gameObject.SetActive(false);
     }

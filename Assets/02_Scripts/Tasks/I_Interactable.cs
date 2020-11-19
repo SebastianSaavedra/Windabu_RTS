@@ -4,9 +4,9 @@ using UnityEngine;
 
 public interface I_Interactable
 {
-   void OnInteract();
+   void OnInteract(bool call);
 
-    void OnLeavePanel();
+    void OnLeavePanel(bool call);
     void OnFinishTask();
 
     void RPCdata();

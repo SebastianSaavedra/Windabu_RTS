@@ -51,7 +51,7 @@ public class MinigameManager : MonoBehaviourPunCallbacks
                     player.GetComponentInParent<TEST_Interact>().speakingTo.Team2();
                 }
                 managerMinijuegos.ReseteoDeCarteles(player.GetComponentInParent<TEST_Interact>().minigameID);
-                player.GetComponentInParent<TEST_Interact>().objectToInteract.GetComponent<I_Interactable>().OnLeavePanel();
+                player.GetComponentInParent<TEST_Interact>().objectToInteract.GetComponent<I_Interactable>().OnLeavePanel(player.GetComponentInParent<PlayerTeam>().team);
                 player.GetComponentInParent<TEST_Interact>().thisTask.RPCdata();
             }
         }

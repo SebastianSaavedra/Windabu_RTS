@@ -5,12 +5,12 @@ using DG.Tweening;
 
 public class Obj_Impresora : MonoBehaviour,I_Interactable
 {
-    public void OnInteract()
+    public void OnInteract(bool call)
     {
         Debug.Log("Interacting");
     }
 
-    public void OnLeavePanel()
+    public void OnLeavePanel(bool call)
     {
     }
 
