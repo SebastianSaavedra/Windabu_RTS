@@ -51,14 +51,23 @@ public class MerchandiseMinigame : MonoBehaviourPunCallbacks
         }
     }
 
-    void FinishTask()
+    public void FinishTask()
     {
         foreach (GameObject player in GameObject.FindGameObjectsWithTag("Player"))
         {
             if (player.GetComponentInParent<PlayerId>().id == PhotonNetwork.LocalPlayer.ActorNumber)
             {
-                player.GetComponentInParent<TEST_Interact>().objectToInteract.GetComponent<I_Interactable>().OnFinishTask();
                 player.GetComponentInParent<TEST_Movement>().enabled = true;
+                if (player.GetComponentInParent<PlayerTeam>().TeamA)
+                {
+                    player.GetComponentInParent<TEST_Interact>().speakingTo.Team1();
+                }
+                else if (player.GetComponentInParent<PlayerTeam>().TeamB)
+                {
+                    player.GetComponentInParent<TEST_Interact>().speakingTo.Team2();
+                }
+                player.GetComponentInParent<TEST_Interact>().objectToInteract.GetComponent<I_Interactable>().OnLeavePanel(player.GetComponentInParent<PlayerTeam>().team);
+                player.GetComponentInParent<TEST_Interact>().thisTask.RPCdata();
             }
         }
     }

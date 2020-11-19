@@ -4,6 +4,7 @@ using UnityEngine;
 using Photon.Pun;
 using Photon.Realtime;
 using UnityEngine.UI;
+using TMPro;
 public class PlazaCentralManager : MonoBehaviourPunCallbacks,IPunObservable
 {
     public static int Tijeras_A;
@@ -18,7 +19,7 @@ public class PlazaCentralManager : MonoBehaviourPunCallbacks,IPunObservable
     [SerializeField] int papelA;
     public static int Papel_B;
     [SerializeField] int papelB;
-    [SerializeField] Text ta, tb, pia, pib, paa, pab;
+    [SerializeField] TextMeshProUGUI ta, tb, pia, pib, paa, pab;
 
     private void Awake()
     {
