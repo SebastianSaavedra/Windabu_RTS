@@ -12,8 +12,6 @@ public class PhotonManager : MonoBehaviourPunCallbacks,IPunObservable
     public int[] teamA_Id_Var;
     public int[] teamB_Id_Var;
     [SerializeField] int receivedInt;
-    [SerializeField] Text[] teamA;
-    [SerializeField] Text[] teamB;
     private void Awake()
     {
         PhotonNetwork.AddCallbackTarget(this);
@@ -31,9 +29,6 @@ public class PhotonManager : MonoBehaviourPunCallbacks,IPunObservable
     {
         teamA_Id_Var = teamA_id;     
         teamB_Id_Var = teamB_id;
-        teamA[0].text = ""+  teamA_id[0];
-        teamA[1].text = "" + teamA_id[1];
-        teamA[2].text = "" + teamA_id[2];
     }
     public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
     {

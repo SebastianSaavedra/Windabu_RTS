@@ -21,7 +21,7 @@ public class JoinTeamB : MonoBehaviourPunCallbacks
                     return;
                 player.GetComponentInParent<PlayerTeam>().TeamB = true;
                 photonView.RPC("ActivateText", RpcTarget.AllBuffered, player.GetComponentInParent<PlayerId>().name);
-                photonView.RPC("AddPlayerId", RpcTarget.MasterClient, player.GetComponentInParent<PlayerId>().id);
+                photonView.RPC("AddPlayerId", RpcTarget.AllBuffered, player.GetComponentInParent<PlayerId>().id);
             }
         }
     }
@@ -37,10 +37,7 @@ public class JoinTeamB : MonoBehaviourPunCallbacks
     [PunRPC]
     public void AddPlayerId(int id)
     {
-        if (photonView.IsMine)
-        {
-            PhotonManager.teamA_id[idPos] = id;
-        }
+        PhotonManager.teamB_id[idPos] = id;
         idPos = idPos + 1;
     }
     public void InstPlayer()
