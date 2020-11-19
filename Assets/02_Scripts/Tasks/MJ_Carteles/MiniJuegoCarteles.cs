@@ -28,7 +28,7 @@ public class MiniJuegoCarteles : MonoBehaviourPunCallbacks
     [SerializeField] BoxCollider2D col2d;
     Coroutine sgteCor;
     [SerializeField] Cartel cartel;
-    [SerializeField] int esquinas;
+    int esquinas;
     private void Awake()
     {
         col2d.GetComponent<BoxCollider2D>();
@@ -80,8 +80,7 @@ public class MiniJuegoCarteles : MonoBehaviourPunCallbacks
     void Carteles(int valor)
     {
         carteles += valor;
-        cartelesBarra.fillAmount += (float)carteles/10;
-        Debug.Log("Cantidad de carteles: " + carteles);
+
 
         if (carteles >= 3)
         {
@@ -115,8 +114,6 @@ public class MiniJuegoCarteles : MonoBehaviourPunCallbacks
     public void ReciboActualizacionDeOtroJugador()
     {
         cartelesJugador2++;
-        contadorJugador2.fillAmount += (float)cartelesJugador2 / 10;
-        Debug.Log("Cantidad de carteles del player2: " + contadorJugador2);
         //contadorJugador2.text = cartelesJugador2.ToString();
         //Actualizar ui
     }

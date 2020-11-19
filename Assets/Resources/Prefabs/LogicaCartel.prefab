@@ -384,9 +384,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   carteles: 0
-  cartelesBarra: {fileID: 0}
   contadorJugador2: {fileID: 0}
-  cartelesSpot: {fileID: 2777409122975395497}
+  cartelesSpot: {fileID: 0}
   col2d: {fileID: 3075326369549175458}
   cartel: {fileID: 107902567741026901}
 --- !u!114 &3832005287362935692
@@ -536,6 +535,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slotId: 0
+  partesAmount: 0
 --- !u!1 &8795692025508294758
 GameObject:
   m_ObjectHideFlags: 0
