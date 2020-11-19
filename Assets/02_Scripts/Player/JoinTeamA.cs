@@ -26,7 +26,7 @@ public class JoinTeamA : MonoBehaviourPunCallbacks
                     return;
                 player.GetComponentInParent<PlayerTeam>().TeamA = true;
                 photonView.RPC("ActivateText", RpcTarget.AllBuffered, player.GetComponentInParent<PlayerId>().name);
-                photonView.RPC("AddPlayerId", RpcTarget.MasterClient, player.GetComponentInParent<PlayerId>().id);
+                photonView.RPC("AddPlayerId", RpcTarget.AllBuffered, player.GetComponentInParent<PlayerId>().id);
             }
         }
   }

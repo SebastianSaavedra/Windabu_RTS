@@ -58,7 +58,6 @@ public class UIManager : MonoBehaviourPunCallbacks
     }
     public void RPCInstantiateInTeamA()
     {
-        // photonView.RPC("InstantiateInTeamA", RpcTarget.AllViaServer);
         photonView.RPC("InstantiateInTeamA", TargetPlayerByActorNumber(PhotonManager.teamA_id[0]));
         photonView.RPC("InstantiateInTeamA", TargetPlayerByActorNumber(PhotonManager.teamA_id[1]));
         photonView.RPC("InstantiateInTeamA", TargetPlayerByActorNumber(PhotonManager.teamA_id[2]));
@@ -66,9 +65,9 @@ public class UIManager : MonoBehaviourPunCallbacks
     public void RPCInstantiateInTeamB()
     {
         //photonView.RPC("InstantiateInTeamA", RpcTarget.AllViaServer);
-        photonView.RPC("InstantiateInTeamB", TargetPlayerByActorNumber(PhotonManager.teamA_id[0]));
-        photonView.RPC("InstantiateInTeamB", TargetPlayerByActorNumber(PhotonManager.teamA_id[1]));
-        photonView.RPC("InstantiateInTeamB", TargetPlayerByActorNumber(PhotonManager.teamA_id[2]));
+        photonView.RPC("InstantiateInTeamB", TargetPlayerByActorNumber(PhotonManager.teamB_id[0]));
+        photonView.RPC("InstantiateInTeamB", TargetPlayerByActorNumber(PhotonManager.teamB_id[1]));
+        photonView.RPC("InstantiateInTeamB", TargetPlayerByActorNumber(PhotonManager.teamB_id[2]));
     }
 
     public void InstantiateInTeamB()
@@ -86,18 +85,24 @@ public class UIManager : MonoBehaviourPunCallbacks
             objectToQue.transform.parent = teamBHudParentDown.transform;
         }
     }
+    public override void OnPlayerEnteredRoom(Player newPlayer)
+    {
+        Debug.Log("Jugador entra a room");
+        playersActuales.Add(newPlayer);
+    }
 
     [PunRPC]
     public void InstantiateInTeamA()
     {
         if (counterA < 4)
         {
-            GameObject objectToQue = Instantiate(objectToSpawn, teamAHudParentTop.transform.position, objectToSpawn.transform.rotation);
+            GameObject objectToQue = Instantiate(objectToSpawn, teamAHudParentTop.transform.position, Quaternion.identity);
             objectToQue.transform.parent = teamAHudParentTop.transform;
+            objectToQue.transform.localScale = teamAHudParentTop.transform.localScale;
         }
         else
         {
-            GameObject objectToQue = Instantiate(objectToSpawn, teamAHudParentDown.transform.position, objectToSpawn.transform.rotation);
+            GameObject objectToQue = Instantiate(objectToSpawn, teamAHudParentDown.transform.position, Quaternion.identity);
             objectToQue.transform.parent = teamAHudParentDown.transform;
         }
 
