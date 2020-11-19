@@ -13,6 +13,8 @@ public class ShopManager : MonoBehaviour
 
     //Prefabs
     public GameObject impresora;
+    [SerializeField] bool team;
+    [SerializeField] UIManager uiMan;
 
     private void Start()
     {
@@ -24,6 +26,7 @@ public class ShopManager : MonoBehaviour
         {
             StartCoroutine(SpawnItem(impresoraDelay, impresora));
             MinigameManager.dinero -= (int)impresoraCost;
+            uiMan.CallRpc(team);
             //gameObject.GetComponent<TeamManager>().money -= impresoraCost;
         }
         else
