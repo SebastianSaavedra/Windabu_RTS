@@ -58,47 +58,54 @@ public class UIManager : MonoBehaviourPunCallbacks
     }
     public void RPCInstantiateInTeamA()
     {
-        // photonView.RPC("InstantiateInTeamA", RpcTarget.AllViaServer);
-        photonView.RPC("InstantiateInTeamA", TargetPlayerByActorNumber(PhotonManager.teamA_id[0]));
-        photonView.RPC("InstantiateInTeamA", TargetPlayerByActorNumber(PhotonManager.teamA_id[1]));
-        photonView.RPC("InstantiateInTeamA", TargetPlayerByActorNumber(PhotonManager.teamA_id[2]));
+        photonView.RPC("InstantiateInTeamA", RpcTarget.AllViaServer);
+        //photonView.RPC("InstantiateInTeamA", TargetPlayerByActorNumber(PhotonManager.teamA_id[0]));
+        //photonView.RPC("InstantiateInTeamA", TargetPlayerByActorNumber(PhotonManager.teamA_id[1]));
+        //photonView.RPC("InstantiateInTeamA", TargetPlayerByActorNumber(PhotonManager.teamA_id[2]));
     }
     public void RPCInstantiateInTeamB()
     {
-        //photonView.RPC("InstantiateInTeamA", RpcTarget.AllViaServer);
-        photonView.RPC("InstantiateInTeamB", TargetPlayerByActorNumber(PhotonManager.teamA_id[0]));
-        photonView.RPC("InstantiateInTeamB", TargetPlayerByActorNumber(PhotonManager.teamA_id[1]));
-        photonView.RPC("InstantiateInTeamB", TargetPlayerByActorNumber(PhotonManager.teamA_id[2]));
+        photonView.RPC("InstantiateInTeamA", RpcTarget.AllViaServer);
+        //photonView.RPC("InstantiateInTeamB", TargetPlayerByActorNumber(PhotonManager.teamB_id[0]));
+        //photonView.RPC("InstantiateInTeamB", TargetPlayerByActorNumber(PhotonManager.teamB_id[1]));
+        //photonView.RPC("InstantiateInTeamB", TargetPlayerByActorNumber(PhotonManager.teamB_id[2]));
     }
 
     public void InstantiateInTeamB()
     {
-        counterA++;
         if (counterA < 4)
         {
             GameObject objectToQue = Instantiate(objectToSpawn, teamBHudParentTop.transform.position, objectToSpawn.transform.rotation);
             objectToQue.transform.parent = teamBHudParentTop.transform;
-            Debug.Log("Estoy aqui hermanito");
+            objectToQue.transform.localScale = teamBHudParentTop.transform.localScale;
         }
         else
         {
             GameObject objectToQue = Instantiate(objectToSpawn, teamBHudParentDown.transform.position, objectToSpawn.transform.rotation);
             objectToQue.transform.parent = teamBHudParentDown.transform;
+            objectToQue.transform.localScale = teamBHudParentDown.transform.localScale;
         }
+    }
+    public override void OnPlayerEnteredRoom(Player newPlayer)
+    {
+        playersActuales.Add(newPlayer);
     }
 
     [PunRPC]
     public void InstantiateInTeamA()
     {
+        counterA++;
         if (counterA < 4)
         {
-            GameObject objectToQue = Instantiate(objectToSpawn, teamAHudParentTop.transform.position, objectToSpawn.transform.rotation);
+            GameObject objectToQue = Instantiate(objectToSpawn, teamAHudParentTop.transform.position, Quaternion.identity);
             objectToQue.transform.parent = teamAHudParentTop.transform;
+            objectToQue.transform.localScale=teamAHudParentTop.transform.localScale;
         }
         else
         {
-            GameObject objectToQue = Instantiate(objectToSpawn, teamAHudParentDown.transform.position, objectToSpawn.transform.rotation);
+            GameObject objectToQue = Instantiate(objectToSpawn, teamAHudParentDown.transform.position, Quaternion.identity);
             objectToQue.transform.parent = teamAHudParentDown.transform;
+            objectToQue.transform.localScale = teamAHudParentDown.transform.localScale;
         }
 
     }
