@@ -80,7 +80,7 @@ public class MiniJuegoCarteles : MonoBehaviourPunCallbacks
     void Carteles(int valor)
     {
         carteles += valor;
-
+        cartelesBarra.fillAmount += (float)carteles / 10;
 
         if (carteles >= 3)
         {
@@ -114,6 +114,7 @@ public class MiniJuegoCarteles : MonoBehaviourPunCallbacks
     public void ReciboActualizacionDeOtroJugador()
     {
         cartelesJugador2++;
+        contadorJugador2.fillAmount += (float)cartelesJugador2 / 10;
         //contadorJugador2.text = cartelesJugador2.ToString();
         //Actualizar ui
     }
