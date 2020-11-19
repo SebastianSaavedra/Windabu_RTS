@@ -9,6 +9,7 @@ public class ItemSlot : MonoBehaviour, IDropHandler
     private float draggedId;
 
     private int partesCounter;
+    public int partesAmount;
 
     private void Start()
     {
@@ -32,9 +33,9 @@ public class ItemSlot : MonoBehaviour, IDropHandler
 
                 // Complete Impresora
                 partesCounter++;
-                if(partesCounter == 8)
+                if(partesCounter == partesAmount)
                 {
-                    LocalPlayerManager.tieneImpresora = true;
+                    // Terminar minijuego + Permitir uso de impresora para todos
                 }
 
                 //Disable

@@ -248,6 +248,7 @@ GameObject:
   - component: {fileID: 2875075979043176247}
   - component: {fileID: 2913975189943741895}
   - component: {fileID: 5024428984384219141}
+  - component: {fileID: 3421412645633042072}
   m_Layer: 5
   m_Name: Parte_CentLatIzq
   m_TagString: Untagged
@@ -339,6 +340,19 @@ MonoBehaviour:
   itemDragId: 6
   posInicial: {x: 0, y: 0, z: 0}
   locked: 0
+--- !u!114 &3421412645633042072
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2259388292008570019}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b50226457a311142b7de323ac1a3bda, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AlphaThreshold: 0.1
 --- !u!1 &3850192652224949510
 GameObject:
   m_ObjectHideFlags: 0
@@ -352,6 +366,7 @@ GameObject:
   - component: {fileID: 6079050268966460852}
   - component: {fileID: 3760857177354041060}
   - component: {fileID: 5582493635383059543}
+  - component: {fileID: 1272858818873491740}
   m_Layer: 5
   m_Name: Parte_CentLatDer
   m_TagString: Untagged
@@ -443,6 +458,19 @@ MonoBehaviour:
   itemDragId: 5
   posInicial: {x: 0, y: 0, z: 0}
   locked: 0
+--- !u!114 &1272858818873491740
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3850192652224949510}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b50226457a311142b7de323ac1a3bda, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AlphaThreshold: 0.1
 --- !u!1 &4274999028830870908
 GameObject:
   m_ObjectHideFlags: 0
@@ -456,6 +484,7 @@ GameObject:
   - component: {fileID: 4274999028830870904}
   - component: {fileID: 4274999028830870905}
   - component: {fileID: 4274999028830870910}
+  - component: {fileID: 4372684631442710542}
   m_Layer: 5
   m_Name: Parte_InfLat
   m_TagString: Untagged
@@ -547,6 +576,19 @@ MonoBehaviour:
   itemDragId: 9
   posInicial: {x: 0, y: 0, z: 0}
   locked: 0
+--- !u!114 &4372684631442710542
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4274999028830870908}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b50226457a311142b7de323ac1a3bda, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AlphaThreshold: 0.1
 --- !u!1 &4274999028875038736
 GameObject:
   m_ObjectHideFlags: 0
@@ -559,6 +601,7 @@ GameObject:
   - component: {fileID: 4274999028875038748}
   - component: {fileID: 4274999028875038749}
   - component: {fileID: 4274999028875038738}
+  - component: {fileID: 3180610784198251105}
   m_Layer: 5
   m_Name: Slot_MecanInf
   m_TagString: Untagged
@@ -635,6 +678,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slotId: 3
+  partesAmount: 12
+--- !u!114 &3180610784198251105
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4274999028875038736}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b50226457a311142b7de323ac1a3bda, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AlphaThreshold: 0.1
 --- !u!1 &4274999029015564720
 GameObject:
   m_ObjectHideFlags: 0
@@ -647,6 +704,7 @@ GameObject:
   - component: {fileID: 4274999029015564732}
   - component: {fileID: 4274999029015564733}
   - component: {fileID: 4274999029015564722}
+  - component: {fileID: 4135306860508460344}
   m_Layer: 5
   m_Name: Slot_Trasera
   m_TagString: Untagged
@@ -723,6 +781,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slotId: 1
+  partesAmount: 12
+--- !u!114 &4135306860508460344
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4274999029015564720}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b50226457a311142b7de323ac1a3bda, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AlphaThreshold: 0.1
 --- !u!1 &4274999029016678447
 GameObject:
   m_ObjectHideFlags: 0
@@ -736,6 +808,7 @@ GameObject:
   - component: {fileID: 4274999029016678443}
   - component: {fileID: 4274999029016678440}
   - component: {fileID: 4274999029016678441}
+  - component: {fileID: 3527271104758598273}
   m_Layer: 5
   m_Name: Parte_Inf
   m_TagString: Untagged
@@ -827,6 +900,19 @@ MonoBehaviour:
   itemDragId: 8
   posInicial: {x: 0, y: 0, z: 0}
   locked: 0
+--- !u!114 &3527271104758598273
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4274999029016678447}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b50226457a311142b7de323ac1a3bda, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AlphaThreshold: 0.1
 --- !u!1 &4274999029056531944
 GameObject:
   m_ObjectHideFlags: 0
@@ -839,6 +925,7 @@ GameObject:
   - component: {fileID: 4274999029056531956}
   - component: {fileID: 4274999029056531957}
   - component: {fileID: 4274999029056531946}
+  - component: {fileID: 4295182475702250108}
   m_Layer: 5
   m_Name: Slot_CentLatDer
   m_TagString: Untagged
@@ -915,6 +1002,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slotId: 5
+  partesAmount: 12
+--- !u!114 &4295182475702250108
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4274999029056531944}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b50226457a311142b7de323ac1a3bda, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AlphaThreshold: 0.1
 --- !u!1 &4274999029125343160
 GameObject:
   m_ObjectHideFlags: 0
@@ -927,6 +1028,7 @@ GameObject:
   - component: {fileID: 4274999029125343108}
   - component: {fileID: 4274999029125343109}
   - component: {fileID: 4274999029125343162}
+  - component: {fileID: 4092686534226488522}
   m_Layer: 5
   m_Name: Slot_Fierritos
   m_TagString: Untagged
@@ -1003,6 +1105,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slotId: 2
+  partesAmount: 12
+--- !u!114 &4092686534226488522
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4274999029125343160}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b50226457a311142b7de323ac1a3bda, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AlphaThreshold: 0.1
 --- !u!1 &4274999029260415167
 GameObject:
   m_ObjectHideFlags: 0
@@ -1016,6 +1132,7 @@ GameObject:
   - component: {fileID: 4274999029260415163}
   - component: {fileID: 4274999029260415160}
   - component: {fileID: 4274999029260415161}
+  - component: {fileID: 7221559101349645988}
   m_Layer: 5
   m_Name: Parte_SupLat
   m_TagString: Untagged
@@ -1107,6 +1224,19 @@ MonoBehaviour:
   itemDragId: 11
   posInicial: {x: 0, y: 0, z: 0}
   locked: 0
+--- !u!114 &7221559101349645988
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4274999029260415167}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b50226457a311142b7de323ac1a3bda, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AlphaThreshold: 0.1
 --- !u!1 &4274999029430938248
 GameObject:
   m_ObjectHideFlags: 0
@@ -1119,6 +1249,7 @@ GameObject:
   - component: {fileID: 4274999029430938260}
   - component: {fileID: 4274999029430938261}
   - component: {fileID: 4274999029430938250}
+  - component: {fileID: 27617506304039812}
   m_Layer: 5
   m_Name: Slot_Sup
   m_TagString: Untagged
@@ -1195,6 +1326,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slotId: 10
+  partesAmount: 12
+--- !u!114 &27617506304039812
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4274999029430938248}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b50226457a311142b7de323ac1a3bda, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AlphaThreshold: 0.1
 --- !u!1 &4274999029493955414
 GameObject:
   m_ObjectHideFlags: 0
@@ -1208,6 +1353,7 @@ GameObject:
   - component: {fileID: 4274999029493955410}
   - component: {fileID: 4274999029493955411}
   - component: {fileID: 4274999029493955408}
+  - component: {fileID: 1204833276174355247}
   m_Layer: 5
   m_Name: Parte_Sup
   m_TagString: Untagged
@@ -1299,6 +1445,19 @@ MonoBehaviour:
   itemDragId: 10
   posInicial: {x: 0, y: 0, z: 0}
   locked: 0
+--- !u!114 &1204833276174355247
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4274999029493955414}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b50226457a311142b7de323ac1a3bda, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AlphaThreshold: 0.1
 --- !u!1 &4274999029579861262
 GameObject:
   m_ObjectHideFlags: 0
@@ -1311,6 +1470,7 @@ GameObject:
   - component: {fileID: 4274999029579861258}
   - component: {fileID: 4274999029579861259}
   - component: {fileID: 4274999029579861256}
+  - component: {fileID: 4823843644372665620}
   m_Layer: 5
   m_Name: Slot_Inf
   m_TagString: Untagged
@@ -1387,6 +1547,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slotId: 8
+  partesAmount: 12
+--- !u!114 &4823843644372665620
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4274999029579861262}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b50226457a311142b7de323ac1a3bda, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AlphaThreshold: 0.1
 --- !u!1 &4274999029724006130
 GameObject:
   m_ObjectHideFlags: 0
@@ -1400,6 +1574,7 @@ GameObject:
   - component: {fileID: 4274999029724006142}
   - component: {fileID: 4274999029724006143}
   - component: {fileID: 4274999029724006140}
+  - component: {fileID: 3372167734685471559}
   m_Layer: 5
   m_Name: Parte_Trasera
   m_TagString: Untagged
@@ -1491,6 +1666,19 @@ MonoBehaviour:
   itemDragId: 1
   posInicial: {x: 0, y: 0, z: 0}
   locked: 0
+--- !u!114 &3372167734685471559
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4274999029724006130}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b50226457a311142b7de323ac1a3bda, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AlphaThreshold: 0.1
 --- !u!1 &4274999029727511428
 GameObject:
   m_ObjectHideFlags: 0
@@ -1503,6 +1691,7 @@ GameObject:
   - component: {fileID: 4274999029727511424}
   - component: {fileID: 4274999029727511425}
   - component: {fileID: 4274999029727511430}
+  - component: {fileID: 7097746912239500133}
   m_Layer: 5
   m_Name: Slot_CentLatIzq
   m_TagString: Untagged
@@ -1579,6 +1768,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slotId: 6
+  partesAmount: 12
+--- !u!114 &7097746912239500133
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4274999029727511428}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b50226457a311142b7de323ac1a3bda, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AlphaThreshold: 0.1
 --- !u!1 &4274999029830928070
 GameObject:
   m_ObjectHideFlags: 0
@@ -1591,6 +1794,7 @@ GameObject:
   - component: {fileID: 4274999029830928066}
   - component: {fileID: 4274999029830928067}
   - component: {fileID: 4274999029830928064}
+  - component: {fileID: 4709036917695403709}
   m_Layer: 5
   m_Name: Slot_MecanSup
   m_TagString: Untagged
@@ -1667,6 +1871,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slotId: 4
+  partesAmount: 12
+--- !u!114 &4709036917695403709
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4274999029830928070}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b50226457a311142b7de323ac1a3bda, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AlphaThreshold: 0.1
 --- !u!1 &4274999030136397516
 GameObject:
   m_ObjectHideFlags: 0
@@ -1679,6 +1897,7 @@ GameObject:
   - component: {fileID: 4274999030136397512}
   - component: {fileID: 4274999030136397513}
   - component: {fileID: 4274999030136397518}
+  - component: {fileID: 8554836845685953192}
   m_Layer: 5
   m_Name: Slot_Central
   m_TagString: Untagged
@@ -1755,6 +1974,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slotId: 7
+  partesAmount: 12
+--- !u!114 &8554836845685953192
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4274999030136397516}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b50226457a311142b7de323ac1a3bda, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AlphaThreshold: 0.1
 --- !u!1 &4274999030240511161
 GameObject:
   m_ObjectHideFlags: 0
@@ -1767,6 +2000,7 @@ GameObject:
   - component: {fileID: 4274999030240511109}
   - component: {fileID: 4274999030240511162}
   - component: {fileID: 4274999030240511163}
+  - component: {fileID: 3117847931944519806}
   m_Layer: 5
   m_Name: Slot_InfLat
   m_TagString: Untagged
@@ -1843,6 +2077,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slotId: 9
+  partesAmount: 12
+--- !u!114 &3117847931944519806
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4274999030240511161}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b50226457a311142b7de323ac1a3bda, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AlphaThreshold: 0.1
 --- !u!1 &4274999030621259031
 GameObject:
   m_ObjectHideFlags: 0
@@ -1855,6 +2103,7 @@ GameObject:
   - component: {fileID: 4274999030621259027}
   - component: {fileID: 4274999030621259024}
   - component: {fileID: 4274999030621259025}
+  - component: {fileID: 5300143576717863799}
   m_Layer: 5
   m_Name: Slot_SupLat
   m_TagString: Untagged
@@ -1931,6 +2180,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slotId: 11
+  partesAmount: 12
+--- !u!114 &5300143576717863799
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4274999030621259031}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b50226457a311142b7de323ac1a3bda, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AlphaThreshold: 0.1
 --- !u!1 &4274999030730648425
 GameObject:
   m_ObjectHideFlags: 0
@@ -1943,6 +2206,7 @@ GameObject:
   - component: {fileID: 4274999030730648437}
   - component: {fileID: 4274999030730648426}
   - component: {fileID: 4274999030730648427}
+  - component: {fileID: 8992420450863338343}
   m_Layer: 5
   m_Name: Slot_PanelSup
   m_TagString: Untagged
@@ -2019,6 +2283,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slotId: 12
+  partesAmount: 12
+--- !u!114 &8992420450863338343
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4274999030730648425}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b50226457a311142b7de323ac1a3bda, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AlphaThreshold: 0.1
 --- !u!1 &4414000047230751884
 GameObject:
   m_ObjectHideFlags: 0
@@ -2032,6 +2310,7 @@ GameObject:
   - component: {fileID: 6921167435033844584}
   - component: {fileID: 1635757129671848402}
   - component: {fileID: 4868007419541827920}
+  - component: {fileID: 8338725421064076256}
   m_Layer: 5
   m_Name: Parte_MecanSup
   m_TagString: Untagged
@@ -2123,6 +2402,19 @@ MonoBehaviour:
   itemDragId: 4
   posInicial: {x: 0, y: 0, z: 0}
   locked: 0
+--- !u!114 &8338725421064076256
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4414000047230751884}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b50226457a311142b7de323ac1a3bda, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AlphaThreshold: 0.1
 --- !u!1 &4429526488560840522
 GameObject:
   m_ObjectHideFlags: 0
@@ -2136,6 +2428,7 @@ GameObject:
   - component: {fileID: 8318059463123507161}
   - component: {fileID: 4878870022243794009}
   - component: {fileID: 3091242427620317008}
+  - component: {fileID: 8456955948104733812}
   m_Layer: 5
   m_Name: Parte_Fierritos
   m_TagString: Untagged
@@ -2227,6 +2520,19 @@ MonoBehaviour:
   itemDragId: 2
   posInicial: {x: 0, y: 0, z: 0}
   locked: 0
+--- !u!114 &8456955948104733812
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4429526488560840522}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b50226457a311142b7de323ac1a3bda, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AlphaThreshold: 0.1
 --- !u!1 &4474643524510471202
 GameObject:
   m_ObjectHideFlags: 0
@@ -2240,6 +2546,7 @@ GameObject:
   - component: {fileID: 4817274262312885665}
   - component: {fileID: 6955149459686587255}
   - component: {fileID: 7899200959096232446}
+  - component: {fileID: 4414965348367353922}
   m_Layer: 5
   m_Name: Parte_Central
   m_TagString: Untagged
@@ -2331,6 +2638,19 @@ MonoBehaviour:
   itemDragId: 7
   posInicial: {x: 0, y: 0, z: 0}
   locked: 0
+--- !u!114 &4414965348367353922
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4474643524510471202}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b50226457a311142b7de323ac1a3bda, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AlphaThreshold: 0.1
 --- !u!1 &8374736715973657912
 GameObject:
   m_ObjectHideFlags: 0
@@ -2404,6 +2724,7 @@ GameObject:
   - component: {fileID: 9183142499209588707}
   - component: {fileID: 352408851956434293}
   - component: {fileID: 887789596446085274}
+  - component: {fileID: 1436420026015070470}
   m_Layer: 5
   m_Name: Parte_PanelSup
   m_TagString: Untagged
@@ -2495,6 +2816,19 @@ MonoBehaviour:
   itemDragId: 12
   posInicial: {x: 0, y: 0, z: 0}
   locked: 0
+--- !u!114 &1436420026015070470
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8410593221444029669}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b50226457a311142b7de323ac1a3bda, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AlphaThreshold: 0.1
 --- !u!1 &8438827543707884057
 GameObject:
   m_ObjectHideFlags: 0
@@ -2508,6 +2842,7 @@ GameObject:
   - component: {fileID: 5598389544762076436}
   - component: {fileID: 2333388760827580964}
   - component: {fileID: 1005530025990982720}
+  - component: {fileID: 8335339244777982968}
   m_Layer: 5
   m_Name: Parte_MecanInf
   m_TagString: Untagged
@@ -2599,3 +2934,16 @@ MonoBehaviour:
   itemDragId: 3
   posInicial: {x: 0, y: 0, z: 0}
   locked: 0
+--- !u!114 &8335339244777982968
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8438827543707884057}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b50226457a311142b7de323ac1a3bda, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AlphaThreshold: 0.1
