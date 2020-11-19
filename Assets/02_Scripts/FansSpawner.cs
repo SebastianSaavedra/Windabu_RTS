@@ -15,6 +15,8 @@ public class FansSpawner : MonoBehaviourPunCallbacks
     [SerializeField] Transform[] waypointsA;
     [SerializeField] Transform[] waypointsB;
     [SerializeField] CPManager cpManager;
+    [Tooltip("0=Papel, 1=piedra, 2= tijera")]
+    [SerializeField] int spawnAs;
 
     Coroutine spawnCor = null;
 
@@ -41,12 +43,36 @@ public class FansSpawner : MonoBehaviourPunCallbacks
     {
         GameObject fan = Instantiate(tipoDeFanA, spawnPoint.transform.position, Quaternion.identity);
         fan.GetComponent<WaypointsFans>().waypoints = waypointsA;
+        switch (spawnAs) 
+        {
+            case 0:
+                fan.GetComponent<FanLifeA>().papel=true;
+                break;
+            case 1:
+                fan.GetComponent<FanLifeA>().piedra= true;
+                break;
+            case 2:
+                fan.GetComponent<FanLifeA>().tijera = true;
+                break;
+        }
     }
     [PunRPC]
     public void SpawnB()
     {
         GameObject fan = Instantiate(tipoDeFanB, spawnPoint.transform.position, Quaternion.identity);
         fan.GetComponent<WaypointsFans>().waypoints = waypointsB;
+        switch (spawnAs)
+        {
+            case 0:
+                fan.GetComponent<FanLifeB>().papel = true;
+                break;
+            case 1:
+                fan.GetComponent<FanLifeB>().piedra = true;
+                break;
+            case 2:
+                fan.GetComponent<FanLifeB>().tijera = true;
+                break;
+        }
     }
     public IEnumerator SpawnerConParametros(float time, Transform spawnP)
     {
