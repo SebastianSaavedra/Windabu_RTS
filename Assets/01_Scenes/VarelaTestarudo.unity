@@ -2767,6 +2767,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e07fb4efeb55f8c44a888f4fedbbc01b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  celu: {fileID: 1328016866}
   wifi: {fileID: 1328016869}
   wifint: {fileID: 1328016868}
 --- !u!1 &334463295
@@ -4960,6 +4961,7 @@ GameObject:
   - component: {fileID: 557394876}
   - component: {fileID: 557394875}
   - component: {fileID: 557394874}
+  - component: {fileID: 557394877}
   m_Layer: 0
   m_Name: Collider
   m_TagString: Untagged
@@ -5010,7 +5012,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 557394872}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ba3d8771f5a3f6043bc59de72de367f2, type: 3}
   m_Name: 
@@ -5047,6 +5049,21 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 11.257885, y: 11.452822}
   m_EdgeRadius: 0
+--- !u!114 &557394877
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 557394872}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e07fb4efeb55f8c44a888f4fedbbc01b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  celu: {fileID: 1328016866}
+  wifi: {fileID: 1328016869}
+  wifint: {fileID: 1328016868}
 --- !u!1 &577962023
 GameObject:
   m_ObjectHideFlags: 0
