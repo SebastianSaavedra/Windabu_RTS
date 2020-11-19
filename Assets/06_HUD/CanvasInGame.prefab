@@ -9630,6 +9630,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: CartelesP1
       objectReference: {fileID: 0}
+    - target: {fileID: 8624316032552558302, guid: ab0eb4b1d236805489d4b1263f1c9eb1,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ab0eb4b1d236805489d4b1263f1c9eb1, type: 3}
 --- !u!224 &2880967853941160612 stripped
@@ -9924,6 +9929,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: MerchandasingP1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5291044305533785351, guid: fd072eeb54efe454fbf667533ec3c844,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8247789846288931583, guid: fd072eeb54efe454fbf667533ec3c844,
         type: 3}
