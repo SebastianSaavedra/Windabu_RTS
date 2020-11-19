@@ -27,7 +27,7 @@ public class JoinTeamB : MonoBehaviourPunCallbacks
     }
 
     [PunRPC]
-    public void ActivateText(string name, int id)
+    public void ActivateText(string name)
     {
         FakeLobbyUsers.users2[playerPos].gameObject.SetActive(true);
         FakeLobbyUsers.users2[playerPos].text = name;

@@ -8,9 +8,10 @@ using Photon.Realtime;
 
 public class TaskDropDown : MonoBehaviourPunCallbacks,I_Interactable
 {
-    [SerializeField] GameObject taskBarPanelA;
-    [SerializeField] GameObject taskBarPanelB;
+    [SerializeField] GameObject taskBarPanel;
     [SerializeField] ManagerMinijuegos managerMinijuegos;
+    [SerializeField] PanelData panelData;
+    GameObject objetoInstanciado;
     public enum WiiMinigame {m1_1=0,m1_2=1,m2_1=2,m2_2=3,m3_1=4,m3_2=5};
     public WiiMinigame thisMinigame;
     
@@ -21,26 +22,30 @@ public class TaskDropDown : MonoBehaviourPunCallbacks,I_Interactable
     {
         thisMinigameis = (int)thisMinigame;
         canInteract = true;
-        if (taskBarPanelA || taskBarPanelB == null) 
+        if (taskBarPanel== null) 
         {
 
         }
     }
 
     public void OnInteract(bool call) 
-    {
+    {        
+        taskBarPanel.SetActive(true);
         if (call) 
         {
-        taskBarPanelA.SetActive(true);
-        taskBarPanelA.transform.DOMoveY(136, 1);
-        Debug.Log("Hola");
+            GameObject panel = Instantiate(panelData.PanelA, taskBarPanel.transform.position, Quaternion.identity);
+            objetoInstanciado = panel;
+            panel.transform.parent = taskBarPanel.transform;
+            panel.transform.localScale = new Vector3(1, 1, 1);
         }
         else 
         {
-            taskBarPanelB.SetActive(true);
-            taskBarPanelB.transform.DOMoveY(136, 1);
-            Debug.Log("Hola");
+            GameObject panel = Instantiate(panelData.PanelB, taskBarPanel.transform.position, Quaternion.identity);
+            objetoInstanciado = panel;
+            panel.transform.parent = taskBarPanel.transform;
+            panel.transform.localScale = new Vector3(1, 1, 1);
         }
+        taskBarPanel.transform.DOMoveY(540, 1);
         int playerActorNumber = PhotonNetwork.LocalPlayer.ActorNumber;
         Debug.Log("Desde el script TaskDropDown se printea el playerActor number: " + playerActorNumber);
         photonView.RPC("JugadorComienzaMinijuego1", RpcTarget.MasterClient, playerActorNumber,(int)thisMinigame);
@@ -69,14 +74,9 @@ public class TaskDropDown : MonoBehaviourPunCallbacks,I_Interactable
     //}
     public void OnLeavePanel(bool call)
     {
-        if (call) 
-        {
-        taskBarPanelA.transform.DOMoveY(201, 1);
-        }
-        else 
-        {
-        taskBarPanelB.transform.DOMoveY(201, 1);
-        }
+        taskBarPanel.transform.DOMoveY(1540, 1);
+        Destroy(objetoInstanciado,1.1f);
+
     }
    
     [PunRPC]

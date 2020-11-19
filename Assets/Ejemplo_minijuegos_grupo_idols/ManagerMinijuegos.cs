@@ -24,9 +24,11 @@ public class ManagerMinijuegos : MonoBehaviourPunCallbacks
     public int wichMinigamePanel;
     [HideInInspector] public int idMinijuego;
 
+
     public List<Minijuego> minijuegos = new List<Minijuego>();
 
     [SerializeField] MiniJuegoCarteles minijuegoCarteles;
+    [SerializeField] PanelData[] minigameData;
     
 
     //private void Awake()
@@ -190,8 +192,7 @@ public class ManagerMinijuegos : MonoBehaviourPunCallbacks
     //Cambia el estado visual del cliente
     [PunRPC]
     void MiniJuegoComenzadoUnJugador(int indexMiniJuego)
-    {
-        
+    {        
         //de no estar activado el minijuego, lo activa para un jugador 
         EncenderUIMinijuegoUnJugador(indexMiniJuego);
 
@@ -212,13 +213,94 @@ public class ManagerMinijuegos : MonoBehaviourPunCallbacks
    [PunRPC]
     void CambiarInteractable(int playerId, int minijuego) 
     {
+        GameObject panel;
         foreach (GameObject player in GameObject.FindGameObjectsWithTag("Player"))
         {
             if (player.GetComponentInParent<PlayerId>().id == playerId)
             {
-                player.GetComponentInParent<TEST_Interact>().objectToInteract = parentObjetosMinijuegosDOSPlayers[0];
-             }
+                player.GetComponentInParent<TEST_Interact>().objectToInteract = parentObjetosMinijuegosDOSPlayers[minijuego];
+                if (player.GetComponentInParent<PlayerTeam>().TeamA) 
+                {
+                    Debug.Log("AAAAAAAAAA");
+    switch (minijuego) 
+        {
+            case 0:
+               panel = Instantiate(minigameData[0].PanelVSA, parentObjetosMinijuegosUNPlayer[0].transform.position, Quaternion.identity);
+               panel.transform.parent = parentObjetosMinijuegosUNPlayer[0].transform;
+               panel.transform.localScale = new Vector3(1, 1, 1);
+                break;
+           
+          case 1:
+             panel = Instantiate(minigameData[0].PanelVSA, parentObjetosMinijuegosUNPlayer[0].transform.position, Quaternion.identity);
+             panel.transform.parent = parentObjetosMinijuegosUNPlayer[0].transform;
+             panel.transform.localScale = new Vector3(1, 1, 1);
+             break;
+         case 2:
+           panel = Instantiate(minigameData[1].PanelVSA, parentObjetosMinijuegosUNPlayer[0].transform.position, Quaternion.identity);
+           panel.transform.parent = parentObjetosMinijuegosUNPlayer[0].transform;
+           panel.transform.localScale = new Vector3(1, 1, 1);
+                            break;
+
+          case 3:
+           panel = Instantiate(minigameData[1].PanelVSA, parentObjetosMinijuegosUNPlayer[0].transform.position, Quaternion.identity);
+           panel.transform.parent = parentObjetosMinijuegosUNPlayer[0].transform;
+           panel.transform.localScale = new Vector3(1, 1, 1);
+                            break;
+                        case 4:
+                            panel = Instantiate(minigameData[2].PanelVSA, parentObjetosMinijuegosUNPlayer[0].transform.position, Quaternion.identity);
+                            panel.transform.parent = parentObjetosMinijuegosUNPlayer[0].transform;
+                            panel.transform.localScale = new Vector3(1, 1, 1);
+                            break;
+
+                        case 5:
+                            panel = Instantiate(minigameData[2].PanelVSA, parentObjetosMinijuegosUNPlayer[0].transform.position, Quaternion.identity);
+                            panel.transform.parent = parentObjetosMinijuegosUNPlayer[0].transform;
+                            panel.transform.localScale = new Vector3(1, 1, 1);
+                            break;
+                    }
+                }
+                if (player.GetComponentInParent<PlayerTeam>().TeamB)
+                {
+                    switch (minijuego)
+                    {
+                        case 0:
+                            panel = Instantiate(minigameData[0].PanelVSB, parentObjetosMinijuegosUNPlayer[0].transform.position, Quaternion.identity);
+                            panel.transform.parent = parentObjetosMinijuegosUNPlayer[0].transform;
+                            panel.transform.localScale = new Vector3(1, 1, 1);
+                            break;
+
+                        case 1:
+                            panel = Instantiate(minigameData[0].PanelVSB, parentObjetosMinijuegosUNPlayer[0].transform.position, Quaternion.identity);
+                            panel.transform.parent = parentObjetosMinijuegosUNPlayer[0].transform;
+                            panel.transform.localScale = new Vector3(1, 1, 1);
+                            break;
+                        case 2:
+                            panel = Instantiate(minigameData[1].PanelVSB, parentObjetosMinijuegosUNPlayer[0].transform.position, Quaternion.identity);
+                            panel.transform.parent = parentObjetosMinijuegosUNPlayer[0].transform;
+                            panel.transform.localScale = new Vector3(1, 1, 1);
+                            break;
+
+                        case 3:
+                            panel = Instantiate(minigameData[1].PanelVSB, parentObjetosMinijuegosUNPlayer[0].transform.position, Quaternion.identity);
+                            panel.transform.parent = parentObjetosMinijuegosUNPlayer[0].transform;
+                            panel.transform.localScale = new Vector3(1, 1, 1);
+                            break;
+                        case 4:
+                            panel = Instantiate(minigameData[2].PanelVSB, parentObjetosMinijuegosUNPlayer[0].transform.position, Quaternion.identity);
+                            panel.transform.parent = parentObjetosMinijuegosUNPlayer[0].transform;
+                            panel.transform.localScale = new Vector3(1, 1, 1);
+                            break;
+
+                        case 5:
+                            panel = Instantiate(minigameData[2].PanelVSB, parentObjetosMinijuegosUNPlayer[0].transform.position, Quaternion.identity);
+                            panel.transform.parent = parentObjetosMinijuegosUNPlayer[0].transform;
+                            panel.transform.localScale = new Vector3(1, 1, 1);
+                            break;
+                    }
+                }
+            }
         }
+    
     }
 
     public void ResetearMuchosValores(int minigame) 
@@ -232,12 +314,12 @@ public class ManagerMinijuegos : MonoBehaviourPunCallbacks
     {
         if (minijuegos[minigame].numeroDeJugadores == 1) 
         {
-        minijuegoCarteles.photonView.RPC("ResetCarteles", TargetPlayerByActorNumber(player1_ID),0);
+        minijuegoCarteles.photonView.RPC("ResetCarteles", TargetPlayerByActorNumber(player1_ID),minigame);
         }
         else if (minijuegos[minigame].numeroDeJugadores == 2)
         {
-            minijuegoCarteles.photonView.RPC("ResetCarteles", TargetPlayerByActorNumber(player1_ID),0);
-            minijuegoCarteles.photonView.RPC("ResetCarteles", TargetPlayerByActorNumber(player2_ID),0);
+            minijuegoCarteles.photonView.RPC("ResetCarteles", TargetPlayerByActorNumber(player1_ID),minigame);
+            minijuegoCarteles.photonView.RPC("ResetCarteles", TargetPlayerByActorNumber(player2_ID),minigame);
         }
         // photonView.RPC("ResetCarteles",TargetPlayerByActorNumber());
     }
@@ -248,7 +330,7 @@ public class ManagerMinijuegos : MonoBehaviourPunCallbacks
     //generalizar a cualquier juego
     void EncenderUIMinijuegoUnJugador(int indexMinijuego)
     {
-        parentObjetosMinijuegosUNPlayer[0].SetActive(true);
+     //   parentObjetosMinijuegosUNPlayer[indexMinijuego].SetActive(true);
         Debug.Log("Se activa UI Minijuego 1");
     }
 
@@ -256,8 +338,9 @@ public class ManagerMinijuegos : MonoBehaviourPunCallbacks
     {
         //Si se hace algo como esto, apagar el ui que ya estaba encendida en el jugador inicial
         Debug.Log("Se activa UI Minijuego 2");
-        parentObjetosMinijuegosUNPlayer[0].SetActive(false);
-        parentObjetosMinijuegosDOSPlayers[0].SetActive(true);
+        //parentObjetosMinijuegosUNPlayer[indexMinijuego].SetActive(false);
+        //parentObjetosMinijuegosDOSPlayers[indexMinijuego].SetActive(true);
+        Destroy(parentObjetosMinijuegosUNPlayer[0].transform.GetChild(0).gameObject);
         photonView.RPC("CambiarInteractable", TargetPlayerByActorNumber(player1_ID), player1_ID, indexMinijuego);
         photonView.RPC("CambiarInteractable", TargetPlayerByActorNumber(player2_ID), player2_ID, indexMinijuego);      
     }

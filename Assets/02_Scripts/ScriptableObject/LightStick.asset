@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56674c65c204219429245d88b0c284ea, type: 3}
+  m_Name: LightStick
+  m_EditorClassIdentifier: 
+  PanelA: {fileID: 2702286256060720952, guid: d4afcfeb34c71224f955d132d4ec1a9e, type: 3}
+  PanelB: {fileID: 1874943475089679708, guid: 8492a8e8b93f766479816479b0e19eb1, type: 3}
+  PanelVSA: {fileID: 3416369609138217109, guid: 8f352678b7899824a93e62987a132231,
+    type: 3}
+  PanelVSB: {fileID: 2400233267530587157, guid: 169d39df938ca004da0bd840da06235e,
+    type: 3}
