@@ -33,8 +33,8 @@ public class MinigameManager : MonoBehaviourPunCallbacks, IPunObservable
         //Minijuegos.m_cartel += Carteles;
         Minijuegos.m_clicksA += RPCClickA;
         Minijuegos.m_clicksB += RPCClickB;
-        Minijuegos.compraA   -= RPCCompraA;
-        Minijuegos.compraB   -= RPCCompraB;
+        Minijuegos.compraA   += RPCCompraA;
+        Minijuegos.compraB   += RPCCompraB;
     }
     public void RPCClickA(int valor)
     {
@@ -44,15 +44,17 @@ public class MinigameManager : MonoBehaviourPunCallbacks, IPunObservable
     public void RPCClickB(int valor)
     {
         photonView.RPC("ClicksB", RpcTarget.MasterClient, valor);
+        Debug.Log("MoneySent");
     }
     public void RPCCompraA(int valor)
     {
         photonView.RPC("CompraA", RpcTarget.MasterClient, valor);
-        Debug.Log("MoneySent");
+        Debug.Log("MoneySpent");
     }
     public void RPCCompraB(int valor)
     {
         photonView.RPC("CompraB", RpcTarget.MasterClient, valor);
+        Debug.Log("MoneySpent");
     }
 
     [PunRPC]

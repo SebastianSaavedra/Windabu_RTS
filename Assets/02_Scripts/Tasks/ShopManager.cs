@@ -28,7 +28,7 @@ public class ShopManager : MonoBehaviour
         if(MinigameManager.dineroA >= impresoraCost)// volver a referencia teamManager
         {
             StartCoroutine(SpawnItem(impresoraDelay, impresora));
-            MinigameManager.dineroA -= (int)impresoraCost;
+                Minijuegos.compraA((int)impresoraCost);
             uiMan.CallRpc(team,1);
             //gameObject.GetComponent<TeamManager>().money -= impresoraCost;
         }
@@ -45,7 +45,7 @@ public class ShopManager : MonoBehaviour
             if (MinigameManager.dineroA >= impresoraCost)// volver a referencia teamManager
             {
                 StartCoroutine(SpawnItem(impresoraDelay, impresora));
-                MinigameManager.dineroA -= (int)impresoraCost;
+                Minijuegos.compraA((int)impresoraCost);
                 uiMan.CallRpc(team, 0);
                 //gameObject.GetComponent<TeamManager>().money -= impresoraCost;
             }
@@ -59,7 +59,7 @@ public class ShopManager : MonoBehaviour
             if (MinigameManager.dineroB >= impresoraCost)// volver a referencia teamManager
             {
                 StartCoroutine(SpawnItem(impresoraDelay, impresora));
-                MinigameManager.dineroB -= (int)impresoraCost;
+                MinigameManager.dineroA -= (int)impresoraCost;
                 uiMan.CallRpc(team, 0);
                 //gameObject.GetComponent<TeamManager>().money -= impresoraCost;
             }
