@@ -5,7 +5,7 @@ using UnityEngine;
 public class MoneyClicker : MonoBehaviour
 {
     //public GameObject shareButton, sharePanel;
-
+    [SerializeField] bool team;
     int likes;
     //public bool isPublic;
 
@@ -53,14 +53,28 @@ public class MoneyClicker : MonoBehaviour
         // Minijuegos.m_clicks(likes);
         //if (isPublic)
         //{
+        if (team)
+        {
             int macroLike = 0;
             while (macroLike <= likes - 10)
             {
                 macroLike += 10;
             }
-            Minijuegos.m_clicks(macroLike / 10);
+            Minijuegos.m_clicksA(macroLike / 10);
 
             likes -= macroLike;
+        }
+        else 
+        {
+            int macroLike = 0;
+            while (macroLike <= likes - 10)
+            {
+                macroLike += 10;
+            }
+            Minijuegos.m_clicksB(macroLike / 10);
+
+            likes -= macroLike;
+        }
         //}
 
         //Reset

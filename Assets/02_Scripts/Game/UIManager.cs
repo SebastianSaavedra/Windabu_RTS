@@ -29,31 +29,31 @@ public class UIManager : MonoBehaviourPunCallbacks
     }
     void Update()
     {
-        moneyText.text = MinigameManager.dinero.ToString();
-        moneyText2.text = MinigameManager.dinero.ToString();
+        moneyText.text = MinigameManager.dineroA.ToString();
+        moneyText2.text = MinigameManager.dineroB.ToString();
     }
     #region InstLogic
-    public void CallRpc(bool call) 
+    public void CallRpc(bool call, int toQue) 
     {
         if (call) 
         {
-            RPCInstantiateInTeamA();
+            RPCInstantiateInTeamA(toQue);
         }
         else 
         {
-            RPCInstantiateInTeamB();
+            RPCInstantiateInTeamB(toQue);
         }
     }
-    public void RPCInstantiateInTeamA()
+    public void RPCInstantiateInTeamA(int toSpawn)
     {
-        photonView.RPC("InstantiateInTeamA", RpcTarget.AllViaServer,0);
+        photonView.RPC("InstantiateInTeamA", RpcTarget.AllViaServer,toSpawn);
         //photonView.RPC("InstantiateInTeamA", TargetPlayerByActorNumber(PhotonManager.teamA_id[0]));
         //photonView.RPC("InstantiateInTeamA", TargetPlayerByActorNumber(PhotonManager.teamA_id[1]));
         //photonView.RPC("InstantiateInTeamA", TargetPlayerByActorNumber(PhotonManager.teamA_id[2]));
     }
-    public void RPCInstantiateInTeamB()
+    public void RPCInstantiateInTeamB(int toSpawn)
     {
-        photonView.RPC("InstantiateInTeamA", RpcTarget.AllViaServer);
+        photonView.RPC("InstantiateInTeamA", RpcTarget.AllViaServer,toSpawn);
         //photonView.RPC("InstantiateInTeamB", TargetPlayerByActorNumber(PhotonManager.teamB_id[0]));
         //photonView.RPC("InstantiateInTeamB", TargetPlayerByActorNumber(PhotonManager.teamB_id[1]));
         //photonView.RPC("InstantiateInTeamB", TargetPlayerByActorNumber(PhotonManager.teamB_id[2]));

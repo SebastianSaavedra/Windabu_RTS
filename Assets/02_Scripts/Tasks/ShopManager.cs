@@ -16,22 +16,57 @@ public class ShopManager : MonoBehaviour
     [SerializeField] bool team;
     [SerializeField] UIManager uiMan;
 
+
     private void Start()
     {
     }
 
-    public void Impresora()
+    public void OtraCompra()
     {
-        if(MinigameManager.dinero >= impresoraCost)// volver a referencia teamManager
+        if (team) 
+        {
+        if(MinigameManager.dineroA >= impresoraCost)// volver a referencia teamManager
         {
             StartCoroutine(SpawnItem(impresoraDelay, impresora));
-            MinigameManager.dinero -= (int)impresoraCost;
-            uiMan.CallRpc(team);
+            MinigameManager.dineroA -= (int)impresoraCost;
+            uiMan.CallRpc(team,1);
             //gameObject.GetComponent<TeamManager>().money -= impresoraCost;
         }
         else
         {
             Debug.Log("Dinero Insuficiente Pe");
+        }
+        }
+    }
+    public void Impresora()
+    {
+        if (team)
+        {
+            if (MinigameManager.dineroA >= impresoraCost)// volver a referencia teamManager
+            {
+                StartCoroutine(SpawnItem(impresoraDelay, impresora));
+                MinigameManager.dineroA -= (int)impresoraCost;
+                uiMan.CallRpc(team, 0);
+                //gameObject.GetComponent<TeamManager>().money -= impresoraCost;
+            }
+            else
+            {
+                Debug.Log("Dinero Insuficiente Pe");
+            }
+        }
+        else
+        {
+            if (MinigameManager.dineroB >= impresoraCost)// volver a referencia teamManager
+            {
+                StartCoroutine(SpawnItem(impresoraDelay, impresora));
+                MinigameManager.dineroB -= (int)impresoraCost;
+                uiMan.CallRpc(team, 0);
+                //gameObject.GetComponent<TeamManager>().money -= impresoraCost;
+            }
+            else
+            {
+                Debug.Log("Dinero Insuficiente Pe");
+            }
         }
     }
 
