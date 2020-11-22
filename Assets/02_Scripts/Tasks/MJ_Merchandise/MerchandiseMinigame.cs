@@ -9,10 +9,10 @@ public class MerchandiseMinigame : MonoBehaviourPunCallbacks
 {
     // Keys to mash
     KeyCode[] keysToMash = new KeyCode[] {
-        KeyCode.Z,       KeyCode.X,
+        KeyCode.Z, KeyCode.X,
     };
 
-    public int mashLimit = 10;
+    public int mashLimit = 20;
     [SerializeField]int mashScore;
 
     public Text uiMashCounter;

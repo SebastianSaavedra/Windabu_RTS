@@ -5,7 +5,7 @@ using UnityEngine;
 public class FinishMinigameManager : MonoBehaviour
 {
     [SerializeField]
-    private int finishedMinigame, slotAmount;
+    private int finishedMinigameId, slotAmount;
 
     private int slotCounter;
 
@@ -28,7 +28,7 @@ public class FinishMinigameManager : MonoBehaviour
 
     private void SlotsFilled()
     {
-        switch (finishedMinigame)
+        switch (finishedMinigameId)
         {
             // ----------  Construir ------------
 
@@ -56,6 +56,7 @@ public class FinishMinigameManager : MonoBehaviour
 
             // Merchandise - Chapita
             case 13:
+                Debug.Log("Chapita producida");
                 break;
 
             // ----------  Upgrade  ---------------

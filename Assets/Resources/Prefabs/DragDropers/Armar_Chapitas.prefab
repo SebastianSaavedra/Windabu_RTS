@@ -348,7 +348,7 @@ GameObject:
   - component: {fileID: 5950700985929721155}
   - component: {fileID: 125516649503733061}
   m_Layer: 5
-  m_Name: ArmarChapitas
+  m_Name: Armar_Chapitas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -387,7 +387,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e159fb075ced574f99a36339f39626e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  finishedMinigame: 3
+  finishedMinigameId: 3
   slotAmount: 10
 --- !u!1 &6188773653544310170
 GameObject:

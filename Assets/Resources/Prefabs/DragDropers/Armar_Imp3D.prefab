@@ -135,7 +135,7 @@ GameObject:
   - component: {fileID: 1742090909899463802}
   - component: {fileID: 9216465781202599530}
   m_Layer: 5
-  m_Name: ArmarImp3D
+  m_Name: Armar_Imp3D
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -174,7 +174,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e159fb075ced574f99a36339f39626e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  finishedMinigame: 2
+  finishedMinigameId: 2
   slotAmount: 12
 --- !u!1 &1874641283158416759
 GameObject:

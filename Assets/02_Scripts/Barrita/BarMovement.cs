@@ -34,12 +34,10 @@ public class BarMovement : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("Adentro");
         scored = true;
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
-        Debug.Log("Afuera");
         scored = false;
     }
 
