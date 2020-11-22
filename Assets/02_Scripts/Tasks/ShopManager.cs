@@ -10,7 +10,7 @@ public class ShopManager : MonoBehaviour
     //Stats
     [SerializeField]
     float impresoraCost = 100f, impresoraDelay = 15f;
-
+    public bool canBuy_0, canBuy_1, canBuy_2;
     //Prefabs
     public GameObject impresora;
     [SerializeField] bool team;
@@ -47,6 +47,7 @@ public class ShopManager : MonoBehaviour
                 StartCoroutine(SpawnItem(impresoraDelay, impresora));
                 Minijuegos.compraA((int)impresoraCost);
                 uiMan.CallRpc(team, 0);
+                canBuy_0 = true;
                 //gameObject.GetComponent<TeamManager>().money -= impresoraCost;
             }
             else
@@ -61,6 +62,7 @@ public class ShopManager : MonoBehaviour
                 StartCoroutine(SpawnItem(impresoraDelay, impresora));
                 MinigameManager.dineroA -= (int)impresoraCost;
                 uiMan.CallRpc(team, 0);
+                canBuy_0 = true;
                 //gameObject.GetComponent<TeamManager>().money -= impresoraCost;
             }
             else
