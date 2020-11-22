@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -329,6 +329,9 @@ MonoBehaviour:
   itemSpawnerPos: {fileID: 1756523334}
   impresoraCost: 10
   impresoraDelay: 15
+  canBuy_0: 0
+  canBuy_1: 0
+  canBuy_2: 0
   impresora: {fileID: 4073144790399955248, guid: 27f628dd141df584d81a36e777a36b23,
     type: 3}
   team: 0
@@ -2768,8 +2771,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   celu: {fileID: 1328016866}
-  wifi: {fileID: 1328016869}
-  wifint: {fileID: 1328016868}
+  wifi: {fileID: 0}
+  wifint: {fileID: 0}
 --- !u!1 &334463295
 GameObject:
   m_ObjectHideFlags: 0
@@ -3729,6 +3732,9 @@ MonoBehaviour:
   itemSpawnerPos: {fileID: 1085434232}
   impresoraCost: 10
   impresoraDelay: 15
+  canBuy_0: 0
+  canBuy_1: 0
+  canBuy_2: 0
   impresora: {fileID: 4073144790399955248, guid: 27f628dd141df584d81a36e777a36b23,
     type: 3}
   team: 1
@@ -5062,8 +5068,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   celu: {fileID: 1328016873}
-  wifi: {fileID: 1328016869}
-  wifint: {fileID: 1328016868}
+  wifi: {fileID: 0}
+  wifint: {fileID: 0}
 --- !u!1 &577962023
 GameObject:
   m_ObjectHideFlags: 0
@@ -27361,11 +27367,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c85b6b7b2b4a8a48acdc4683900317e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  teamManager1: {fileID: 158597911}
+  fameAdded: 0.05
+  slider: {fileID: 1328016827}
+  slider2: {fileID: 1328016826}
+  timer: 5
   tijerasA: 0
   tijerasB: 0
   piedrasA: 0
   piedrasB: 0
   papelA: 0
+  totalA: 0
+  totalB: 0
   papelB: 0
   ta: {fileID: 1328016859}
   tb: {fileID: 1328016856}
@@ -27373,6 +27386,8 @@ MonoBehaviour:
   pib: {fileID: 1328016857}
   paa: {fileID: 1328016861}
   pab: {fileID: 1328016858}
+  midPointA: {fileID: 1328016869}
+  midPointB: {fileID: 1328016868}
 --- !u!114 &907844285
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -30689,6 +30704,9 @@ MonoBehaviour:
   theParent: {fileID: 129143346}
   cartelito: {fileID: 0}
   hayCartel: 0
+  imgCartel: []
+  colliders: []
+  iteracion: 0
 --- !u!114 &1283961911
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -31385,6 +31403,11 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 5199506524713772108, guid: a3149a40513b9544ba50dbc360b4355c,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5263923544440252022, guid: a3149a40513b9544ba50dbc360b4355c,
         type: 3}
       propertyPath: m_RootOrder
@@ -31965,13 +31988,13 @@ MonoBehaviour:
   team: 1
 --- !u!1 &1328016868 stripped
 GameObject:
-  m_CorrespondingSourceObject: {fileID: 8272752931322214960, guid: a3149a40513b9544ba50dbc360b4355c,
+  m_CorrespondingSourceObject: {fileID: 3131868006609552624, guid: a3149a40513b9544ba50dbc360b4355c,
     type: 3}
   m_PrefabInstance: {fileID: 1328016825}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1328016869 stripped
 GameObject:
-  m_CorrespondingSourceObject: {fileID: 7616400120674331109, guid: a3149a40513b9544ba50dbc360b4355c,
+  m_CorrespondingSourceObject: {fileID: 5199506524713772108, guid: a3149a40513b9544ba50dbc360b4355c,
     type: 3}
   m_PrefabInstance: {fileID: 1328016825}
   m_PrefabAsset: {fileID: 0}
@@ -32026,6 +32049,9 @@ MonoBehaviour:
   itemSpawnerPos: {fileID: 1756523334}
   impresoraCost: 10
   impresoraDelay: 15
+  canBuy_0: 0
+  canBuy_1: 0
+  canBuy_2: 0
   impresora: {fileID: 4073144790399955248, guid: 27f628dd141df584d81a36e777a36b23,
     type: 3}
   team: 0
@@ -32045,6 +32071,9 @@ MonoBehaviour:
   itemSpawnerPos: {fileID: 1085434232}
   impresoraCost: 10
   impresoraDelay: 15
+  canBuy_0: 0
+  canBuy_1: 0
+  canBuy_2: 0
   impresora: {fileID: 4073144790399955248, guid: 27f628dd141df584d81a36e777a36b23,
     type: 3}
   team: 1
@@ -35509,6 +35538,7 @@ MonoBehaviour:
   cartelesBarra: {fileID: 0}
   contadorJugador2: {fileID: 0}
   cartelesSpot: {fileID: 129143346}
+  posicionesDePegado: []
   col2d: {fileID: 1858787669}
   cartel: {fileID: 1283961910}
 --- !u!50 &1858787668
@@ -35666,7 +35696,7 @@ PrefabInstance:
     - target: {fileID: 1889526655, guid: cccb3ba68219bfb4486c2387d3f4adf7, type: 3}
       propertyPath: contadorJugador2
       value: 
-      objectReference: {fileID: 493629874}
+      objectReference: {fileID: 0}
     - target: {fileID: 1889526659, guid: cccb3ba68219bfb4486c2387d3f4adf7, type: 3}
       propertyPath: viewIdField
       value: 18

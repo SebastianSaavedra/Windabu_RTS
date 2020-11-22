@@ -7,6 +7,14 @@ using UnityEngine.UI;
 using TMPro;
 public class PlazaCentralManager : MonoBehaviourPunCallbacks,IPunObservable
 {
+    [SerializeField]
+    GameObject teamManager1;
+    [SerializeField]
+    float fameAdded;
+    [SerializeField]
+    Image slider, slider2;
+    [SerializeField]
+    float timer;
     public static int Tijeras_A;
     [SerializeField] int tijerasA;
     public static int Tijeras_B;
@@ -18,8 +26,14 @@ public class PlazaCentralManager : MonoBehaviourPunCallbacks,IPunObservable
     public static int Papel_A;
     [SerializeField] int papelA;
     public static int Papel_B;
+    [SerializeField] int totalA, totalB;
     [SerializeField] int papelB;
     [SerializeField] TextMeshProUGUI ta, tb, pia, pib, paa, pab;
+    [SerializeField] GameObject midPointA, midPointB;
+    [SerializeField] bool ControlledBy;
+    bool corAcalled;
+    bool corBcalled;
+
 
     private void Awake()
     {
@@ -29,14 +43,9 @@ public class PlazaCentralManager : MonoBehaviourPunCallbacks,IPunObservable
     }
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.I)) 
-        {
-            RPCCallFan();
-        }
-        if (Input.GetKeyDown(KeyCode.K))
-        {
-            RPCKillFan();
-        }
+        #region UI
+        totalA = Tijeras_A + Piedra_A + Papel_A;
+        totalB = Tijeras_B + Piedra_B + Papel_B;
         tijerasA = Tijeras_A;
         ta.text = "" + tijerasA;
         tijerasB = Tijeras_B;
@@ -45,11 +54,30 @@ public class PlazaCentralManager : MonoBehaviourPunCallbacks,IPunObservable
         pia.text = "" + piedrasA;
         piedrasB = Piedra_B;
         pib.text = "" + piedrasB;
-        papelA   = Papel_A;
+        papelA = Papel_A;
         paa.text = "" + papelA;
-        papelB   = Papel_B;
+        papelB = Papel_B;
         pab.text = "" + papelB;
+        #endregion
+        if ((totalA > totalB) && !corAcalled) 
+        {
+            photonView.RPC("RPCcallCorA", RpcTarget.MasterClient);
+            photonView.RPC("RPCStopCorB", RpcTarget.MasterClient);
+            photonView.RPC("RPCActivateTeamA", RpcTarget.AllViaServer,true);
+            corAcalled = true;
+            corBcalled = false;
+        }
+       else if ((totalA < totalB) && !corBcalled) 
+        {
+            photonView.RPC("RPCcallCorB", RpcTarget.MasterClient);
+            photonView.RPC("RPCStopCorA", RpcTarget.MasterClient);
+            photonView.RPC("RPCActivateTeamB", RpcTarget.AllViaServer,false);
+            corBcalled = true;
+            corAcalled = false;
+        }
+
     }
+
     public void RPCCallFan() 
     {
         photonView.RPC("AddFan", RpcTarget.MasterClient, 0);
@@ -59,7 +87,84 @@ public class PlazaCentralManager : MonoBehaviourPunCallbacks,IPunObservable
     {
         photonView.RPC("KillFan", RpcTarget.MasterClient, 0);
     }
+    [PunRPC]
+    public void GiveA()
+    {
+        teamManager1.GetComponent<TeamManager>().fameA += fameAdded;
+        slider.fillAmount += (fameAdded);
+    }
+    [PunRPC]
+    public void GiveB()
+    {
+        teamManager1.GetComponent<TeamManager>().fameB += fameAdded;
+        slider2.fillAmount += (fameAdded);
+    }
 
+    [PunRPC]
+    void RPCActivateTeamA(bool controlledBy)
+    {
+        ControlledBy = controlledBy;
+        midPointA.SetActive(true);
+        midPointB.SetActive(false);
+    }
+    [PunRPC]
+    void RPCActivateTeamB(bool controlledBy)
+    {
+        ControlledBy = controlledBy;
+        midPointA.SetActive(false);
+        midPointB.SetActive(true);
+    }
+    [PunRPC]
+    public void RPCcallCorA()
+    {
+        StartCoroutine(GivePointsA());
+    }
+    [PunRPC]
+    public void RPCcallCorB()
+    {
+        StartCoroutine(GivePointsB());
+    }
+    [PunRPC]
+    public void RPCStopCorA()
+    {
+        StopCoroutine(GivePointsA());
+    }
+    [PunRPC]
+    public void RPCStopCorB()
+    {       
+        StopCoroutine(GivePointsB());
+    }
+    [PunRPC]
+    IEnumerator GivePointsA()
+    {
+        yield return new WaitForSeconds(timer);
+        photonView.RPC("GiveA", RpcTarget.MasterClient);
+        if (ControlledBy) 
+        {
+        StartCoroutine(GivePointsA());
+        }
+        else 
+        {
+            StopCoroutine(GivePointsA());
+        }
+        yield break;
+    }
+
+    [PunRPC]
+    IEnumerator GivePointsB()
+    {
+        yield return new WaitForSeconds(timer);
+        photonView.RPC("GiveB", RpcTarget.MasterClient);
+        if (!ControlledBy)
+        {
+            StartCoroutine(GivePointsB());
+        }
+        else
+        {
+            StopCoroutine(GivePointsB());
+        }
+        yield break;
+    }
     [PunRPC]
     public void AddFan(int whatFan) 
     {        
@@ -124,6 +229,8 @@ public class PlazaCentralManager : MonoBehaviourPunCallbacks,IPunObservable
     {
         if (stream.IsWriting)
         {
+            stream.SendNext(totalA);
+            stream.SendNext(totalB);
             stream.SendNext(Tijeras_A);
             stream.SendNext(Tijeras_B);
             stream.SendNext(Piedra_A);
@@ -133,6 +240,8 @@ public class PlazaCentralManager : MonoBehaviourPunCallbacks,IPunObservable
         }
         else if (stream.IsReading)
         {
+            totalA    = (int)stream.ReceiveNext();
+            totalB    = (int)stream.ReceiveNext();
             Tijeras_A = (int)stream.ReceiveNext();
             Tijeras_B = (int)stream.ReceiveNext();
             Piedra_A  = (int)stream.ReceiveNext();

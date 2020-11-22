@@ -25,7 +25,6 @@ public class FansSpawner : MonoBehaviourPunCallbacks
         yield return new WaitUntil(() => cpManager.alreadyContested);
         while(puedeSpawnear)
         {
-            Debug.Log("Aqui");
             if (cpManager.whatTeamInControl)
             {
                 photonView.RPC("SpawnA", RpcTarget.AllViaServer);
@@ -34,7 +33,6 @@ public class FansSpawner : MonoBehaviourPunCallbacks
             {
                 photonView.RPC("SpawnB", RpcTarget.AllViaServer);
             }
-            Debug.Log("Aqui2");
             yield return new WaitForSeconds(timer);
         }
     }
@@ -43,6 +41,7 @@ public class FansSpawner : MonoBehaviourPunCallbacks
     {
         GameObject fan = Instantiate(tipoDeFanA, spawnPoint.transform.position, Quaternion.identity);
         fan.GetComponent<WaypointsFans>().waypoints = waypointsA;
+        fan.GetComponent<FanLifeA>().cpmanager = cpManager;
         switch (spawnAs) 
         {
             case 0:
@@ -61,6 +60,7 @@ public class FansSpawner : MonoBehaviourPunCallbacks
     {
         GameObject fan = Instantiate(tipoDeFanB, spawnPoint.transform.position, Quaternion.identity);
         fan.GetComponent<WaypointsFans>().waypoints = waypointsB;
+        fan.GetComponent<FanLifeB>().cpManager = cpManager;
         switch (spawnAs)
         {
             case 0:
