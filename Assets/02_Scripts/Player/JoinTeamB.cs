@@ -10,7 +10,13 @@ public class JoinTeamB : MonoBehaviourPunCallbacks
     int playerPos;
     int idPos;
     [SerializeField] GameObject playerPref;
+    Transform instpos;
     bool callJoin;
+
+    private void Start()
+    {
+        instpos = GameObject.Find("TeamBPos").GetComponent<Transform>();
+    }
     public void JoinTeam()
     {
         foreach (GameObject player in GameObject.FindGameObjectsWithTag("Player"))
@@ -50,7 +56,7 @@ public class JoinTeamB : MonoBehaviourPunCallbacks
         else
         {
             Debug.LogFormat("Instantiating Player");
-            GameObject player = PhotonNetwork.Instantiate(this.playerPref.name, new Vector3(0, 0, 0), Quaternion.identity, 0);
+            GameObject player = PhotonNetwork.Instantiate(this.playerPref.name, instpos.position, Quaternion.identity, 0);
             player.GetComponentInParent<PlayerTeam>().TeamB= true;
             callJoin = true;
             Debug.Log("Llegaste aqui");
