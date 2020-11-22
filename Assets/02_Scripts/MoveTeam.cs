@@ -46,9 +46,9 @@ public class MoveTeam : MonoBehaviourPunCallbacks
     {
         photonView.RPC("MovePlayer", TargetPlayerByActorNumber(PhotonNetwork.LocalPlayer.ActorNumber));
     }
- 
+
     [PunRPC]
-    public void MovePlayer() 
+    public void MovePlayer()
     {
         foreach (GameObject player in GameObject.FindGameObjectsWithTag("Player"))
         {
@@ -66,6 +66,11 @@ public class MoveTeam : MonoBehaviourPunCallbacks
                 }
             }
         }
+    }
+    public override void OnPlayerEnteredRoom(Player newPlayer)
+    {
+        Debug.Log("Jugador entra a room");
+        playersActuales.Add(newPlayer);
     }
 
 }
