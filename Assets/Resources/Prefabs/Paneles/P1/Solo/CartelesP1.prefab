@@ -345,11 +345,6 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3832005287362935664, guid: fee3558af8c539846977d3a2abe79da9,
         type: 3}
-      propertyPath: cartelesSpot
-      value: 
-      objectReference: {fileID: 5388985818338349993}
-    - target: {fileID: 3832005287362935664, guid: fee3558af8c539846977d3a2abe79da9,
-        type: 3}
       propertyPath: cartelesBarra
       value: 
       objectReference: {fileID: 1590094319355591769}
@@ -468,12 +463,6 @@ PrefabInstance:
 --- !u!224 &1700897844148888039 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 8923915091405216999, guid: fee3558af8c539846977d3a2abe79da9,
-    type: 3}
-  m_PrefabInstance: {fileID: 7801027222819339520}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &5388985818338349993 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2777409122975395497, guid: fee3558af8c539846977d3a2abe79da9,
     type: 3}
   m_PrefabInstance: {fileID: 7801027222819339520}
   m_PrefabAsset: {fileID: 0}
