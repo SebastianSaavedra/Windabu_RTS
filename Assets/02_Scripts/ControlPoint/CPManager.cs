@@ -96,8 +96,26 @@ public class CPManager :MonoBehaviourPunCallbacks,IPunObservable
         alreadyContested = isContested;
         whatTeamInControl = controlledBy;
     }
+    public void RPCGainPointsViaFan(bool team,float points) 
+    {
+        photonView.RPC("GainPointsViaFans", RpcTarget.MasterClient,team,points);
+    }
 
+    [PunRPC]
+    public void GainPointsViaFans(bool team, float points)
+    {
 
+        if (team)
+        {
+            teamManager1.GetComponent<TeamManager>().fameA += points;
+            slider.fillAmount += (fameAdded * 0.2f);
+        }
+        else
+        {
+            teamManager1.GetComponent<TeamManager>().fameB += points;
+            slider2.fillAmount += (fameAdded * 0.2f);
+        }
+    }
     [PunRPC]
     public void GainPoints()
     {

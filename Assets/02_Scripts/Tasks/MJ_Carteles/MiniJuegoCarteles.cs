@@ -14,17 +14,19 @@ public class MiniJuegoCarteles : MonoBehaviourPunCallbacks
     ManagerMinijuegos managerLocal;
     MinigameManager managerMinigame;
 
-    const float tiempoParaRealizarMinijuego = 30;
+    //const float tiempoParaRealizarMinijuego = 30;
 
+    //la cantidad de carteles que yo he colocado
     [HideInInspector] public int carteles;
     public Image cartelesBarra;
 
     int cartelesJugador2 = 0;
     public Image contadorJugador2;
 
-    //la cantidad de carteles que yo he colocado
     [SerializeField] GameObject cartelesSpot;
-    
+    [SerializeField] List<Transform> posicionesDePegado = new List<Transform>();
+    List<Transform> posicionesRestantes;
+
     [SerializeField] BoxCollider2D col2d;
     Coroutine sgteCor;
     [SerializeField] Cartel cartel;
@@ -40,6 +42,7 @@ public class MiniJuegoCarteles : MonoBehaviourPunCallbacks
         esquinas = 0;
         managerMinigame = GameObject.Find("MinijuegosManager").GetComponent<MinigameManager>();      
         managerLocal = GameObject.Find("MinijuegosManager").GetComponent<ManagerMinijuegos>();
+        posicionesRestantes = new List<Transform>(posicionesDePegado);
     }
 
     public override void OnEnable()
@@ -80,9 +83,9 @@ public class MiniJuegoCarteles : MonoBehaviourPunCallbacks
     void Carteles(int valor)
     {
         carteles += valor;
+        cartelesBarra.fillAmount = (float)carteles / 10;
 
-
-        if (carteles >= 3)
+        if (carteles >= 10)
         {
             //carteles = 0;
             managerMinigame.FinishTask();
@@ -98,7 +101,11 @@ public class MiniJuegoCarteles : MonoBehaviourPunCallbacks
             esquinas++;
             collision.GetComponent<BoxCollider2D>().enabled = false;
 
-            if (esquinas >= 4)
+            this.transform.parent.GetComponentInChildren<Cartel>().Iterar();
+            Debug.Log("Cuantas esquinas hay: " + esquinas);
+
+
+            if (esquinas >= 3)
             {
                 ColocarCartel();
             }
@@ -114,6 +121,7 @@ public class MiniJuegoCarteles : MonoBehaviourPunCallbacks
     public void ReciboActualizacionDeOtroJugador()
     {
         cartelesJugador2++;
+        contadorJugador2.fillAmount = (float)cartelesJugador2 / 10;
         //contadorJugador2.text = cartelesJugador2.ToString();
         //Actualizar ui
     }
@@ -133,8 +141,19 @@ public class MiniJuegoCarteles : MonoBehaviourPunCallbacks
         yield return new WaitForSeconds(.25f);
         // añadir animación pal lado
         // wait for the animation
-        Destroy(cartel.cartelito);
+        RandomPos();
+        //Destroy(cartel.cartelito);
         this.transform.parent.GetComponentInChildren<Cartel>().SpawnCartel();
         yield break;
+    }
+
+    void RandomPos()
+    {
+         //new List<Transform>(posicionesDePegado);
+        int posIndex = Random.Range(0,posicionesRestantes.Count);
+
+        cartel.cartelito.transform.localScale = new Vector3(.4f, .4f, 1f);
+        cartel.cartelito.transform.position = posicionesRestantes[posIndex].position;
+        posicionesRestantes.RemoveAt(posIndex);
     }
 }
