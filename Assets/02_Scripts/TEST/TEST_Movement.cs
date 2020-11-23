@@ -40,6 +40,10 @@ namespace Com.MaluCompany.TestGame
 
     void Update()
     {
+  
+
+       if (photonView.IsMine)
+       {
             if (Input.GetKeyDown(KeyCode.A)) 
             {
                 playerAnim.transform.GetComponent<SpriteRenderer>().flipX = false;
@@ -57,8 +61,6 @@ namespace Com.MaluCompany.TestGame
                 playerAnim.SetBool("Caminando",false);
             }
 
-       if (photonView.IsMine)
-       {
         Vector2 moveInput = new Vector2(Input.GetAxisRaw("Horizontal"),Input.GetAxisRaw("Vertical"));
         objVelocity = moveInput.normalized * movSpeed;
             

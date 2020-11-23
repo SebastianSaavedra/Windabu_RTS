@@ -263,6 +263,7 @@ GameObject:
   - component: {fileID: 4592815814761981478}
   - component: {fileID: 4489681878159138648}
   - component: {fileID: 4322383388125986165}
+  - component: {fileID: 6617878842333182034}
   m_Layer: 9
   m_Name: Player_Dollien
   m_TagString: Player
@@ -536,6 +537,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movement: {fileID: 5816013650376650917}
   playerTeam: {fileID: 4592815814761981478}
+  playerToInterrupt: {fileID: 0}
   colliderAct: {fileID: 0}
 --- !u!114 &4322383388125986165
 MonoBehaviour:
@@ -549,4 +551,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53fed68e577b4c84685bf4becac346ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  boxCollider2Ds: []
+  boxcol2d: {fileID: 0}
+--- !u!58 &6617878842333182034
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5816013650376650916}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 2.09

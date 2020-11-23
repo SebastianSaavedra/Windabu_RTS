@@ -5,13 +5,16 @@ using UnityEngine;
 using Photon.Pun;
 using Photon.Realtime;
 
-public class Sabotage : MonoBehaviourPunCallbacks
+namespace Com.MaluCompany.TestGame
+{
+    public class Sabotage : MonoBehaviourPunCallbacks
 {
     [SerializeField] Com.MaluCompany.TestGame.TEST_Movement movement;
     [SerializeField] PlayerTeam playerTeam;
     //Coroutine cor;
     public List<Player> playersActuales = new List<Player>();
-
+    public GameObject playerToInterrupt;
+    [SerializeField] Coroutine cor;
     [SerializeField] BoxCollider2D colliderAct;
 
     //private new void OnEnable()
@@ -20,18 +23,17 @@ public class Sabotage : MonoBehaviourPunCallbacks
     //    Debug.Log(playerTeam);
     //}
 
-    private void Awake()
+    private void Start()
     {
-        //movement.GetComponent<Com.MaluCompany.TestGame.TEST_Movement>();
-        if (PhotonNetwork.IsMasterClient)   //Tener en mente que este codigo puede producir errores a futuro.
+        
+        if (PhotonNetwork.IsMasterClient) 
         {
-            //SetearUIMasterClient();
-            playersActuales.Add(PhotonNetwork.LocalPlayer);
-            //Debug.Log("On joined room ha sido debugea2 (?");
-        }
+                playersActuales.Add(PhotonNetwork.LocalPlayer);
+
+            }
     }
 
-    Player TargetPlayerByActorNumber(int playerActorNumber)
+        Player TargetPlayerByActorNumber(int playerActorNumber)
     {
         //Solamente se tiene para mostrar el número de jugadores y su actorNumber
         foreach (var item in playersActuales)
@@ -55,40 +57,65 @@ public class Sabotage : MonoBehaviourPunCallbacks
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        Debug.Log("Entro al collider de la wea");
+            if (photonView.IsMine) { 
         if (this.playerTeam.TeamA && collision.CompareTag("Actividad B"))
         {
-            Debug.Log("El man es del Team A");
             if (Input.GetKeyDown(KeyCode.F))
             {
                 Debug.Log("Presiono la F y es del team A");
-                photonView.RPC("LlamarCorutinaSabotaje", RpcTarget.AllViaServer);
+                photonView.RPC("LlamarCorutinaSabotaje", TargetPlayerByActorNumber(GetComponent<PlayerId>().id));
             }
         }
 
         if (this.playerTeam.TeamB && collision.CompareTag("Actividad A"))
         {
-            Debug.Log("El man es del Team B");
             if (Input.GetKeyDown(KeyCode.F))
             {
                 Debug.Log("Presiono la F y es del team B");
-                photonView.RPC("LlamarCorutinaSabotaje", RpcTarget.AllViaServer);
+                photonView.RPC("LlamarCorutinaSabotaje", TargetPlayerByActorNumber(GetComponent<PlayerId>().id));             
             }
         }
+        if (Input.GetKeyDown(KeyCode.T)) 
+        {
+        if (this.playerTeam.TeamA && collision.CompareTag("Actividad A"))
+        {           
+            photonView.RPC("InterrumpirSabotaje", TargetPlayerByActorNumber(colliderAct.GetComponent<ColSaver>().room.jugadorDos));
+                    photonView.RPC("EnableMovement", TargetPlayerByActorNumber(colliderAct.GetComponent<ColSaver>().room.jugadorDos), true);
+        }
+        if (this.playerTeam.TeamB && collision.CompareTag("Actividad B"))
+        {
+            photonView.RPC("InterrumpirSabotaje", TargetPlayerByActorNumber(colliderAct.GetComponent<ColSaver>().room.jugadorUno));
+                    photonView.RPC("EnableMovement", TargetPlayerByActorNumber(colliderAct.GetComponent<ColSaver>().room.jugadorUno), true);
+        }
+        }
+            }
     }
+    
+        [PunRPC]
+     public void EnableMovement(bool enable) 
+        {
+            movement.enabled = enable;
+            Debug.Log(movement.enabled);
+            Debug.Log(this.transform.GetComponent<TEST_Movement>().enabled);
+            Debug.Log(transform.name + " Movimiento recuperado");
+        }
+
+        [PunRPC]
+        public void DisableMovement() 
+        {
+          GetComponent<TEST_Movement>().enabled = false;
+        }
 
     [PunRPC]
     IEnumerator Sabotaje()
     {
-        Debug.Log("Llego a la corutina del sab");
         movement.enabled = false;
         yield return new WaitForSeconds(15f);
-        colliderAct.enabled = false;
+        colliderAct.GetComponent<ColSaver>().RPCDisable();
         movement.enabled = true;
         if (colliderAct != null)
         {
             colliderAct = null;
-            Debug.Log("Perdio el colliderAct");
         }
         yield break;
     }
@@ -96,16 +123,18 @@ public class Sabotage : MonoBehaviourPunCallbacks
     [PunRPC]
     void LlamarCorutinaSabotaje()
     {
-        StartCoroutine("Sabotaje");
+            StartCoroutine(Sabotaje()); ;
+            Debug.Log("Cor llamada");
     }
-    //[PunRPC]
-    //public void InterrumpirSabotaje()
-    //{
-    //    StopCoroutine("Sabotaje");
-    //    movement.enabled = true;
-    //    colliderAct = null;
-    //    Debug.Log("Me han detenido el sabotaje chavales o.0!");
-    //}
+
+    [PunRPC]
+    public void InterrumpirSabotaje()
+    {
+        StopCoroutine(Sabotaje());
+        Debug.Log("Paro sabotaje");
+        colliderAct = null;
+        Debug.Log("Me han detenido el sabotaje chavales o.0!");
+    }
 
     //private void OnCollisionStay2D(Collision2D collision)
     //{
@@ -135,10 +164,24 @@ public class Sabotage : MonoBehaviourPunCallbacks
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (this.playerTeam.TeamA && collision.CompareTag("Actividad B"))
+            if (this.playerTeam.TeamA && collision.CompareTag("Actividad B"))
+            {
+                colliderAct = collision.GetComponent<BoxCollider2D>();
+                Debug.Log("Agarro el colliderAct: " + colliderAct);
+            }
+            if (this.playerTeam.TeamA && collision.CompareTag("Actividad A"))
+            {
+                colliderAct = collision.GetComponent<BoxCollider2D>();
+                Debug.Log("Agarro el colliderAct: " + colliderAct);
+            }
+            if (this.playerTeam.TeamB && collision.CompareTag("Actividad B"))
+            {
+                colliderAct = collision.GetComponent<BoxCollider2D>();
+                Debug.Log("Agarro el colliderAct: " + colliderAct);
+            }
+            if (collision.GetComponent<TEST_Interact>())
         {
-            colliderAct = collision.GetComponent<BoxCollider2D>();
-            Debug.Log("Agarro el colliderAct: " + colliderAct);
+            playerToInterrupt = collision.gameObject;
         }
 
         if (this.playerTeam.TeamB && collision.CompareTag("Actividad A"))
@@ -146,6 +189,20 @@ public class Sabotage : MonoBehaviourPunCallbacks
             colliderAct = collision.GetComponent<BoxCollider2D>();
             Debug.Log("Agarro el colliderAct: " + colliderAct);
         }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.GetComponent<TEST_Interact>())
+        {
+            playerToInterrupt = null;
+        }
+    }
+
+    public override void OnPlayerEnteredRoom(Player newPlayer)
+    {
+        Debug.Log("Jugador entra a room");
+        playersActuales.Add(newPlayer);
     }
 
     //private void OnTriggerExit2D(Collider2D collision)
@@ -156,4 +213,5 @@ public class Sabotage : MonoBehaviourPunCallbacks
     //        Debug.Log("Perdio el colliderAct");
     //    }
     //}
+}
 }
