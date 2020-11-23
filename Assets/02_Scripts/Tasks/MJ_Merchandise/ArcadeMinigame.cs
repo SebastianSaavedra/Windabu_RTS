@@ -5,37 +5,38 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class MerchandiseMinigame : MonoBehaviourPunCallbacks
+public class ArcadeMinigame : MonoBehaviourPunCallbacks
 {
-    // Keys to mash
-    KeyCode[] keysToMash = new KeyCode[] {
-        KeyCode.Z, KeyCode.X,
-    };
-
     public int mashLimit = 20;
     [SerializeField]int mashScore;
+
+    private bool leftActive;
 
     public Text uiMashCounter;
 
     private void Start()
     {
         uiMashCounter = GetComponent<Text>();
+        leftActive = true;
     }
 
     private void Update()
     {
-        // Recognize keys and add to score
-        for (int i = 0; i < keysToMash.Length; i++)
+        if (Input.GetKeyDown(KeyCode.Z) && leftActive)
         {
-            if (Input.GetKeyDown(keysToMash[i]))
-            {
-                mashScore++;
-                uiMashCounter.text = mashScore.ToString("0");
-            }
+            leftActive = false;
+            mashScore++;
+            uiMashCounter.text = mashScore.ToString("0");
+        }
+        if (Input.GetKeyDown(KeyCode.X) && !leftActive)
+        {
+            leftActive = true;
+            mashScore++;
+            uiMashCounter.text = mashScore.ToString("0");
         }
 
-        // Win con
-        if(mashScore >= mashLimit)
+            // Win con
+            if (mashScore >= mashLimit)
         {
             Debug.Log("Win");
             mashScore = 0;
