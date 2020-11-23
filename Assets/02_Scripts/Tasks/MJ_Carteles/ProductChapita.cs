@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class ProductItemSlot : MonoBehaviour, IDropHandler
+public class ProductChapita : MonoBehaviour, IDropHandler
 {
     public float slotId;
     private float draggedId;
