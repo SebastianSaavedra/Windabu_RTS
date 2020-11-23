@@ -14,8 +14,11 @@ namespace Com.MaluCompany.TestGame
     //Coroutine cor;
     public List<Player> playersActuales = new List<Player>();
     public GameObject playerToInterrupt;
+        [SerializeField] float timer;
+        float backTimer;
     [SerializeField] Coroutine cor;
     [SerializeField] BoxCollider2D colliderAct;
+        public bool saboteando; 
 
     //private new void OnEnable()
     //{
@@ -25,13 +28,21 @@ namespace Com.MaluCompany.TestGame
 
     private void Start()
     {
-        
+            backTimer = timer;
         if (PhotonNetwork.IsMasterClient) 
         {
                 playersActuales.Add(PhotonNetwork.LocalPlayer);
 
             }
     }
+
+        private void Update()
+        {
+            if (saboteando) 
+            {
+                Sabotaje();
+            }
+        }
 
         Player TargetPlayerByActorNumber(int playerActorNumber)
     {
@@ -80,24 +91,22 @@ namespace Com.MaluCompany.TestGame
         if (this.playerTeam.TeamA && collision.CompareTag("Actividad A"))
         {           
             photonView.RPC("InterrumpirSabotaje", TargetPlayerByActorNumber(colliderAct.GetComponent<ColSaver>().room.jugadorDos));
-                    photonView.RPC("EnableMovement", TargetPlayerByActorNumber(colliderAct.GetComponent<ColSaver>().room.jugadorDos), true);
+            photonView.RPC("EnableMovement", TargetPlayerByActorNumber(colliderAct.GetComponent<ColSaver>().room.jugadorDos), true);
         }
         if (this.playerTeam.TeamB && collision.CompareTag("Actividad B"))
         {
             photonView.RPC("InterrumpirSabotaje", TargetPlayerByActorNumber(colliderAct.GetComponent<ColSaver>().room.jugadorUno));
-                    photonView.RPC("EnableMovement", TargetPlayerByActorNumber(colliderAct.GetComponent<ColSaver>().room.jugadorUno), true);
+            photonView.RPC("EnableMovement", TargetPlayerByActorNumber(colliderAct.GetComponent<ColSaver>().room.jugadorUno), true);
         }
         }
-            }
+     }
     }
     
         [PunRPC]
      public void EnableMovement(bool enable) 
         {
-            movement.enabled = enable;
-            Debug.Log(movement.enabled);
-            Debug.Log(this.transform.GetComponent<TEST_Movement>().enabled);
-            Debug.Log(transform.name + " Movimiento recuperado");
+            playerToInterrupt.GetComponent<TEST_Movement>().enabled = enable;
+            Debug.Log(playerToInterrupt+ "Movimiento Recuperado");
         }
 
         [PunRPC]
@@ -107,32 +116,49 @@ namespace Com.MaluCompany.TestGame
         }
 
     [PunRPC]
-    IEnumerator Sabotaje()
+    public void Sabotaje()
     {
         movement.enabled = false;
-        yield return new WaitForSeconds(15f);
+            // yield return new WaitForSeconds(15f);
+            timer -= Time.deltaTime;
+            if (timer <= 0) 
+            {
         colliderAct.GetComponent<ColSaver>().RPCDisable();
         movement.enabled = true;
-        if (colliderAct != null)
-        {
-            colliderAct = null;
-        }
-        yield break;
+                if (colliderAct != null)
+                {
+                    colliderAct = null;
+                }
+                ResetearValoresSabotaje();
+            }
     }
+        [PunRPC]
+        public void ResetearValoresSabotaje() 
+        {
+            timer      = backTimer;
+            saboteando = false;
+        }
 
     [PunRPC]
     void LlamarCorutinaSabotaje()
     {
-            StartCoroutine(Sabotaje()); ;
+            saboteando = true;
+            //StartCoroutine(Sabotaje()); ;
             Debug.Log("Cor llamada");
     }
+        [PunRPC]
+      public void PararCorrutinaSabotaje()
+        {
+          //  StopCoroutine("Sabotaje");
+        }
 
     [PunRPC]
     public void InterrumpirSabotaje()
     {
-        StopCoroutine(Sabotaje());
+        playerToInterrupt.GetComponent<Sabotage>().ResetearValoresSabotaje();
         Debug.Log("Paro sabotaje");
         colliderAct = null;
+        Debug.Log(playerToInterrupt.name + " Fue interrumpido");
         Debug.Log("Me han detenido el sabotaje chavales o.0!");
     }
 
