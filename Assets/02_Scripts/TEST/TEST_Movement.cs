@@ -16,7 +16,7 @@ namespace Com.MaluCompany.TestGame
     [SerializeField] float movSpeed;
     [SerializeField] float runSpeed;
     [SerializeField] GameObject playerUiPrefab;
-        [SerializeField] Animator playerAnim;
+        [SerializeField] Animator playerAnim,playerAnimBehind;
         [SerializeField] Transform UiPos;
         //Privadas
         Rigidbody2D rb2d;
@@ -40,25 +40,31 @@ namespace Com.MaluCompany.TestGame
 
     void Update()
     {
-            if (Input.GetKeyDown(KeyCode.A)) 
-            {
-                playerAnim.transform.GetComponent<SpriteRenderer>().flipX = false;
-            }
-            if (Input.GetKeyDown(KeyCode.D))
-            {
-                playerAnim.transform.GetComponent<SpriteRenderer>().flipX = true;
-            }
-            if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.S)) 
-            {
-                playerAnim.SetBool("Caminando", true);
-            }
-            else 
-            {
-                playerAnim.SetBool("Caminando",false);
-            }
+  
 
        if (photonView.IsMine)
        {
+            if (Input.GetKeyDown(KeyCode.A))
+                {
+                    playerAnim.transform.GetComponent<SpriteRenderer>().flipX = false;
+                    playerAnimBehind.transform.GetComponent<SpriteRenderer>().flipX = false;
+                }
+            if (Input.GetKeyDown(KeyCode.D))
+                {
+                    playerAnim.transform.GetComponent<SpriteRenderer>().flipX = true;
+                    playerAnimBehind.transform.GetComponent<SpriteRenderer>().flipX = true;
+                }
+            if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.S))
+                {
+                    playerAnim.SetBool("Caminando", true);
+                    playerAnimBehind.SetBool("Caminando", true);
+                }
+            else
+                {
+                    playerAnim.SetBool("Caminando", false);
+                    playerAnimBehind.SetBool("Caminando", false);
+                }
+
         Vector2 moveInput = new Vector2(Input.GetAxisRaw("Horizontal"),Input.GetAxisRaw("Vertical"));
         objVelocity = moveInput.normalized * movSpeed;
             

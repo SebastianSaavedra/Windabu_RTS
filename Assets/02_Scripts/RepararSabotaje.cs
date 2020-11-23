@@ -7,56 +7,23 @@ using Photon.Realtime;
 
 public class RepararSabotaje : MonoBehaviourPunCallbacks
 {
-    [SerializeField] List<BoxCollider2D> boxCollider2Ds = new List<BoxCollider2D>();
-    bool enBase;
-    BoxCollider2D colliderDesactivado;
+    [SerializeField] GameObject boxcol2d;
 
-    private void Start()
-    {
-        foreach (GameObject col in GameObject.FindGameObjectsWithTag("Actividad B"))
-        {
-            boxCollider2Ds.Add(col.GetComponent<BoxCollider2D>());
-        }
-    }
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.CompareTag("Base") && !enBase)
+        if (Input.GetKeyDown(KeyCode.R)) 
         {
-            enBase = true;
-        }
-
-        if (enBase)
-        {
-            Debug.Log("Esta en la base");
-            photonView.RPC("BuscarCollider",RpcTarget.MasterClient);
-        }
-    }
-
-    [PunRPC]
-    void BuscarCollider()
-    {
-        foreach (BoxCollider2D item in boxCollider2Ds)
-        {
-            if (item.enabled == false)
+            if (GetComponent<PlayerTeam>().TeamA && boxcol2d.GetComponent<ColSaver>().team)
             {
-                Debug.Log("El collider desactivado es: " + item);
-                colliderDesactivado = item;
-                if (Input.GetKeyDown(KeyCode.R))
-                {
-                    if (PhotonNetwork.IsMasterClient)
-                    {
-                        photonView.RPC("LlamarCorutinaReparar", RpcTarget.AllViaServer);
-                    }
-                }
+                photonView.RPC("LlamarCorutinaReparar", RpcTarget.AllViaServer);
             }
-        }
-    }
+            if (GetComponent<PlayerTeam>().TeamB && !boxcol2d.GetComponent<ColSaver>().team)
+            {
+                photonView.RPC("LlamarCorutinaReparar", RpcTarget.AllViaServer);
+            }
 
-    [PunRPC]        //Llamarlo desde otros scripts
-    public void ActualizarListaDeColliders(BoxCollider2D col)
-    {
-        boxCollider2Ds.Add(col);
+        }
     }
 
     [PunRPC]
@@ -65,19 +32,21 @@ public class RepararSabotaje : MonoBehaviourPunCallbacks
         StartCoroutine("Reparar");
     }
 
-
+    [PunRPC]
     IEnumerator Reparar()
     {
         Debug.Log("Empezo a reparar");
         yield return new WaitForSeconds(5f);
-        colliderDesactivado.enabled = true;
+        boxcol2d.GetComponent<ColSaver>().RPCEnable();
         Debug.Log("Ya Reparo");
         yield break;
     }
-
-    private void OnTriggerExit2D(Collider2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        enBase = false;
-        Debug.Log("El estado del bool de la base es: " + enBase);
+        if (collision.GetComponent<ColSaver>()) 
+        {
+            boxcol2d = collision.gameObject;
+        }
     }
+
 }
