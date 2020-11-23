@@ -2771,8 +2771,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   celu: {fileID: 1328016866}
-  wifi: {fileID: 0}
-  wifint: {fileID: 0}
+  wifi: {fileID: 1328016879}
+  wifint: {fileID: 1328016878}
 --- !u!1 &334463295
 GameObject:
   m_ObjectHideFlags: 0
@@ -5068,8 +5068,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   celu: {fileID: 1328016873}
-  wifi: {fileID: 0}
-  wifint: {fileID: 0}
+  wifi: {fileID: 1328016877}
+  wifint: {fileID: 1328016876}
 --- !u!1 &577962023
 GameObject:
   m_ObjectHideFlags: 0
@@ -27388,6 +27388,7 @@ MonoBehaviour:
   pab: {fileID: 1328016858}
   midPointA: {fileID: 1328016869}
   midPointB: {fileID: 1328016868}
+  ControlledBy: 0
 --- !u!114 &907844285
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -32078,6 +32079,30 @@ MonoBehaviour:
     type: 3}
   team: 1
   uiMan: {fileID: 1160458838}
+--- !u!1 &1328016876 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4184184835737652793, guid: a3149a40513b9544ba50dbc360b4355c,
+    type: 3}
+  m_PrefabInstance: {fileID: 1328016825}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1328016877 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1353616373136961441, guid: a3149a40513b9544ba50dbc360b4355c,
+    type: 3}
+  m_PrefabInstance: {fileID: 1328016825}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1328016878 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1910708573844850993, guid: a3149a40513b9544ba50dbc360b4355c,
+    type: 3}
+  m_PrefabInstance: {fileID: 1328016825}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1328016879 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1192298878167505677, guid: a3149a40513b9544ba50dbc360b4355c,
+    type: 3}
+  m_PrefabInstance: {fileID: 1328016825}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1342850211
 GameObject:
   m_ObjectHideFlags: 0
