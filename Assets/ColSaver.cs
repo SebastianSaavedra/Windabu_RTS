@@ -16,10 +16,13 @@ public class ColSaver : MonoBehaviourPunCallbacks,IPunObservable
 
     private void Start()
     {
-        photonView.RPC("ResetValues", RpcTarget.AllViaServer);
+        photonView.RPC("ResetValueA", RpcTarget.AllViaServer);
+        photonView.RPC("ResetValueB", RpcTarget.AllViaServer);
     }
     private void Update()
     {
+        if (text == null || text1 == null)
+            return;
         text.text  = "" + room.jugadorUno;
         text1.text = "" + room.jugadorDos;
     }
@@ -52,9 +55,13 @@ public class ColSaver : MonoBehaviourPunCallbacks,IPunObservable
     }
 
     [PunRPC]
-    public void ResetValues()
+    public void ResetValueA()
     {
         room.jugadorUno = 0;
+    }
+    [PunRPC]
+    public void ResetValueB()
+    {
         room.jugadorDos = 0;
     }
 
@@ -91,11 +98,11 @@ public class ColSaver : MonoBehaviourPunCallbacks,IPunObservable
     {
         if (collision.GetComponent<PlayerTeam>().TeamA)
         {
-            photonView.RPC("ResetValues",RpcTarget.AllViaServer);
+            photonView.RPC("ResetValueA", RpcTarget.AllViaServer);
         }
         if (collision.GetComponent<PlayerTeam>().TeamB)
         {
-            photonView.RPC("ResetValues",RpcTarget.AllViaServer);           
+            photonView.RPC("ResetValueB", RpcTarget.AllViaServer);           
         }
     }
     public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)

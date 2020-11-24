@@ -133,8 +133,13 @@ public class ManagerMinijuegos : MonoBehaviourPunCallbacks
     public void ActualizarEstadoMinijuego1()
     {
         Debug.Log("Intentar actualizar");
-        photonView.RPC("IntentarActualizarEstadoMiniJuego1", RpcTarget.MasterClient, PhotonNetwork.LocalPlayer.ActorNumber);    
+        photonView.RPC("IntentarActualizarEstadoMiniJuego1", RpcTarget.MasterClient, PhotonNetwork.LocalPlayer.ActorNumber);
     }
+    //public void ActualizarEstadoMinijuego2()
+    //{
+    //    Debug.Log("Intentar actualizar");
+    //    photonView.RPC("IntentarActualizarEstadoMiniJuego2", RpcTarget.MasterClient, PhotonNetwork.LocalPlayer.ActorNumber);
+    //}
 
 
     [PunRPC] //ManagerMinijuegos del Cliente Maestro se dice a si mismo que envie el aviso de esta actualización
@@ -153,13 +158,41 @@ public class ManagerMinijuegos : MonoBehaviourPunCallbacks
         }
     }
 
+    //[PunRPC] //ManagerMinijuegos del Cliente Maestro se dice a si mismo que envie el aviso de esta actualización
+    //void IntentarActualizarEstadoMiniJuego2(int playerActorNumber)
+    //{
+    //    //determino a cuál de los dos jugadores le debo enviar este mensaje
+    //    if (minijuegos[idMinijuego].jugadorUno == playerActorNumber)
+    //    {
+    //        photonView.RPC("EnviarRPCAlOtroJugadorMinijuego1", RpcTarget.MasterClient
+    //            , minijuegos[idMinijuego].jugadorDos);
+    //    }
+    //    else if (minijuegos[idMinijuego].jugadorDos == playerActorNumber)
+    //    {
+    //        photonView.RPC("EnviarRPCAlOtroJugadorMinijuego1", RpcTarget.MasterClient
+    //            , minijuegos[idMinijuego].jugadorUno);
+    //    }
+    //}
+
     [PunRPC]    //ManagerMinijuegos del Cliente Maestro intenta avisarle al ManagerMinijuegos local del otro jugador
                 //que se realizó un cambio
     void EnviarRPCAlOtroJugadorMinijuego1(int playerActorNumber)
     {
-        if(minijuegos[0].numeroDeJugadores == 2)
+        if(minijuegos[0].numeroDeJugadores == 2)        // Carteles
         {
             photonView.RPC("AvisarActualizacionMinijuego1", TargetPlayerByActorNumber(playerActorNumber));
+        }
+        else if (minijuegos[1].numeroDeJugadores == 2)        // Carteles
+        {
+            photonView.RPC("AvisarActualizacionMinijuego1", TargetPlayerByActorNumber(playerActorNumber));
+        }
+        else if (minijuegos[2].numeroDeJugadores == 2)        // Lightstick
+        {
+            photonView.RPC("AvisarActualizacionMinijuego2", TargetPlayerByActorNumber(playerActorNumber));
+        }
+        else if (minijuegos[3].numeroDeJugadores == 2)        // Lightstick
+        {
+            photonView.RPC("AvisarActualizacionMinijuego2", TargetPlayerByActorNumber(playerActorNumber));
         }
         else
         {
@@ -169,10 +202,31 @@ public class ManagerMinijuegos : MonoBehaviourPunCallbacks
         
     }
 
+    //[PunRPC]    //ManagerMinijuegos del Cliente Maestro intenta avisarle al ManagerMinijuegos local del otro jugador
+    //            //que se realizó un cambio
+    //void EnviarRPCAlOtroJugadorMinijuego2(int playerActorNumber)
+    //{
+    //    if (minijuegos[2].numeroDeJugadores == 2)        //Lightstick
+    //    {
+    //        photonView.RPC("AvisarActualizacionMinijuego2", TargetPlayerByActorNumber(playerActorNumber));
+    //    }
+    //    else
+    //    {
+    //        Debug.Log("solamente hay un jugador");
+    //    }
+    //}
+
     [PunRPC] //ManagerMinijuegos local le avisa al manager del minijuego 1 que recibió un cambio
     void AvisarActualizacionMinijuego1()
     {
-        Debug.Log("Intengo actualizar minijuego 1");
+        Debug.Log("Intento actualizar minijuego 1");
+        GameObject.Find("Rodillo").GetComponent<MiniJuegoCarteles>().ReciboActualizacionDeOtroJugador();
+    }
+
+    [PunRPC] //ManagerMinijuegos local le avisa al manager del minijuego 1 que recibió un cambio
+    void AvisarActualizacionMinijuego2()
+    {
+        Debug.Log("Intengo actualizar minijuego 2");
         GameObject.Find("Rodillo").GetComponent<MiniJuegoCarteles>().ReciboActualizacionDeOtroJugador();
     }
     #endregion
