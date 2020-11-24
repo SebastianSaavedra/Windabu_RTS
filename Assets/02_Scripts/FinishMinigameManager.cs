@@ -44,6 +44,10 @@ public class FinishMinigameManager : MonoBehaviour
             case 3:
                 break;
 
+            // Super Pc
+            case 4:
+                break;
+
             // -----------  Producir -------------
 
             // Cartel - Impresora
