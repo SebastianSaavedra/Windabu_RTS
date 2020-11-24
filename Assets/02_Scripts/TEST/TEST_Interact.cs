@@ -43,21 +43,24 @@ public class TEST_Interact : MonoBehaviourPunCallbacks
         {
             if (collision.GetComponent<TaskDropDown>()) 
             {
-        objectToInteract = collision.gameObject;
-            }
+            objectToInteract = collision.gameObject;
             speakingTo = collision.GetComponentInParent<CPManager>();
             thisTask = collision.GetComponent<TaskDropDown>();
+            }
         }
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
         if (photonView.IsMine) 
         {
+            if (collision.GetComponent<TaskDropDown>()) 
+            {
             objectToInteract.GetComponent<I_Interactable>().OnLeavePanel(GetComponent<PlayerTeam>().team);
             objectToInteract = null;
             speakingTo = null;
             thisTask = null;
             alreadyInteracted = false;
+            }
         }
     }
 
