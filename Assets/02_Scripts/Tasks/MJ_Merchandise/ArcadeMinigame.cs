@@ -9,10 +9,13 @@ public class ArcadeMinigame : MonoBehaviourPunCallbacks
 {
     public int mashLimit = 20;
     [SerializeField]int mashScore;
-
+    private int bgCounter = 0;
     private bool leftActive;
 
     public Text uiMashCounter;
+    public GameObject p1, p1z, p1x, p2, p2z, p2x;
+    public GameObject[] screens;
+    int screenCounter;
 
     private void Start()
     {
@@ -27,23 +30,48 @@ public class ArcadeMinigame : MonoBehaviourPunCallbacks
             leftActive = false;
             mashScore++;
             uiMashCounter.text = mashScore.ToString("0");
+
+            // UI
+            p1.SetActive(false);
+            p1z.SetActive(true);
+            p1x.SetActive(false);
         }
         if (Input.GetKeyDown(KeyCode.X) && !leftActive)
         {
             leftActive = true;
             mashScore++;
             uiMashCounter.text = mashScore.ToString("0");
+
+            #region UI
+            p1z.SetActive(false);
+            p1x.SetActive(true);
+
+            if (screenCounter >= screens.Length - 1)
+            {
+                screenCounter = 0;
+            }
+            else
+            {
+                screens[screenCounter].gameObject.SetActive(false);
+                screenCounter += 1;
+                screens[screenCounter].gameObject.SetActive(true);
+            }
+            #endregion
         }
 
-            // Win con
-            if (mashScore >= mashLimit)
+        // Win con
+        if (mashScore >= mashLimit)
         {
+            // UI
+            p1.SetActive(true);
+            p1z.SetActive(false);
+            p1x.SetActive(false);
+
             Debug.Log("Win");
             mashScore = 0;
             uiMashCounter.text = mashScore.ToString("0");
             gameObject.SetActive(false);
             FinishTask();
-
         }
     }
 
