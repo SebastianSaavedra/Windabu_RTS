@@ -11,6 +11,7 @@ public class TaskDropDown : MonoBehaviourPunCallbacks,I_Interactable
     [SerializeField] GameObject taskBarPanel;
     [SerializeField] ManagerMinijuegos managerMinijuegos;
     [SerializeField] PanelData panelData;
+    public Minijuego minijuegoData;
     GameObject objetoInstanciado;
     public enum WiiMinigame {m1_1=0,m1_2=1,m2_1=2,m2_2=3,m3_1=4,m3_2=5};
     public WiiMinigame thisMinigame;

@@ -10,7 +10,7 @@ public class Minijuego : ScriptableObject
     public Estados estadoDelMinijuego = Estados.Disponible;
 
     public int numeroDeJugadores = 0;
-
+    public bool completado;
     //0 no hay jugador
     public int jugadorUno = 0;
     public int jugadorDos = 0;

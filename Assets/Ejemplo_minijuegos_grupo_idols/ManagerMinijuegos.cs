@@ -264,7 +264,7 @@ public class ManagerMinijuegos : MonoBehaviourPunCallbacks,IPunObservable
 
         //photonView.RPC("ActualizarUIMasterClient", RpcTarget.MasterClient);
     }
-   [PunRPC]
+
     public void CambiarInteractable(int playerId, int minijuego) 
     {
         Debug.Log("Llego al CambiarInteractable" + playerId);
@@ -282,7 +282,7 @@ public class ManagerMinijuegos : MonoBehaviourPunCallbacks,IPunObservable
                     panel = Instantiate(minigameData[minijuego].PanelVSA, parentObjetosMinijuegosUNPlayer[0].transform.position, Quaternion.identity);
                     panel.transform.parent = parentObjetosMinijuegosUNPlayer[0].transform;
                     panel.transform.localScale = new Vector3(1, 1, 1);
-                    player.GetComponentInParent<TEST_Interact>().objectToInteract = panel;
+                  //  player.GetComponentInParent<TEST_Interact>().objectToInteract = panel;
                 }
 
                 if (player.GetComponentInParent<PlayerTeam>().TeamB)
@@ -291,7 +291,7 @@ public class ManagerMinijuegos : MonoBehaviourPunCallbacks,IPunObservable
                     panel = Instantiate(minigameData[minijuego].PanelVSB, parentObjetosMinijuegosUNPlayer[0].transform.position, Quaternion.identity);
                     panel.transform.parent = parentObjetosMinijuegosUNPlayer[0].transform;
                     panel.transform.localScale = new Vector3(1, 1, 1);
-                    player.GetComponentInParent<TEST_Interact>().objectToInteract = panel;
+                   // player.GetComponentInParent<TEST_Interact>().objectToInteract = panel;
                 }
             }
         }
@@ -334,8 +334,8 @@ public class ManagerMinijuegos : MonoBehaviourPunCallbacks,IPunObservable
         Debug.Log("Se activa UI Minijuego 2");
         //parentObjetosMinijuegosUNPlayer[indexMinijuego].SetActive(false);
         //parentObjetosMinijuegosDOSPlayers[indexMinijuego].SetActive(true);
-        photonView.RPC("CambiarInteractable", TargetPlayerByActorNumber(minijuegos[indexMinijuego].jugadorUno), minijuegos[indexMinijuego].jugadorUno, indexMinijuego);
-        photonView.RPC("CambiarInteractable", TargetPlayerByActorNumber(minijuegos[indexMinijuego].jugadorDos), minijuegos[indexMinijuego].jugadorDos, indexMinijuego);      
+        //photonView.RPC("CambiarInteractable", TargetPlayerByActorNumber(minijuegos[indexMinijuego].jugadorUno), minijuegos[indexMinijuego].jugadorUno, indexMinijuego);
+        //photonView.RPC("CambiarInteractable", TargetPlayerByActorNumber(minijuegos[indexMinijuego].jugadorDos), minijuegos[indexMinijuego].jugadorDos, indexMinijuego);      
     }
 
 
@@ -361,7 +361,9 @@ public class ManagerMinijuegos : MonoBehaviourPunCallbacks,IPunObservable
                 stream.SendNext(minijuegos[x].jugadorUno);
                 stream.SendNext(minijuegos[x].jugadorDos);
                 stream.SendNext(minijuegos[x].numeroDeJugadores);
+                stream.SendNext(minijuegos[x].completado);
             }
+            #region Casi me sirve esto
             //stream.SendNext(minijuegos[0].jugadorUno);
             //stream.SendNext(minijuegos[0].jugadorDos);      
             //stream.SendNext(minijuegos[0].numeroDeJugadores);      
@@ -380,6 +382,7 @@ public class ManagerMinijuegos : MonoBehaviourPunCallbacks,IPunObservable
             //stream.SendNext(minijuegos[5].jugadorUno);
             //stream.SendNext(minijuegos[5].jugadorDos);
             //stream.SendNext(minijuegos[5].numeroDeJugadores);      
+            #endregion
         }
         else if (stream.IsReading)
         {
@@ -388,6 +391,7 @@ public class ManagerMinijuegos : MonoBehaviourPunCallbacks,IPunObservable
                 minijuegos[x].jugadorUno        = (int)stream.ReceiveNext();
                 minijuegos[x].jugadorDos        = (int)stream.ReceiveNext();
                 minijuegos[x].numeroDeJugadores = (int)stream.ReceiveNext();
+                minijuegos[x].completado        = (bool)stream.ReceiveNext();
             }
             //minijuegos[0].jugadorUno = (int)stream.ReceiveNext();
             //minijuegos[0].jugadorDos = (int)stream.ReceiveNext();

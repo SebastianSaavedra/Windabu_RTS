@@ -97,6 +97,8 @@ public class MinigameManager : MonoBehaviourPunCallbacks, IPunObservable
                 player.GetComponentInParent<TEST_Interact>().objectToInteract.GetComponent<I_Interactable>().OnLeavePanel(player.GetComponentInParent<PlayerTeam>().team);
                 player.GetComponentInParent<TEST_Interact>().thisTask.RPCdata();
                 player.GetComponentInParent<TEST_Interact>().alreadyInteracted=false;
+                player.GetComponentInParent<TEST_Interact>().alreadyChanged=false;
+                managerMinijuegos.minijuegos[player.GetComponentInParent<TEST_Interact>().minigameID].completado = true;
             }
         }
     }
