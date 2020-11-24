@@ -9,7 +9,7 @@ using Photon.Realtime;
 using UnityEditor;
 using System.Xml.Schema;
 
-public class ManagerMinijuegos : MonoBehaviourPunCallbacks
+public class ManagerMinijuegos : MonoBehaviourPunCallbacks,IPunObservable
 {
     //Lista que guarda los jugadores que están en la sala
     public List<Player> playersActuales = new List<Player>();
@@ -120,7 +120,7 @@ public class ManagerMinijuegos : MonoBehaviourPunCallbacks
                 TargetPlayerByActorNumber(minijuegos[minijuegoAComenzar].jugadorUno),
                 minijuegoAComenzar);
             //Actiavr en el jugador que acaba  dellegar al minijuego la versión de dos jugadores
-            photonView.RPC("MiniJuegoComenzadoDosJugadores", TargetPlayerByActorNumber(minijuegos[minijuegoAComenzar].jugadorDos), minijuegoAComenzar);
+            photonView.RPC("MiniJuegoComenzadoDosJugadores", TargetPlayerByActorNumber(playerActorNumber), minijuegoAComenzar);
             
         }
     }
@@ -265,27 +265,33 @@ public class ManagerMinijuegos : MonoBehaviourPunCallbacks
         //photonView.RPC("ActualizarUIMasterClient", RpcTarget.MasterClient);
     }
    [PunRPC]
-    void CambiarInteractable(int playerId, int minijuego) 
+    public void CambiarInteractable(int playerId, int minijuego) 
     {
+        Debug.Log("Llego al CambiarInteractable" + playerId);
         Destroy(parentObjetosMinijuegosUNPlayer[0].transform.GetChild(0).gameObject);
         GameObject panel;
         foreach (GameObject player in GameObject.FindGameObjectsWithTag("Player"))
         {
+            Debug.Log("Debugeando el foreach");
             if (player.GetComponentInParent<PlayerId>().id == playerId)
             {
+                Debug.Log("Entro al IF del PlayerID");
                 if (player.GetComponentInParent<PlayerTeam>().TeamA) 
-                {             
-               panel = Instantiate(minigameData[minijuego].PanelVSA, parentObjetosMinijuegosUNPlayer[0].transform.position, Quaternion.identity);
-               panel.transform.parent = parentObjetosMinijuegosUNPlayer[0].transform;
-               panel.transform.localScale = new Vector3(1, 1, 1);
-               player.GetComponentInParent<TEST_Interact>().objectToInteract = panel;
+                {
+                    Debug.Log("Reconocio TEAM A");
+                    panel = Instantiate(minigameData[minijuego].PanelVSA, parentObjetosMinijuegosUNPlayer[0].transform.position, Quaternion.identity);
+                    panel.transform.parent = parentObjetosMinijuegosUNPlayer[0].transform;
+                    panel.transform.localScale = new Vector3(1, 1, 1);
+                    player.GetComponentInParent<TEST_Interact>().objectToInteract = panel;
                 }
+
                 if (player.GetComponentInParent<PlayerTeam>().TeamB)
                 {
-                            panel = Instantiate(minigameData[minijuego].PanelVSB, parentObjetosMinijuegosUNPlayer[0].transform.position, Quaternion.identity);
-                            panel.transform.parent = parentObjetosMinijuegosUNPlayer[0].transform;
-                            panel.transform.localScale = new Vector3(1, 1, 1);
-               player.GetComponentInParent<TEST_Interact>().objectToInteract = panel;
+                    Debug.Log("Reconocio TEAM B");
+                    panel = Instantiate(minigameData[minijuego].PanelVSB, parentObjetosMinijuegosUNPlayer[0].transform.position, Quaternion.identity);
+                    panel.transform.parent = parentObjetosMinijuegosUNPlayer[0].transform;
+                    panel.transform.localScale = new Vector3(1, 1, 1);
+                    player.GetComponentInParent<TEST_Interact>().objectToInteract = panel;
                 }
             }
         }
@@ -346,6 +352,57 @@ public class ManagerMinijuegos : MonoBehaviourPunCallbacks
     {
         playersActuales.Remove(otherPlayer);
     }
+    public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
+    {
+        if (stream.IsWriting)
+        {
+            for (int x=0;x<minijuegos.Count;x++) 
+            {
+                stream.SendNext(minijuegos[x].jugadorUno);
+                stream.SendNext(minijuegos[x].jugadorDos);
+                stream.SendNext(minijuegos[x].numeroDeJugadores);
+            }
+            //stream.SendNext(minijuegos[0].jugadorUno);
+            //stream.SendNext(minijuegos[0].jugadorDos);      
+            //stream.SendNext(minijuegos[0].numeroDeJugadores);      
+            //stream.SendNext(minijuegos[1].jugadorUno);
+            //stream.SendNext(minijuegos[1].jugadorDos);
+            //stream.SendNext(minijuegos[1].numeroDeJugadores);      
+            //stream.SendNext(minijuegos[2].jugadorUno);
+            //stream.SendNext(minijuegos[2].jugadorDos);
+            //stream.SendNext(minijuegos[2].numeroDeJugadores);      
+            //stream.SendNext(minijuegos[3].jugadorUno);
+            //stream.SendNext(minijuegos[3].jugadorDos);
+            //stream.SendNext(minijuegos[3].numeroDeJugadores);      
+            //stream.SendNext(minijuegos[4].jugadorUno);
+            //stream.SendNext(minijuegos[4].jugadorDos);
+            //stream.SendNext(minijuegos[4].numeroDeJugadores);      
+            //stream.SendNext(minijuegos[5].jugadorUno);
+            //stream.SendNext(minijuegos[5].jugadorDos);
+            //stream.SendNext(minijuegos[5].numeroDeJugadores);      
+        }
+        else if (stream.IsReading)
+        {
+            for (int x = 0; x < minijuegos.Count; x++)
+            {
+                minijuegos[x].jugadorUno        = (int)stream.ReceiveNext();
+                minijuegos[x].jugadorDos        = (int)stream.ReceiveNext();
+                minijuegos[x].numeroDeJugadores = (int)stream.ReceiveNext();
+            }
+            //minijuegos[0].jugadorUno = (int)stream.ReceiveNext();
+            //minijuegos[0].jugadorDos = (int)stream.ReceiveNext();
+            //minijuegos[1].jugadorUno = (int)stream.ReceiveNext();
+            //minijuegos[1].jugadorDos = (int)stream.ReceiveNext();
+            //minijuegos[2].jugadorUno = (int)stream.ReceiveNext();
+            //minijuegos[2].jugadorDos = (int)stream.ReceiveNext();
+            //minijuegos[3].jugadorUno = (int)stream.ReceiveNext();
+            //minijuegos[3].jugadorDos = (int)stream.ReceiveNext();
+            //minijuegos[4].jugadorUno = (int)stream.ReceiveNext();
+            //minijuegos[4].jugadorDos = (int)stream.ReceiveNext();
+            //minijuegos[5].jugadorUno = (int)stream.ReceiveNext();
+            //minijuegos[5].jugadorDos = (int)stream.ReceiveNext();
+        }
+    }
 
     //void ApagarBotonMinijuego(int indexMinijuego)
     //{
@@ -402,35 +459,35 @@ public class ManagerMinijuegos : MonoBehaviourPunCallbacks
 
     //    }
     //}
-        //else
-        //{
-        //    SeterUIClienteNormal();
-        //}
+    //else
+    //{
+    //    SeterUIClienteNormal();
+    //}
 
-        //}
+    //}
 
-        #region No importa
+    #region No importa
 
-        //public override void OnJoinRandomFailed(short returnCode, string message)
-        //{
-        //    Debug.Log("PUN Basics Tutorial/Launcher:OnJoinRandomFailed() was called by PUN. No random room available, so we create one.\nCalling: PhotonNetwork.CreateRoom");
+    //public override void OnJoinRandomFailed(short returnCode, string message)
+    //{
+    //    Debug.Log("PUN Basics Tutorial/Launcher:OnJoinRandomFailed() was called by PUN. No random room available, so we create one.\nCalling: PhotonNetwork.CreateRoom");
 
-        //    // #Critical: we failed to join a random room, maybe none exists or they are all full. No worries, we create a new room.
-        //    PhotonNetwork.CreateRoom(null, new RoomOptions { MaxPlayers = 6 });
-        //}
+    //    // #Critical: we failed to join a random room, maybe none exists or they are all full. No worries, we create a new room.
+    //    PhotonNetwork.CreateRoom(null, new RoomOptions { MaxPlayers = 6 });
+    //}
 
-        #endregion
+    #endregion
 
 
-        //Esto solamente hace el cambio visual en el ui de la pantalla
-        //void SetearUIMasterClient()
-        //{
-        //    textInfoMaster.text = "CLIENTE MAESTRO " + "Minijuego 1"+ minijuegos[0].estadoDelMinijuego + " Minijuego 2:" + minijuegos[1].estadoDelMinijuego;
-        //}
+    //Esto solamente hace el cambio visual en el ui de la pantalla
+    //void SetearUIMasterClient()
+    //{
+    //    textInfoMaster.text = "CLIENTE MAESTRO " + "Minijuego 1"+ minijuegos[0].estadoDelMinijuego + " Minijuego 2:" + minijuegos[1].estadoDelMinijuego;
+    //}
 
-        //void SeterUIClienteNormal()
-        //{
-        //    textInfoMaster.text = "Cliente normal";
-        //}
+    //void SeterUIClienteNormal()
+    //{
+    //    textInfoMaster.text = "Cliente normal";
+    //}
 
-    }
+}

@@ -50,7 +50,7 @@ GameObject:
   - component: {fileID: 5890270922569361837}
   - component: {fileID: 8673335803534406378}
   m_Layer: 5
-  m_Name: FILL
+  m_Name: FILLP2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -571,7 +571,7 @@ GameObject:
   - component: {fileID: 1416503909334214809}
   - component: {fileID: 468380113347111036}
   m_Layer: 5
-  m_Name: FILL
+  m_Name: FILLP1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -655,6 +655,11 @@ PrefabInstance:
       propertyPath: cartelesBarra
       value: 
       objectReference: {fileID: 468380113347111036}
+    - target: {fileID: 3832005287362935664, guid: fee3558af8c539846977d3a2abe79da9,
+        type: 3}
+      propertyPath: barraJugador2
+      value: 
+      objectReference: {fileID: 8673335803534406378}
     - target: {fileID: 8574970334088278624, guid: fee3558af8c539846977d3a2abe79da9,
         type: 3}
       propertyPath: m_Name
