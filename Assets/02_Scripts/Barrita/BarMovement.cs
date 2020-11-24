@@ -144,7 +144,7 @@ public class BarMovement : MonoBehaviourPunCallbacks
     }
     void DecirleAMasterClienteQueHiceUnCambio()
     {
-        managerLocal.ActualizarEstadoMinijuego1();
+        managerLocal.ActualizarEstadoMinijuego1(PhotonNetwork.LocalPlayer.ActorNumber);
     }
 
     //Master Client me avisa que el otro jugador hizo un cambio

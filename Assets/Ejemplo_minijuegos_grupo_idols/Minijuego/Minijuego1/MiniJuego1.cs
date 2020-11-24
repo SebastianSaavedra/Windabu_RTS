@@ -63,7 +63,7 @@ public class MiniJuego1 : MonoBehaviour
 
     void DecirleAMasterClienteQueHiceUnCambio()
     {
-        managerLocal.ActualizarEstadoMinijuego1();
+        managerLocal.ActualizarEstadoMinijuego1(PhotonNetwork.LocalPlayer.ActorNumber);
     }
 
 

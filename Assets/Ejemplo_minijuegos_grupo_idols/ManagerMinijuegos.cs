@@ -130,10 +130,10 @@ public class ManagerMinijuegos : MonoBehaviourPunCallbacks
     #region Minijuego 1
     //ManagerMinijuegos local le avisa al ManagerMinijuegos del Cliente Maestro que debe realizar una actualización
     //del minijuego 1
-    public void ActualizarEstadoMinijuego1()
+    public void ActualizarEstadoMinijuego1(int playerActor)
     {
         Debug.Log("Intentar actualizar");
-        photonView.RPC("IntentarActualizarEstadoMiniJuego1", RpcTarget.MasterClient, PhotonNetwork.LocalPlayer.ActorNumber);
+        photonView.RPC("IntentarActualizarEstadoMiniJuego1", RpcTarget.MasterClient, playerActor);
     }
     //public void ActualizarEstadoMinijuego2()
     //{
