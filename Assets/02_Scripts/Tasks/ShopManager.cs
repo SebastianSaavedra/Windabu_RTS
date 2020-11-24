@@ -1,8 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Photon.Pun;
+using Photon.Realtime;
 
-public class ShopManager : MonoBehaviour
+public class ShopManager : MonoBehaviourPunCallbacks
 {
     GameObject itemSpawner;
     [SerializeField] Transform itemSpawnerPos;
@@ -27,7 +29,7 @@ public class ShopManager : MonoBehaviour
         {
         if(MinigameManager.dineroA >= impresoraCost)// volver a referencia teamManager
         {
-            StartCoroutine(SpawnItem(impresoraDelay, impresora));
+            StartCoroutine(SpawnItem(impresoraDelay, 0));
                 Minijuegos.compraA((int)impresoraCost);
             uiMan.CallRpc(team,1);
             //gameObject.GetComponent<TeamManager>().money -= impresoraCost;
@@ -44,7 +46,7 @@ public class ShopManager : MonoBehaviour
         {
             if (MinigameManager.dineroA >= impresoraCost)// volver a referencia teamManager
             {
-                StartCoroutine(SpawnItem(impresoraDelay, impresora));
+                RPCcor(impresoraDelay,0);
                 Minijuegos.compraA((int)impresoraCost);
                 uiMan.CallRpc(team, 0);
                 canBuy_0 = true;
@@ -59,7 +61,7 @@ public class ShopManager : MonoBehaviour
         {
             if (MinigameManager.dineroB >= impresoraCost)// volver a referencia teamManager
             {
-                StartCoroutine(SpawnItem(impresoraDelay, impresora));
+                RPCcor(impresoraDelay,0);
                 MinigameManager.dineroA -= (int)impresoraCost;
                 uiMan.CallRpc(team, 0);
                 canBuy_0 = true;
@@ -71,10 +73,25 @@ public class ShopManager : MonoBehaviour
             }
         }
     }
+    public void RPCcor(float time, int whatItem) 
+    {
+        photonView.RPC("StartCor", RpcTarget.AllViaServer,time,whatItem);
+    }
 
-    IEnumerator SpawnItem(float waitTime, GameObject itemToSpawn)
+    [PunRPC]
+    public void StartCor(float waitTime,int whatItem)
+    {
+        StartCoroutine(SpawnItem(waitTime,whatItem));
+    }
+
+    [PunRPC]
+    IEnumerator SpawnItem(float waitTime, int itemToSpawn)
     {
         yield return new WaitForSeconds(waitTime);
-        Instantiate(itemToSpawn, itemSpawnerPos);
+        if (itemToSpawn == 0) 
+        {
+        Instantiate(impresora, itemSpawnerPos);
+        }
+        yield break;
     }
 }
