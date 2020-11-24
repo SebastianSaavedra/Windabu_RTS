@@ -120,7 +120,7 @@ public class ManagerMinijuegos : MonoBehaviourPunCallbacks,IPunObservable
                 TargetPlayerByActorNumber(minijuegos[minijuegoAComenzar].jugadorUno),
                 minijuegoAComenzar);
             //Actiavr en el jugador que acaba  dellegar al minijuego la versión de dos jugadores
-            photonView.RPC("MiniJuegoComenzadoDosJugadores", TargetPlayerByActorNumber(minijuegos[minijuegoAComenzar].jugadorDos), minijuegoAComenzar);
+            photonView.RPC("MiniJuegoComenzadoDosJugadores", TargetPlayerByActorNumber(playerActorNumber), minijuegoAComenzar);
             
         }
     }
