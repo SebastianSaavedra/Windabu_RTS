@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2769889356988431232}
   - component: {fileID: 7150357810219251978}
   m_Layer: 5
-  m_Name: FILL
+  m_Name: FILLP2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -198,7 +198,7 @@ GameObject:
   - component: {fileID: 2935960278337821469}
   - component: {fileID: 593329623273744020}
   m_Layer: 5
-  m_Name: FILL
+  m_Name: FILLP1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -653,6 +653,11 @@ PrefabInstance:
     - target: {fileID: 3832005287362935664, guid: fee3558af8c539846977d3a2abe79da9,
         type: 3}
       propertyPath: contadorJugador2
+      value: 
+      objectReference: {fileID: 7150357810219251978}
+    - target: {fileID: 3832005287362935664, guid: fee3558af8c539846977d3a2abe79da9,
+        type: 3}
+      propertyPath: barraJugador2
       value: 
       objectReference: {fileID: 7150357810219251978}
     - target: {fileID: 8574970334088278624, guid: fee3558af8c539846977d3a2abe79da9,

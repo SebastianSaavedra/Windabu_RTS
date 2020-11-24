@@ -265,27 +265,33 @@ public class ManagerMinijuegos : MonoBehaviourPunCallbacks
         //photonView.RPC("ActualizarUIMasterClient", RpcTarget.MasterClient);
     }
    [PunRPC]
-    void CambiarInteractable(int playerId, int minijuego) 
+    public void CambiarInteractable(int playerId, int minijuego) 
     {
+        Debug.Log("Llego al CambiarInteractable" + playerId);
         Destroy(parentObjetosMinijuegosUNPlayer[0].transform.GetChild(0).gameObject);
         GameObject panel;
         foreach (GameObject player in GameObject.FindGameObjectsWithTag("Player"))
         {
+            Debug.Log("Debugeando el foreach");
             if (player.GetComponentInParent<PlayerId>().id == playerId)
             {
+                Debug.Log("Entro al IF del PlayerID");
                 if (player.GetComponentInParent<PlayerTeam>().TeamA) 
-                {             
-               panel = Instantiate(minigameData[minijuego].PanelVSA, parentObjetosMinijuegosUNPlayer[0].transform.position, Quaternion.identity);
-               panel.transform.parent = parentObjetosMinijuegosUNPlayer[0].transform;
-               panel.transform.localScale = new Vector3(1, 1, 1);
-               player.GetComponentInParent<TEST_Interact>().objectToInteract = panel;
+                {
+                    Debug.Log("Reconocio TEAM A");
+                    panel = Instantiate(minigameData[minijuego].PanelVSA, parentObjetosMinijuegosUNPlayer[0].transform.position, Quaternion.identity);
+                    panel.transform.parent = parentObjetosMinijuegosUNPlayer[0].transform;
+                    panel.transform.localScale = new Vector3(1, 1, 1);
+                    player.GetComponentInParent<TEST_Interact>().objectToInteract = panel;
                 }
+
                 if (player.GetComponentInParent<PlayerTeam>().TeamB)
                 {
-                            panel = Instantiate(minigameData[minijuego].PanelVSB, parentObjetosMinijuegosUNPlayer[0].transform.position, Quaternion.identity);
-                            panel.transform.parent = parentObjetosMinijuegosUNPlayer[0].transform;
-                            panel.transform.localScale = new Vector3(1, 1, 1);
-               player.GetComponentInParent<TEST_Interact>().objectToInteract = panel;
+                    Debug.Log("Reconocio TEAM B");
+                    panel = Instantiate(minigameData[minijuego].PanelVSB, parentObjetosMinijuegosUNPlayer[0].transform.position, Quaternion.identity);
+                    panel.transform.parent = parentObjetosMinijuegosUNPlayer[0].transform;
+                    panel.transform.localScale = new Vector3(1, 1, 1);
+                    player.GetComponentInParent<TEST_Interact>().objectToInteract = panel;
                 }
             }
         }
