@@ -120,7 +120,7 @@ public class ManagerMinijuegos : MonoBehaviourPunCallbacks
                 TargetPlayerByActorNumber(minijuegos[minijuegoAComenzar].jugadorUno),
                 minijuegoAComenzar);
             //Actiavr en el jugador que acaba  dellegar al minijuego la versión de dos jugadores
-            photonView.RPC("MiniJuegoComenzadoDosJugadores", TargetPlayerByActorNumber(playerActorNumber), minijuegoAComenzar);
+            photonView.RPC("MiniJuegoComenzadoDosJugadores", TargetPlayerByActorNumber(minijuegos[minijuegoAComenzar].jugadorDos), minijuegoAComenzar);
             
         }
     }
@@ -267,6 +267,7 @@ public class ManagerMinijuegos : MonoBehaviourPunCallbacks
    [PunRPC]
     void CambiarInteractable(int playerId, int minijuego) 
     {
+        Destroy(parentObjetosMinijuegosUNPlayer[0].transform.GetChild(0).gameObject);
         GameObject panel;
         foreach (GameObject player in GameObject.FindGameObjectsWithTag("Player"))
         {
@@ -328,7 +329,6 @@ public class ManagerMinijuegos : MonoBehaviourPunCallbacks
         Debug.Log("Se activa UI Minijuego 2");
         //parentObjetosMinijuegosUNPlayer[indexMinijuego].SetActive(false);
         //parentObjetosMinijuegosDOSPlayers[indexMinijuego].SetActive(true);
-       Destroy(parentObjetosMinijuegosUNPlayer[0].transform.GetChild(0).gameObject);
         photonView.RPC("CambiarInteractable", TargetPlayerByActorNumber(player1_ID), player1_ID, indexMinijuego);
         photonView.RPC("CambiarInteractable", TargetPlayerByActorNumber(player2_ID), player2_ID, indexMinijuego);      
     }
