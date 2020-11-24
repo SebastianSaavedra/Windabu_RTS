@@ -289,7 +289,6 @@ public class ManagerMinijuegos : MonoBehaviourPunCallbacks
                 }
             }
         }
-    
     }
 
     public void ResetearMuchosValores(int minigame) 
@@ -329,8 +328,8 @@ public class ManagerMinijuegos : MonoBehaviourPunCallbacks
         Debug.Log("Se activa UI Minijuego 2");
         //parentObjetosMinijuegosUNPlayer[indexMinijuego].SetActive(false);
         //parentObjetosMinijuegosDOSPlayers[indexMinijuego].SetActive(true);
-        photonView.RPC("CambiarInteractable", TargetPlayerByActorNumber(player1_ID), player1_ID, indexMinijuego);
-        photonView.RPC("CambiarInteractable", TargetPlayerByActorNumber(player2_ID), player2_ID, indexMinijuego);      
+        photonView.RPC("CambiarInteractable", TargetPlayerByActorNumber(minijuegos[indexMinijuego].jugadorUno), minijuegos[indexMinijuego].jugadorUno, indexMinijuego);
+        photonView.RPC("CambiarInteractable", TargetPlayerByActorNumber(minijuegos[indexMinijuego].jugadorDos), minijuegos[indexMinijuego].jugadorDos, indexMinijuego);      
     }
 
 
