@@ -9,7 +9,7 @@ using Photon.Realtime;
 using UnityEditor;
 using System.Xml.Schema;
 
-public class ManagerMinijuegos : MonoBehaviourPunCallbacks
+public class ManagerMinijuegos : MonoBehaviourPunCallbacks,IPunObservable
 {
     //Lista que guarda los jugadores que están en la sala
     public List<Player> playersActuales = new List<Player>();
@@ -352,6 +352,40 @@ public class ManagerMinijuegos : MonoBehaviourPunCallbacks
     {
         playersActuales.Remove(otherPlayer);
     }
+    public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
+    {
+        if (stream.IsWriting)
+        {
+            
+            stream.SendNext(minijuegos[0].jugadorUno);
+            stream.SendNext(minijuegos[0].jugadorDos);      
+            stream.SendNext(minijuegos[1].jugadorUno);
+            stream.SendNext(minijuegos[1].jugadorDos);
+            stream.SendNext(minijuegos[2].jugadorUno);
+            stream.SendNext(minijuegos[2].jugadorDos);
+            stream.SendNext(minijuegos[3].jugadorUno);
+            stream.SendNext(minijuegos[3].jugadorDos);
+            stream.SendNext(minijuegos[4].jugadorUno);
+            stream.SendNext(minijuegos[4].jugadorDos);
+            stream.SendNext(minijuegos[5].jugadorUno);
+            stream.SendNext(minijuegos[5].jugadorDos);
+        }
+        else if (stream.IsReading)
+        {
+            minijuegos[0].jugadorUno = (int)stream.ReceiveNext();
+            minijuegos[0].jugadorDos = (int)stream.ReceiveNext();
+            minijuegos[1].jugadorUno = (int)stream.ReceiveNext();
+            minijuegos[1].jugadorDos = (int)stream.ReceiveNext();
+            minijuegos[2].jugadorUno = (int)stream.ReceiveNext();
+            minijuegos[2].jugadorDos = (int)stream.ReceiveNext();
+            minijuegos[3].jugadorUno = (int)stream.ReceiveNext();
+            minijuegos[3].jugadorDos = (int)stream.ReceiveNext();
+            minijuegos[4].jugadorUno = (int)stream.ReceiveNext();
+            minijuegos[4].jugadorDos = (int)stream.ReceiveNext();
+            minijuegos[5].jugadorUno = (int)stream.ReceiveNext();
+            minijuegos[5].jugadorDos = (int)stream.ReceiveNext();
+        }
+    }
 
     //void ApagarBotonMinijuego(int indexMinijuego)
     //{
@@ -408,35 +442,35 @@ public class ManagerMinijuegos : MonoBehaviourPunCallbacks
 
     //    }
     //}
-        //else
-        //{
-        //    SeterUIClienteNormal();
-        //}
+    //else
+    //{
+    //    SeterUIClienteNormal();
+    //}
 
-        //}
+    //}
 
-        #region No importa
+    #region No importa
 
-        //public override void OnJoinRandomFailed(short returnCode, string message)
-        //{
-        //    Debug.Log("PUN Basics Tutorial/Launcher:OnJoinRandomFailed() was called by PUN. No random room available, so we create one.\nCalling: PhotonNetwork.CreateRoom");
+    //public override void OnJoinRandomFailed(short returnCode, string message)
+    //{
+    //    Debug.Log("PUN Basics Tutorial/Launcher:OnJoinRandomFailed() was called by PUN. No random room available, so we create one.\nCalling: PhotonNetwork.CreateRoom");
 
-        //    // #Critical: we failed to join a random room, maybe none exists or they are all full. No worries, we create a new room.
-        //    PhotonNetwork.CreateRoom(null, new RoomOptions { MaxPlayers = 6 });
-        //}
+    //    // #Critical: we failed to join a random room, maybe none exists or they are all full. No worries, we create a new room.
+    //    PhotonNetwork.CreateRoom(null, new RoomOptions { MaxPlayers = 6 });
+    //}
 
-        #endregion
+    #endregion
 
 
-        //Esto solamente hace el cambio visual en el ui de la pantalla
-        //void SetearUIMasterClient()
-        //{
-        //    textInfoMaster.text = "CLIENTE MAESTRO " + "Minijuego 1"+ minijuegos[0].estadoDelMinijuego + " Minijuego 2:" + minijuegos[1].estadoDelMinijuego;
-        //}
+    //Esto solamente hace el cambio visual en el ui de la pantalla
+    //void SetearUIMasterClient()
+    //{
+    //    textInfoMaster.text = "CLIENTE MAESTRO " + "Minijuego 1"+ minijuegos[0].estadoDelMinijuego + " Minijuego 2:" + minijuegos[1].estadoDelMinijuego;
+    //}
 
-        //void SeterUIClienteNormal()
-        //{
-        //    textInfoMaster.text = "Cliente normal";
-        //}
+    //void SeterUIClienteNormal()
+    //{
+    //    textInfoMaster.text = "Cliente normal";
+    //}
 
-    }
+}
