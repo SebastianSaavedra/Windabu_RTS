@@ -328,7 +328,7 @@ public class ManagerMinijuegos : MonoBehaviourPunCallbacks
         Debug.Log("Se activa UI Minijuego 2");
         //parentObjetosMinijuegosUNPlayer[indexMinijuego].SetActive(false);
         //parentObjetosMinijuegosDOSPlayers[indexMinijuego].SetActive(true);
-       //Destroy(parentObjetosMinijuegosUNPlayer[0].transform.GetChild(0).gameObject);
+       Destroy(parentObjetosMinijuegosUNPlayer[0].transform.GetChild(0).gameObject);
         photonView.RPC("CambiarInteractable", TargetPlayerByActorNumber(player1_ID), player1_ID, indexMinijuego);
         photonView.RPC("CambiarInteractable", TargetPlayerByActorNumber(player2_ID), player2_ID, indexMinijuego);      
     }
