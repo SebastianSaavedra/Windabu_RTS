@@ -356,34 +356,51 @@ public class ManagerMinijuegos : MonoBehaviourPunCallbacks,IPunObservable
     {
         if (stream.IsWriting)
         {
-            
-            stream.SendNext(minijuegos[0].jugadorUno);
-            stream.SendNext(minijuegos[0].jugadorDos);      
-            stream.SendNext(minijuegos[1].jugadorUno);
-            stream.SendNext(minijuegos[1].jugadorDos);
-            stream.SendNext(minijuegos[2].jugadorUno);
-            stream.SendNext(minijuegos[2].jugadorDos);
-            stream.SendNext(minijuegos[3].jugadorUno);
-            stream.SendNext(minijuegos[3].jugadorDos);
-            stream.SendNext(minijuegos[4].jugadorUno);
-            stream.SendNext(minijuegos[4].jugadorDos);
-            stream.SendNext(minijuegos[5].jugadorUno);
-            stream.SendNext(minijuegos[5].jugadorDos);
+            for (int x=0;x<minijuegos.Count;x++) 
+            {
+                stream.SendNext(minijuegos[x].jugadorUno);
+                stream.SendNext(minijuegos[x].jugadorDos);
+                stream.SendNext(minijuegos[x].numeroDeJugadores);
+            }
+            //stream.SendNext(minijuegos[0].jugadorUno);
+            //stream.SendNext(minijuegos[0].jugadorDos);      
+            //stream.SendNext(minijuegos[0].numeroDeJugadores);      
+            //stream.SendNext(minijuegos[1].jugadorUno);
+            //stream.SendNext(minijuegos[1].jugadorDos);
+            //stream.SendNext(minijuegos[1].numeroDeJugadores);      
+            //stream.SendNext(minijuegos[2].jugadorUno);
+            //stream.SendNext(minijuegos[2].jugadorDos);
+            //stream.SendNext(minijuegos[2].numeroDeJugadores);      
+            //stream.SendNext(minijuegos[3].jugadorUno);
+            //stream.SendNext(minijuegos[3].jugadorDos);
+            //stream.SendNext(minijuegos[3].numeroDeJugadores);      
+            //stream.SendNext(minijuegos[4].jugadorUno);
+            //stream.SendNext(minijuegos[4].jugadorDos);
+            //stream.SendNext(minijuegos[4].numeroDeJugadores);      
+            //stream.SendNext(minijuegos[5].jugadorUno);
+            //stream.SendNext(minijuegos[5].jugadorDos);
+            //stream.SendNext(minijuegos[5].numeroDeJugadores);      
         }
         else if (stream.IsReading)
         {
-            minijuegos[0].jugadorUno = (int)stream.ReceiveNext();
-            minijuegos[0].jugadorDos = (int)stream.ReceiveNext();
-            minijuegos[1].jugadorUno = (int)stream.ReceiveNext();
-            minijuegos[1].jugadorDos = (int)stream.ReceiveNext();
-            minijuegos[2].jugadorUno = (int)stream.ReceiveNext();
-            minijuegos[2].jugadorDos = (int)stream.ReceiveNext();
-            minijuegos[3].jugadorUno = (int)stream.ReceiveNext();
-            minijuegos[3].jugadorDos = (int)stream.ReceiveNext();
-            minijuegos[4].jugadorUno = (int)stream.ReceiveNext();
-            minijuegos[4].jugadorDos = (int)stream.ReceiveNext();
-            minijuegos[5].jugadorUno = (int)stream.ReceiveNext();
-            minijuegos[5].jugadorDos = (int)stream.ReceiveNext();
+            for (int x = 0; x < minijuegos.Count; x++)
+            {
+                minijuegos[x].jugadorUno        = (int)stream.ReceiveNext();
+                minijuegos[x].jugadorDos        = (int)stream.ReceiveNext();
+                minijuegos[x].numeroDeJugadores = (int)stream.ReceiveNext();
+            }
+            //minijuegos[0].jugadorUno = (int)stream.ReceiveNext();
+            //minijuegos[0].jugadorDos = (int)stream.ReceiveNext();
+            //minijuegos[1].jugadorUno = (int)stream.ReceiveNext();
+            //minijuegos[1].jugadorDos = (int)stream.ReceiveNext();
+            //minijuegos[2].jugadorUno = (int)stream.ReceiveNext();
+            //minijuegos[2].jugadorDos = (int)stream.ReceiveNext();
+            //minijuegos[3].jugadorUno = (int)stream.ReceiveNext();
+            //minijuegos[3].jugadorDos = (int)stream.ReceiveNext();
+            //minijuegos[4].jugadorUno = (int)stream.ReceiveNext();
+            //minijuegos[4].jugadorDos = (int)stream.ReceiveNext();
+            //minijuegos[5].jugadorUno = (int)stream.ReceiveNext();
+            //minijuegos[5].jugadorDos = (int)stream.ReceiveNext();
         }
     }
 
