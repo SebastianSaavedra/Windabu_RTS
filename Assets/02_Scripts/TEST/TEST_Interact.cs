@@ -41,7 +41,10 @@ public class TEST_Interact : MonoBehaviourPunCallbacks
     {
         if (photonView.IsMine) 
         {
+            if (collision.GetComponent<TaskDropDown>()) 
+            {
         objectToInteract = collision.gameObject;
+            }
             speakingTo = collision.GetComponentInParent<CPManager>();
             thisTask = collision.GetComponent<TaskDropDown>();
         }
