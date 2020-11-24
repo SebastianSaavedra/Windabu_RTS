@@ -1,21 +1,94 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
-public class BarMovement : MonoBehaviour
+using Photon.Pun;
+using Photon.Realtime;
+
+public class BarMovement : MonoBehaviourPunCallbacks
 {
+    //Privadas
+    ManagerMinijuegos managerLocal;
+    MinigameManager managerMinigame;
+
+    Coroutine cor;
+    float initialSpeed;
+    //Refs
     public GameObject punto0, punto1;
 
     public bool scored;
+    int intentos;   // para la lista
+    [SerializeField] GameObject[] aciertos;
+    [SerializeField] GameObject[] fallos;
+
+    int intentosJugador2;
+    [SerializeField] GameObject[] aciertosP2;
+    [SerializeField] GameObject[] fallosP2;
+
+
+    [Space(10)]
     public float speed;
     public bool moving;
+    [SerializeField] int maxSpeed;
 
+    private void Awake()
+    {
+        initialSpeed = speed;
+    }
     private void Start()
     {
-        scored = false;
+        managerMinigame = GameObject.Find("MinijuegosManager").GetComponent<MinigameManager>();
+        managerLocal = GameObject.Find("MinijuegosManager").GetComponent<ManagerMinijuegos>();
     }
 
-    private void Update()
+    private new void OnEnable()
+    {
+        IniciarAct();
+    }
+
+    void IniciarAct()
+    {
+        speed = initialSpeed;
+        moving = true;
+    }
+
+    void ReiniciarActividadMasRapido()
+    {
+        if (intentos >= 6)
+        {
+            managerMinigame.FinishTask();
+        }
+        else
+        {
+            transform.position = punto0.transform.position;
+            if (speed <= maxSpeed)
+            {
+                speed += speed / Random.Range(1.8f, 2);
+                if (speed >= maxSpeed)
+                {
+                    speed = maxSpeed;
+                }
+            }
+            Debug.Log("La velocidad del dildo es: " + speed);
+            moving = true;
+        }
+    }
+
+    void ReiniciarActividadPerdio()
+    {
+        if (intentos >= 6)
+        {
+            managerMinigame.FinishTask();
+        }
+        else
+        {
+            transform.position = punto0.transform.position;
+            moving = true;
+        }
+    }
+
+    private void FixedUpdate()
     {
         if (moving)
         {
@@ -26,9 +99,13 @@ public class BarMovement : MonoBehaviour
                 transform.position = punto0.transform.position;
             }
         }
+    }
+
+    private void Update()
+    {
         if (Input.GetKeyDown(KeyCode.Space) && moving)
         {
-            StartCoroutine(Stopped());
+            cor = StartCoroutine("Stopped");
         }
     }
 
@@ -49,15 +126,39 @@ public class BarMovement : MonoBehaviour
         if (scored)
         {
             Debug.Log("Wena");
+
+            yield return new WaitForSeconds(.75f);
+
+            DecirleAMasterClienteQueHiceUnCambio();
+            ReiniciarActividadMasRapido();
         }
         else
         {
             Debug.Log("Ksi");
+
+            yield return new WaitForSeconds(.75f);
+
+            DecirleAMasterClienteQueHiceUnCambio();
+            ReiniciarActividadPerdio();
         }
+    }
+    void DecirleAMasterClienteQueHiceUnCambio()
+    {
+        managerLocal.ActualizarEstadoMinijuego1();
+    }
 
-        yield return new WaitForSeconds(1.5f);
+    //Master Client me avisa que el otro jugador hizo un cambio
+    public void ReciboActualizacionDeOtroJugador()
+    {
+        //cartelesJugador2++;
+        //contadorJugador2.fillAmount = (float)cartelesJugador2 / 10;
+        //contadorJugador2.text = cartelesJugador2.ToString();
+        //Actualizar ui
+    }
 
-        transform.position = punto0.transform.position;
-        moving = true;
+    private new void OnDisable()
+    {
+        speed = initialSpeed;
+        moving = false;
     }
 }
