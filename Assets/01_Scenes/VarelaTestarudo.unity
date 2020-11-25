@@ -2143,6 +2143,36 @@ Transform:
   m_Father: {fileID: 475347076}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &269876383
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 269876384}
+  m_Layer: 0
+  m_Name: TeamBInterrupt
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &269876384
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 269876383}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 87.9, y: -81.7, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 27
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &276569494
 GameObject:
   m_ObjectHideFlags: 0
@@ -2191,8 +2221,7 @@ MonoBehaviour:
   - {fileID: 1016872978}
   team: 0
   room: {fileID: 0}
-  text: {fileID: 0}
-  text1: {fileID: 0}
+  goToOnInterrupt: {fileID: 0}
 --- !u!61 &276569497
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -29001,8 +29030,7 @@ MonoBehaviour:
   - {fileID: 1016872979}
   team: 0
   room: {fileID: 0}
-  text: {fileID: 0}
-  text1: {fileID: 0}
+  goToOnInterrupt: {fileID: 0}
 --- !u!61 &1116431913
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -30978,7 +31006,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1328016867}
+      objectReference: {fileID: 0}
     - target: {fileID: 459686932469594039, guid: a3149a40513b9544ba50dbc360b4355c,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
@@ -30988,6 +31016,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 544273717164523078, guid: a3149a40513b9544ba50dbc360b4355c,
+        type: 3}
+      propertyPath: m_text
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 551529091332919101, guid: a3149a40513b9544ba50dbc360b4355c,
         type: 3}
@@ -31723,7 +31756,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1328016867}
+      objectReference: {fileID: 0}
     - target: {fileID: 7681641943715116022, guid: a3149a40513b9544ba50dbc360b4355c,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
@@ -31779,6 +31812,11 @@ PrefabInstance:
       propertyPath: cartelesBarraB
       value: 
       objectReference: {fileID: 1328016848}
+    - target: {fileID: 7882488863245045527, guid: a3149a40513b9544ba50dbc360b4355c,
+        type: 3}
+      propertyPath: m_text
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8008701983033061880, guid: a3149a40513b9544ba50dbc360b4355c,
         type: 3}
       propertyPath: m_RootOrder
@@ -32184,19 +32222,18 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1328016825}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1328016867
+--- !u!114 &1328016867 stripped
 MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 544273717164523078, guid: a3149a40513b9544ba50dbc360b4355c,
+    type: 3}
+  m_PrefabInstance: {fileID: 1328016825}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1328016866}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f649a25e76c9f041861bc2a71dd2657, type: 3}
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  team: 1
 --- !u!1 &1328016868 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3131868006609552624, guid: a3149a40513b9544ba50dbc360b4355c,
@@ -32338,6 +32375,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   team: 1
+  dineroText: {fileID: 1328016867}
 --- !u!114 &1328016883
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -32351,6 +32389,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   team: 0
+  dineroText: {fileID: 1328016888}
 --- !u!95 &1328016884 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 5501889181293021381, guid: a3149a40513b9544ba50dbc360b4355c,
@@ -32407,6 +32446,18 @@ MonoBehaviour:
   viewIdField: 28
   InstantiationId: 0
   isRuntimeInstantiated: 0
+--- !u!114 &1328016888 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7882488863245045527, guid: a3149a40513b9544ba50dbc360b4355c,
+    type: 3}
+  m_PrefabInstance: {fileID: 1328016825}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1342850211
 GameObject:
   m_ObjectHideFlags: 0
@@ -35048,8 +35099,7 @@ MonoBehaviour:
   - {fileID: 1016872979}
   team: 0
   room: {fileID: 11400000, guid: 8b249f908e3d98041a42fe42686f6f76, type: 2}
-  text: {fileID: 0}
-  text1: {fileID: 0}
+  goToOnInterrupt: {fileID: 269876384}
 --- !u!61 &1708442384
 BoxCollider2D:
   m_ObjectHideFlags: 0

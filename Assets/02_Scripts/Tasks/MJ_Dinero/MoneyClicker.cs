@@ -1,11 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class MoneyClicker : MonoBehaviour
 {
     //public GameObject shareButton, sharePanel;
     [SerializeField] bool team;
+    [SerializeField] TextMeshProUGUI dineroText;
     int likes;
     //public bool isPublic;
 
@@ -20,6 +22,7 @@ public class MoneyClicker : MonoBehaviour
         if(likes <= 99)
         {
             likes += 1;
+            dineroText.text = ""+ likes;
             Debug.Log("Cantidad de Likes: " + likes);
         }
         else { Debug.Log("Full Money"); }

@@ -30,7 +30,7 @@ public class ShopManager : MonoBehaviourPunCallbacks
         if(MinigameManager.dineroA >= impresoraCost)// volver a referencia teamManager
         {
             StartCoroutine(SpawnItem(impresoraDelay, 0));
-                Minijuegos.compraA((int)impresoraCost);
+            Minijuegos.compraA((int)impresoraCost);
             uiMan.CallRpc(team,1);
             //gameObject.GetComponent<TeamManager>().money -= impresoraCost;
         }
