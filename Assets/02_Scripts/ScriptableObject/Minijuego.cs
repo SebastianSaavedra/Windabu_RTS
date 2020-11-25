@@ -11,9 +11,14 @@ public class Minijuego : ScriptableObject
 
     public int numeroDeJugadores = 0;
     public bool completado;
+
     //0 no hay jugador
     public int jugadorUno = 0;
     public int jugadorDos = 0;
+
+    //Valores Barra Minijuegos
+    public int barraVersusA;
+    public int barraVersusB;
 
     public void ResetearValoresMinijuego()
     {
