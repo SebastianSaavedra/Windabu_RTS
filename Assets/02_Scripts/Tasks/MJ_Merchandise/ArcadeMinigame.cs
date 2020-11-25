@@ -1,14 +1,21 @@
 ﻿using Com.MaluCompany.TestGame;
-using Photon.Pun;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+using Photon.Pun;
+using Photon.Realtime;
+
 public class ArcadeMinigame : MonoBehaviourPunCallbacks
 {
+    // Refs
+    MinigameManager managerMinigame;
+    [SerializeField] ManagerMinijuegos managerMinijuegos;
+    [SerializeField] GameObject originPanel;
+
     public int mashLimit = 20;
-    [SerializeField]int mashScore;
+    [SerializeField] int mashScore;
     private int bgCounter = 0;
     private bool leftActive;
 
@@ -16,13 +23,13 @@ public class ArcadeMinigame : MonoBehaviourPunCallbacks
     public GameObject p1, p1z, p1x, p2, p2z, p2x;
     public GameObject[] screens;
     int screenCounter;
-    [SerializeField] ManagerMinijuegos managerMinijuegos;
 
     private void Start()
     {
         uiMashCounter = GetComponent<Text>();
         leftActive = true;
         managerMinijuegos = GameObject.Find("MinijuegosManager").GetComponent<ManagerMinijuegos>();
+
     }
 
     private void Update()
@@ -76,6 +83,8 @@ public class ArcadeMinigame : MonoBehaviourPunCallbacks
             FinishTask();
         }
     }
+
+
 
     public void FinishTask()
     {

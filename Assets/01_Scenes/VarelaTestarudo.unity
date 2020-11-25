@@ -2320,7 +2320,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 291643863}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 26.9, y: 34.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 910608897}
@@ -2922,7 +2922,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 367585844}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 11.66, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 910608897}
@@ -3677,6 +3677,7 @@ GameObject:
   - component: {fileID: 475347074}
   - component: {fileID: 475347075}
   - component: {fileID: 475347078}
+  - component: {fileID: 475347079}
   - component: {fileID: 475347077}
   m_Layer: 0
   m_Name: MiniJuego1_1(cartel)
@@ -3834,6 +3835,19 @@ MonoBehaviour:
   - {fileID: 837637345}
   cpManager: {fileID: 475347075}
   spawnAs: 0
+--- !u!114 &475347079
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 475347073}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 827725570ebdd7741aa66211751e8b9f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  managerMinijuegos: {fileID: 2013361922}
 --- !u!1 &493629873
 GameObject:
   m_ObjectHideFlags: 0
@@ -4608,7 +4622,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &556902755
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -27117,6 +27131,7 @@ GameObject:
   - component: {fileID: 910608894}
   - component: {fileID: 910608899}
   - component: {fileID: 910608898}
+  - component: {fileID: 910608895}
   m_Layer: 0
   m_Name: MiniJuego2_1(Lightstick)
   m_TagString: Untagged
@@ -27163,17 +27178,40 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 1658de2f30821214288a7f08d9a8c117, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 1.004, y: 1.808}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &910608895
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 910608893}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  observableSearch: 2
+  Synchronization: 3
+  OwnershipTransfer: 0
+  ObservedComponents:
+  - {fileID: 910608899}
+  viewIdField: 45
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
 --- !u!4 &910608897
 Transform:
   m_ObjectHideFlags: 0
@@ -30537,7 +30575,7 @@ PrefabInstance:
     - target: {fileID: 1231250300444406844, guid: ab18c6628d0850e4c9ae0891f311f1fd,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ab18c6628d0850e4c9ae0891f311f1fd, type: 3}
@@ -30961,6 +30999,16 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 794715947625024248, guid: a3149a40513b9544ba50dbc360b4355c,
+        type: 3}
+      propertyPath: originPanel
+      value: 
+      objectReference: {fileID: 1706851650}
+    - target: {fileID: 794715948754419697, guid: a3149a40513b9544ba50dbc360b4355c,
+        type: 3}
+      propertyPath: originPanel
+      value: 
+      objectReference: {fileID: 1706851650}
     - target: {fileID: 987922190503500238, guid: a3149a40513b9544ba50dbc360b4355c,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
@@ -31151,6 +31199,16 @@ PrefabInstance:
       propertyPath: contadorJugador2
       value: 
       objectReference: {fileID: 1328016851}
+    - target: {fileID: 2014194407079907519, guid: a3149a40513b9544ba50dbc360b4355c,
+        type: 3}
+      propertyPath: cartelesBarraB
+      value: 
+      objectReference: {fileID: 1328016870}
+    - target: {fileID: 2014194407079907519, guid: a3149a40513b9544ba50dbc360b4355c,
+        type: 3}
+      propertyPath: cartelesBarraA
+      value: 
+      objectReference: {fileID: 1328016851}
     - target: {fileID: 2039355697667539188, guid: a3149a40513b9544ba50dbc360b4355c,
         type: 3}
       propertyPath: m_AnchorMin.y
@@ -31191,6 +31249,16 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2206382407244152866, guid: a3149a40513b9544ba50dbc360b4355c,
+        type: 3}
+      propertyPath: originPanel
+      value: 
+      objectReference: {fileID: 1706851650}
+    - target: {fileID: 2206382408262661419, guid: a3149a40513b9544ba50dbc360b4355c,
+        type: 3}
+      propertyPath: originPanel
+      value: 
+      objectReference: {fileID: 1706851650}
     - target: {fileID: 2286047941756319861, guid: a3149a40513b9544ba50dbc360b4355c,
         type: 3}
       propertyPath: m_IsActive
@@ -31666,6 +31734,16 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 7776837920987692078, guid: a3149a40513b9544ba50dbc360b4355c,
+        type: 3}
+      propertyPath: originPanel
+      value: 
+      objectReference: {fileID: 1706851650}
+    - target: {fileID: 7776837922008664359, guid: a3149a40513b9544ba50dbc360b4355c,
+        type: 3}
+      propertyPath: originPanel
+      value: 
+      objectReference: {fileID: 1706851650}
     - target: {fileID: 7837639453624299352, guid: a3149a40513b9544ba50dbc360b4355c,
         type: 3}
       propertyPath: m_IsActive
@@ -31689,6 +31767,16 @@ PrefabInstance:
     - target: {fileID: 7864118149052306107, guid: a3149a40513b9544ba50dbc360b4355c,
         type: 3}
       propertyPath: cartelesBarra
+      value: 
+      objectReference: {fileID: 1328016848}
+    - target: {fileID: 7864118149052306107, guid: a3149a40513b9544ba50dbc360b4355c,
+        type: 3}
+      propertyPath: cartelesBarraA
+      value: 
+      objectReference: {fileID: 1328016847}
+    - target: {fileID: 7864118149052306107, guid: a3149a40513b9544ba50dbc360b4355c,
+        type: 3}
+      propertyPath: cartelesBarraB
       value: 
       objectReference: {fileID: 1328016848}
     - target: {fileID: 8008701983033061880, guid: a3149a40513b9544ba50dbc360b4355c,
@@ -31726,6 +31814,16 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 8810985457010567602, guid: a3149a40513b9544ba50dbc360b4355c,
+        type: 3}
+      propertyPath: originPanel
+      value: 
+      objectReference: {fileID: 1706851650}
+    - target: {fileID: 8810985458036137147, guid: a3149a40513b9544ba50dbc360b4355c,
+        type: 3}
+      propertyPath: originPanel
+      value: 
+      objectReference: {fileID: 1706851650}
     - target: {fileID: 8857449468858233300, guid: a3149a40513b9544ba50dbc360b4355c,
         type: 3}
       propertyPath: m_IsActive
@@ -34332,6 +34430,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: afcf7575361d1d744a78b3ad2a0f0882, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  managerMinijuegos: {fileID: 0}
+  originPanel: {fileID: 0}
   mashLimit: 10
   mashScore: 0
   uiMashCounter: {fileID: 1643072880}
@@ -34342,7 +34442,6 @@ MonoBehaviour:
   p2z: {fileID: 0}
   p2x: {fileID: 0}
   screens: []
-  managerMinijuegos: {fileID: 0}
 --- !u!114 &1643072880
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -34899,6 +34998,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   team: 0
+  id: 0
 --- !u!1 &1708442381
 GameObject:
   m_ObjectHideFlags: 0
@@ -35889,7 +35989,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6bc690486e28ce14d89587bd3b96f475, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  team: 0
+  originPanel: {fileID: 0}
   cartelesJugadorA: 0
   cartelesBarraA: {fileID: 0}
   cartelesJugadorB: 0
@@ -37319,6 +37419,7 @@ GameObject:
   - component: {fileID: 2128671991}
   - component: {fileID: 2128671996}
   - component: {fileID: 2128671995}
+  - component: {fileID: 2128671992}
   m_Layer: 0
   m_Name: MiniJuego2_2 (Lightstick) (1)
   m_TagString: Untagged
@@ -37365,17 +37466,40 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 1658de2f30821214288a7f08d9a8c117, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 1.004, y: 1.808}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &2128671992
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2128671990}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  observableSearch: 2
+  Synchronization: 3
+  OwnershipTransfer: 0
+  ObservedComponents:
+  - {fileID: 2128671996}
+  viewIdField: 46
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
 --- !u!4 &2128671994
 Transform:
   m_ObjectHideFlags: 0

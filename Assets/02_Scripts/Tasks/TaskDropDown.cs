@@ -33,6 +33,7 @@ public class TaskDropDown : MonoBehaviourPunCallbacks,I_Interactable
     {
         taskBarPanel.SetActive(true);
         taskBarPanel.GetComponent<WhatTeamIsCalling>().team = call;
+        taskBarPanel.GetComponent<WhatTeamIsCalling>().id = (int)thisMinigame;
         if (call) 
         {
             GameObject panel = Instantiate(panelData.PanelA, taskBarPanel.transform.position, Quaternion.identity);

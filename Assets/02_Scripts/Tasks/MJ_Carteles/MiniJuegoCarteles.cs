@@ -10,15 +10,11 @@ using Photon.Pun;
 
 public class MiniJuegoCarteles : MonoBehaviourPunCallbacks
 {
-    //No es necesariamente el cliente maestro;
-    public bool team;
+    //No es necesariamente el cliente maestro;      // bool Team: True = A ó False = B
     ManagerMinijuegos managerLocal;
     MinigameManager managerMinigame;
-    PlayerTeam pTeam;
-    TaskDropDown taskDropDown;
-
-    //ScriptableObj Minijuego
-    Minijuego minijuego;
+    RPCManager RPCManager;
+    [SerializeField] GameObject originPanel;
 
     //la cantidad de carteles que yo he colocado
     [HideInInspector] public int cartelesJugadorA = 0;
@@ -47,7 +43,9 @@ public class MiniJuegoCarteles : MonoBehaviourPunCallbacks
         ResetCarteles(0);
         cartelesJugadorB = 0;
         esquinas = 0;
-        //pTeam = 
+        originPanel = GameObject.Find("OriginPanel");
+        RPCManager = GameObject.Find("MiniJuego1_1(cartel)").GetComponent<RPCManager>();
+        //originPanel = GameObject
         foreach (Transform child in cartelesSpot.transform)
         {
             Destroy(child.gameObject);
@@ -70,26 +68,23 @@ public class MiniJuegoCarteles : MonoBehaviourPunCallbacks
         DecirleAMasterClienteQueHiceUnCambio();
     }
 
-    void Carteles(int valor)            //SERIALIZAR LAS BARRAS DE LOS PLAYERS?
+    void Carteles(int valor)
     {
-        cartelesJugadorA += valor;      // Comentar esto cuando se defina que player esta jugando
+        if (originPanel.GetComponent<WhatTeamIsCalling>().team == true)
+        {
+            cartelesJugadorA += valor;
+            RPCManager.RPCActualizarDatosA(originPanel.GetComponent<WhatTeamIsCalling>().id,cartelesJugadorA);
+            cartelesBarraA.fillAmount = (float)managerLocal.minijuegos[originPanel.GetComponent<WhatTeamIsCalling>().id].barraVersusA / 10;
+            Debug.Log("El player A ha pegado :" + cartelesJugadorA + " carteles");
 
-
-        //if (PhotonNetwork.LocalPlayer.ActorNumber == )          //Necesito saber cual es el team del player
-        //{
-        //    cartelesJugadorA += valor;
-        //    minijuego.barraVersusA = cartelesJugadorA;        // Valor de la barraA para la serializacion?
-        //    cartelesBarraA.fillAmount = (float)minijuego.barraVersusA / 10;
-        //    Debug.Log("El player A ha pegado :" + cartelesJugadorA + " carteles");
-
-        //}
-        //else if (managerLocal.player2_ID == minijuego.jugadorDos)
-        //{
-        //    cartelesJugadorB += valor;
-        //    minijuego.barraVersusB = cartelesJugadorB;
-        //    cartelesBarraB.fillAmount = (float)minijuego.barraVersusB / 10;
-        //    Debug.Log("El player B ha pegado :" + cartelesJugadorB + " carteles");
-        //}
+        }
+        else if (originPanel.GetComponent<WhatTeamIsCalling>().team == false)
+        {
+            cartelesJugadorB += valor;
+            RPCManager.RPCActualizarDatosB(originPanel.GetComponent<WhatTeamIsCalling>().id, cartelesJugadorB);
+            cartelesBarraB.fillAmount = (float)managerLocal.minijuegos[originPanel.GetComponent<WhatTeamIsCalling>().id].barraVersusB / 10;
+            Debug.Log("El player B ha pegado :" + cartelesJugadorB + " carteles");
+        }
 
 
         if (cartelesJugadorA >= 10 || cartelesJugadorB >= 10)
