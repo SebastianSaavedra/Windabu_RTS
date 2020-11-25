@@ -30,8 +30,10 @@ public class TaskDropDown : MonoBehaviourPunCallbacks,I_Interactable
     }
 
     public void OnInteract(bool call) 
-    {        
+    {
         taskBarPanel.SetActive(true);
+        taskBarPanel.GetComponent<WhatTeamIsCalling>().team = call;
+        taskBarPanel.GetComponent<WhatTeamIsCalling>().id = (int)thisMinigame;
         if (call) 
         {
             GameObject panel = Instantiate(panelData.PanelA, taskBarPanel.transform.position, Quaternion.identity);
@@ -76,7 +78,7 @@ public class TaskDropDown : MonoBehaviourPunCallbacks,I_Interactable
     public void OnLeavePanel(bool call)
     {
         taskBarPanel.transform.DOMoveY(1540, 1);
-        Destroy(objetoInstanciado,1.1f);
+        Destroy(taskBarPanel.transform.GetChild(0).gameObject,1.1f);
 
     }
    
@@ -96,7 +98,9 @@ public class TaskDropDown : MonoBehaviourPunCallbacks,I_Interactable
     IEnumerator BlockTask() 
     {
         canInteract = false;
+        managerMinijuegos.minijuegos[(int)thisMinigame].completado = true;
         yield return new WaitForSeconds(5f);
+        managerMinijuegos.minijuegos[(int)thisMinigame].completado = false;
         canInteract = true;
         yield break;
     }

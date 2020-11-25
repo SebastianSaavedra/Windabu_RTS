@@ -1,14 +1,21 @@
 ﻿using Com.MaluCompany.TestGame;
-using Photon.Pun;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+using Photon.Pun;
+using Photon.Realtime;
+
 public class ArcadeMinigame : MonoBehaviourPunCallbacks
 {
+    // Refs
+    MinigameManager managerMinigame;
+    [SerializeField] ManagerMinijuegos managerMinijuegos;
+    [SerializeField] GameObject originPanel;
+
     public int mashLimit = 20;
-    [SerializeField]int mashScore;
+    [SerializeField] int mashScore;
     private int bgCounter = 0;
     private bool leftActive;
 
@@ -21,6 +28,8 @@ public class ArcadeMinigame : MonoBehaviourPunCallbacks
     {
         uiMashCounter = GetComponent<Text>();
         leftActive = true;
+        managerMinijuegos = GameObject.Find("MinijuegosManager").GetComponent<ManagerMinijuegos>();
+
     }
 
     private void Update()
@@ -75,6 +84,8 @@ public class ArcadeMinigame : MonoBehaviourPunCallbacks
         }
     }
 
+
+
     public void FinishTask()
     {
         foreach (GameObject player in GameObject.FindGameObjectsWithTag("Player"))
@@ -91,6 +102,7 @@ public class ArcadeMinigame : MonoBehaviourPunCallbacks
                     player.GetComponentInParent<TEST_Interact>().speakingTo.Team2();
                 }
                 player.GetComponentInParent<TEST_Interact>().objectToInteract.GetComponent<I_Interactable>().OnLeavePanel(player.GetComponentInParent<PlayerTeam>().team);
+                Debug.Log("Completado");
                 player.GetComponentInParent<TEST_Interact>().thisTask.RPCdata();
             }
         }

@@ -4,9 +4,9 @@ using UnityEngine;
 using UnityEngine.UI;
 using Photon.Pun;
 using Photon.Realtime;
-
+using TMPro;
 namespace Com.MaluCompany.TestGame { 
-[RequireComponent(typeof(InputField))]
+[RequireComponent(typeof(TMP_InputField))]
 public class PlayerNameInputField : MonoBehaviour
 {
         #region Constants

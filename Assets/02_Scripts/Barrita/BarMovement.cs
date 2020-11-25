@@ -11,6 +11,7 @@ public class BarMovement : MonoBehaviourPunCallbacks
     //Privadas
     ManagerMinijuegos managerLocal;
     MinigameManager managerMinigame;
+    [SerializeField] GameObject originPanel;
 
     Coroutine cor;
     float initialSpeed;
@@ -44,48 +45,82 @@ public class BarMovement : MonoBehaviourPunCallbacks
 
     private new void OnEnable()
     {
-        IniciarAct();
+        intentos = 0;
+        originPanel = GameObject.Find("OriginPanel");
+        StartCoroutine("IniciarAct");
     }
 
-    void IniciarAct()
+    IEnumerator IniciarAct()
     {
+        yield return new WaitForSeconds(.5f);
         speed = initialSpeed;
+        moving = true;
+        yield break;
+    }
+
+    void ReiniciarActividadAcerto()             //Serializar los intentos/Gameobjects????
+    {
+        //If player 1 acerto 
+        if (originPanel.GetComponent<WhatTeamIsCalling>().team == true)
+        {
+            if (intentos != aciertos.Length)
+            {
+                Debug.Log("Player A acerto una vez");
+                aciertos[intentos].SetActive(true);
+            }
+        }
+        //If player 2 acerto
+        else if (originPanel.GetComponent<WhatTeamIsCalling>().team == false)
+        {
+            if (intentos != aciertosP2.Length)
+            {
+                Debug.Log("Player B acerto una vez");
+                aciertosP2[intentos].SetActive(true);
+            }
+        }
+
+        intentos++;
+        Debug.Log("Intentos: " + intentos);
+
+        transform.position = punto0.transform.position;
+        if (speed <= maxSpeed)
+        {
+            speed += speed / Random.Range(1.8f, 2);
+            if (speed >= maxSpeed)
+            {
+                speed = maxSpeed;
+            }
+        }
+        Debug.Log("La velocidad del lighstick es: " + speed);
         moving = true;
     }
 
-    void ReiniciarActividadMasRapido()
+    void ReiniciarActividadFallo()
     {
-        if (intentos >= 6)
+        //If player 1 acerto 
+        if (originPanel.GetComponent<WhatTeamIsCalling>().team == true)
         {
-            managerMinigame.FinishTask();
-        }
-        else
-        {
-            transform.position = punto0.transform.position;
-            if (speed <= maxSpeed)
+            if (intentos != fallos.Length)
             {
-                speed += speed / Random.Range(1.8f, 2);
-                if (speed >= maxSpeed)
-                {
-                    speed = maxSpeed;
-                }
+                Debug.Log("Player A fallo una vez");
+                fallos[intentos].SetActive(true);
             }
-            Debug.Log("La velocidad del dildo es: " + speed);
-            moving = true;
         }
-    }
+        //If player 2 acerto
+        else if (originPanel.GetComponent<WhatTeamIsCalling>().team == false)
+        {
+            if (intentos != fallosP2.Length)
+            {
+                Debug.Log("Player B fallo una vez");
+                fallosP2[intentos].SetActive(true);
+            }
+        }
 
-    void ReiniciarActividadPerdio()
-    {
-        if (intentos >= 6)
-        {
-            managerMinigame.FinishTask();
-        }
-        else
-        {
-            transform.position = punto0.transform.position;
+        intentos++;
+        Debug.Log("Intentos: " + intentos);
+
+        transform.position = punto0.transform.position;
             moving = true;
-        }
     }
 
     private void FixedUpdate()
@@ -130,7 +165,17 @@ public class BarMovement : MonoBehaviourPunCallbacks
             yield return new WaitForSeconds(.75f);
 
             DecirleAMasterClienteQueHiceUnCambio();
-            ReiniciarActividadMasRapido();
+            Debug.Log("Intentos: " + intentos);
+
+            if (intentos >= 5)
+            {
+                intentos = 0;
+                managerMinigame.FinishTask();
+            }
+            else
+            {
+                ReiniciarActividadAcerto();
+            }
         }
         else
         {
@@ -139,7 +184,16 @@ public class BarMovement : MonoBehaviourPunCallbacks
             yield return new WaitForSeconds(.75f);
 
             DecirleAMasterClienteQueHiceUnCambio();
-            ReiniciarActividadPerdio();
+
+            if (intentos >= 5)
+            {
+                intentos = 0;
+                managerMinigame.FinishTask();
+            }
+            else
+            {
+                ReiniciarActividadFallo();
+            }
         }
     }
     void DecirleAMasterClienteQueHiceUnCambio()
