@@ -13,30 +13,26 @@ public class MiniJuegoCarteles : MonoBehaviourPunCallbacks
     //No es necesariamente el cliente maestro;
     ManagerMinijuegos managerLocal;
     MinigameManager managerMinigame;
+    PlayerTeam pTeam;
+    TaskDropDown taskDropDown;
 
-    //const float tiempoParaRealizarMinijuego = 30;
+    //ScriptableObj Minijuego
+    Minijuego minijuego;
 
     //la cantidad de carteles que yo he colocado
-    [HideInInspector] public int carteles;
-    public Image cartelesBarra;
+    [HideInInspector] public int cartelesJugadorA = 0;
+    public Image cartelesBarraA;
 
-    int cartelesJugador2 = 0;
-    public Image contadorJugador2;
+    [HideInInspector] public int cartelesJugadorB = 0;
+    public Image cartelesBarraB;
 
     [SerializeField] GameObject cartelesSpot;
     [SerializeField] List<Transform> posicionesDePegado = new List<Transform>();
     List<Transform> posicionesRestantes;
 
-    [SerializeField] BoxCollider2D col2d;
     Coroutine sgteCor;
     [SerializeField] Cartel cartel;
     int esquinas;
-    private void Awake()
-    {
-        col2d.GetComponent<BoxCollider2D>();
-        //contadorJugador2 = GameObject.Find("Contador Carteles").GetComponent<TextMeshProUGUI>();
-    }
-
     void Start()
     {
         esquinas = 0;
@@ -45,28 +41,21 @@ public class MiniJuegoCarteles : MonoBehaviourPunCallbacks
         posicionesRestantes = new List<Transform>(posicionesDePegado);
     }
 
-    public override void OnEnable()
+    public new void OnEnable()
     {
         ResetCarteles(0);
-        cartelesJugador2 = 0;
+        cartelesJugadorB = 0;
         esquinas = 0;
-        //contadorJugador2.text = cartelesJugador2.ToString();
+        //pTeam = 
         foreach (Transform child in cartelesSpot.transform)
         {
             Destroy(child.gameObject);
         }
-        //owo++;
-        //Debug.Log("Se activo el minijuego de carteles! o.0!! " + owo);
-        //if (cartelesSpot.transform.parent != null)
-        //{
-        //    Destroy(cartelesSpot.transform.parent);
-        //    Debug.Log("llego acá??");
-        //}
     }
-    public override void OnDisable()
+    public new void OnDisable()
     {
         ResetCarteles(0);
-        cartelesJugador2 = 0;
+        cartelesJugadorB = 0;
         esquinas = 0;
     }
 
@@ -80,14 +69,30 @@ public class MiniJuegoCarteles : MonoBehaviourPunCallbacks
         DecirleAMasterClienteQueHiceUnCambio();
     }
 
-    void Carteles(int valor)
+    void Carteles(int valor)            //SERIALIZAR LAS BARRAS DE LOS PLAYERS?
     {
-        carteles += valor;
-        cartelesBarra.fillAmount = (float)carteles / 10;
+        cartelesJugadorA += valor;      // Comentar esto cuando se defina que player esta jugando
 
-        if (carteles >= 10)
+
+        //if (PhotonNetwork.LocalPlayer.ActorNumber == )          //Necesito saber cual es el team del player
+        //{
+        //    cartelesJugadorA += valor;
+        //    minijuego.barraVersusA = cartelesJugadorA;        // Valor de la barraA para la serializacion?
+        //    cartelesBarraA.fillAmount = (float)minijuego.barraVersusA / 10;
+        //    Debug.Log("El player A ha pegado :" + cartelesJugadorA + " carteles");
+
+        //}
+        //else if (managerLocal.player2_ID == minijuego.jugadorDos)
+        //{
+        //    cartelesJugadorB += valor;
+        //    minijuego.barraVersusB = cartelesJugadorB;
+        //    cartelesBarraB.fillAmount = (float)minijuego.barraVersusB / 10;
+        //    Debug.Log("El player B ha pegado :" + cartelesJugadorB + " carteles");
+        //}
+
+
+        if (cartelesJugadorA >= 10 || cartelesJugadorB >= 10)
         {
-            //carteles = 0;
             managerMinigame.FinishTask();
         }
     }
@@ -112,44 +117,41 @@ public class MiniJuegoCarteles : MonoBehaviourPunCallbacks
         }
     }
 
-    void DecirleAMasterClienteQueHiceUnCambio()
+    void DecirleAMasterClienteQueHiceUnCambio()     // No se si aun se usa??
     {
         managerLocal.ActualizarEstadoMinijuego1(PhotonNetwork.LocalPlayer.ActorNumber);
     }
 
     //Master Client me avisa que el otro jugador hizo un cambio
-    public void ReciboActualizacionDeOtroJugador()
+    public void ReciboActualizacionDeOtroJugador()      // Ya no se usa creo????
     {
-        cartelesJugador2++;
-        contadorJugador2.fillAmount = (float)cartelesJugador2 / 10;
-        //contadorJugador2.text = cartelesJugador2.ToString();
-        //Actualizar ui
+        //cartelesJugadorB++;
+        //cartelesBarraB.fillAmount = (float)cartelesJugadorB / 10;
+
+        //Debug.Log("Cantidad de carteles que ha pegado el jogador 2" + cartelesJugadorB);
+        ////contadorJugador2.text = cartelesJugador2.ToString();
+        ////Actualizar ui
     }
 
     [PunRPC]
     public void ResetCarteles(int cartelesBaseValue)
     {
         Debug.Log("Se Reseteo o.0");
-        carteles = cartelesBaseValue;
-        Debug.Log(carteles);
+        cartelesJugadorA = cartelesBaseValue;
+        Debug.Log(cartelesJugadorA);
     }
 
     IEnumerator SgteCartel()
     {
-        //Debug.Log("Entro a la corutina");
         cartel.hayCartel = false;
         yield return new WaitForSeconds(.25f);
-        // añadir animación pal lado
-        // wait for the animation
         RandomPos();
-        //Destroy(cartel.cartelito);
         this.transform.parent.GetComponentInChildren<Cartel>().SpawnCartel();
         yield break;
     }
 
     void RandomPos()
     {
-         //new List<Transform>(posicionesDePegado);
         int posIndex = Random.Range(0,posicionesRestantes.Count);
 
         cartel.cartelito.transform.localScale = new Vector3(.4f, .4f, 1f);

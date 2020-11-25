@@ -44,23 +44,45 @@ public class BarMovement : MonoBehaviourPunCallbacks
 
     private new void OnEnable()
     {
-        IniciarAct();
+        intentos = 0;
+        StartCoroutine("IniciarAct");
     }
 
-    void IniciarAct()
+    IEnumerator IniciarAct()
     {
+        yield return new WaitForSeconds(.25f);
         speed = initialSpeed;
         moving = true;
+        yield break;
     }
 
-    void ReiniciarActividadMasRapido()
+    void ReiniciarActividadAcerto()             //Serializar los intentos/Gameobjects????
     {
-        if (intentos >= 6)
         {
-            managerMinigame.FinishTask();
-        }
-        else
-        {
+            if (intentos != aciertos.Length)      //Comentar esto cuando ya se tenga definido que player inicio el juego
+            {
+                aciertos[intentos].SetActive(true);
+            }
+
+
+            intentos++;
+            Debug.Log("Intentos: " + intentos);
+
+            ////If player 1 acerto 
+            //if ()
+            //{
+            //if (intentos != aciertos.Length && Saber quien es el player que ta jugando esta wea)
+            //{
+            //    aciertos[intentos].SetActive(true);
+            //}
+            //}
+            ////If player 2 acerto              //Posible opciones para evitar bugs, cambiar referentes en el inspector (? (Quien es player 1 y quien es player 2 en el vs...)
+            //else if (intentos != aciertos.Length && Saber quien es el player que ta jugando esta wea) ???
+            //{
+            //    aciertosP2[intentos].SetActive(true);
+            //}
+
+
             transform.position = punto0.transform.position;
             if (speed <= maxSpeed)
             {
@@ -70,22 +92,37 @@ public class BarMovement : MonoBehaviourPunCallbacks
                     speed = maxSpeed;
                 }
             }
-            Debug.Log("La velocidad del dildo es: " + speed);
+            Debug.Log("La velocidad del lighstick es: " + speed);
             moving = true;
         }
     }
 
-    void ReiniciarActividadPerdio()
+    void ReiniciarActividadFallo()                  //Serializar los intentos/Gameobjects????
     {
-        if (intentos >= 6)
-        {
-            managerMinigame.FinishTask();
-        }
-        else
-        {
-            transform.position = punto0.transform.position;
+            if (intentos != fallos.Length)      //Comentar esto cuando ya se tenga definido que player inicio el juego
+            {
+                fallos[intentos].SetActive(true);
+            }
+
+
+            intentos++;
+            Debug.Log("Intentos: " + intentos);
+
+        ////If player 1 acerto 
+        //if (intentos != fallos.Length && Saber quien es el player que ta jugando esta wea) ???
+        //{
+        //fallos[intentos].SetActive(true);
+
+        //}
+        ////If player 2 acerto              //Posible opciones para evitar bugs, cambiar referentes en el inspector (? (Quien es player 1 y quien es player 2 en el vs...)
+        //else if (intentos != fallosP2.Length && Saber quien es el player que ta jugando esta wea) ???
+        //{
+        //fallosP2[intentos].SetActive(true);
+        //}
+
+
+        transform.position = punto0.transform.position;
             moving = true;
-        }
     }
 
     private void FixedUpdate()
@@ -130,7 +167,17 @@ public class BarMovement : MonoBehaviourPunCallbacks
             yield return new WaitForSeconds(.75f);
 
             DecirleAMasterClienteQueHiceUnCambio();
-            ReiniciarActividadMasRapido();
+            Debug.Log("Intentos: " + intentos);
+
+            if (intentos >= 6)
+            {
+                intentos = 0;
+                managerMinigame.FinishTask();
+            }
+            else
+            {
+                ReiniciarActividadAcerto();
+            }
         }
         else
         {
@@ -139,7 +186,16 @@ public class BarMovement : MonoBehaviourPunCallbacks
             yield return new WaitForSeconds(.75f);
 
             DecirleAMasterClienteQueHiceUnCambio();
-            ReiniciarActividadPerdio();
+
+            if (intentos >= 5)
+            {
+                intentos = 0;
+                managerMinigame.FinishTask();
+            }
+            else
+            {
+                ReiniciarActividadFallo();
+            }
         }
     }
     void DecirleAMasterClienteQueHiceUnCambio()
