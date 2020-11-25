@@ -24,14 +24,17 @@ public class BoxGrabController : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D col)
     {
-        if(col.tag == "MjBox" && !hasBox)
+        if(col.tag == "MJBox" && !hasBox)
         {
             if (Input.GetKeyDown(KeyCode.E))
             {
-                // Start carrying box
-                hasBox = true;
-                carriedBox = col.gameObject;
-                col.GetComponent<BoxCollider2D>().enabled = false;
+                if (!col.GetComponent<BoxProgression>().inRoom)
+                {
+                    // Start carrying box
+                    hasBox = true;
+                    carriedBox = col.gameObject;
+                    carriedBox.GetComponent<BoxProgression>().Traveling();
+                }
             }
         }
 
@@ -43,11 +46,11 @@ public class BoxGrabController : MonoBehaviour
 
                 //Modify carried box
                 carriedBox.transform.position = col.transform.position;
-                col.GetComponent<BoxCollider2D>().enabled = true;
+                carriedBox.GetComponent<BoxProgression>().Delivered();
                 carriedBox = null;
 
-                //Modify new box location
-                col.GetComponent<BoxCollider2D>().enabled = false;
+                //Kill room
+                col.gameObject.SetActive(false);
             }
         }
     }

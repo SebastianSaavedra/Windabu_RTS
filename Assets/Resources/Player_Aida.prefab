@@ -263,7 +263,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5289927632830791866}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.755, y: 0.23, z: 0}
+  m_LocalPosition: {x: 0.737, y: 0.295, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 5816013650376650915}
@@ -416,6 +416,7 @@ GameObject:
   - component: {fileID: 555758343583713116}
   - component: {fileID: 9100967868758438676}
   - component: {fileID: 201186553830895270}
+  - component: {fileID: 5289475317043354953}
   m_Layer: 9
   m_Name: Player_Aida
   m_TagString: Player
@@ -706,3 +707,16 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 2.09
+--- !u!114 &5289475317043354953
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5816013650376650916}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15a6660f8414ca74081d307a0a5cdf13, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  boxHolder: {fileID: 3546296441606203061}
