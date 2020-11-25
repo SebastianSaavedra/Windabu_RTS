@@ -30534,6 +30534,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: FakeLobby (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 1231250300444406844, guid: ab18c6628d0850e4c9ae0891f311f1fd,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ab18c6628d0850e4c9ae0891f311f1fd, type: 3}
 --- !u!1 &1261384795 stripped
@@ -34839,6 +34844,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1706851651}
+  - component: {fileID: 1706851652}
   m_Layer: 5
   m_Name: OriginPanel
   m_TagString: Untagged
@@ -34865,6 +34871,19 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 1000}
   m_SizeDelta: {x: 837.229, y: 511.9425}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1706851652
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1706851650}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 463c517f9c147a54d9a6ef2adf4a743c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  team: 0
 --- !u!1 &1708442381
 GameObject:
   m_ObjectHideFlags: 0
@@ -35855,6 +35874,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6bc690486e28ce14d89587bd3b96f475, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  team: 0
   cartelesJugadorA: 0
   cartelesBarraA: {fileID: 0}
   cartelesJugadorB: 0

@@ -11,6 +11,7 @@ using Photon.Pun;
 public class MiniJuegoCarteles : MonoBehaviourPunCallbacks
 {
     //No es necesariamente el cliente maestro;
+    public bool team;
     ManagerMinijuegos managerLocal;
     MinigameManager managerMinigame;
     PlayerTeam pTeam;
