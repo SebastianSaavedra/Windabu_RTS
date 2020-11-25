@@ -21,6 +21,12 @@ public class TEST_Interact : MonoBehaviourPunCallbacks
         {
 
     
+        if (objectToInteract.GetComponent<TaskDropDown>().minijuegoData.completado) 
+        {
+                objectToInteract.GetComponent<I_Interactable>().OnLeavePanel(GetComponent<PlayerTeam>().team);
+                Debug.Log(transform.name + " termino el versus");
+            GetComponent<TEST_Movement>().enabled = true;
+        }
         if (Input.GetKeyDown(KeyCode.E) && !alreadyInteracted)
         {
             if (objectToInteract.GetComponent<I_Interactable>()!=null && objectToInteract.GetComponent<TaskDropDown>().canInteract)
@@ -53,11 +59,6 @@ public class TEST_Interact : MonoBehaviourPunCallbacks
                 GameObject.Find("MinijuegosManager").GetComponent<ManagerMinijuegos>().ResetearMuchosValores(minigameID);
             }
         }
-        if (objectToInteract.GetComponent<TaskDropDown>().minijuegoData.completado) 
-        {
-            objectToInteract.GetComponent<I_Interactable>().OnLeavePanel(GetComponent<PlayerTeam>().team);
-                GetComponent<TEST_Movement>().enabled = true;
-        }
                 if(objectToInteract.GetComponent<TaskDropDown>().minijuegoData.numeroDeJugadores == 2 && !alreadyChanged) 
                 {
             GameObject.Find("MinijuegosManager").GetComponent<ManagerMinijuegos>().CambiarInteractable(GetComponentInParent<PlayerId>().id,minigameID);
@@ -82,12 +83,12 @@ public class TEST_Interact : MonoBehaviourPunCallbacks
         {
             if (collision.GetComponent<TaskDropDown>()) 
             {
-            objectToInteract.GetComponent<I_Interactable>().OnLeavePanel(GetComponent<PlayerTeam>().team);
             objectToInteract = null;
             speakingTo = null;
             thisTask = null;
              alreadyChanged = false;
             alreadyInteracted = false;
+            objectToInteract.GetComponent<I_Interactable>().OnLeavePanel(GetComponent<PlayerTeam>().team);
             }
         }
     }

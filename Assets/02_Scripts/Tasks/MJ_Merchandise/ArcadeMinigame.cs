@@ -16,11 +16,13 @@ public class ArcadeMinigame : MonoBehaviourPunCallbacks
     public GameObject p1, p1z, p1x, p2, p2z, p2x;
     public GameObject[] screens;
     int screenCounter;
+    [SerializeField] ManagerMinijuegos managerMinijuegos;
 
     private void Start()
     {
         uiMashCounter = GetComponent<Text>();
         leftActive = true;
+        managerMinijuegos = GameObject.Find("MinijuegosManager").GetComponent<ManagerMinijuegos>();
     }
 
     private void Update()
@@ -91,6 +93,7 @@ public class ArcadeMinigame : MonoBehaviourPunCallbacks
                     player.GetComponentInParent<TEST_Interact>().speakingTo.Team2();
                 }
                 player.GetComponentInParent<TEST_Interact>().objectToInteract.GetComponent<I_Interactable>().OnLeavePanel(player.GetComponentInParent<PlayerTeam>().team);
+                Debug.Log("Completado");
                 player.GetComponentInParent<TEST_Interact>().thisTask.RPCdata();
             }
         }

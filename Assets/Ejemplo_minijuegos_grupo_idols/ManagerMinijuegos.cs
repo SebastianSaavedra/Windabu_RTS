@@ -296,8 +296,13 @@ public class ManagerMinijuegos : MonoBehaviourPunCallbacks,IPunObservable
             }
         }
     }
+    public void ResetearMuchosValores(int minigame)
+    {
+        photonView.RPC(" RPCResetearMuchosValores", RpcTarget.MasterClient, minigame);
+    }
 
-    public void ResetearMuchosValores(int minigame) 
+    [PunRPC]
+    public void RPCResetearMuchosValores(int minigame) 
     {
         minijuegos[minigame].ResetearValoresMinijuego();
         player1_ID = 0;
