@@ -11,6 +11,7 @@ public class BarMovement : MonoBehaviourPunCallbacks
     //Privadas
     ManagerMinijuegos managerLocal;
     MinigameManager managerMinigame;
+    [SerializeField] GameObject originPanel;
 
     Coroutine cor;
     float initialSpeed;
@@ -45,12 +46,13 @@ public class BarMovement : MonoBehaviourPunCallbacks
     private new void OnEnable()
     {
         intentos = 0;
+        originPanel = GameObject.Find("OriginPanel");
         StartCoroutine("IniciarAct");
     }
 
     IEnumerator IniciarAct()
     {
-        yield return new WaitForSeconds(.25f);
+        yield return new WaitForSeconds(.5f);
         speed = initialSpeed;
         moving = true;
         yield break;
@@ -58,68 +60,64 @@ public class BarMovement : MonoBehaviourPunCallbacks
 
     void ReiniciarActividadAcerto()             //Serializar los intentos/Gameobjects????
     {
+        //If player 1 acerto 
+        if (originPanel.GetComponent<WhatTeamIsCalling>().team == true)
         {
-            if (intentos != aciertos.Length)      //Comentar esto cuando ya se tenga definido que player inicio el juego
+            if (intentos != aciertos.Length)
             {
+                Debug.Log("Player A acerto una vez");
                 aciertos[intentos].SetActive(true);
             }
-
-
-            intentos++;
-            Debug.Log("Intentos: " + intentos);
-
-            ////If player 1 acerto 
-            //if ()
-            //{
-            //if (intentos != aciertos.Length && Saber quien es el player que ta jugando esta wea)
-            //{
-            //    aciertos[intentos].SetActive(true);
-            //}
-            //}
-            ////If player 2 acerto              //Posible opciones para evitar bugs, cambiar referentes en el inspector (? (Quien es player 1 y quien es player 2 en el vs...)
-            //else if (intentos != aciertos.Length && Saber quien es el player que ta jugando esta wea) ???
-            //{
-            //    aciertosP2[intentos].SetActive(true);
-            //}
-
-
-            transform.position = punto0.transform.position;
-            if (speed <= maxSpeed)
-            {
-                speed += speed / Random.Range(1.8f, 2);
-                if (speed >= maxSpeed)
-                {
-                    speed = maxSpeed;
-                }
-            }
-            Debug.Log("La velocidad del lighstick es: " + speed);
-            moving = true;
         }
+        //If player 2 acerto
+        else if (originPanel.GetComponent<WhatTeamIsCalling>().team == false)
+        {
+            if (intentos != aciertosP2.Length)
+            {
+                Debug.Log("Player B acerto una vez");
+                aciertosP2[intentos].SetActive(true);
+            }
+        }
+
+        intentos++;
+        Debug.Log("Intentos: " + intentos);
+
+        transform.position = punto0.transform.position;
+        if (speed <= maxSpeed)
+        {
+            speed += speed / Random.Range(1.8f, 2);
+            if (speed >= maxSpeed)
+            {
+                speed = maxSpeed;
+            }
+        }
+        Debug.Log("La velocidad del lighstick es: " + speed);
+        moving = true;
     }
 
-    void ReiniciarActividadFallo()                  //Serializar los intentos/Gameobjects????
+    void ReiniciarActividadFallo()
     {
-            if (intentos != fallos.Length)      //Comentar esto cuando ya se tenga definido que player inicio el juego
+        //If player 1 acerto 
+        if (originPanel.GetComponent<WhatTeamIsCalling>().team == true)
+        {
+            if (intentos != fallos.Length)
             {
+                Debug.Log("Player A fallo una vez");
                 fallos[intentos].SetActive(true);
             }
+        }
+        //If player 2 acerto
+        else if (originPanel.GetComponent<WhatTeamIsCalling>().team == false)
+        {
+            if (intentos != fallosP2.Length)
+            {
+                Debug.Log("Player B fallo una vez");
+                fallosP2[intentos].SetActive(true);
+            }
+        }
 
-
-            intentos++;
-            Debug.Log("Intentos: " + intentos);
-
-        ////If player 1 acerto 
-        //if (intentos != fallos.Length && Saber quien es el player que ta jugando esta wea) ???
-        //{
-        //fallos[intentos].SetActive(true);
-
-        //}
-        ////If player 2 acerto              //Posible opciones para evitar bugs, cambiar referentes en el inspector (? (Quien es player 1 y quien es player 2 en el vs...)
-        //else if (intentos != fallosP2.Length && Saber quien es el player que ta jugando esta wea) ???
-        //{
-        //fallosP2[intentos].SetActive(true);
-        //}
-
+        intentos++;
+        Debug.Log("Intentos: " + intentos);
 
         transform.position = punto0.transform.position;
             moving = true;
@@ -169,7 +167,7 @@ public class BarMovement : MonoBehaviourPunCallbacks
             DecirleAMasterClienteQueHiceUnCambio();
             Debug.Log("Intentos: " + intentos);
 
-            if (intentos >= 6)
+            if (intentos >= 5)
             {
                 intentos = 0;
                 managerMinigame.FinishTask();

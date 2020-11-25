@@ -367,6 +367,8 @@ public class ManagerMinijuegos : MonoBehaviourPunCallbacks,IPunObservable
                 stream.SendNext(minijuegos[x].jugadorDos);
                 stream.SendNext(minijuegos[x].numeroDeJugadores);
                 stream.SendNext(minijuegos[x].completado);
+                stream.SendNext(minijuegos[x].barraVersusA);
+                stream.SendNext(minijuegos[x].barraVersusB);
             }
             #region Casi me sirve esto
             //stream.SendNext(minijuegos[0].jugadorUno);
@@ -397,6 +399,8 @@ public class ManagerMinijuegos : MonoBehaviourPunCallbacks,IPunObservable
                 minijuegos[x].jugadorDos        = (int)stream.ReceiveNext();
                 minijuegos[x].numeroDeJugadores = (int)stream.ReceiveNext();
                 minijuegos[x].completado        = (bool)stream.ReceiveNext();
+                minijuegos[x].barraVersusA = (int)stream.ReceiveNext();
+                minijuegos[x].barraVersusB = (int)stream.ReceiveNext();
             }
             //minijuegos[0].jugadorUno = (int)stream.ReceiveNext();
             //minijuegos[0].jugadorDos = (int)stream.ReceiveNext();

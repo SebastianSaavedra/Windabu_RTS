@@ -5,4 +5,5 @@ using UnityEngine;
 public class WhatTeamIsCalling : MonoBehaviour
 {
     public bool team;
+    public int id;
 }
