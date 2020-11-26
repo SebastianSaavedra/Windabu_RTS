@@ -38,7 +38,22 @@ public class BoxGrabController : MonoBehaviour
             }
         }
 
-        if(col.tag == "RoomSpace" && hasBox)
+        if (col.tag == "Actividad B" && hasBox)
+        {
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+                hasBox = false;
+
+                //Modify carried box
+                carriedBox.transform.position = col.transform.position;
+                carriedBox.GetComponent<BoxProgression>().Delivered();
+                carriedBox = null;
+
+                //Kill room
+                col.gameObject.SetActive(false);
+            }
+        }
+        if (col.tag == "Actividad A" && hasBox)
         {
             if (Input.GetKeyDown(KeyCode.E))
             {
