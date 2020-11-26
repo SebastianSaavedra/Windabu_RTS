@@ -140,6 +140,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   team: 0
+  impre: 0
+  impre3d: 1
+  chapita: 0
 --- !u!1 &1842708776638207972
 GameObject:
   m_ObjectHideFlags: 0
@@ -283,7 +286,7 @@ GameObject:
   - component: {fileID: 3072405017941865810}
   - component: {fileID: 7895517636570418864}
   m_Layer: 0
-  m_Name: Obj_Imp3d
+  m_Name: Obj_Imp3d 1
   m_TagString: MjBox
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
