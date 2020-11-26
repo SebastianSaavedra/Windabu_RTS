@@ -12,7 +12,7 @@ public class KillItself : MonoBehaviour
     }
     IEnumerator killitself() 
     {
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(3f);
         Destroy(gameObject);
         yield break;
     }
