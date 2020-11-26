@@ -30,7 +30,7 @@ public class TaskDropDownMinigame : MonoBehaviourPunCallbacks, I_Interactable
     {
         if (taskBarPanel == null)
         {
-            taskBarPanel = parent.GetComponent<BoxProgression>().whatTeamIsCalling.GetComponent<WhatTeamIsCalling>().gameObject;
+            taskBarPanel = parent.GetComponent<BoxProgression>().oP;
         }
     }
 

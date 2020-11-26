@@ -17,7 +17,7 @@ public class TaskDropDown : MonoBehaviourPunCallbacks,I_Interactable
     public WiiMinigame thisMinigame;
     
     public bool canInteract;
-    [SerializeField] int thisMinigameis;
+    public int thisMinigameis;
 
     private void Start()
     {
