@@ -4786,7 +4786,7 @@ Camera:
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 3639
+    m_Bits: 11831
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -29586,6 +29586,46 @@ PrefabInstance:
       propertyPath: viewIdField
       value: 31
       objectReference: {fileID: 0}
+    - target: {fileID: 198127922105295883, guid: 6050de8c49395f748b654ed42be83340,
+        type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 287467648683438276, guid: 6050de8c49395f748b654ed42be83340,
+        type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 1207176618049661887, guid: 6050de8c49395f748b654ed42be83340,
+        type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 1993003395322404477, guid: 6050de8c49395f748b654ed42be83340,
+        type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 2768435066301780412, guid: 6050de8c49395f748b654ed42be83340,
+        type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 3476575915596180623, guid: 6050de8c49395f748b654ed42be83340,
+        type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 3535418124170882315, guid: 6050de8c49395f748b654ed42be83340,
+        type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 3547641725723829996, guid: 6050de8c49395f748b654ed42be83340,
+        type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
     - target: {fileID: 4360453701828603755, guid: 6050de8c49395f748b654ed42be83340,
         type: 3}
       propertyPath: m_Points.Array.size
@@ -29855,6 +29895,26 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: mapa ciudad alpha
+      objectReference: {fileID: 0}
+    - target: {fileID: 5737021521068363978, guid: 6050de8c49395f748b654ed42be83340,
+        type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 6766493905540117603, guid: 6050de8c49395f748b654ed42be83340,
+        type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 8725249382381403877, guid: 6050de8c49395f748b654ed42be83340,
+        type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 8876646903956084715, guid: 6050de8c49395f748b654ed42be83340,
+        type: 3}
+      propertyPath: m_Layer
+      value: 13
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6050de8c49395f748b654ed42be83340, type: 3}
