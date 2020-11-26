@@ -12,6 +12,7 @@ public class BoxProgression : MonoBehaviourPunCallbacks
     [HideInInspector]
     public bool inRoom;
     bool inLvl1;
+    [SerializeField] bool team;
 
     // Tras comprar - Listo para armar - Disponible para producir - Mejorado
     public GameObject born, ready, upgraded;
@@ -31,6 +32,15 @@ public class BoxProgression : MonoBehaviourPunCallbacks
 
     private void Update()
     {
+        switch (team) 
+        {
+            case true:
+                gameObject.transform.parent = GameObject.Find("ImpresoraA").GetComponent<DataSaver>().gameObject.transform;
+                break;
+            case false:
+                gameObject.transform.parent = GameObject.Find("ImpresoraB").GetComponent<DataSaver>().gameObject.transform;
+                break;
+        }
         if (born.GetComponent<TaskDropDownMinigame>().taskBarPanel.GetComponent<WhatTeamIsCalling>().mjFinished)
         {
         photonView.RPC("Finished", RpcTarget.AllViaServer,false,true);

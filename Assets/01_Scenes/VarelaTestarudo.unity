@@ -4782,7 +4782,7 @@ Camera:
   far clip plane: 5000
   field of view: 40
   orthographic: 1
-  orthographic size: 10
+  orthographic size: 20
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -4805,8 +4805,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -98.9, y: 94.9, z: -18.5}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -123, y: 21, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -32040,7 +32040,7 @@ PrefabInstance:
     - target: {fileID: 1231250300444406844, guid: ab18c6628d0850e4c9ae0891f311f1fd,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8128256569852922705, guid: ab18c6628d0850e4c9ae0891f311f1fd,
         type: 3}
@@ -32960,6 +32960,11 @@ PrefabInstance:
       value: CanvasInGame
       objectReference: {fileID: 0}
     - target: {fileID: 4403297282667588993, guid: a3149a40513b9544ba50dbc360b4355c,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4429655835707801690, guid: a3149a40513b9544ba50dbc360b4355c,
         type: 3}
       propertyPath: m_IsActive
       value: 0
