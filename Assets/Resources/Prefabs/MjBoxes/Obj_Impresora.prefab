@@ -124,7 +124,8 @@ MonoBehaviour:
   taskBarPanel: {fileID: 0}
   managerMinijuegos: {fileID: 0}
   panelData: {fileID: 11400000, guid: d4b04d531e7969f48a73be728c635b9e, type: 2}
-  canInteract: 0
+  parent: {fileID: 4073144790399955248}
+  canInteract: 1
 --- !u!1 &1842708776638207972
 GameObject:
   m_ObjectHideFlags: 0
@@ -327,6 +328,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b5f5bb5aa13cd541b4e09c5d68ef840, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  whatTeamIsCalling: {fileID: 0}
+  taskDropDownMinigame: {fileID: 0}
   inRoom: 0
   born: {fileID: 5095613476002801342}
   ready: {fileID: 1564176127081807766}
@@ -454,5 +457,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   taskBarPanel: {fileID: 0}
   managerMinijuegos: {fileID: 0}
-  panelData: {fileID: 11400000, guid: d4b04d531e7969f48a73be728c635b9e, type: 2}
+  panelData: {fileID: 11400000, guid: 7f59c06bc5b00744fb8e4907be6fe5d6, type: 2}
+  parent: {fileID: 0}
   canInteract: 0

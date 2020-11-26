@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class BoxProgression : MonoBehaviour
 {
+    public WhatTeamIsCalling whatTeamIsCalling;
+    public TaskDropDownMinigame taskDropDownMinigame;
+
     [HideInInspector]
     public bool inRoom;
     bool inLvl1;
@@ -21,6 +24,19 @@ public class BoxProgression : MonoBehaviour
 
         ready.SetActive(false);
         upgraded.SetActive(false);
+    }
+
+    private void Update()
+    {
+        if (born.GetComponent<TaskDropDownMinigame>().taskBarPanel.GetComponent<WhatTeamIsCalling>().mjFinished)
+        {
+            whatTeamIsCalling = born.GetComponent<TaskDropDownMinigame>().taskBarPanel.GetComponent<WhatTeamIsCalling>();
+            taskDropDownMinigame = born.GetComponent<TaskDropDownMinigame>();
+            ready.SetActive(true);
+            born.SetActive(false);
+            taskDropDownMinigame.OnLeavePanel(true);
+            whatTeamIsCalling.mjFinished = false;
+        }
     }
 
     public void Traveling()

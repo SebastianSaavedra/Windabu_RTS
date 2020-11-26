@@ -13,6 +13,8 @@ public class TaskDropDownMinigame : MonoBehaviourPunCallbacks, I_Interactable
     public PanelData panelData;
     GameObject objetoInstanciado;
 
+    [SerializeField] GameObject parent;
+
     public bool canInteract;
 
     private void Start()
@@ -21,6 +23,14 @@ public class TaskDropDownMinigame : MonoBehaviourPunCallbacks, I_Interactable
         if (taskBarPanel == null)
         {
 
+        }
+    }
+
+    private void Update()
+    {
+        if (taskBarPanel == null)
+        {
+            taskBarPanel = parent.GetComponent<BoxProgression>().whatTeamIsCalling.GetComponent<WhatTeamIsCalling>().gameObject;
         }
     }
 

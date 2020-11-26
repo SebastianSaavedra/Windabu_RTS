@@ -5,6 +5,6 @@ using UnityEngine;
 public class LocalPlayerManager : MonoBehaviour
 {
     #region Variables
-    private int paperCounter;
+    public static int paperCounter;
     #endregion
 }

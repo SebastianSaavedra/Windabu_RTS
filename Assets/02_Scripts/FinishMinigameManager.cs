@@ -35,6 +35,7 @@ public class FinishMinigameManager : MonoBehaviour
             // Impresora
             case 1:
                 Debug.Log("Terminado");
+                GetComponentInParent<WhatTeamIsCalling>().mjFinished = true;
                 break;
 
             // Impre3D
@@ -53,6 +54,8 @@ public class FinishMinigameManager : MonoBehaviour
 
             // Cartel - Impresora
             case 11:
+                LocalPlayerManager.paperCounter++;
+                Debug.Log(LocalPlayerManager.paperCounter);
                 break;
 
             // Lightstick - Impre3D
