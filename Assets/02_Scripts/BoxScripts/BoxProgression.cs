@@ -1,12 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Photon.Realtime;
+using Photon.Pun;
 
-public class BoxProgression : MonoBehaviour
+public class BoxProgression : MonoBehaviourPunCallbacks
 {
     public WhatTeamIsCalling whatTeamIsCalling;
     public TaskDropDownMinigame taskDropDownMinigame;
-
+    public GameObject oP;
     [HideInInspector]
     public bool inRoom;
     bool inLvl1;
@@ -16,12 +18,13 @@ public class BoxProgression : MonoBehaviour
 
     private void Start()
     {
+        whatTeamIsCalling = GameObject.Find("OriginPanel").GetComponent<WhatTeamIsCalling>();
+        oP = GameObject.Find("OriginPanel").GetComponent<WhatTeamIsCalling>().gameObject;
         inRoom = false;
         inLvl1 = false;
 
         born.SetActive(true);
         born.GetComponent<TaskDropDownMinigame>().enabled = false;
-
         ready.SetActive(false);
         upgraded.SetActive(false);
     }
@@ -30,13 +33,18 @@ public class BoxProgression : MonoBehaviour
     {
         if (born.GetComponent<TaskDropDownMinigame>().taskBarPanel.GetComponent<WhatTeamIsCalling>().mjFinished)
         {
-            whatTeamIsCalling = born.GetComponent<TaskDropDownMinigame>().taskBarPanel.GetComponent<WhatTeamIsCalling>();
-            taskDropDownMinigame = born.GetComponent<TaskDropDownMinigame>();
-            ready.SetActive(true);
-            born.SetActive(false);
-            taskDropDownMinigame.OnLeavePanel(true);
-            whatTeamIsCalling.mjFinished = false;
+        photonView.RPC("Finished", RpcTarget.AllViaServer,false,true);
+        taskDropDownMinigame.OnLeavePanel(true);
         }
+    }
+    [PunRPC]
+    public void Finished(bool deactive, bool active) 
+    {
+        inRoom = active;
+        ready.SetActive(active);
+        born.SetActive(deactive);
+        whatTeamIsCalling.mjFinished = deactive;
+        Debug.Log("Impresora Hecha");
     }
 
     public void Traveling()
@@ -44,6 +52,7 @@ public class BoxProgression : MonoBehaviour
         GetComponentInChildren<BoxCollider2D>().enabled = false;
     }
 
+   
     public void Delivered()
     {
         inRoom = true;

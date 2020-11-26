@@ -36,44 +36,51 @@ public class TEST_Interact : MonoBehaviourPunCallbacks
                     switch (objectToInteract.GetComponent<TaskDropDown>().minijuegoData.numeroDeJugadores) 
                     {
                         case 0:
-                            minigameID = (int)objectToInteract.GetComponent<TaskDropDown>().thisMinigame;
-                            objectToInteract.GetComponent<I_Interactable>().OnInteract(GetComponent<PlayerTeam>().team);
-                            GetComponent<TEST_Movement>().enabled = false;
-                            alreadyInteracted = true;
+                            switch (objectToInteract.GetComponent<TaskDropDown>().thisMinigameis) 
+                            {
+                                case 0:
+                                    if (LocalPlayerManager.paperCounter > 0)
+                                    {
+                                        callSingle();
+                                        LocalPlayerManager.paperCounter--;
+                                    }
+                                    break;
+                                case 1:
+                                    if (LocalPlayerManager.paperCounter > 0)
+                                    {
+                                        callSingle();
+                                        LocalPlayerManager.paperCounter--;
+                                    }
+                                    break;
+                                default:
+                                    callSingle();
+                                    break;
+                            }
                             break;
-
                         case 1:
-                            minigameID = (int)objectToInteract.GetComponent<TaskDropDown>().thisMinigame;
-                            objectToInteract.GetComponent<I_Interactable>().OnInteract(GetComponent<PlayerTeam>().team);
-                            GetComponent<TEST_Movement>().enabled = false;
-                            GameObject.Find("MinijuegosManager").GetComponent<ManagerMinijuegos>().CambiarInteractable(GetComponentInParent<PlayerId>().id, minigameID);
-                            alreadyChanged = true;
-                            alreadyInteracted = true;
+                            switch (objectToInteract.GetComponent<TaskDropDown>().thisMinigameis)
+                            {
+                                case 0:
+                                    if (LocalPlayerManager.paperCounter > 0)
+                                    {
+                                        callMP();
+                                    }
+                                    break;
+                                case 1:
+                                    if (LocalPlayerManager.paperCounter > 0)
+                                    {
+                                        callMP();
+                                    }
+                                    break;
+                                default:
+                                   callMP();
+                                    break;
+                            }
                             break;
                         case 2:
                             Debug.Log("No puedes entrar");
                             break;
                     }
-                    //if (objectToInteract.GetComponent<TaskDropDown>().minijuegoData.numeroDeJugadores >= 2) 
-                    //{
-                    //    Debug.Log("No puedes entrar");
-                    //}
-                //    if (objectToInteract.GetComponent<TaskDropDown>().minijuegoData.numeroDeJugadores==0)
-                //    {                
-                //minigameID = (int)objectToInteract.GetComponent<TaskDropDown>().thisMinigame;
-                //objectToInteract.GetComponent<I_Interactable>().OnInteract(GetComponent<PlayerTeam>().team);
-                // GetComponent<TEST_Movement>().enabled = false;
-                // alreadyInteracted = true;
-                //    }
-                    //else 
-                    //{
-                    //    minigameID = (int)objectToInteract.GetComponent<TaskDropDown>().thisMinigame;
-                    //    objectToInteract.GetComponent<I_Interactable>().OnInteract(GetComponent<PlayerTeam>().team);
-                    //    GetComponent<TEST_Movement>().enabled = false;
-                    //    GameObject.Find("MinijuegosManager").GetComponent<ManagerMinijuegos>().CambiarInteractable(GetComponentInParent<PlayerId>().id,minigameID);
-                    //    alreadyChanged = true;
-                    //    alreadyInteracted = true;
-                    //}
             }
                 #endregion
         }
@@ -91,6 +98,24 @@ public class TEST_Interact : MonoBehaviourPunCallbacks
             GameObject.Find("MinijuegosManager").GetComponent<ManagerMinijuegos>().CambiarInteractable(GetComponentInParent<PlayerId>().id,minigameID);
                 alreadyChanged = true;
                 }
+    }
+
+    public void callSingle() 
+    {
+        minigameID = (int)objectToInteract.GetComponent<TaskDropDown>().thisMinigame;
+        objectToInteract.GetComponent<I_Interactable>().OnInteract(GetComponent<PlayerTeam>().team);
+        GetComponent<TEST_Movement>().enabled = false;
+        alreadyInteracted = true;
+    }
+    public void callMP()
+    {
+        minigameID = (int)objectToInteract.GetComponent<TaskDropDown>().thisMinigame;
+        objectToInteract.GetComponent<I_Interactable>().OnInteract(GetComponent<PlayerTeam>().team);
+        GetComponent<TEST_Movement>().enabled = false;
+        GameObject.Find("MinijuegosManager").GetComponent<ManagerMinijuegos>().CambiarInteractable(GetComponentInParent<PlayerId>().id, minigameID);
+        alreadyChanged = true;
+        alreadyInteracted = true;
+
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {

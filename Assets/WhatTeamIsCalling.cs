@@ -1,8 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-public class WhatTeamIsCalling : MonoBehaviour
+using Photon.Realtime;
+using Photon.Pun;
+public class WhatTeamIsCalling : MonoBehaviourPunCallbacks
 {
     public bool team;
     public int id;
@@ -13,4 +14,6 @@ public class WhatTeamIsCalling : MonoBehaviour
     {
         return mjFinished;
     }
+
+    
 }

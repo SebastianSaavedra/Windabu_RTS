@@ -75,7 +75,8 @@ public class ShopManager : MonoBehaviourPunCallbacks
     }
     public void RPCcor(float time, int whatItem) 
     {
-        photonView.RPC("StartCor", RpcTarget.AllViaServer,time,whatItem);
+        // photonView.RPC("StartCor", RpcTarget.MasterClient,time,whatItem);
+        StartCor(time, whatItem);
     }
 
     [PunRPC]
@@ -90,7 +91,8 @@ public class ShopManager : MonoBehaviourPunCallbacks
         yield return new WaitForSeconds(waitTime);
         if (itemToSpawn == 0) 
         {
-            GameObject spawned = Instantiate(impresora, itemSpawnerPos);
+            GameObject spawned = PhotonNetwork.Instantiate(impresora.name, itemSpawnerPos.position, Quaternion.identity);
+            spawned.transform.parent = itemSpawnerPos.transform;
             spawned.GetComponentInChildren<TaskDropDownMinigame>().taskBarPanel = itemSpawnerPos.GetComponent<DataSaver>().originalPanel;
             spawned.GetComponentInChildren<TaskDropDownMinigame>().managerMinijuegos = itemSpawnerPos.GetComponent<DataSaver>().manager;
         }
