@@ -10,7 +10,9 @@ public class TeamManager : MonoBehaviourPunCallbacks
     public float money;
     public float fameA;
     public float fameB;
-    [SerializeField] TextMeshProUGUI text;
+    [SerializeField] GameObject fake;
+    [SerializeField] GameObject GanoA;
+    [SerializeField] GameObject GanoB;
 
 
     private void Start()
@@ -37,13 +39,11 @@ public class TeamManager : MonoBehaviourPunCallbacks
     [PunRPC]
     public void WinA() 
     {
-        text.gameObject.SetActive(true);
-        text.text = "Team A gano";
+        GanoA.SetActive(true);
     }
     [PunRPC]
     public void WinB()
     {
-        text.gameObject.SetActive(true);
-        text.text = "Team B gano";
+        GanoB.SetActive(true);
     }
 }
