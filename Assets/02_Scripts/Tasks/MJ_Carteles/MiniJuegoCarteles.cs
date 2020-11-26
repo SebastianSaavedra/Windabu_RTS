@@ -13,7 +13,7 @@ public class MiniJuegoCarteles : MonoBehaviourPunCallbacks
     //No es necesariamente el cliente maestro;      // bool Team: True = A ó False = B
     ManagerMinijuegos managerLocal;
     MinigameManager managerMinigame;
-    RPCManager RPCManager;
+    [SerializeField] RPCManager RPCManager;
     [SerializeField] GameObject originPanel;
 
     //la cantidad de carteles que yo he colocado
@@ -45,7 +45,6 @@ public class MiniJuegoCarteles : MonoBehaviourPunCallbacks
         esquinas = 0;
         originPanel = GameObject.Find("OriginPanel");
         RPCManager = GameObject.Find("MiniJuego1_1(cartel)").GetComponent<RPCManager>();
-        //originPanel = GameObject
         foreach (Transform child in cartelesSpot.transform)
         {
             Destroy(child.gameObject);
@@ -68,6 +67,11 @@ public class MiniJuegoCarteles : MonoBehaviourPunCallbacks
         DecirleAMasterClienteQueHiceUnCambio();
     }
 
+    private void Update()
+    {
+        ActualizarBarras();
+    }
+
     void Carteles(int valor)
     {
         if (originPanel.GetComponent<WhatTeamIsCalling>().team == true)
@@ -78,6 +82,7 @@ public class MiniJuegoCarteles : MonoBehaviourPunCallbacks
             Debug.Log("El player A ha pegado :" + cartelesJugadorA + " carteles");
 
         }
+
         else if (originPanel.GetComponent<WhatTeamIsCalling>().team == false)
         {
             cartelesJugadorB += valor;
@@ -86,10 +91,18 @@ public class MiniJuegoCarteles : MonoBehaviourPunCallbacks
             Debug.Log("El player B ha pegado :" + cartelesJugadorB + " carteles");
         }
 
-
         if (cartelesJugadorA >= 10 || cartelesJugadorB >= 10)
         {
             managerMinigame.FinishTask();
+        }
+    }
+
+    void ActualizarBarras()
+    {
+        if (managerLocal.minijuegos[originPanel.GetComponent<WhatTeamIsCalling>().id].numeroDeJugadores == 2)
+        {
+            cartelesBarraA.fillAmount = (float)managerLocal.minijuegos[originPanel.GetComponent<WhatTeamIsCalling>().id].barraVersusA / 10;
+            cartelesBarraB.fillAmount = (float)managerLocal.minijuegos[originPanel.GetComponent<WhatTeamIsCalling>().id].barraVersusB / 10;
         }
     }
 
