@@ -46,12 +46,14 @@ namespace Com.MaluCompany.TestGame
        {
             if (Input.GetKeyDown(KeyCode.A))
                 {
-                    playerAnim.transform.GetComponent<SpriteRenderer>().flipX = false;
+                    //playerAnim.transform.GetComponent<SpriteRenderer>().flipX = false;
+                    playerAnim.transform.localScale = new Vector3(-0.4479787f, 0.4479787f, 0.4479787f);
                     playerAnimBehind.transform.GetComponent<SpriteRenderer>().flipX = false;
                 }
             if (Input.GetKeyDown(KeyCode.D))
                 {
-                    playerAnim.transform.GetComponent<SpriteRenderer>().flipX = true;
+                    //playerAnim.transform.GetComponent<SpriteRenderer>().flipX = true;
+                    playerAnim.transform.localScale = new Vector3(0.4479787f, 0.4479787f, 0.4479787f);
                     playerAnimBehind.transform.GetComponent<SpriteRenderer>().flipX = true;
                 }
             if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.S))

@@ -9,7 +9,7 @@ public class FansSpawner : MonoBehaviourPunCallbacks
     public GameObject tipoDeFanA;
     public GameObject tipoDeFanB;
     public Transform spawnPoint;
-    public float timer = 1;
+    public float timer = 5;
     [Space(5)]
     public bool puedeSpawnear;
     [SerializeField] Transform[] waypointsA;

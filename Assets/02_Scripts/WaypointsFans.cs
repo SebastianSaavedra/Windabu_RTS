@@ -15,7 +15,6 @@ public class WaypointsFans : MonoBehaviour
     void Start()
     {
         transform.position = waypoints[waypointIndex].transform.position;
-        fansAnim.GetComponent<Animator>();
         fansAnim.SetBool("Caminando",true);
     }
 
@@ -34,6 +33,10 @@ public class WaypointsFans : MonoBehaviour
         if (transform.position == waypoints[waypointIndex].transform.position)
         {
             waypointIndex += 1;
+        }
+        if (transform.position== waypoints[waypoints.Length-1].transform.position) 
+        {
+        fansAnim.SetBool("Caminando",false);
         }
 
         if (waypointIndex == waypoints.Length)

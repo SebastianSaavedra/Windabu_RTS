@@ -90,7 +90,9 @@ public class ShopManager : MonoBehaviourPunCallbacks
         yield return new WaitForSeconds(waitTime);
         if (itemToSpawn == 0) 
         {
-        Instantiate(impresora, itemSpawnerPos);
+            GameObject spawned = Instantiate(impresora, itemSpawnerPos);
+            spawned.GetComponentInChildren<TaskDropDownMinigame>().taskBarPanel = itemSpawnerPos.GetComponent<DataSaver>().originalPanel;
+            spawned.GetComponentInChildren<TaskDropDownMinigame>().managerMinijuegos = itemSpawnerPos.GetComponent<DataSaver>().manager;
         }
         yield break;
     }

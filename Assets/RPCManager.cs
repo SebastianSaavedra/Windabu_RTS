@@ -8,7 +8,7 @@ using Photon.Realtime;
 public class RPCManager : MonoBehaviourPunCallbacks
 {
     [SerializeField] ManagerMinijuegos managerMinijuegos;
-    public void RPCActualizarDatosA(int take,int Out)
+    public void RPCActualizarDatosA(int take,int Out)       // Datos de las barras
     {
         Debug.Log("Inicio el RPCActualizarDatosA");
         photonView.RPC("ActualizarDatosA",RpcTarget.MasterClient,take,Out);
@@ -20,7 +20,7 @@ public class RPCManager : MonoBehaviourPunCallbacks
         Debug.Log("Inicio el RPCActualizarDatosB");
         photonView.RPC("ActualizarDatosB", RpcTarget.MasterClient, take, Out);
     }
-    public void RPCActualizarDatosRondaA(int take, int Out)
+    public void RPCActualizarDatosRondaA(int take, int Out)     // Datos de las rondas
     {
         Debug.Log("Inicio el RPCActualizarDatosRondaA");
         photonView.RPC("ActualizarDatosRondaA", RpcTarget.MasterClient, take, Out);
@@ -33,7 +33,7 @@ public class RPCManager : MonoBehaviourPunCallbacks
         photonView.RPC("ActualizarDatosRondaB", RpcTarget.MasterClient, take, Out);
     }
 
-    public void RPCActualizarDatosFallosLightstickA(int take, int Out)
+    public void RPCActualizarDatosFallosLightstickA(int take, int Out)      // Datos de la cantidad de veces que fallo el lightstick
     {
         Debug.Log("Player A fallo y se actualizo el RPC de fallos");
         photonView.RPC("ActualizarCantidadDeFallosLightstickA", RpcTarget.MasterClient, take, Out);
@@ -44,7 +44,7 @@ public class RPCManager : MonoBehaviourPunCallbacks
         photonView.RPC("ActualizarCantidadDeFallosLightstickB", RpcTarget.MasterClient, take, Out);
     }
 
-    public void RPCActualizarFalloLighstickA(int take, bool lightstick)
+    public void RPCActualizarFalloLighstickA(int take, bool lightstick)     // Booleanos de si esque fallo el lightstick
     {
         Debug.Log("Player A fallo Lightstick");
         photonView.RPC("ActualizarFalloLightstickA", RpcTarget.MasterClient, take, lightstick);
@@ -54,6 +54,16 @@ public class RPCManager : MonoBehaviourPunCallbacks
     {
         Debug.Log("Player B fallo lighstick");
         photonView.RPC("ActualizarFalloLightstickB", RpcTarget.MasterClient, take, lightstick);
+    }
+    public void RPCActualizarIntentosA(int take, int Out)
+    {
+        Debug.Log("Player A hizo un intento de gameplay");
+        photonView.RPC("ActualizarCantidadDeIntentosA", RpcTarget.MasterClient, take, Out);
+    }
+    public void RPCActualizarIntentosB(int take, int Out)
+    {
+        Debug.Log("Player B hizo un intento de gameplay");
+        photonView.RPC("ActualizarCantidadDeIntentosB", RpcTarget.MasterClient, take, Out);
     }
 
     [PunRPC]
@@ -91,7 +101,19 @@ public class RPCManager : MonoBehaviourPunCallbacks
     {
         managerMinijuegos.minijuegos[take].cantidadDeFallosLightstickB = Out;
     }
-    
+
+    [PunRPC]
+    void ActualizarCantidadDeIntentosA(int take, int Out)
+    {
+        managerMinijuegos.minijuegos[take].intentosA = Out;
+    }
+
+    [PunRPC]
+    void ActualizarCantidadDeIntentosB(int take, int Out)
+    {
+        managerMinijuegos.minijuegos[take].intentosB = Out;
+    }
+
     [PunRPC]
     void ActualizarFalloLightstickA(int take, bool lightstick)
     {

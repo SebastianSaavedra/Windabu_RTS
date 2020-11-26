@@ -24,6 +24,8 @@ public class Minijuego : ScriptableObject
     public int rondaB;
     public int cantidadDeFallosLightstickA;
     public int cantidadDeFallosLightstickB;
+    public int intentosA;
+    public int intentosB;
 
     public bool falloLighstickA;
     public bool falloLighstickB;
@@ -39,6 +41,8 @@ public class Minijuego : ScriptableObject
         rondaB = 0;
         cantidadDeFallosLightstickA = 0;
         cantidadDeFallosLightstickB = 0;
+        intentosA = 0;
+        intentosB = 0;
         falloLighstickA = false;
         falloLighstickB = false;
         MinijuegoDisponible();
