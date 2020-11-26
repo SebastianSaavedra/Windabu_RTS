@@ -157,13 +157,28 @@ public class ShopManager : MonoBehaviourPunCallbacks
     IEnumerator SpawnItem(float waitTime, int itemToSpawn)
     {
         yield return new WaitForSeconds(waitTime);
-        if (itemToSpawn == 0) 
+        switch (itemToSpawn) 
         {
+            case 0:
             GameObject spawned = PhotonNetwork.Instantiate(impresora.name, itemSpawnerPos.position, Quaternion.identity);
             spawned.transform.parent = itemSpawnerPos.transform;
             spawned.GetComponentInChildren<TaskDropDownMinigame>().taskBarPanel = itemSpawnerPos.GetComponent<DataSaver>().originalPanel;
-            spawned.GetComponentInChildren<TaskDropDownMinigame>().managerMinijuegos = itemSpawnerPos.GetComponent<DataSaver>().manager;
+                spawned.GetComponentInChildren<TaskDropDownMinigame>().managerMinijuegos = itemSpawnerPos.GetComponent<DataSaver>().manager;
+                break;
+            case 1:
+                GameObject spawned2 = PhotonNetwork.Instantiate(imp3d.name, itemSpawnerPos.position, Quaternion.identity);
+                spawned2.transform.parent = itemSpawnerPos.transform;
+                spawned2.GetComponentInChildren<TaskDropDownMinigame>().taskBarPanel = itemSpawnerPos.GetComponent<DataSaver>().originalPanel;
+                spawned2.GetComponentInChildren<TaskDropDownMinigame>().managerMinijuegos = itemSpawnerPos.GetComponent<DataSaver>().manager;
+                break;
+            case 2:
+                GameObject spawned3 = PhotonNetwork.Instantiate(chapita.name, itemSpawnerPos.position, Quaternion.identity);
+                spawned3.transform.parent = itemSpawnerPos.transform;
+                spawned3.GetComponentInChildren<TaskDropDownMinigame>().taskBarPanel = itemSpawnerPos.GetComponent<DataSaver>().originalPanel;
+                spawned3.GetComponentInChildren<TaskDropDownMinigame>().managerMinijuegos = itemSpawnerPos.GetComponent<DataSaver>().manager;
+                break;
         }
+        
         yield break;
     }
 }
