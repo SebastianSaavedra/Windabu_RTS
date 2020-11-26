@@ -43,6 +43,7 @@ public class ManagerMinijuegos : MonoBehaviourPunCallbacks,IPunObservable
     // Start is called before the first frame update
     void Start()
     {
+        start = true;
         foreach (var minijuego in minijuegos)
         {
             minijuego.ResetearValoresMinijuego();
