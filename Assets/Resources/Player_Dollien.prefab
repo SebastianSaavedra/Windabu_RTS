@@ -268,6 +268,7 @@ GameObject:
   - component: {fileID: 2779417046352815878}
   - component: {fileID: 7975786867480095155}
   - component: {fileID: 5053956623789073663}
+  - component: {fileID: 769095869257446225}
   m_Layer: 9
   m_Name: Player_Dollien
   m_TagString: Player
@@ -729,6 +730,18 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &769095869257446225
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5816013650376650916}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57f96f14b2637b74e966aefeee2c380a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!95 &6037209170135813915
 Animator:
   serializedVersion: 3
