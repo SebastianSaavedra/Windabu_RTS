@@ -18,7 +18,7 @@ GameObject:
   - component: {fileID: 4143132300893488649}
   - component: {fileID: 4575454299275389418}
   m_Layer: 10
-  m_Name: AidaLS
+  m_Name: DollienLS
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -103,7 +103,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   waypoints: []
   speed: 5
-  fansAnim: {fileID: 2400335331902579643}
+  fansAnim: {fileID: 9185702601608802889}
 --- !u!58 &4312060850811413573
 CircleCollider2D:
   m_ObjectHideFlags: 0
