@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8251679608772953700}
   - component: {fileID: 3798800049365901898}
   - component: {fileID: 8577227555553500071}
-  - component: {fileID: 8240949332612949362}
+  - component: {fileID: 5448557454086677644}
   m_Layer: 0
   m_Name: Obj
   m_TagString: Untagged
@@ -109,7 +109,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 5, y: 5}
   m_EdgeRadius: 0
---- !u!114 &8240949332612949362
+--- !u!114 &5448557454086677644
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -118,17 +118,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1564176127081807766}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ba3d8771f5a3f6043bc59de72de367f2, type: 3}
+  m_Script: {fileID: 11500000, guid: 1e0efa7f1b824204590681a68c414084, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  taskBarPanel: {fileID: 6191830501337626791, guid: 4165fe6ecabf6ec4c8b9063d90f25190,
-    type: 3}
+  taskBarPanel: {fileID: 0}
   managerMinijuegos: {fileID: 0}
-  panelData: {fileID: 0}
-  minijuegoData: {fileID: 0}
-  thisMinigame: 0
+  panelData: {fileID: 11400000, guid: d4b04d531e7969f48a73be728c635b9e, type: 2}
   canInteract: 0
-  thisMinigameis: 0
 --- !u!1 &1842708776638207972
 GameObject:
   m_ObjectHideFlags: 0
