@@ -375,6 +375,8 @@ public class ManagerMinijuegos : MonoBehaviourPunCallbacks,IPunObservable
                 stream.SendNext(minijuegos[x].cantidadDeFallosLightstickB);
                 stream.SendNext(minijuegos[x].falloLighstickA);
                 stream.SendNext(minijuegos[x].falloLighstickB);
+                stream.SendNext(minijuegos[x].intentosA);
+                stream.SendNext(minijuegos[x].intentosB);
             }
         }
         else if (stream.IsReading)
@@ -392,7 +394,9 @@ public class ManagerMinijuegos : MonoBehaviourPunCallbacks,IPunObservable
                 minijuegos[x].cantidadDeFallosLightstickA = (int)stream.ReceiveNext();
                 minijuegos[x].cantidadDeFallosLightstickB = (int)stream.ReceiveNext();
                 minijuegos[x].falloLighstickA = (bool)stream.ReceiveNext();
-                minijuegos[x].falloLighstickB = (bool)stream.ReceiveNext(); 
+                minijuegos[x].falloLighstickB = (bool)stream.ReceiveNext();
+                minijuegos[x].intentosA = (int)stream.ReceiveNext();
+                minijuegos[x].intentosB = (int)stream.ReceiveNext();
             }
         }
     }
