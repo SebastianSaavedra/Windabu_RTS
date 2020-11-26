@@ -431,8 +431,8 @@ RectTransform:
   m_Children:
   - {fileID: 1867371209}
   - {fileID: 202901750}
-  m_Father: {fileID: 7373503894965147533}
-  m_RootOrder: 3
+  m_Father: {fileID: 939377528}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1057,6 +1057,12 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 7373503894965147530}
   m_PrefabAsset: {fileID: 0}
+--- !u!224 &939377528 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 1556692480314549924, guid: a3149a40513b9544ba50dbc360b4355c,
+    type: 3}
+  m_PrefabInstance: {fileID: 7373503894965147530}
+  m_PrefabAsset: {fileID: 0}
 --- !u!95 &939377532
 Animator:
   serializedVersion: 3
@@ -1484,6 +1490,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 21.25003
+      objectReference: {fileID: 0}
+    - target: {fileID: 8128256569852922705, guid: ab18c6628d0850e4c9ae0891f311f1fd,
+        type: 3}
+      propertyPath: viewIdField
+      value: 14
       objectReference: {fileID: 0}
     - target: {fileID: 8283533867493748129, guid: ab18c6628d0850e4c9ae0891f311f1fd,
         type: 3}
@@ -4551,6 +4562,11 @@ PrefabInstance:
       propertyPath: m_Transition
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 3165813427967686853, guid: a3149a40513b9544ba50dbc360b4355c,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 3317693042896257149, guid: a3149a40513b9544ba50dbc360b4355c,
         type: 3}
       propertyPath: m_LocalScale.x
@@ -4636,6 +4652,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4645759353937995483, guid: a3149a40513b9544ba50dbc360b4355c,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 5045848804578588169, guid: a3149a40513b9544ba50dbc360b4355c,
         type: 3}
       propertyPath: m_fontColor32.rgba
@@ -4716,6 +4737,11 @@ PrefabInstance:
       propertyPath: viewIdField
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 8034939383849755851, guid: a3149a40513b9544ba50dbc360b4355c,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 8126049486643839820, guid: a3149a40513b9544ba50dbc360b4355c,
         type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -4755,6 +4781,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8460958872079403306, guid: a3149a40513b9544ba50dbc360b4355c,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8557392930694200753, guid: a3149a40513b9544ba50dbc360b4355c,
         type: 3}
@@ -4813,9 +4844,3 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!4 &7373503894965147533 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 1486392656308293249, guid: a3149a40513b9544ba50dbc360b4355c,
-    type: 3}
-  m_PrefabInstance: {fileID: 7373503894965147530}
-  m_PrefabAsset: {fileID: 0}
