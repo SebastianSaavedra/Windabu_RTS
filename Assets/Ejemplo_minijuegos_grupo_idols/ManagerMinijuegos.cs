@@ -22,6 +22,7 @@ public class ManagerMinijuegos : MonoBehaviourPunCallbacks,IPunObservable
     public int player1_ID;
     public int player2_ID;
     public int wichMinigamePanel;
+    public static bool start;
     [HideInInspector] public int idMinijuego;
 
 
@@ -342,6 +343,10 @@ public class ManagerMinijuegos : MonoBehaviourPunCallbacks,IPunObservable
         //photonView.RPC("CambiarInteractable", TargetPlayerByActorNumber(minijuegos[indexMinijuego].jugadorUno), minijuegos[indexMinijuego].jugadorUno, indexMinijuego);
         //photonView.RPC("CambiarInteractable", TargetPlayerByActorNumber(minijuegos[indexMinijuego].jugadorDos), minijuegos[indexMinijuego].jugadorDos, indexMinijuego);      
     }
+    public void StartGame() 
+    {
+        start = true;
+    }
 
 
 
@@ -378,6 +383,7 @@ public class ManagerMinijuegos : MonoBehaviourPunCallbacks,IPunObservable
                 stream.SendNext(minijuegos[x].intentosA);
                 stream.SendNext(minijuegos[x].intentosB);
             }
+            stream.SendNext(start);
         }
         else if (stream.IsReading)
         {
@@ -398,6 +404,7 @@ public class ManagerMinijuegos : MonoBehaviourPunCallbacks,IPunObservable
                 minijuegos[x].intentosA = (int)stream.ReceiveNext();
                 minijuegos[x].intentosB = (int)stream.ReceiveNext();
             }
+            start = (bool)stream.ReceiveNext();
         }
     }
 
