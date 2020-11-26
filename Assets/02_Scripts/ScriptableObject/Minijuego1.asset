@@ -13,9 +13,17 @@ MonoBehaviour:
   m_Name: Minijuego1
   m_EditorClassIdentifier: 
   estadoDelMinijuego: 1
-  numeroDeJugadores: 1
+  numeroDeJugadores: 3
   completado: 0
-  jugadorUno: 1
+  jugadorUno: 0
   jugadorDos: 0
   barraVersusA: 0
-  barraVersusB: 9
+  barraVersusB: 0
+  rondaA: 0
+  rondaB: 0
+  cantidadDeFallosLightstickA: 0
+  cantidadDeFallosLightstickB: 0
+  intentosA: 0
+  intentosB: 0
+  falloLighstickA: 0
+  falloLighstickB: 0
