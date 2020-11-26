@@ -538,6 +538,7 @@ MonoBehaviour:
   tKey: {fileID: 0}
   fKey: {fileID: 0}
   rKey: {fileID: 0}
+  escKey: {fileID: 0}
 --- !u!114 &20790865
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1290,6 +1291,7 @@ MonoBehaviour:
   tKey: {fileID: 0}
   fKey: {fileID: 0}
   rKey: {fileID: 0}
+  escKey: {fileID: 0}
 --- !u!114 &92630831
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -31760,6 +31762,31 @@ PrefabInstance:
       propertyPath: viewIdField
       value: 42
       objectReference: {fileID: 0}
+    - target: {fileID: 1231250300018699581, guid: ab18c6628d0850e4c9ae0891f311f1fd,
+        type: 3}
+      propertyPath: eKey
+      value: 
+      objectReference: {fileID: 1328016892}
+    - target: {fileID: 1231250300018699581, guid: ab18c6628d0850e4c9ae0891f311f1fd,
+        type: 3}
+      propertyPath: fKey
+      value: 
+      objectReference: {fileID: 1328016891}
+    - target: {fileID: 1231250300018699581, guid: ab18c6628d0850e4c9ae0891f311f1fd,
+        type: 3}
+      propertyPath: rKey
+      value: 
+      objectReference: {fileID: 1328016890}
+    - target: {fileID: 1231250300018699581, guid: ab18c6628d0850e4c9ae0891f311f1fd,
+        type: 3}
+      propertyPath: tKey
+      value: 
+      objectReference: {fileID: 1328016889}
+    - target: {fileID: 1231250300018699581, guid: ab18c6628d0850e4c9ae0891f311f1fd,
+        type: 3}
+      propertyPath: escKey
+      value: 
+      objectReference: {fileID: 1328016845}
     - target: {fileID: 1231250300091595842, guid: ab18c6628d0850e4c9ae0891f311f1fd,
         type: 3}
       propertyPath: viewIdField
@@ -31785,6 +31812,11 @@ PrefabInstance:
       propertyPath: rKey
       value: 
       objectReference: {fileID: 1328016890}
+    - target: {fileID: 1231250300091595843, guid: ab18c6628d0850e4c9ae0891f311f1fd,
+        type: 3}
+      propertyPath: escKey
+      value: 
+      objectReference: {fileID: 1328016845}
     - target: {fileID: 1231250300091595870, guid: ab18c6628d0850e4c9ae0891f311f1fd,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Target
@@ -33512,6 +33544,12 @@ GameObject:
 --- !u!224 &1328016844 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 8315157114797199876, guid: a3149a40513b9544ba50dbc360b4355c,
+    type: 3}
+  m_PrefabInstance: {fileID: 1328016825}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1328016845 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4475605350923219483, guid: a3149a40513b9544ba50dbc360b4355c,
     type: 3}
   m_PrefabInstance: {fileID: 1328016825}
   m_PrefabAsset: {fileID: 0}
@@ -50795,6 +50833,7 @@ MonoBehaviour:
   tKey: {fileID: 1328016889}
   fKey: {fileID: 1328016891}
   rKey: {fileID: 1328016890}
+  escKey: {fileID: 0}
 --- !u!222 &9104793707874091016
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -50872,6 +50911,7 @@ MonoBehaviour:
   tKey: {fileID: 0}
   fKey: {fileID: 0}
   rKey: {fileID: 0}
+  escKey: {fileID: 0}
 --- !u!1 &9104793707874091020
 GameObject:
   m_ObjectHideFlags: 0
