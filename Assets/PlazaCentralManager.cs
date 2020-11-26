@@ -33,6 +33,7 @@ public class PlazaCentralManager : MonoBehaviourPunCallbacks,IPunObservable
     [SerializeField] bool ControlledBy;
     bool corAcalled;
     bool corBcalled;
+    [SerializeField] GameObject FanCartelA, FanChapitaA,FanLSA, FanCartelB, FanChapitaB, FanLSB;
 
 
     private void Awake()
@@ -59,6 +60,7 @@ public class PlazaCentralManager : MonoBehaviourPunCallbacks,IPunObservable
         papelB = Papel_B;
         pab.text = "" + papelB;
         #endregion
+        #region Bruh
         if ((totalA > totalB) && !corAcalled) 
         {
             photonView.RPC("RPCcallCorA", RpcTarget.MasterClient);
@@ -75,7 +77,63 @@ public class PlazaCentralManager : MonoBehaviourPunCallbacks,IPunObservable
             corBcalled = true;
             corAcalled = false;
         }
-
+        #endregion
+        #region Fans Arena
+        switch (Tijeras_A)
+        {
+            case 0:
+               FanLSA.SetActive(false);
+                break;
+            default:
+                FanLSA.SetActive(true);
+                break;
+        }
+        switch (Tijeras_B)
+        {
+            case 0:
+                FanLSB.SetActive(false);
+                break;
+            default:
+                FanLSB.SetActive(true);
+                break;
+        }
+        switch (Piedra_A)
+        {
+            case 0:
+                FanChapitaA.SetActive(false);
+                break;
+            default:
+                FanChapitaA.SetActive(true);
+                break;
+        }
+        switch (Piedra_B)
+        {
+            case 0:
+                FanChapitaB.SetActive(false);
+                break;
+            default:
+                FanChapitaB.SetActive(true);
+                break;
+        }
+        switch (Papel_A)
+        {
+            case 0:
+                FanCartelA.SetActive(false);
+                break;
+            default:
+                FanCartelA.SetActive(true);
+                break;
+        }
+        switch (Papel_B)
+        {
+            case 0:
+                FanCartelB.SetActive(false);
+                break;
+            default:
+                FanCartelB.SetActive(true);
+                break;
+        }
+        #endregion
     }
 
     public void RPCCallFan() 

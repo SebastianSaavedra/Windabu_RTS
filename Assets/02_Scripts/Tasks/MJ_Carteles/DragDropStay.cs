@@ -16,7 +16,7 @@ public class DragDropStay : MonoBehaviour, IDragHandler, IPointerDownHandler, IB
 
     private void Awake()
     {
-        canvas = GetComponentInParent<Canvas>();
+        canvas = GameObject.Find("Canvas").GetComponent<Canvas>();
         rectTransform = GetComponent<RectTransform>();
         canvasGroup = GetComponent<CanvasGroup>();
     }
@@ -35,6 +35,7 @@ public class DragDropStay : MonoBehaviour, IDragHandler, IPointerDownHandler, IB
     public void OnDrag(PointerEventData eventData)
     {
         //Move like cursor
+        Debug.Log("Moviendo");
         rectTransform.anchoredPosition += eventData.delta / canvas.scaleFactor;
     }
 

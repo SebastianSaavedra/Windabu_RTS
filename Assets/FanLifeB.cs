@@ -9,6 +9,7 @@ public class FanLifeB : MonoBehaviour
     public CPManager cpManager;
     [SerializeField] float pointsToGive;
     public float timer;
+    [SerializeField] GameObject sprite;
 
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -31,6 +32,7 @@ public class FanLifeB : MonoBehaviour
                 plaza.AddFan(5);
                 StartCoroutine(CalculateFanLifePapel());
             }
+            sprite.SetActive(false);
         }
     }
 
