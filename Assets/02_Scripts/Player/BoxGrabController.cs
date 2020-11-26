@@ -24,7 +24,7 @@ public class BoxGrabController : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D col)
     {
-        if(col.tag == "MJBox" && !hasBox)
+        if(col.tag == "MjBox" && !hasBox)
         {
             if (Input.GetKeyDown(KeyCode.E))
             {

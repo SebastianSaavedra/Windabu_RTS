@@ -10,8 +10,7 @@ public class ColSaver : MonoBehaviourPunCallbacks,IPunObservable
     public Collider2D[] cols;
     public bool team;
     public Minijuego room;
-    [SerializeField] Text text;
-    [SerializeField] Text text1;
+    public Transform goToOnInterrupt;
     int queJugador;
 
     private void Start()
@@ -19,13 +18,7 @@ public class ColSaver : MonoBehaviourPunCallbacks,IPunObservable
         photonView.RPC("ResetValueA", RpcTarget.AllViaServer);
         photonView.RPC("ResetValueB", RpcTarget.AllViaServer);
     }
-    private void Update()
-    {
-        if (text == null || text1 == null)
-            return;
-        text.text  = "" + room.jugadorUno;
-        text1.text = "" + room.jugadorDos;
-    }
+
 
     public void RPCDisable() 
     {

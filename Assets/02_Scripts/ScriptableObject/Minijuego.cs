@@ -20,6 +20,14 @@ public class Minijuego : ScriptableObject
     public int barraVersusA;
     public int barraVersusB;
 
+    public int rondaA;
+    public int rondaB;
+    public int cantidadDeFallosLightstickA;
+    public int cantidadDeFallosLightstickB;
+
+    public bool falloLighstickA;
+    public bool falloLighstickB;
+
     public void ResetearValoresMinijuego()
     {
         numeroDeJugadores = 0;
@@ -27,6 +35,12 @@ public class Minijuego : ScriptableObject
         jugadorDos = 0;
         barraVersusA = 0;
         barraVersusB = 0;
+        rondaA = 0;
+        rondaB = 0;
+        cantidadDeFallosLightstickA = 0;
+        cantidadDeFallosLightstickB = 0;
+        falloLighstickA = false;
+        falloLighstickB = false;
         MinijuegoDisponible();
     }
 

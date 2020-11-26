@@ -16,7 +16,7 @@ public class FinishMinigameManager : MonoBehaviour
 
     public void AddSlotCounter()
     {
-        if(slotCounter >= slotAmount -1)
+        if(slotCounter >= slotAmount)
         {
             SlotsFilled();
         }
@@ -34,7 +34,7 @@ public class FinishMinigameManager : MonoBehaviour
 
             // Impresora
             case 1:
-                Debug.Log("Impresoreando bip-bup");
+                Debug.Log("Terminado");
                 break;
 
             // Impre3D
@@ -57,7 +57,6 @@ public class FinishMinigameManager : MonoBehaviour
 
             // Lightstick - Impre3D
             case 12:
-                Debug.Log("wena washo");
                 break;
 
             // Merchandise - Chapita

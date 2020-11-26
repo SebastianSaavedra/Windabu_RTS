@@ -19,6 +19,8 @@ public class CPManager :MonoBehaviourPunCallbacks,IPunObservable
     bool blueControlling;
     [SerializeField] TaskDropDown canInteract;
     [SerializeField] GameObject teamACartel, teamACartel_Locked, teamBCartel, teamBCartel_Locked;
+    [SerializeField] GameObject teamAWon, teamBwon;
+    [SerializeField] GameObject parentPanel;
     PhotonView PV;
     #region Testing Code
     Color colorNeutral, colorTeam1, colorTeam2; 
@@ -42,6 +44,7 @@ public class CPManager :MonoBehaviourPunCallbacks,IPunObservable
         if (!contested) { 
         blueControlling = true;
         photonView.RPC("ChangeTeamColor", RpcTarget.AllBuffered, blueControlling);
+        photonView.RPC("QueTeamGano", RpcTarget.AllBuffered, blueControlling);
         photonView.RPC("RPCGainPoints", RpcTarget.MasterClient);
         contested = true;
         photonView.RPC("ChangeControlledBy", RpcTarget.MasterClient, contested, blueControlling);
@@ -51,6 +54,7 @@ public class CPManager :MonoBehaviourPunCallbacks,IPunObservable
         {
             blueControlling = true;
             photonView.RPC("ChangeTeamColor", RpcTarget.AllBuffered, blueControlling);
+        photonView.RPC("QueTeamGano", RpcTarget.AllBuffered, blueControlling);
             photonView.RPC("ChangeControlledBy", RpcTarget.MasterClient, contested, blueControlling);
             RPCLockA();
         }
@@ -62,6 +66,7 @@ public class CPManager :MonoBehaviourPunCallbacks,IPunObservable
         {
             blueControlling = false;
             photonView.RPC("ChangeTeamColor", RpcTarget.AllBuffered, blueControlling);
+            photonView.RPC("QueTeamGano", RpcTarget.AllBuffered, blueControlling);
             photonView.RPC("RPCGainPoints", RpcTarget.MasterClient);
             contested = true;
             photonView.RPC("ChangeControlledBy", RpcTarget.MasterClient, contested, blueControlling);
@@ -71,8 +76,23 @@ public class CPManager :MonoBehaviourPunCallbacks,IPunObservable
         {
             blueControlling = false;
             photonView.RPC("ChangeTeamColor", RpcTarget.AllBuffered, blueControlling);
+            photonView.RPC("QueTeamGano", RpcTarget.AllBuffered, blueControlling);
             photonView.RPC("ChangeControlledBy", RpcTarget.MasterClient, contested, blueControlling);
             RPCLockB();
+        }
+    }
+    [PunRPC]
+    public void QueTeamGano(bool team) 
+    {
+        if (team)
+        {
+            GameObject panel = Instantiate(teamAWon, parentPanel.transform);
+            panel.transform.parent = parentPanel.transform;
+        }
+        else 
+        {
+            GameObject panel = Instantiate(teamBwon, parentPanel.transform);
+            panel.transform.parent = parentPanel.transform;
         }
     }
 

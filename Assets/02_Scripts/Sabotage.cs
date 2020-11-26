@@ -68,8 +68,9 @@ namespace Com.MaluCompany.TestGame
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-            if (photonView.IsMine) { 
-        if (this.playerTeam.TeamA && collision.CompareTag("Actividad B"))
+            if (photonView.IsMine) {
+                #region Sabotaje
+                if (this.playerTeam.TeamA && collision.CompareTag("Actividad B"))
         {
             if (Input.GetKeyDown(KeyCode.F))
             {
@@ -86,7 +87,10 @@ namespace Com.MaluCompany.TestGame
                 photonView.RPC("LlamarCorutinaSabotaje", TargetPlayerByActorNumber(GetComponent<PlayerId>().id));             
             }
         }
-        if (Input.GetKeyDown(KeyCode.T)) 
+                #endregion
+
+                #region Interrupcion
+                if (Input.GetKeyDown(KeyCode.T)) 
         {
         if (this.playerTeam.TeamA && collision.CompareTag("Actividad A"))
         {           
@@ -99,8 +103,9 @@ namespace Com.MaluCompany.TestGame
             photonView.RPC("EnableMovement", TargetPlayerByActorNumber(colliderAct.GetComponent<ColSaver>().room.jugadorUno), true);
         }
         }
-     }
-    }
+                #endregion
+            }
+        }
     
         [PunRPC]
      public void EnableMovement(bool enable) 
@@ -156,6 +161,7 @@ namespace Com.MaluCompany.TestGame
     public void InterrumpirSabotaje()
     {
         playerToInterrupt.GetComponent<Sabotage>().ResetearValoresSabotaje();
+            playerToInterrupt.transform.position = playerToInterrupt.GetComponent<Sabotage>().colliderAct.GetComponent<ColSaver>().goToOnInterrupt.position;
         Debug.Log("Paro sabotaje");
         colliderAct = null;
         Debug.Log(playerToInterrupt.name + " Fue interrumpido");

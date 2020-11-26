@@ -71,7 +71,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 7
   m_Sprite: {fileID: 21300000, guid: 9549967b7752c7a4b8187e5556283396, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -200,8 +200,8 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 9def5b6901d7e6a418fe231e93bd5e5c, type: 3}
+  m_SortingOrder: 7
+  m_Sprite: {fileID: 21300000, guid: d8dc0a555cd880b468f0cd890b1d5752, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -346,6 +346,7 @@ GameObject:
   - component: {fileID: 6815946495457897690}
   - component: {fileID: 4847601108980763660}
   - component: {fileID: 3427721792252533690}
+  - component: {fileID: 1696552624335281110}
   m_Layer: 0
   m_Name: Box
   m_TagString: Untagged
@@ -405,7 +406,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 7
   m_Sprite: {fileID: 21300000, guid: 9def5b6901d7e6a418fe231e93bd5e5c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -443,3 +444,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 5, y: 5}
   m_EdgeRadius: 0
+--- !u!114 &1696552624335281110
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5095613476002801342}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e0efa7f1b824204590681a68c414084, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  taskBarPanel: {fileID: 0}
+  managerMinijuegos: {fileID: 0}
+  panelData: {fileID: 11400000, guid: d4b04d531e7969f48a73be728c635b9e, type: 2}
+  canInteract: 0
