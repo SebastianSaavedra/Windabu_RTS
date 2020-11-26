@@ -21,7 +21,7 @@ public class MoneyClicker : MonoBehaviour
         //Limit
         if(likes <= 99)
         {
-            likes += 1;
+            likes += 5;
             dineroText.text = ""+ likes;
             Debug.Log("Cantidad de Likes: " + likes);
         }
