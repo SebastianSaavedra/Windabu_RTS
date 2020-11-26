@@ -271,6 +271,7 @@ public class BarMovement : MonoBehaviourPunCallbacks        //Literal este codig
                         cantidadDeFallos = 0;
                         cantidadDeAciertos = 0;
                         managerMinigame.FinishTask();
+                        Debug.Log("Se llamo gano A");
                     }
 
                     else if (managerLocal.minijuegos[originPanel.GetComponent<WhatTeamIsCalling>().id].barraVersusA ==
@@ -322,6 +323,7 @@ public class BarMovement : MonoBehaviourPunCallbacks        //Literal este codig
                         cantidadDeFallos = 0;
                         cantidadDeAciertos = 0;
                         managerMinigame.FinishTask();
+                        Debug.Log("Se llamo gano B");
                     }
                     else if (managerLocal.minijuegos[originPanel.GetComponent<WhatTeamIsCalling>().id].barraVersusB ==
                         managerLocal.minijuegos[originPanel.GetComponent<WhatTeamIsCalling>().id].barraVersusA)
