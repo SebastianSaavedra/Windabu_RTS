@@ -369,27 +369,13 @@ public class ManagerMinijuegos : MonoBehaviourPunCallbacks,IPunObservable
                 stream.SendNext(minijuegos[x].completado);
                 stream.SendNext(minijuegos[x].barraVersusA);
                 stream.SendNext(minijuegos[x].barraVersusB);
+                stream.SendNext(minijuegos[x].rondaA);
+                stream.SendNext(minijuegos[x].rondaB);
+                stream.SendNext(minijuegos[x].cantidadDeFallosLightstickA);
+                stream.SendNext(minijuegos[x].cantidadDeFallosLightstickB);
+                stream.SendNext(minijuegos[x].falloLighstickA);
+                stream.SendNext(minijuegos[x].falloLighstickB);
             }
-            #region Casi me sirve esto
-            //stream.SendNext(minijuegos[0].jugadorUno);
-            //stream.SendNext(minijuegos[0].jugadorDos);      
-            //stream.SendNext(minijuegos[0].numeroDeJugadores);      
-            //stream.SendNext(minijuegos[1].jugadorUno);
-            //stream.SendNext(minijuegos[1].jugadorDos);
-            //stream.SendNext(minijuegos[1].numeroDeJugadores);      
-            //stream.SendNext(minijuegos[2].jugadorUno);
-            //stream.SendNext(minijuegos[2].jugadorDos);
-            //stream.SendNext(minijuegos[2].numeroDeJugadores);      
-            //stream.SendNext(minijuegos[3].jugadorUno);
-            //stream.SendNext(minijuegos[3].jugadorDos);
-            //stream.SendNext(minijuegos[3].numeroDeJugadores);      
-            //stream.SendNext(minijuegos[4].jugadorUno);
-            //stream.SendNext(minijuegos[4].jugadorDos);
-            //stream.SendNext(minijuegos[4].numeroDeJugadores);      
-            //stream.SendNext(minijuegos[5].jugadorUno);
-            //stream.SendNext(minijuegos[5].jugadorDos);
-            //stream.SendNext(minijuegos[5].numeroDeJugadores);      
-            #endregion
         }
         else if (stream.IsReading)
         {
@@ -401,19 +387,13 @@ public class ManagerMinijuegos : MonoBehaviourPunCallbacks,IPunObservable
                 minijuegos[x].completado        = (bool)stream.ReceiveNext();
                 minijuegos[x].barraVersusA = (int)stream.ReceiveNext();
                 minijuegos[x].barraVersusB = (int)stream.ReceiveNext();
+                minijuegos[x].rondaA = (int)stream.ReceiveNext();
+                minijuegos[x].rondaB = (int)stream.ReceiveNext();
+                minijuegos[x].cantidadDeFallosLightstickA = (int)stream.ReceiveNext();
+                minijuegos[x].cantidadDeFallosLightstickB = (int)stream.ReceiveNext();
+                minijuegos[x].falloLighstickA = (bool)stream.ReceiveNext();
+                minijuegos[x].falloLighstickB = (bool)stream.ReceiveNext(); 
             }
-            //minijuegos[0].jugadorUno = (int)stream.ReceiveNext();
-            //minijuegos[0].jugadorDos = (int)stream.ReceiveNext();
-            //minijuegos[1].jugadorUno = (int)stream.ReceiveNext();
-            //minijuegos[1].jugadorDos = (int)stream.ReceiveNext();
-            //minijuegos[2].jugadorUno = (int)stream.ReceiveNext();
-            //minijuegos[2].jugadorDos = (int)stream.ReceiveNext();
-            //minijuegos[3].jugadorUno = (int)stream.ReceiveNext();
-            //minijuegos[3].jugadorDos = (int)stream.ReceiveNext();
-            //minijuegos[4].jugadorUno = (int)stream.ReceiveNext();
-            //minijuegos[4].jugadorDos = (int)stream.ReceiveNext();
-            //minijuegos[5].jugadorUno = (int)stream.ReceiveNext();
-            //minijuegos[5].jugadorDos = (int)stream.ReceiveNext();
         }
     }
 

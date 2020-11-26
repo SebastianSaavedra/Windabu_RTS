@@ -11,6 +11,7 @@ public class BarMovement : MonoBehaviourPunCallbacks
     //Privadas
     ManagerMinijuegos managerLocal;
     MinigameManager managerMinigame;
+    [SerializeField] RPCManager RPCManager;
     [SerializeField] GameObject originPanel;
 
     Coroutine cor;
@@ -19,11 +20,15 @@ public class BarMovement : MonoBehaviourPunCallbacks
     public GameObject punto0, punto1;
 
     public bool scored;
+    public bool fallo;
     int intentos;   // para la lista
+    int cantidadDeAciertos;
+    int cantidadDeFallos;
+
+    //Listas
     [SerializeField] GameObject[] aciertos;
     [SerializeField] GameObject[] fallos;
 
-    int intentosJugador2;
     [SerializeField] GameObject[] aciertosP2;
     [SerializeField] GameObject[] fallosP2;
 
@@ -41,11 +46,14 @@ public class BarMovement : MonoBehaviourPunCallbacks
     {
         managerMinigame = GameObject.Find("MinijuegosManager").GetComponent<MinigameManager>();
         managerLocal = GameObject.Find("MinijuegosManager").GetComponent<ManagerMinijuegos>();
+        RPCManager = GameObject.Find("MiniJuego1_1(cartel)").GetComponent<RPCManager>();
     }
 
     private new void OnEnable()
     {
         intentos = 0;
+        cantidadDeFallos = 0;
+        cantidadDeAciertos = 0;
         originPanel = GameObject.Find("OriginPanel");
         StartCoroutine("IniciarAct");
     }
@@ -60,13 +68,18 @@ public class BarMovement : MonoBehaviourPunCallbacks
 
     void ReiniciarActividadAcerto()             //Serializar los intentos/Gameobjects????
     {
+        fallo = false;
         //If player 1 acerto 
         if (originPanel.GetComponent<WhatTeamIsCalling>().team == true)
         {
             if (intentos != aciertos.Length)
             {
-                Debug.Log("Player A acerto una vez");
                 aciertos[intentos].SetActive(true);
+                Debug.Log("Player A acerto una vez");
+                cantidadDeAciertos++;
+                RPCManager.RPCActualizarDatosA(originPanel.GetComponent<WhatTeamIsCalling>().id, cantidadDeAciertos);
+                RPCManager.RPCActualizarFalloLighstickA(originPanel.GetComponent<WhatTeamIsCalling>().id, fallo);
+                //managerLocal.minijuegos[originPanel.GetComponent<WhatTeamIsCalling>().id].barraVersusA++;
             }
         }
         //If player 2 acerto
@@ -74,8 +87,12 @@ public class BarMovement : MonoBehaviourPunCallbacks
         {
             if (intentos != aciertosP2.Length)
             {
-                Debug.Log("Player B acerto una vez");
                 aciertosP2[intentos].SetActive(true);
+                Debug.Log("Player B acerto una vez");
+                cantidadDeAciertos++;
+                RPCManager.RPCActualizarDatosB(originPanel.GetComponent<WhatTeamIsCalling>().id, cantidadDeAciertos);
+                RPCManager.RPCActualizarFalloLighstickB(originPanel.GetComponent<WhatTeamIsCalling>().id, fallo);
+                //managerLocal.minijuegos[originPanel.GetComponent<WhatTeamIsCalling>().id].barraVersusB++;
             }
         }
 
@@ -97,13 +114,17 @@ public class BarMovement : MonoBehaviourPunCallbacks
 
     void ReiniciarActividadFallo()
     {
+        fallo = true;
         //If player 1 acerto 
         if (originPanel.GetComponent<WhatTeamIsCalling>().team == true)
         {
             if (intentos != fallos.Length)
             {
-                Debug.Log("Player A fallo una vez");
                 fallos[intentos].SetActive(true);
+                Debug.Log("Player A fallo una vez");
+                cantidadDeFallos++;
+                RPCManager.RPCActualizarDatosFallosLightstickA(originPanel.GetComponent<WhatTeamIsCalling>().id, cantidadDeFallos);
+                RPCManager.RPCActualizarFalloLighstickA(originPanel.GetComponent<WhatTeamIsCalling>().id, fallo);
             }
         }
         //If player 2 acerto
@@ -111,8 +132,11 @@ public class BarMovement : MonoBehaviourPunCallbacks
         {
             if (intentos != fallosP2.Length)
             {
-                Debug.Log("Player B fallo una vez");
                 fallosP2[intentos].SetActive(true);
+                Debug.Log("Player B fallo una vez");
+                cantidadDeFallos++;
+                RPCManager.RPCActualizarDatosFallosLightstickB(originPanel.GetComponent<WhatTeamIsCalling>().id, cantidadDeFallos);
+                RPCManager.RPCActualizarFalloLighstickB(originPanel.GetComponent<WhatTeamIsCalling>().id, fallo);
             }
         }
 
@@ -120,7 +144,7 @@ public class BarMovement : MonoBehaviourPunCallbacks
         Debug.Log("Intentos: " + intentos);
 
         transform.position = punto0.transform.position;
-            moving = true;
+        moving = true;
     }
 
     private void FixedUpdate()
@@ -138,9 +162,42 @@ public class BarMovement : MonoBehaviourPunCallbacks
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && moving)
+        if (managerLocal.minijuegos[originPanel.GetComponent<WhatTeamIsCalling>().id].numeroDeJugadores == 2)
         {
-            cor = StartCoroutine("Stopped");
+            if (originPanel.GetComponent<WhatTeamIsCalling>().team == true)
+            {
+                if (managerLocal.minijuegos[originPanel.GetComponent<WhatTeamIsCalling>().id].falloLighstickB == true)
+                {
+                    fallosP2[managerLocal.minijuegos[originPanel.GetComponent<WhatTeamIsCalling>().id].cantidadDeFallosLightstickB].SetActive(true);
+                }
+
+                else
+                {
+                    aciertosP2[managerLocal.minijuegos[originPanel.GetComponent<WhatTeamIsCalling>().id].barraVersusB].SetActive(true);
+                }
+            }
+            else if (originPanel.GetComponent<WhatTeamIsCalling>().team == false)
+            {
+                if (managerLocal.minijuegos[originPanel.GetComponent<WhatTeamIsCalling>().id].falloLighstickA == true)
+                {
+                    fallos[managerLocal.minijuegos[originPanel.GetComponent<WhatTeamIsCalling>().id].cantidadDeFallosLightstickA].SetActive(true);
+                }
+
+                else
+                {
+                    aciertos[managerLocal.minijuegos[originPanel.GetComponent<WhatTeamIsCalling>().id].barraVersusA].SetActive(true);
+                }
+            }
+        }
+
+        if (Input.GetKeyDown(KeyCode.Space) && moving && managerLocal.minijuegos[originPanel.GetComponent<WhatTeamIsCalling>().id].numeroDeJugadores < 2)
+        {
+            cor = StartCoroutine("StoppedLocal");
+        }
+        else if (Input.GetKeyDown(KeyCode.Space) && moving && managerLocal.minijuegos[originPanel.GetComponent<WhatTeamIsCalling>().id].numeroDeJugadores == 2)
+        {
+            StopCoroutine("StoppedLocal");
+            cor = StartCoroutine("StoppedVS");
         }
     }
 
@@ -153,12 +210,13 @@ public class BarMovement : MonoBehaviourPunCallbacks
         scored = false;
     }
 
-    IEnumerator Stopped()
+
+    IEnumerator StoppedLocal()
     {
         moving = false;
         yield return new WaitForSeconds(0.1f);
 
-        if (scored)
+        if (scored)         // Si esque logro achuntar al collider
         {
             Debug.Log("Wena");
 
@@ -167,28 +225,56 @@ public class BarMovement : MonoBehaviourPunCallbacks
             DecirleAMasterClienteQueHiceUnCambio();
             Debug.Log("Intentos: " + intentos);
 
-            if (intentos >= 5)
+            if (intentos > 4)
             {
-                intentos = 0;
-                managerMinigame.FinishTask();
+                if (cantidadDeAciertos > cantidadDeFallos)
+                {
+                    intentos = 0;
+                    cantidadDeFallos = 0;
+                    cantidadDeAciertos = 0;
+                    managerMinigame.FinishTask();
+                }
+                else
+                {
+                    intentos = 0;
+                    cantidadDeFallos = 0;
+                    cantidadDeAciertos = 0;
+                    Debug.Log("Perdio");
+                    //OnLosePanel;
+                }
+
             }
             else
             {
                 ReiniciarActividadAcerto();
             }
         }
-        else
+
+        else            // Si esque fallo al achuntarle al collider
         {
             Debug.Log("Ksi");
 
             yield return new WaitForSeconds(.75f);
 
             DecirleAMasterClienteQueHiceUnCambio();
-
-            if (intentos >= 5)
+            if (intentos > 4)
             {
-                intentos = 0;
-                managerMinigame.FinishTask();
+                if (cantidadDeAciertos > cantidadDeFallos)
+                {
+                    intentos = 0;
+                    cantidadDeFallos = 0;
+                    cantidadDeAciertos = 0;
+                    managerMinigame.FinishTask();
+                }
+                else
+                {
+                    intentos = 0;
+                    cantidadDeFallos = 0;
+                    cantidadDeAciertos = 0;
+                    Debug.Log("Perdio");
+                    //OnLosePanel;
+
+                }
             }
             else
             {
@@ -196,6 +282,246 @@ public class BarMovement : MonoBehaviourPunCallbacks
             }
         }
     }
+
+
+    IEnumerator StoppedVS()
+    {
+        moving = false;
+        yield return new WaitForSeconds(0.1f);
+
+        if (scored)              // Si esque logro achuntar al collider
+        {
+            Debug.Log("Wena");
+
+            yield return new WaitForSeconds(.75f);
+
+            DecirleAMasterClienteQueHiceUnCambio();
+            Debug.Log("Intentos: " + intentos);
+
+            if (intentos > 4)
+            {
+                if (originPanel.GetComponent<WhatTeamIsCalling>().team == true)
+                {
+                    //managerLocal.minijuegos[originPanel.GetComponent<WhatTeamIsCalling>().id].rondaA++;
+                    RPCManager.RPCActualizarDatosRondaA(originPanel.GetComponent<WhatTeamIsCalling>().id, 1);
+                    moving = false;
+                    transform.position = punto0.transform.position;
+
+                    yield return new WaitUntil(() => managerLocal.minijuegos[originPanel.GetComponent<WhatTeamIsCalling>().id].rondaA ==
+                    managerLocal.minijuegos[originPanel.GetComponent<WhatTeamIsCalling>().id].rondaB);
+
+                    if (managerLocal.minijuegos[originPanel.GetComponent<WhatTeamIsCalling>().id].barraVersusA > 
+                        managerLocal.minijuegos[originPanel.GetComponent<WhatTeamIsCalling>().id].barraVersusB)
+                    {
+                        //Victoria Team A
+                        intentos = 0;
+                        cantidadDeFallos = 0;
+                        cantidadDeAciertos = 0;
+                        managerMinigame.FinishTask();
+                    }
+
+                    else if (managerLocal.minijuegos[originPanel.GetComponent<WhatTeamIsCalling>().id].barraVersusA ==
+                            managerLocal.minijuegos[originPanel.GetComponent<WhatTeamIsCalling>().id].barraVersusB)
+                    {
+                        // Empate
+                        //managerLocal.minijuegos[originPanel.GetComponent<WhatTeamIsCalling>().id].barraVersusA = 0;
+                        //managerLocal.minijuegos[originPanel.GetComponent<WhatTeamIsCalling>().id].barraVersusB = 0;
+                        cantidadDeAciertos = 0;
+                        cantidadDeFallos = 0;
+                        intentos = 0;
+                        fallo = false;
+                        RPCManager.RPCActualizarDatosA(originPanel.GetComponent<WhatTeamIsCalling>().id, cantidadDeAciertos);
+                        RPCManager.RPCActualizarDatosB(originPanel.GetComponent<WhatTeamIsCalling>().id, cantidadDeAciertos);
+                        RPCManager.RPCActualizarDatosFallosLightstickA(originPanel.GetComponent<WhatTeamIsCalling>().id, cantidadDeFallos);
+                        RPCManager.RPCActualizarDatosFallosLightstickB(originPanel.GetComponent<WhatTeamIsCalling>().id, cantidadDeFallos);
+                        RPCManager.RPCActualizarFalloLighstickA(originPanel.GetComponent<WhatTeamIsCalling>().id, fallo);
+                        RPCManager.RPCActualizarFalloLighstickB(originPanel.GetComponent<WhatTeamIsCalling>().id, fallo);
+                        speed = initialSpeed;
+
+                    }
+
+                    else
+                    {
+                        //Derrota Team A
+                        intentos = 0;
+                        cantidadDeFallos = 0;
+                        cantidadDeAciertos = 0;
+                        Debug.Log("Perdio");
+                        //OnLosePanel;
+                    }
+                }
+
+                else if (originPanel.GetComponent<WhatTeamIsCalling>().team == false)
+                {
+                    //managerLocal.minijuegos[originPanel.GetComponent<WhatTeamIsCalling>().id].rondaB++;
+                    RPCManager.RPCActualizarDatosRondaB(originPanel.GetComponent<WhatTeamIsCalling>().id, 1);
+                    moving = false;
+                    transform.position = punto0.transform.position;
+
+                    yield return new WaitUntil(() => managerLocal.minijuegos[originPanel.GetComponent<WhatTeamIsCalling>().id].rondaA ==
+                    managerLocal.minijuegos[originPanel.GetComponent<WhatTeamIsCalling>().id].rondaB);
+
+                    if (managerLocal.minijuegos[originPanel.GetComponent<WhatTeamIsCalling>().id].barraVersusB >
+                        managerLocal.minijuegos[originPanel.GetComponent<WhatTeamIsCalling>().id].barraVersusA)
+                    {
+                        //Victoria Team B
+                        intentos = 0;
+                        cantidadDeFallos = 0;
+                        cantidadDeAciertos = 0;
+                        managerMinigame.FinishTask();
+                    }
+                    else if (managerLocal.minijuegos[originPanel.GetComponent<WhatTeamIsCalling>().id].barraVersusB ==
+                        managerLocal.minijuegos[originPanel.GetComponent<WhatTeamIsCalling>().id].barraVersusA)
+                    {
+                        // Empate
+                        cantidadDeAciertos = 0;
+                        cantidadDeFallos = 0;
+                        intentos = 0;
+                        fallo = false;
+                        RPCManager.RPCActualizarDatosA(originPanel.GetComponent<WhatTeamIsCalling>().id, cantidadDeAciertos);
+                        RPCManager.RPCActualizarDatosB(originPanel.GetComponent<WhatTeamIsCalling>().id, cantidadDeAciertos);
+                        RPCManager.RPCActualizarDatosFallosLightstickA(originPanel.GetComponent<WhatTeamIsCalling>().id, cantidadDeFallos);
+                        RPCManager.RPCActualizarDatosFallosLightstickB(originPanel.GetComponent<WhatTeamIsCalling>().id, cantidadDeFallos);
+                        RPCManager.RPCActualizarFalloLighstickA(originPanel.GetComponent<WhatTeamIsCalling>().id, fallo);
+                        RPCManager.RPCActualizarFalloLighstickB(originPanel.GetComponent<WhatTeamIsCalling>().id, fallo);
+                        speed = initialSpeed;
+
+                    }
+                    else
+                    {
+                        //Derrota Team B
+                        intentos = 0;
+                        cantidadDeFallos = 0;
+                        cantidadDeAciertos = 0;
+                        Debug.Log("Perdio");
+                        //OnLosePanel;
+                    }
+                }
+            }
+            else
+            {
+                ReiniciarActividadAcerto();
+            }
+        }
+
+
+        else          // Si esque fallo al achuntarle al collider
+        {
+            Debug.Log("Ksi");
+
+            yield return new WaitForSeconds(.75f);
+
+            DecirleAMasterClienteQueHiceUnCambio();
+            if (intentos > 4)
+            {
+                if (originPanel.GetComponent<WhatTeamIsCalling>().team == true)
+                {
+                    //managerLocal.minijuegos[originPanel.GetComponent<WhatTeamIsCalling>().id].rondaA++;
+                    RPCManager.RPCActualizarDatosRondaA(originPanel.GetComponent<WhatTeamIsCalling>().id, 1);
+                    moving = false;
+                    transform.position = punto0.transform.position;
+
+                    yield return new WaitUntil(() => managerLocal.minijuegos[originPanel.GetComponent<WhatTeamIsCalling>().id].rondaA ==
+                    managerLocal.minijuegos[originPanel.GetComponent<WhatTeamIsCalling>().id].rondaB);
+
+                    if (managerLocal.minijuegos[originPanel.GetComponent<WhatTeamIsCalling>().id].barraVersusA >
+                        managerLocal.minijuegos[originPanel.GetComponent<WhatTeamIsCalling>().id].barraVersusB)
+                    {
+                        //Victoria Team A
+                        intentos = 0;
+                        cantidadDeFallos = 0;
+                        cantidadDeAciertos = 0;
+                        managerMinigame.FinishTask();
+                    }
+
+                    else if (managerLocal.minijuegos[originPanel.GetComponent<WhatTeamIsCalling>().id].barraVersusA ==
+                            managerLocal.minijuegos[originPanel.GetComponent<WhatTeamIsCalling>().id].barraVersusB)
+                    {
+                        // Empate
+                        //managerLocal.minijuegos[originPanel.GetComponent<WhatTeamIsCalling>().id].barraVersusA = 0;
+                        //managerLocal.minijuegos[originPanel.GetComponent<WhatTeamIsCalling>().id].barraVersusB = 0;
+                        cantidadDeAciertos = 0;
+                        cantidadDeFallos = 0;
+                        intentos = 0;
+                        fallo = false;
+                        RPCManager.RPCActualizarDatosA(originPanel.GetComponent<WhatTeamIsCalling>().id, cantidadDeAciertos);
+                        RPCManager.RPCActualizarDatosB(originPanel.GetComponent<WhatTeamIsCalling>().id, cantidadDeAciertos);
+                        RPCManager.RPCActualizarDatosFallosLightstickA(originPanel.GetComponent<WhatTeamIsCalling>().id, cantidadDeFallos);
+                        RPCManager.RPCActualizarDatosFallosLightstickB(originPanel.GetComponent<WhatTeamIsCalling>().id, cantidadDeFallos);
+                        RPCManager.RPCActualizarFalloLighstickA(originPanel.GetComponent<WhatTeamIsCalling>().id, fallo);
+                        RPCManager.RPCActualizarFalloLighstickB(originPanel.GetComponent<WhatTeamIsCalling>().id, fallo);
+                        speed = initialSpeed;
+
+                    }
+
+                    else
+                    {
+                        //Derrota Team A
+                        intentos = 0;
+                        cantidadDeFallos = 0;
+                        cantidadDeAciertos = 0;
+                        Debug.Log("Perdio");
+                        //OnLosePanel;
+                    }
+                }
+
+                else if (originPanel.GetComponent<WhatTeamIsCalling>().team == false)
+                {
+                    //managerLocal.minijuegos[originPanel.GetComponent<WhatTeamIsCalling>().id].rondaB++;
+                    RPCManager.RPCActualizarDatosRondaB(originPanel.GetComponent<WhatTeamIsCalling>().id, 1);
+                    moving = false;
+                    transform.position = punto0.transform.position;
+
+                    yield return new WaitUntil(() => managerLocal.minijuegos[originPanel.GetComponent<WhatTeamIsCalling>().id].rondaA ==
+                    managerLocal.minijuegos[originPanel.GetComponent<WhatTeamIsCalling>().id].rondaB);
+
+                    if (managerLocal.minijuegos[originPanel.GetComponent<WhatTeamIsCalling>().id].barraVersusB >
+                        managerLocal.minijuegos[originPanel.GetComponent<WhatTeamIsCalling>().id].barraVersusA)
+                    {
+                        //Victoria Team B
+                        intentos = 0;
+                        cantidadDeFallos = 0;
+                        cantidadDeAciertos = 0;
+                        managerMinigame.FinishTask();
+                    }
+                    else if (managerLocal.minijuegos[originPanel.GetComponent<WhatTeamIsCalling>().id].barraVersusB ==
+                        managerLocal.minijuegos[originPanel.GetComponent<WhatTeamIsCalling>().id].barraVersusA)
+                    {
+                        // Empate
+                        //managerLocal.minijuegos[originPanel.GetComponent<WhatTeamIsCalling>().id].barraVersusA = 0;
+                        //managerLocal.minijuegos[originPanel.GetComponent<WhatTeamIsCalling>().id].barraVersusB = 0;
+                        cantidadDeAciertos = 0;
+                        cantidadDeFallos = 0;
+                        intentos = 0;
+                        fallo = false;
+                        RPCManager.RPCActualizarDatosA(originPanel.GetComponent<WhatTeamIsCalling>().id, cantidadDeAciertos);
+                        RPCManager.RPCActualizarDatosB(originPanel.GetComponent<WhatTeamIsCalling>().id, cantidadDeAciertos);
+                        RPCManager.RPCActualizarDatosFallosLightstickA(originPanel.GetComponent<WhatTeamIsCalling>().id, cantidadDeFallos);
+                        RPCManager.RPCActualizarDatosFallosLightstickB(originPanel.GetComponent<WhatTeamIsCalling>().id, cantidadDeFallos);
+                        RPCManager.RPCActualizarFalloLighstickA(originPanel.GetComponent<WhatTeamIsCalling>().id, fallo);
+                        RPCManager.RPCActualizarFalloLighstickB(originPanel.GetComponent<WhatTeamIsCalling>().id, fallo);
+                        speed = initialSpeed;
+
+                    }
+                    else
+                    {
+                        //Derrota Team B
+                        intentos = 0;
+                        cantidadDeFallos = 0;
+                        cantidadDeAciertos = 0;
+                        Debug.Log("Perdio");
+                        //OnLosePanel;
+                    }
+                }
+            }
+            else
+            {
+                ReiniciarActividadFallo();
+            }
+        }
+    }
+
+    // Comparar valores, se puede hacer la wea local creo, total al que le llega el finish task gana
     void DecirleAMasterClienteQueHiceUnCambio()
     {
         managerLocal.ActualizarEstadoMinijuego1(PhotonNetwork.LocalPlayer.ActorNumber);
