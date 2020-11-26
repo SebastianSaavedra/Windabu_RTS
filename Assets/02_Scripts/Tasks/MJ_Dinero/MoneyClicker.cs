@@ -66,6 +66,7 @@ public class MoneyClicker : MonoBehaviour
             Minijuegos.m_clicksA(macroLike / 10);
 
             likes -= macroLike;
+            dineroText.text = "" + likes;
         }
         else 
         {
@@ -77,6 +78,7 @@ public class MoneyClicker : MonoBehaviour
             Minijuegos.m_clicksB(macroLike / 10);
 
             likes -= macroLike;
+            dineroText.text = "" + likes;
         }
         //}
 
