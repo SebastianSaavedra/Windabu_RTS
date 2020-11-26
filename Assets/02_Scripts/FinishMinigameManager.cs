@@ -34,6 +34,7 @@ public class FinishMinigameManager : MonoBehaviour
 
             // Impresora
             case 1:
+                Debug.Log("Terminado");
                 break;
 
             // Impre3D

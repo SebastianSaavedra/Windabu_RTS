@@ -12,7 +12,12 @@ public class JoinTeamA : MonoBehaviourPunCallbacks
     int idPos;
     [SerializeField] GameObject playerPref;
     Transform instpos;
-    bool callJoin;
+    bool callJoin; 
+    [Header("KeySaver")]
+    public GameObject eKey;
+    public GameObject tKey;
+    public GameObject fKey;
+    public GameObject rKey;
 
     private void Start()
     {
@@ -57,8 +62,12 @@ public class JoinTeamA : MonoBehaviourPunCallbacks
         else
         {
             Debug.LogFormat("Instantiating Player");
-           GameObject player=  PhotonNetwork.Instantiate(this.playerPref.name, instpos.position, Quaternion.identity, 0);           
+           GameObject player=  PhotonNetwork.Instantiate(this.playerPref.name, instpos.position, Quaternion.identity, 0);
             callJoin = true;
+            player.GetComponent<FeedbackTrigger>().eKey = eKey;
+            player.GetComponent<FeedbackTrigger>().rKey = rKey;
+            player.GetComponent<FeedbackTrigger>().tKey = tKey;
+            player.GetComponent<FeedbackTrigger>().fKey = fKey;
             Debug.Log("Llegaste aqui");
         }
     }

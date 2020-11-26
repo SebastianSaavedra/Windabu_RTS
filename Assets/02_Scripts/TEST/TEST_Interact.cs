@@ -20,16 +20,17 @@ public class TEST_Interact : MonoBehaviourPunCallbacks
         if (photonView.IsMine) 
         {
 
-    
         if (objectToInteract.GetComponent<TaskDropDown>().minijuegoData.completado) 
         {
                 objectToInteract.GetComponent<I_Interactable>().OnLeavePanel(GetComponent<PlayerTeam>().team);
                 Debug.Log(transform.name + " termino el versus");
             GetComponent<TEST_Movement>().enabled = true;
         }
+            
         if (Input.GetKeyDown(KeyCode.E) && !alreadyInteracted)
         {
-            if (objectToInteract.GetComponent<I_Interactable>()!=null && objectToInteract.GetComponent<TaskDropDown>().canInteract)
+                #region MinijuegoBruh
+                if (objectToInteract.GetComponent<I_Interactable>()!=null && objectToInteract.GetComponent<TaskDropDown>().canInteract)
             {
                     if (objectToInteract.GetComponent<TaskDropDown>().minijuegoData.numeroDeJugadores==0)
                     {                
@@ -47,10 +48,10 @@ public class TEST_Interact : MonoBehaviourPunCallbacks
                         alreadyChanged = true;
                         alreadyInteracted = true;
                     }
-
             }
+                #endregion
         }
-        if (Input.GetKeyDown(KeyCode.Escape))
+            if (Input.GetKeyDown(KeyCode.Escape))
         {
             objectToInteract.GetComponent<I_Interactable>().OnLeavePanel(GetComponent<PlayerTeam>().team);
                 GetComponent<TEST_Movement>().enabled = true;
@@ -69,11 +70,11 @@ public class TEST_Interact : MonoBehaviourPunCallbacks
     {
         if (photonView.IsMine) 
         {
-            if (collision.GetComponent<TaskDropDown>()) 
+            if (collision.GetComponent<TaskDropDown>())
             {
-            objectToInteract = collision.gameObject;
-            speakingTo = collision.GetComponentInParent<CPManager>();
-            thisTask = collision.GetComponent<TaskDropDown>();
+                objectToInteract = collision.gameObject;
+                speakingTo = collision.GetComponentInParent<CPManager>();
+                thisTask = collision.GetComponent<TaskDropDown>();
             }
         }
     }
