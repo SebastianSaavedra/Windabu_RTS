@@ -5,6 +5,6 @@ using UnityEngine;
 public class LocalPlayerManager : MonoBehaviour
 {
     #region Variables
-    public static int paperCounter;
+    public static int paperCounter, stickCounter, chapaCounter;
     #endregion
 }
