@@ -11,10 +11,10 @@ public class ShopManager : MonoBehaviourPunCallbacks
 
     //Stats
     [SerializeField]
-    float impresoraCost = 100f, impresoraDelay = 15f;
+    float impresoraCost = 100f, impresoraDelay = 15f, imp3dCost = 200f, imp3dDelay = 30f, chapitaCost = 150f, chapitaDelay = 20f;
     public bool canBuy_0, canBuy_1, canBuy_2;
     //Prefabs
-    public GameObject impresora;
+    public GameObject impresora, imp3d, chapita;
     [SerializeField] bool team;
     [SerializeField] UIManager uiMan;
 
@@ -62,7 +62,7 @@ public class ShopManager : MonoBehaviourPunCallbacks
             if (MinigameManager.dineroB >= impresoraCost)// volver a referencia teamManager
             {
                 RPCcor(impresoraDelay,0);
-                MinigameManager.dineroA -= (int)impresoraCost;
+                MinigameManager.dineroB -= (int)impresoraCost;
                 uiMan.CallRpc(team, 0);
                 canBuy_0 = true;
                 //gameObject.GetComponent<TeamManager>().money -= impresoraCost;
@@ -73,6 +73,74 @@ public class ShopManager : MonoBehaviourPunCallbacks
             }
         }
     }
+    public void Imp3d()
+    {
+        if (team)
+        {
+            if (MinigameManager.dineroA >= (int)imp3dCost)// volver a referencia teamManager
+            {
+                RPCcor(imp3dDelay, 1);
+                Minijuegos.compraA((int)imp3dCost);
+                uiMan.CallRpc(team, 1);
+                canBuy_0 = true;
+                //gameObject.GetComponent<TeamManager>().money -= impresoraCost;
+            }
+            else
+            {
+                Debug.Log("Dinero Insuficiente Pe");
+            }
+        }
+        else
+        {
+            if (MinigameManager.dineroB >= (int)imp3dCost)// volver a referencia teamManager
+            {
+                RPCcor(imp3dDelay, 1);
+                MinigameManager.dineroB -= (int)imp3dCost;
+                uiMan.CallRpc(team, 1);
+                canBuy_0 = true;
+                //gameObject.GetComponent<TeamManager>().money -= impresoraCost;
+            }
+            else
+            {
+                Debug.Log("Dinero Insuficiente Pe");
+            }
+        }
+    }
+    public void Chapitas()
+    {
+        if (team)
+        {
+            if (MinigameManager.dineroA >= (int)chapitaCost)// volver a referencia teamManager
+            {
+                RPCcor(chapitaDelay, 2);
+                Minijuegos.compraA((int)chapitaCost);
+                uiMan.CallRpc(team, 2);
+                canBuy_0 = true;
+                //gameObject.GetComponent<TeamManager>().money -= impresoraCost;
+            }
+            else
+            {
+                Debug.Log("Dinero Insuficiente Pe");
+            }
+        }
+        else
+        {
+            if (MinigameManager.dineroB >= (int)chapitaCost)// volver a referencia teamManager
+            {
+                RPCcor(chapitaDelay, 2);
+                MinigameManager.dineroB -= (int)chapitaCost;
+                uiMan.CallRpc(team, 2);
+                canBuy_0 = true;
+                //gameObject.GetComponent<TeamManager>().money -= impresoraCost;
+            }
+            else
+            {
+                Debug.Log("Dinero Insuficiente Pe");
+            }
+        }
+    }
+
+
     public void RPCcor(float time, int whatItem) 
     {
         // photonView.RPC("StartCor", RpcTarget.MasterClient,time,whatItem);

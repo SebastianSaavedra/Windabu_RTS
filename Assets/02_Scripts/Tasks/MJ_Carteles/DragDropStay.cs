@@ -35,7 +35,6 @@ public class DragDropStay : MonoBehaviour, IDragHandler, IPointerDownHandler, IB
     public void OnDrag(PointerEventData eventData)
     {
         //Move like cursor
-        Debug.Log("Moviendo");
         rectTransform.anchoredPosition += eventData.delta / canvas.scaleFactor;
     }
 

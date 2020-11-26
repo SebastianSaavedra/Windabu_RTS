@@ -40,10 +40,12 @@ public class FinishMinigameManager : MonoBehaviour
 
             // Impre3D
             case 2:
+                GetComponentInParent<WhatTeamIsCalling>().mjFinished = true;
                 break;
 
             // Maquina Chapitas
             case 3:
+                GetComponentInParent<WhatTeamIsCalling>().mjFinished = true;
                 break;
 
             // Super Pc
@@ -60,11 +62,14 @@ public class FinishMinigameManager : MonoBehaviour
 
             // Lightstick - Impre3D
             case 12:
+                LocalPlayerManager.stickCounter++;
+                Debug.Log(LocalPlayerManager.stickCounter);
                 break;
 
             // Merchandise - Chapita
             case 13:
-                Debug.Log("Chapita producida");
+                LocalPlayerManager.chapaCounter++;
+                Debug.Log(LocalPlayerManager.chapaCounter);
                 break;
 
             // ----------  Upgrade  ---------------
