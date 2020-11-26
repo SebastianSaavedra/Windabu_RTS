@@ -21,7 +21,7 @@ public class MoneyClicker : MonoBehaviour
         //Limit
         if(likes <= 99)
         {
-            likes += 1;
+            likes += 5;
             dineroText.text = ""+ likes;
             Debug.Log("Cantidad de Likes: " + likes);
         }
@@ -66,6 +66,7 @@ public class MoneyClicker : MonoBehaviour
             Minijuegos.m_clicksA(macroLike / 10);
 
             likes -= macroLike;
+            dineroText.text = "" + likes;
         }
         else 
         {
@@ -77,6 +78,7 @@ public class MoneyClicker : MonoBehaviour
             Minijuegos.m_clicksB(macroLike / 10);
 
             likes -= macroLike;
+            dineroText.text = "" + likes;
         }
         //}
 

@@ -62,6 +62,14 @@ public class TaskDropDownMinigame : MonoBehaviourPunCallbacks, I_Interactable
         photonView.RPC("OnFinishTask", RpcTarget.AllBuffered);
     }
 
+    public void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.GetComponent<PlayerTeam>()) 
+        {
+            OnLeavePanel(true);
+        }
+    }
+
     [PunRPC]
     IEnumerator BlockTask()
     {

@@ -27,6 +27,7 @@ public class Wifi : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
+            celuAnim.SetTrigger("CloseCell");
             wifi.SetActive(false);
             wifint.SetActive(true);
         }
