@@ -16,7 +16,7 @@ public class FinishMinigameManager : MonoBehaviour
 
     public void AddSlotCounter()
     {
-        if(slotCounter >= slotAmount)
+        if(slotCounter >= slotAmount -1)
         {
             SlotsFilled();
         }
