@@ -2976,9 +2976,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce1e7857d6e0af748831eb5aa247dc52, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tipoDeFanA: {fileID: 5564210845515351366, guid: 3d1142dcb0600aa4dbfd90397d6b7bee,
+  tipoDeFanA: {fileID: 4312060850811413569, guid: 4e5ff7f611776fb4395c00a67aa4b516,
     type: 3}
-  tipoDeFanB: {fileID: 5601375446488956346, guid: b0b00403b0ef4cb41b9819d516d4db19,
+  tipoDeFanB: {fileID: 4312060850811413569, guid: 930ec0861a2f8e44da5fae08c26fba70,
     type: 3}
   spawnPoint: {fileID: 46623963}
   timer: 5
@@ -3981,9 +3981,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce1e7857d6e0af748831eb5aa247dc52, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tipoDeFanA: {fileID: -1711705006597995213, guid: 5a9b7efc8b482b544aaa56c9dec3ca8e,
+  tipoDeFanA: {fileID: 4312060850811413569, guid: dbfe584b487fe0e479b12d941fcecfdc,
     type: 3}
-  tipoDeFanB: {fileID: 54040586604711354, guid: 7f57118f738a5b448a3ee5e9d9b68f8d,
+  tipoDeFanB: {fileID: 4312060850811413569, guid: 5d45cf043439e774bb636a1bc71b352f,
     type: 3}
   spawnPoint: {fileID: 688004750}
   timer: 5
@@ -5724,9 +5724,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce1e7857d6e0af748831eb5aa247dc52, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tipoDeFanA: {fileID: 5564210845515351366, guid: 3d1142dcb0600aa4dbfd90397d6b7bee,
+  tipoDeFanA: {fileID: 4312060850811413569, guid: 4e5ff7f611776fb4395c00a67aa4b516,
     type: 3}
-  tipoDeFanB: {fileID: 5601375446488956346, guid: b0b00403b0ef4cb41b9819d516d4db19,
+  tipoDeFanB: {fileID: 4312060850811413569, guid: 930ec0861a2f8e44da5fae08c26fba70,
     type: 3}
   spawnPoint: {fileID: 1611876994}
   timer: 5
@@ -27489,9 +27489,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce1e7857d6e0af748831eb5aa247dc52, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tipoDeFanA: {fileID: 8238807112612397208, guid: 18c1f8f93d9d5714698efda82dccb6bd,
+  tipoDeFanA: {fileID: 4312060850811413569, guid: e7650c2a7281e3d4da151817a0addf3a,
     type: 3}
-  tipoDeFanB: {fileID: -7468671766021903152, guid: 583516f0fb2e23548b3bb5ad45407556,
+  tipoDeFanB: {fileID: 4312060850811413569, guid: 4cd5a7f4648c85544aaf22a477a62d4b,
     type: 3}
   spawnPoint: {fileID: 1721170596}
   timer: 5
@@ -27503,7 +27503,7 @@ MonoBehaviour:
   - {fileID: 367585845}
   - {fileID: 291643864}
   cpManager: {fileID: 910608899}
-  spawnAs: 0
+  spawnAs: 2
 --- !u!114 &910608899
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -30055,9 +30055,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce1e7857d6e0af748831eb5aa247dc52, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tipoDeFanA: {fileID: -1711705006597995213, guid: 5a9b7efc8b482b544aaa56c9dec3ca8e,
+  tipoDeFanA: {fileID: 4312060850811413569, guid: dbfe584b487fe0e479b12d941fcecfdc,
     type: 3}
-  tipoDeFanB: {fileID: 54040586604711354, guid: 7f57118f738a5b448a3ee5e9d9b68f8d,
+  tipoDeFanB: {fileID: 4312060850811413569, guid: 5d45cf043439e774bb636a1bc71b352f,
     type: 3}
   spawnPoint: {fileID: 1404425605}
   timer: 5
@@ -37878,9 +37878,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce1e7857d6e0af748831eb5aa247dc52, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tipoDeFanA: {fileID: 8238807112612397208, guid: 18c1f8f93d9d5714698efda82dccb6bd,
+  tipoDeFanA: {fileID: 4312060850811413569, guid: e7650c2a7281e3d4da151817a0addf3a,
     type: 3}
-  tipoDeFanB: {fileID: -7468671766021903152, guid: 583516f0fb2e23548b3bb5ad45407556,
+  tipoDeFanB: {fileID: 4312060850811413569, guid: 4cd5a7f4648c85544aaf22a477a62d4b,
     type: 3}
   spawnPoint: {fileID: 691172834}
   timer: 5
@@ -37892,7 +37892,7 @@ MonoBehaviour:
   - {fileID: 1005606867}
   - {fileID: 1089488338}
   cpManager: {fileID: 2128671996}
-  spawnAs: 0
+  spawnAs: 2
 --- !u!114 &2128671996
 MonoBehaviour:
   m_ObjectHideFlags: 0
