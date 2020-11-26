@@ -15,8 +15,8 @@ public class ArcadeMinigame : MonoBehaviourPunCallbacks
     ManagerMinijuegos managerMinijuegos;
     GameObject originPanel;
     RPCManager RPCManager;
-    [SerializeField] Animator animVs;
-    bool vs;
+    //[SerializeField] Animator animVs;
+    //bool vs;
     bool inicio;
 
     //Barras
@@ -62,11 +62,11 @@ public class ArcadeMinigame : MonoBehaviourPunCallbacks
     {
         if (managerMinijuegos.minijuegos[originPanel.GetComponent<WhatTeamIsCalling>().id].numeroDeJugadores == 2)
         {
-            if (!vs)
-            {
-                //animVs.Play();
-                vs = true;
-            }
+            //if (!vs)
+            //{
+            //    //animVs.SetTrigger("");
+            //    //vs = true;
+            //}
             barraA.fillAmount = (float)managerMinijuegos.minijuegos[originPanel.GetComponent<WhatTeamIsCalling>().id].barraVersusA / mashLimit;
             barraB.fillAmount = (float)managerMinijuegos.minijuegos[originPanel.GetComponent<WhatTeamIsCalling>().id].barraVersusB / mashLimit;
         }
