@@ -82,55 +82,55 @@ public class PlazaCentralManager : MonoBehaviourPunCallbacks,IPunObservable
         switch (Tijeras_A)
         {
             case 0:
-               FanLSA.SetActive(true);
+               FanLSA.SetActive(false);
                 break;
             default:
-                FanLSA.SetActive(false);
+                FanLSA.SetActive(true);
                 break;
         }
         switch (Tijeras_B)
         {
             case 0:
-                FanLSB.SetActive(true);
+                FanLSB.SetActive(false);
                 break;
             default:
-                FanLSB.SetActive(false);
+                FanLSB.SetActive(true);
                 break;
         }
         switch (Piedra_A)
         {
             case 0:
-                FanChapitaA.SetActive(true);
+                FanChapitaA.SetActive(false);
                 break;
             default:
-                FanChapitaA.SetActive(false);
+                FanChapitaA.SetActive(true);
                 break;
         }
         switch (Piedra_B)
         {
             case 0:
-                FanChapitaB.SetActive(true);
+                FanChapitaB.SetActive(false);
                 break;
             default:
-                FanChapitaB.SetActive(false);
+                FanChapitaB.SetActive(true);
                 break;
         }
         switch (Papel_A)
         {
             case 0:
-                FanCartelA.SetActive(true);
+                FanCartelA.SetActive(false);
                 break;
             default:
-                FanCartelA.SetActive(false);
+                FanCartelA.SetActive(true);
                 break;
         }
         switch (Papel_B)
         {
             case 0:
-                FanCartelB.SetActive(true);
+                FanCartelB.SetActive(false);
                 break;
             default:
-                FanCartelB.SetActive(false);
+                FanCartelB.SetActive(true);
                 break;
         }
         #endregion
