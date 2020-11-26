@@ -18,6 +18,7 @@ public class JoinTeamA : MonoBehaviourPunCallbacks
     public GameObject tKey;
     public GameObject fKey;
     public GameObject rKey;
+    public GameObject escKey;
 
     private void Start()
     {
@@ -68,6 +69,8 @@ public class JoinTeamA : MonoBehaviourPunCallbacks
             player.GetComponent<FeedbackTrigger>().rKey = rKey;
             player.GetComponent<FeedbackTrigger>().tKey = tKey;
             player.GetComponent<FeedbackTrigger>().fKey = fKey;
+            player.GetComponent<FeedbackTrigger>().escKey= escKey;
+
             Debug.Log("Llegaste aqui");
         }
     }
