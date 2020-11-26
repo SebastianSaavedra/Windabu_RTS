@@ -133,7 +133,7 @@ Animator:
   m_Enabled: 1
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: d65e678f3c314a449b5219c50a6db705, type: 2}
-  m_CullingMode: 0
+  m_CullingMode: 2
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
@@ -218,4 +218,5 @@ MonoBehaviour:
   papel: 0
   cpmanager: {fileID: 0}
   pointsToGive: 0.5
+  sprite: {fileID: 0}
   timer: 5
