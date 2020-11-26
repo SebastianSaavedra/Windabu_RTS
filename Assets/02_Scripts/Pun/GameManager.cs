@@ -16,21 +16,16 @@ public class GameManager : MonoBehaviourPunCallbacks
         [SerializeField] GameObject playerPref;
         [SerializeField] GameObject joinedPlayer;
         [SerializeField] GameObject lobbyCanvas;
-
+        [SerializeField] GameObject buttonStart;
         #endregion
 
         private void Start()
         {
                 lobbyCanvas.SetActive(true);
-            //if (playerPref == null) 
-            //{
-            //    Debug.LogError("Bruh");
-            //}
-            //else 
-            //{
-            //    Debug.LogFormat("Instantiating Player");
-            //   PhotonNetwork.Instantiate(this.playerPref.name, new Vector3(0, 0, 0), Quaternion.identity, 0);
-            //}            
+            if (PhotonNetwork.IsMasterClient) 
+            {
+                buttonStart.SetActive(true);
+            }       
         }
         #region Photon call
 
