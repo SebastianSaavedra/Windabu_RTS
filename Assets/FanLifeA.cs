@@ -8,6 +8,7 @@ public class FanLifeA : MonoBehaviour
     PlazaCentralManager plaza;
     public CPManager cpmanager;
     [SerializeField] float pointsToGive;
+    [SerializeField] GameObject sprite;
     public float timer;
 
 
@@ -31,6 +32,7 @@ public class FanLifeA : MonoBehaviour
                 plaza.AddFan(2);
                 StartCoroutine(CalculateFanLifePapel());
             }
+            sprite.SetActive(false);
         }
     }
 
