@@ -52,6 +52,34 @@ public class TEST_Interact : MonoBehaviourPunCallbacks
                                         LocalPlayerManager.paperCounter--;
                                     }
                                     break;
+                                case 2:
+                                    if (LocalPlayerManager.stickCounter > 0) 
+                                    {
+                                    callSingle();
+                                    LocalPlayerManager.stickCounter--;
+                                    }
+                                    break;
+                                case 3:
+                                    if (LocalPlayerManager.stickCounter > 0)
+                                    {
+                                        callSingle();
+                                        LocalPlayerManager.stickCounter--;
+                                    }
+                                    break;
+                                case 4:
+                                    if (LocalPlayerManager.chapaCounter > 0)
+                                    {
+                                        callSingle();
+                                        LocalPlayerManager.chapaCounter--;
+                                    }
+                                    break;
+                                case 5:
+                                    if (LocalPlayerManager.chapaCounter > 0)
+                                    {
+                                        callSingle();
+                                        LocalPlayerManager.chapaCounter--;
+                                    }
+                                    break;
                                 default:
                                     callSingle();
                                     break;
@@ -64,16 +92,46 @@ public class TEST_Interact : MonoBehaviourPunCallbacks
                                     if (LocalPlayerManager.paperCounter > 0)
                                     {
                                         callMP();
+                                        LocalPlayerManager.paperCounter--;
                                     }
                                     break;
                                 case 1:
                                     if (LocalPlayerManager.paperCounter > 0)
                                     {
                                         callMP();
+                                        LocalPlayerManager.paperCounter--;
+                                    }
+                                    break;
+                                case 2:
+                                    if (LocalPlayerManager.stickCounter > 0)
+                                    {
+                                        callMP();
+                                        LocalPlayerManager.stickCounter--;
+                                    }
+                                    break;
+                                case 3:
+                                    if (LocalPlayerManager.stickCounter > 0)
+                                    {
+                                        callMP();
+                                        LocalPlayerManager.stickCounter--;
+                                    }
+                                    break;
+                                case 4:
+                                    if (LocalPlayerManager.chapaCounter > 0)
+                                    {
+                                        callMP();
+                                        LocalPlayerManager.chapaCounter--;
+                                    }
+                                    break;
+                                case 5:
+                                    if (LocalPlayerManager.chapaCounter > 0)
+                                    {
+                                        callMP();
+                                        LocalPlayerManager.chapaCounter--;
                                     }
                                     break;
                                 default:
-                                   callMP();
+                                    callMP();
                                     break;
                             }
                             break;

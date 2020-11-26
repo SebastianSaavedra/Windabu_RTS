@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34d048568d0c1cd43a240af86099e3f9, type: 3}
+  m_Name: RoomA0
+  m_EditorClassIdentifier: 
+  estadoDelMinijuego: 0
+  numeroDeJugadores: 0
+  completado: 0
+  jugadorUno: 0
+  jugadorDos: 0
+  barraVersusA: 0
+  barraVersusB: 0
+  rondaA: 0
+  rondaB: 0
+  cantidadDeFallosLightstickA: 0
+  cantidadDeFallosLightstickB: 0
+  intentosA: 0
+  intentosB: 0
+  falloLighstickA: 0
+  falloLighstickB: 0
