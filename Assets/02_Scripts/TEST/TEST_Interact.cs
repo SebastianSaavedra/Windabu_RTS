@@ -29,25 +29,51 @@ public class TEST_Interact : MonoBehaviourPunCallbacks
             
         if (Input.GetKeyDown(KeyCode.E) && !alreadyInteracted)
         {
+
                 #region MinijuegoBruh
                 if (objectToInteract.GetComponent<I_Interactable>()!=null && objectToInteract.GetComponent<TaskDropDown>().canInteract)
             {
-                    if (objectToInteract.GetComponent<TaskDropDown>().minijuegoData.numeroDeJugadores==0)
-                    {                
-                minigameID = (int)objectToInteract.GetComponent<TaskDropDown>().thisMinigame;
-                objectToInteract.GetComponent<I_Interactable>().OnInteract(GetComponent<PlayerTeam>().team);
-                 GetComponent<TEST_Movement>().enabled = false;
-                 alreadyInteracted = true;
-                    }
-                    else 
+                    switch (objectToInteract.GetComponent<TaskDropDown>().minijuegoData.numeroDeJugadores) 
                     {
-                        minigameID = (int)objectToInteract.GetComponent<TaskDropDown>().thisMinigame;
-                        objectToInteract.GetComponent<I_Interactable>().OnInteract(GetComponent<PlayerTeam>().team);
-                        GetComponent<TEST_Movement>().enabled = false;
-                        GameObject.Find("MinijuegosManager").GetComponent<ManagerMinijuegos>().CambiarInteractable(GetComponentInParent<PlayerId>().id,minigameID);
-                        alreadyChanged = true;
-                        alreadyInteracted = true;
+                        case 0:
+                            minigameID = (int)objectToInteract.GetComponent<TaskDropDown>().thisMinigame;
+                            objectToInteract.GetComponent<I_Interactable>().OnInteract(GetComponent<PlayerTeam>().team);
+                            GetComponent<TEST_Movement>().enabled = false;
+                            alreadyInteracted = true;
+                            break;
+
+                        case 1:
+                            minigameID = (int)objectToInteract.GetComponent<TaskDropDown>().thisMinigame;
+                            objectToInteract.GetComponent<I_Interactable>().OnInteract(GetComponent<PlayerTeam>().team);
+                            GetComponent<TEST_Movement>().enabled = false;
+                            GameObject.Find("MinijuegosManager").GetComponent<ManagerMinijuegos>().CambiarInteractable(GetComponentInParent<PlayerId>().id, minigameID);
+                            alreadyChanged = true;
+                            alreadyInteracted = true;
+                            break;
+                        case 2:
+                            Debug.Log("No puedes entrar");
+                            break;
                     }
+                    //if (objectToInteract.GetComponent<TaskDropDown>().minijuegoData.numeroDeJugadores >= 2) 
+                    //{
+                    //    Debug.Log("No puedes entrar");
+                    //}
+                //    if (objectToInteract.GetComponent<TaskDropDown>().minijuegoData.numeroDeJugadores==0)
+                //    {                
+                //minigameID = (int)objectToInteract.GetComponent<TaskDropDown>().thisMinigame;
+                //objectToInteract.GetComponent<I_Interactable>().OnInteract(GetComponent<PlayerTeam>().team);
+                // GetComponent<TEST_Movement>().enabled = false;
+                // alreadyInteracted = true;
+                //    }
+                    //else 
+                    //{
+                    //    minigameID = (int)objectToInteract.GetComponent<TaskDropDown>().thisMinigame;
+                    //    objectToInteract.GetComponent<I_Interactable>().OnInteract(GetComponent<PlayerTeam>().team);
+                    //    GetComponent<TEST_Movement>().enabled = false;
+                    //    GameObject.Find("MinijuegosManager").GetComponent<ManagerMinijuegos>().CambiarInteractable(GetComponentInParent<PlayerId>().id,minigameID);
+                    //    alreadyChanged = true;
+                    //    alreadyInteracted = true;
+                    //}
             }
                 #endregion
         }
