@@ -17,7 +17,7 @@ public class BoxProgression : MonoBehaviour
         inLvl1 = false;
 
         born.SetActive(true);
-        born.GetComponent<TaskDropDown>().enabled = false;
+        born.GetComponent<TaskDropDownMinigame>().enabled = false;
 
         ready.SetActive(false);
         upgraded.SetActive(false);
@@ -31,6 +31,7 @@ public class BoxProgression : MonoBehaviour
     public void Delivered()
     {
         inRoom = true;
-        born.GetComponent<TaskDropDown>().enabled = true;
+        born.GetComponent<TaskDropDownMinigame>().enabled = true;
+        born.GetComponent<TaskDropDownMinigame>().canInteract = true;
     }
 }

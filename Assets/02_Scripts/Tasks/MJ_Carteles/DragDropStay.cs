@@ -49,7 +49,6 @@ public class DragDropStay : MonoBehaviour, IDragHandler, IPointerDownHandler, IB
 
     public void OnPointerDown(PointerEventData eventData)
     {
-        Debug.Log("Clicked");
     }
 
     private void OnDisable()
