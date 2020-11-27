@@ -22,19 +22,21 @@ public class JoinTeamB : MonoBehaviourPunCallbacks
     {
         instpos = GameObject.Find("TeamBPos").GetComponent<Transform>();
     }
-    public void JoinTeam()
+    public void JoinTeam(string name, int playerActor)
     {
-        foreach (GameObject player in GameObject.FindGameObjectsWithTag("Player"))
-        {
-            if (player.GetComponentInParent<PlayerId>().id == PhotonNetwork.LocalPlayer.ActorNumber)
-            {
-                if (player.GetComponentInParent<PlayerTeam>().TeamA && player.GetComponentInParent<PlayerTeam>().TeamB)
-                    return;
-                player.GetComponentInParent<PlayerTeam>().TeamB = true;
-                photonView.RPC("ActivateText", RpcTarget.AllBuffered, player.GetComponentInParent<PlayerId>().name);
-                photonView.RPC("AddPlayerId", RpcTarget.AllBuffered, player.GetComponentInParent<PlayerId>().id);
-            }
-        }
+        //foreach (GameObject player in GameObject.FindGameObjectsWithTag("Player"))
+        //{
+        //    if (player.GetComponentInParent<PlayerId>().id == PhotonNetwork.LocalPlayer.ActorNumber)
+        //    {
+        //        if (player.GetComponentInParent<PlayerTeam>().TeamA && player.GetComponentInParent<PlayerTeam>().TeamB)
+        //            return;
+        //        player.GetComponentInParent<PlayerTeam>().TeamA = true;
+        //        //photonView.RPC("ActivateText", RpcTarget.AllBuffered, player.GetComponentInParent<PlayerId>().name);
+        //        // photonView.RPC("AddPlayerId", RpcTarget.AllBuffered, player.GetComponentInParent<PlayerId>().id);
+        //    }
+        //}
+        photonView.RPC("ActivateText", RpcTarget.AllBuffered, name);
+        photonView.RPC("AddPlayerId", RpcTarget.AllBuffered, playerActor);
     }
 
     [PunRPC]
@@ -54,6 +56,18 @@ public class JoinTeamB : MonoBehaviourPunCallbacks
     {
         if (callJoin)
             return;
+        else
+        {
+            foreach (GameObject player in GameObject.FindGameObjectsWithTag("Player"))
+            {
+                if (player.GetComponentInParent<PlayerId>().id == PhotonNetwork.LocalPlayer.ActorNumber)
+                {
+                    if (player.GetComponentInParent<PlayerTeam>().TeamA || player.GetComponentInParent<PlayerTeam>().TeamB)
+                        return;
+                }
+            }
+        }
+
         if (playerPref == null)
         {
             Debug.LogError("Bruh");
@@ -62,14 +76,15 @@ public class JoinTeamB : MonoBehaviourPunCallbacks
         {
             Debug.LogFormat("Instantiating Player");
             GameObject player = PhotonNetwork.Instantiate(this.playerPref.name, instpos.position, Quaternion.identity, 0);
-            player.GetComponentInParent<PlayerTeam>().TeamB= true;
-            callJoin = true;
+            player.GetComponent<PlayerTeam>().TeamB = true;
             player.GetComponent<FeedbackTrigger>().eKey = eKey;
             player.GetComponent<FeedbackTrigger>().rKey = rKey;
             player.GetComponent<FeedbackTrigger>().tKey = tKey;
             player.GetComponent<FeedbackTrigger>().fKey = fKey;
             player.GetComponent<FeedbackTrigger>().escKey = escKey;
+            JoinTeam(PhotonNetwork.LocalPlayer.NickName, PhotonNetwork.LocalPlayer.ActorNumber);
             Debug.Log("Llegaste aqui");
+            callJoin = true;
         }
     }
 
