@@ -13,6 +13,7 @@ public class InteractMinigame : MonoBehaviourPunCallbacks
     public bool alreadyInteracted;
     public int minigameID;
     public bool alreadyChanged;
+    [SerializeField] bool team;
 
     void Start()
     {
@@ -29,10 +30,7 @@ public class InteractMinigame : MonoBehaviourPunCallbacks
         {
             if (objectToInteract.GetComponent<I_Interactable>() != null && objectToInteract.GetComponent<TaskDropDownMinigame>().canInteract)
         {
-            GetComponent<TEST_Movement>().enabled = false;
-               // objectToInteract.GetComponent<I_Interactable>().OnInteract(true);
-                objectToInteract.GetComponent<I_Interactable>().OnInteract(GetComponent<PlayerTeam>().team);
-                alreadyInteracted = true;
+                    Interact(team);
         }
     }
         if (Input.GetKeyDown(KeyCode.Escape))
@@ -44,21 +42,45 @@ public class InteractMinigame : MonoBehaviourPunCallbacks
         }
     }
 
+    public void Interact(bool team) 
+    {
+        switch (team) 
+        {
+            case true:
+                if (objectToInteract.GetComponent<TaskDropDownMinigame>().moneyToentry >= MinigameManager.dineroA) 
+                {
+                    GetComponent<TEST_Movement>().enabled = false;
+                    // objectToInteract.GetComponent<I_Interactable>().OnInteract(true);
+                    objectToInteract.GetComponent<I_Interactable>().OnInteract(GetComponent<PlayerTeam>().team);
+                    alreadyInteracted = true;
+                }
+                break;
+
+            case false:
+                if (objectToInteract.GetComponent<TaskDropDownMinigame>().moneyToentry >= MinigameManager.dineroB)
+                {
+                    GetComponent<TEST_Movement>().enabled = false;
+                    // objectToInteract.GetComponent<I_Interactable>().OnInteract(true);
+                    objectToInteract.GetComponent<I_Interactable>().OnInteract(GetComponent<PlayerTeam>().team);
+                    alreadyInteracted = true;
+                }
+                break;
+        }
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (photonView.IsMine) 
-        {
+
         if (collision.GetComponent<TaskDropDownMinigame>())
         {
             objectToInteract = collision.gameObject;
         }
-        }
+
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (photonView.IsMine) 
-        {
+
         if (collision.GetComponent<TaskDropDownMinigame>())
         {
             alreadyInteracted = false;
@@ -66,5 +88,5 @@ public class InteractMinigame : MonoBehaviourPunCallbacks
                 objectToInteract = null;
             }
         }
-    }
+    
 }

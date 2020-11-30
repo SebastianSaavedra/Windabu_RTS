@@ -12,8 +12,7 @@ public class TaskDropDownMinigame : MonoBehaviourPunCallbacks, I_Interactable
     public ManagerMinijuegos managerMinijuegos;
     public PanelData panelData;
     GameObject objetoInstanciado;
-
-    [SerializeField] GameObject parent;
+    public int moneyToentry;
 
     public bool canInteract;
 

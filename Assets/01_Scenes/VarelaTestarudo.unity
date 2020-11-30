@@ -2887,6 +2887,7 @@ MonoBehaviour:
   wifi: {fileID: 1328016879}
   wifint: {fileID: 1328016878}
   celuAnim: {fileID: 1328016885}
+  player: {fileID: 0}
 --- !u!1 &334463295
 GameObject:
   m_ObjectHideFlags: 0
@@ -5437,6 +5438,7 @@ MonoBehaviour:
   wifi: {fileID: 1328016877}
   wifint: {fileID: 1328016876}
   celuAnim: {fileID: 1328016884}
+  player: {fileID: 0}
 --- !u!1 &577962023
 GameObject:
   m_ObjectHideFlags: 0
@@ -36221,6 +36223,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Enabled
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1696552624335281110, guid: 27f628dd141df584d81a36e777a36b23,
+        type: 3}
+      propertyPath: canInteract
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1696552624335281110, guid: 27f628dd141df584d81a36e777a36b23,
+        type: 3}
+      propertyPath: moneyToentry
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 3072405017941865810, guid: 27f628dd141df584d81a36e777a36b23,
         type: 3}

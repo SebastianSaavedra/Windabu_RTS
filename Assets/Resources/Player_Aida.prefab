@@ -651,7 +651,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6b89d4ead96c804daa3cdb232d34a89, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TeamA: 0
+  TeamA: 1
   TeamB: 0
   team: 0
 --- !u!114 &838612205943859340
@@ -748,6 +748,7 @@ MonoBehaviour:
   alreadyInteracted: 0
   minigameID: 0
   alreadyChanged: 0
+  team: 1
 --- !u!114 &534458156709570265
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -918,6 +919,7 @@ MonoBehaviour:
   OwnershipTransfer: 0
   ObservedComponents:
   - {fileID: 8523698794941611045}
+  - {fileID: 2778633007827537342}
   viewIdField: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
@@ -942,6 +944,21 @@ MonoBehaviour:
   m_SynchronizeLayers:
   - SynchronizeType: 0
     LayerIndex: 0
+--- !u!114 &2778633007827537342
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8028023820354302825}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 627855c7f81362d41938ffe0b1475957, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SynchronizePosition: 1
+  m_SynchronizeRotation: 1
+  m_SynchronizeScale: 0
 --- !u!1 &8941349316731579559
 GameObject:
   m_ObjectHideFlags: 0
