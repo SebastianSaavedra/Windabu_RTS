@@ -5623,6 +5623,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Obj_Imp3dA
       objectReference: {fileID: 0}
+    - target: {fileID: 4073144790399955248, guid: b03046127fb7e9845925713c83dc62d8,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5448557454086677644, guid: b03046127fb7e9845925713c83dc62d8,
         type: 3}
       propertyPath: managerMinijuegos
@@ -5690,6 +5695,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b03046127fb7e9845925713c83dc62d8, type: 3}
+--- !u!1 &630772098 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4073144790399955248, guid: b03046127fb7e9845925713c83dc62d8,
+    type: 3}
+  m_PrefabInstance: {fileID: 630772097}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &633256169
 GameObject:
   m_ObjectHideFlags: 0
@@ -34025,6 +34036,12 @@ MonoBehaviour:
     type: 3}
   imp3d: {fileID: 4073144790399955248, guid: fc1867b8888dd1144b2bc25cd41d4a88, type: 3}
   chapita: {fileID: 4073144790399955248, guid: ab3daaf12bab396469cd4be50e9d4d06, type: 3}
+  impresoraInd: {fileID: 0}
+  merch: {fileID: 0}
+  plotter: {fileID: 0}
+  superComputadora_1: {fileID: 0}
+  superComputadora_2: {fileID: 0}
+  superComputadora_3: {fileID: 0}
   team: 0
   uiMan: {fileID: 1160458838}
 --- !u!114 &1328016875
@@ -34046,13 +34063,18 @@ MonoBehaviour:
   imp3dDelay: 30
   chapitaCost: 15
   chapitaDelay: 20
-  canBuy_0: 0
-  canBuy_1: 0
-  canBuy_2: 0
-  impresora: {fileID: 4073144790399955248, guid: 27f628dd141df584d81a36e777a36b23,
-    type: 3}
-  imp3d: {fileID: 4073144790399955248, guid: b03046127fb7e9845925713c83dc62d8, type: 3}
-  chapita: {fileID: 4073144790399955248, guid: c502fd582e669024383d02b4d4b0f12f, type: 3}
+  canBuy_0: 1
+  canBuy_1: 1
+  canBuy_2: 1
+  impresora: {fileID: 1614904822}
+  imp3d: {fileID: 630772098}
+  chapita: {fileID: 1498434473}
+  impresoraInd: {fileID: 0}
+  merch: {fileID: 0}
+  plotter: {fileID: 0}
+  superComputadora_1: {fileID: 0}
+  superComputadora_2: {fileID: 0}
+  superComputadora_3: {fileID: 0}
   team: 1
   uiMan: {fileID: 1160458838}
 --- !u!1 &1328016876 stripped
@@ -35662,6 +35684,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Obj_ChapitasA
       objectReference: {fileID: 0}
+    - target: {fileID: 4073144790399955248, guid: c502fd582e669024383d02b4d4b0f12f,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5448557454086677644, guid: c502fd582e669024383d02b4d4b0f12f,
         type: 3}
       propertyPath: taskBarPanel
@@ -35738,6 +35765,12 @@ BoxCollider2D:
 --- !u!61 &1498434472 stripped
 BoxCollider2D:
   m_CorrespondingSourceObject: {fileID: 3427721792252533690, guid: c502fd582e669024383d02b4d4b0f12f,
+    type: 3}
+  m_PrefabInstance: {fileID: 1498434470}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1498434473 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4073144790399955248, guid: c502fd582e669024383d02b4d4b0f12f,
     type: 3}
   m_PrefabInstance: {fileID: 1498434470}
   m_PrefabAsset: {fileID: 0}
@@ -36209,6 +36242,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: ImpresoraAObj
       objectReference: {fileID: 0}
+    - target: {fileID: 4073144790399955248, guid: 27f628dd141df584d81a36e777a36b23,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5448557454086677644, guid: 27f628dd141df584d81a36e777a36b23,
         type: 3}
       propertyPath: managerMinijuegos
@@ -36276,6 +36314,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 27f628dd141df584d81a36e777a36b23, type: 3}
+--- !u!1 &1614904822 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4073144790399955248, guid: 27f628dd141df584d81a36e777a36b23,
+    type: 3}
+  m_PrefabInstance: {fileID: 1614904821}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1630174702
 GameObject:
   m_ObjectHideFlags: 0
