@@ -8,6 +8,7 @@ using UnityEngine.UI;
 public class ColSaver : MonoBehaviourPunCallbacks,IPunObservable
 {
     public Collider2D cols;
+    public Collider2D cols2;
     public bool team;
     public Minijuego room;
     public Transform goToOnInterrupt;
@@ -64,14 +65,14 @@ public class ColSaver : MonoBehaviourPunCallbacks,IPunObservable
     {
        
             cols.enabled = false;
+            cols2.enabled = false;
         
     }
     [PunRPC]
     public void EnableCols()
-    {
-       
-            cols.enabled = true;
-        
+    {     
+            cols.enabled = true;       
+            cols2.enabled = true;       
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -83,10 +84,6 @@ public class ColSaver : MonoBehaviourPunCallbacks,IPunObservable
         if (collision.GetComponent<PlayerTeam>().TeamB)
         {
             RPCAddPlayer(collision.GetComponent<PlayerId>().id, false);
-        }
-        if (collision.GetComponent<TaskDropDownMinigame>()) 
-        {
-            cols = collision.GetComponent<BoxCollider2D>();
         }
     }
 

@@ -19,8 +19,6 @@ public class BoxProgression : MonoBehaviourPunCallbacks
 
     private void Start()
     {
-        whatTeamIsCalling = GameObject.Find("OriginPanel").GetComponent<WhatTeamIsCalling>();
-        oP = GameObject.Find("OriginPanel").GetComponent<WhatTeamIsCalling>().gameObject;
         inRoom = false;
         inLvl1 = false;
 
@@ -32,20 +30,21 @@ public class BoxProgression : MonoBehaviourPunCallbacks
 
     private void Update()
     {
-        switch (team) 
-        {
-            case true:
-                gameObject.transform.parent = GameObject.Find("ImpresoraA").GetComponent<DataSaver>().gameObject.transform;
-                break;
-            case false:
-                gameObject.transform.parent = GameObject.Find("ImpresoraB").GetComponent<DataSaver>().gameObject.transform;
-                break;
-        }
-        if (born.GetComponent<TaskDropDownMinigame>().taskBarPanel.GetComponent<WhatTeamIsCalling>().mjFinished)
-        {
-        photonView.RPC("Finished", RpcTarget.AllViaServer,false,true);
+        //switch (team) 
+        //{
+        //    case true:
+        //        gameObject.transform.parent = GameObject.Find("ImpresoraA").GetComponent<DataSaver>().gameObject.transform;
+        //        break;
+        //    case false:
+        //        gameObject.transform.parent = GameObject.Find("ImpresoraB").GetComponent<DataSaver>().gameObject.transform;
+        //        break;
+        //}
+    }
+
+    public void CallFinish() 
+    {
+        photonView.RPC("Finished", RpcTarget.AllViaServer, false, true);
         taskDropDownMinigame.OnLeavePanel(true);
-        }
     }
     [PunRPC]
     public void Finished(bool deactive, bool active) 

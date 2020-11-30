@@ -28,16 +28,13 @@ public class TaskDropDownMinigame : MonoBehaviourPunCallbacks, I_Interactable
 
     private void Update()
     {
-        if (taskBarPanel == null)
-        {
-            taskBarPanel = parent.GetComponent<BoxProgression>().oP;
-        }
     }
 
     public void OnInteract(bool call)
     {
         taskBarPanel.SetActive(true);
-            GameObject panel = Instantiate(panelData.PanelA, taskBarPanel.transform.position, Quaternion.identity);
+        taskBarPanel.GetComponent<WhatTeamIsCalling>().team = call;
+        GameObject panel = Instantiate(panelData.PanelA, taskBarPanel.transform.position, Quaternion.identity);
             objetoInstanciado = panel;
             panel.transform.parent = taskBarPanel.transform;
             panel.transform.localScale = new Vector3(1, 1, 1);
@@ -62,13 +59,6 @@ public class TaskDropDownMinigame : MonoBehaviourPunCallbacks, I_Interactable
         photonView.RPC("OnFinishTask", RpcTarget.AllBuffered);
     }
 
-    public void OnTriggerExit2D(Collider2D collision)
-    {
-        if (collision.GetComponent<PlayerTeam>()) 
-        {
-            OnLeavePanel(true);
-        }
-    }
 
     [PunRPC]
     IEnumerator BlockTask()

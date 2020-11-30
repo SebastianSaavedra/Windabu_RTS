@@ -35,17 +35,41 @@ public class FinishMinigameManager : MonoBehaviour
             // Impresora
             case 1:
                 Debug.Log("Terminado");
-                GetComponentInParent<WhatTeamIsCalling>().mjFinished = true;
+                switch (GetComponentInParent<WhatTeamIsCalling>().team) 
+                {
+                    case true:
+                        GameObject.Find("ImpresoraAObj").GetComponent<BoxProgression>().CallFinish();
+                        break;
+                    case false:
+                        GameObject.Find("ImpresoraBObj").GetComponent<BoxProgression>().CallFinish();
+                        break;
+                }
                 break;
 
             // Impre3D
             case 2:
-                GetComponentInParent<WhatTeamIsCalling>().mjFinished = true;
+                switch (GetComponentInParent<WhatTeamIsCalling>().team)
+                {
+                    case true:
+                        GameObject.Find("Obj_Imp3dA").GetComponent<BoxProgression>().CallFinish();
+                        break;
+                    case false:
+                        GameObject.Find("Obj_Imp3dB").GetComponent<BoxProgression>().CallFinish();
+                        break;
+                }
                 break;
 
             // Maquina Chapitas
             case 3:
-                GetComponentInParent<WhatTeamIsCalling>().mjFinished = true;
+                switch (GetComponentInParent<WhatTeamIsCalling>().team)
+                {
+                    case true:
+                        GameObject.Find("Obj_ChapitasA").GetComponent<BoxProgression>().CallFinish();
+                        break;
+                    case false:
+                        GameObject.Find("Obj_ChapitasB").GetComponent<BoxProgression>().CallFinish();
+                        break;
+                }
                 break;
 
             // Super Pc
