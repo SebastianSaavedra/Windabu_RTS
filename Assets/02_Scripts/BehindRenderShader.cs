@@ -8,7 +8,6 @@ public class BehindRenderShader : MonoBehaviour
     //[SerializeField] GameObject camara;
     //[SerializeField] GameObject target;
     //[SerializeField] LayerMask layerMask;
-    [SerializeField] Collider2D mask;
 
     //private void Update()
     //{
@@ -26,23 +25,19 @@ public class BehindRenderShader : MonoBehaviour
     //        target.transform.DOScale(.5f, .5f);
     //    }
     //}
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        collision = mask;
-    }
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (mask.CompareTag("EsferaMask"))
+        if (collision.CompareTag("Edificio"))
         {
-            Debug.Log("Hiteo a: " + mask.name);
-            mask.transform.DOScale(1f, .5f);
+            Debug.Log("Hiteo a: " + collision.name);
+            gameObject.transform.DOScale(1f, .5f);
         }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        Debug.Log("No hay nadie en el pinche collider o_o");
-        mask.transform.localScale = new Vector3(0f, 0f, 1f); //.DOScale(0, .5f);
+        Debug.Log("Salio del collider");
+        gameObject.transform.localScale = new Vector3(0f, 0f, 1f); //.DOScale(0, .5f);
     }
 }

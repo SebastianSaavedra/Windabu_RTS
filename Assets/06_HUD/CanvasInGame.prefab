@@ -2874,7 +2874,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 8879869371024534227}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1328016867}
+        m_MethodName: Impresora
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!95 &4116206103500014653
 Animator:
   serializedVersion: 3
@@ -3540,7 +3551,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 7490977343652384443}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1328016874}
+        m_MethodName: Imp3d
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!95 &2802486593084407110
 Animator:
   serializedVersion: 3
@@ -3984,7 +4006,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2006552692511367742}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 384.33856}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_Children:
   - {fileID: 1543851592623739674}
@@ -5120,7 +5142,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 8450950472954497555}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1328016867}
+        m_MethodName: Chapitas
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!95 &8280018646919924410
 Animator:
   serializedVersion: 3
@@ -5155,7 +5188,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2768199287643934384
 Transform:
   m_ObjectHideFlags: 0
@@ -8022,7 +8055,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 4725082778828557732}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1328016874}
+        m_MethodName: Impresora
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!95 &2908656057079057906
 Animator:
   serializedVersion: 3
@@ -8052,6 +8096,8 @@ GameObject:
   m_Component:
   - component: {fileID: 3748336198963934251}
   - component: {fileID: 5501889181293021381}
+  - component: {fileID: 1328016874}
+  - component: {fileID: 1328016875}
   m_Layer: 0
   m_Name: CelularB
   m_TagString: Untagged
@@ -8093,6 +8139,61 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1328016874
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3680924887095154968}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1d845075849a6f4488bfc2a0e0c759c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemSpawnerPos: {fileID: 0}
+  impresoraCost: 100
+  impresoraDelay: 15
+  imp3dCost: 200
+  imp3dDelay: 30
+  chapitaCost: 150
+  chapitaDelay: 20
+  canBuy_0: 1
+  canBuy_1: 1
+  canBuy_2: 1
+  impresora: {fileID: 0}
+  imp3d: {fileID: 0}
+  chapita: {fileID: 0}
+  impresoraInd: {fileID: 0}
+  merch: {fileID: 0}
+  plotter: {fileID: 0}
+  superComputadora_1: {fileID: 0}
+  superComputadora_2: {fileID: 0}
+  superComputadora_3: {fileID: 0}
+  team: 0
+  uiMan: {fileID: 0}
+--- !u!114 &1328016875
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3680924887095154968}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  observableSearch: 2
+  Synchronization: 3
+  OwnershipTransfer: 0
+  ObservedComponents: []
+  viewIdField: 0
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
 --- !u!1 &3728259266522528772
 GameObject:
   m_ObjectHideFlags: 0
@@ -9124,7 +9225,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0, y: -75}
+  m_AnchoredPosition: {x: 0, y: -75}
   m_SizeDelta: {x: 81.795105, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4908971247133363512
@@ -9341,9 +9442,9 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4341694576586150717}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 6454763524230792169}
   - {fileID: 8399752336998086099}
@@ -9373,15 +9474,15 @@ Canvas:
   serializedVersion: 3
   m_RenderMode: 1
   m_Camera: {fileID: 0}
-  m_PlaneDistance: 100
+  m_PlaneDistance: 5
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 25
-  m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingLayerID: -715055127
+  m_SortingOrder: 1
   m_TargetDisplay: 0
 --- !u!114 &8273749471756779833
 MonoBehaviour:
@@ -11886,7 +11987,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 7447261742283055075}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1328016867}
+        m_MethodName: Imp3d
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!95 &2837059816779464739
 Animator:
   serializedVersion: 3
@@ -13704,7 +13816,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5597953369970645357}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 384.33856}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_Children:
   - {fileID: 7964293556371822881}
@@ -17562,6 +17674,8 @@ GameObject:
   m_Component:
   - component: {fileID: 8051420326843148329}
   - component: {fileID: 7833804632137416275}
+  - component: {fileID: 1328016867}
+  - component: {fileID: 1328016870}
   m_Layer: 0
   m_Name: CelularA
   m_TagString: Untagged
@@ -17603,6 +17717,61 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1328016867
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7176726965981812538}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1d845075849a6f4488bfc2a0e0c759c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemSpawnerPos: {fileID: 0}
+  impresoraCost: 100
+  impresoraDelay: 15
+  imp3dCost: 200
+  imp3dDelay: 30
+  chapitaCost: 150
+  chapitaDelay: 20
+  canBuy_0: 1
+  canBuy_1: 1
+  canBuy_2: 1
+  impresora: {fileID: 0}
+  imp3d: {fileID: 0}
+  chapita: {fileID: 0}
+  impresoraInd: {fileID: 0}
+  merch: {fileID: 0}
+  plotter: {fileID: 0}
+  superComputadora_1: {fileID: 0}
+  superComputadora_2: {fileID: 0}
+  superComputadora_3: {fileID: 0}
+  team: 1
+  uiMan: {fileID: 0}
+--- !u!114 &1328016870
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7176726965981812538}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  observableSearch: 2
+  Synchronization: 3
+  OwnershipTransfer: 0
+  ObservedComponents: []
+  viewIdField: 0
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
 --- !u!1 &7178339920564656403
 GameObject:
   m_ObjectHideFlags: 0
@@ -18722,7 +18891,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 3343308620812065379}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1328016874}
+        m_MethodName: Imp3d
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!95 &242771379441365137
 Animator:
   serializedVersion: 3
