@@ -32849,6 +32849,34 @@ PrefabInstance:
       propertyPath: scDelay
       value: 30
       objectReference: {fileID: 0}
+    - target: {fileID: 1328016867, guid: a3149a40513b9544ba50dbc360b4355c, type: 3}
+      propertyPath: impresbut
+      value: 
+      objectReference: {fileID: 1328016872}
+    - target: {fileID: 1328016867, guid: a3149a40513b9544ba50dbc360b4355c, type: 3}
+      propertyPath: chapbut
+      value: 
+      objectReference: {fileID: 1328016871}
+    - target: {fileID: 1328016867, guid: a3149a40513b9544ba50dbc360b4355c, type: 3}
+      propertyPath: impre3dbut
+      value: 
+      objectReference: {fileID: 1328016870}
+    - target: {fileID: 1328016867, guid: a3149a40513b9544ba50dbc360b4355c, type: 3}
+      propertyPath: plotbut
+      value: 
+      objectReference: {fileID: 1328016867}
+    - target: {fileID: 1328016867, guid: a3149a40513b9544ba50dbc360b4355c, type: 3}
+      propertyPath: merchbut
+      value: 
+      objectReference: {fileID: 1328016851}
+    - target: {fileID: 1328016867, guid: a3149a40513b9544ba50dbc360b4355c, type: 3}
+      propertyPath: indbut
+      value: 
+      objectReference: {fileID: 1328016850}
+    - target: {fileID: 1328016867, guid: a3149a40513b9544ba50dbc360b4355c, type: 3}
+      propertyPath: scbut
+      value: 
+      objectReference: {fileID: 1328016849}
     - target: {fileID: 1328016870, guid: a3149a40513b9544ba50dbc360b4355c, type: 3}
       propertyPath: viewIdField
       value: 78
@@ -33553,6 +33581,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1d845075849a6f4488bfc2a0e0c759c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1328016849 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2373213696680309532, guid: a3149a40513b9544ba50dbc360b4355c,
+    type: 3}
+  m_PrefabInstance: {fileID: 1328016825}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1328016850 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8037220254612246606, guid: a3149a40513b9544ba50dbc360b4355c,
+    type: 3}
+  m_PrefabInstance: {fileID: 1328016825}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1328016851 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 358516235442437108, guid: a3149a40513b9544ba50dbc360b4355c,
+    type: 3}
+  m_PrefabInstance: {fileID: 1328016825}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1328016852 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1592238322372927232, guid: a3149a40513b9544ba50dbc360b4355c,
@@ -33679,6 +33725,12 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1328016825}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1328016867 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8138203450450248422, guid: a3149a40513b9544ba50dbc360b4355c,
+    type: 3}
+  m_PrefabInstance: {fileID: 1328016825}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1328016868 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3131868006609552624, guid: a3149a40513b9544ba50dbc360b4355c,
@@ -33688,6 +33740,24 @@ GameObject:
 --- !u!1 &1328016869 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5199506524713772108, guid: a3149a40513b9544ba50dbc360b4355c,
+    type: 3}
+  m_PrefabInstance: {fileID: 1328016825}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1328016870 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5097714953872474221, guid: a3149a40513b9544ba50dbc360b4355c,
+    type: 3}
+  m_PrefabInstance: {fileID: 1328016825}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1328016871 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2429676322626612785, guid: a3149a40513b9544ba50dbc360b4355c,
+    type: 3}
+  m_PrefabInstance: {fileID: 1328016825}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1328016872 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1495180216948461466, guid: a3149a40513b9544ba50dbc360b4355c,
     type: 3}
   m_PrefabInstance: {fileID: 1328016825}
   m_PrefabAsset: {fileID: 0}
@@ -33743,6 +33813,13 @@ MonoBehaviour:
   superComputadora_3: {fileID: 0}
   team: 0
   uiMan: {fileID: 1160458838}
+  impresbut: {fileID: 0}
+  chapbut: {fileID: 0}
+  impre3dbut: {fileID: 0}
+  plotbut: {fileID: 0}
+  merchbut: {fileID: 0}
+  indbut: {fileID: 0}
+  scbut: {fileID: 0}
 --- !u!1 &1328016876 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4184184835737652793, guid: a3149a40513b9544ba50dbc360b4355c,

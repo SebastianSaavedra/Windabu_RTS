@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
 using Photon.Realtime;
+using UnityEngine.UI;
 
 public class ShopManager : MonoBehaviourPunCallbacks
 {
@@ -19,12 +20,159 @@ public class ShopManager : MonoBehaviourPunCallbacks
 
     [SerializeField] bool team;
     [SerializeField] UIManager uiMan;
+    [Header("Botones")]
+    [SerializeField]
+    GameObject impresbut, chapbut, impre3dbut, plotbut, merchbut, indbut, scbut;
 
 
     private void Start()
     {
     }
 
+    private void Update()
+    {
+        switch (team) 
+        {
+            case true:
+                switch (MinigameManager.dineroA) 
+                {
+                    case 0:
+                        impresbut.GetComponent<Image>().color = Color.gray;
+                        chapbut.GetComponent<Image>().color = Color.gray;
+                        impre3dbut.GetComponent<Image>().color = Color.gray;
+                        plotbut.GetComponent<Image>().color = Color.gray;
+                        merchbut.GetComponent<Image>().color = Color.gray;
+                        indbut.GetComponent<Image>().color = Color.gray;
+                        scbut.GetComponent<Image>().color = Color.gray;
+                        break;
+                    case 100:
+                        impresbut.GetComponent<Image>().color = Color.white;
+                        chapbut.GetComponent<Image>().color = Color.gray;
+                        impre3dbut.GetComponent<Image>().color = Color.gray;
+                        plotbut.GetComponent<Image>().color = Color.gray;
+                        merchbut.GetComponent<Image>().color = Color.gray;
+                        indbut.GetComponent<Image>().color = Color.gray;
+                        scbut.GetComponent<Image>().color = Color.gray;
+                        break;
+                    case 150:
+                        impresbut.GetComponent<Image>().color = Color.white;
+                        chapbut.GetComponent<Image>().color = Color.white;
+                        impre3dbut.GetComponent<Image>().color = Color.gray;
+                        plotbut.GetComponent<Image>().color = Color.gray;
+                        merchbut.GetComponent<Image>().color = Color.gray;
+                        indbut.GetComponent<Image>().color = Color.gray;
+                        scbut.GetComponent<Image>().color = Color.gray;
+                        break;
+                    case 200:
+                        impresbut.GetComponent<Image>().color = Color.white;
+                        chapbut.GetComponent<Image>().color = Color.white;
+                        impre3dbut.GetComponent<Image>().color = Color.white;
+                        plotbut.GetComponent<Image>().color = Color.gray;
+                        merchbut.GetComponent<Image>().color = Color.gray;
+                        indbut.GetComponent<Image>().color = Color.gray;
+                        scbut.GetComponent<Image>().color = Color.gray;
+                        break;
+                    case 300:
+                        impresbut.GetComponent<Image>().color = Color.white;
+                        chapbut.GetComponent<Image>().color = Color.white;
+                        impre3dbut.GetComponent<Image>().color = Color.white;
+                        plotbut.GetComponent<Image>().color = Color.white;
+                        merchbut.GetComponent<Image>().color = Color.gray;
+                        indbut.GetComponent<Image>().color = Color.gray;
+                        scbut.GetComponent<Image>().color = Color.white;
+                        break;
+                    case 350:
+                        impresbut.GetComponent<Image>().color = Color.white;
+                        chapbut.GetComponent<Image>().color = Color.white;
+                        impre3dbut.GetComponent<Image>().color = Color.white;
+                        plotbut.GetComponent<Image>().color = Color.white;
+                        merchbut.GetComponent<Image>().color = Color.white;
+                        indbut.GetComponent<Image>().color = Color.gray;
+                        scbut.GetComponent<Image>().color = Color.white;
+                        break;
+                    case 500:
+                        impresbut.GetComponent<Image>().color = Color.white;
+                        chapbut.GetComponent<Image>().color = Color.white;
+                        impre3dbut.GetComponent<Image>().color = Color.white;
+                        plotbut.GetComponent<Image>().color = Color.white;
+                        merchbut.GetComponent<Image>().color = Color.white;
+                        indbut.GetComponent<Image>().color = Color.white;
+                        scbut.GetComponent<Image>().color = Color.white;
+                        break;
+                }
+                break;
+
+
+            case false:
+                switch (MinigameManager.dineroB)
+                {
+                    case 0:
+                        impresbut.GetComponent<Image>().color = Color.gray;
+                        chapbut.GetComponent<Image>().color = Color.gray;
+                        impre3dbut.GetComponent<Image>().color = Color.gray;
+                        plotbut.GetComponent<Image>().color = Color.gray;
+                        merchbut.GetComponent<Image>().color = Color.gray;
+                        indbut.GetComponent<Image>().color = Color.gray;
+                        scbut.GetComponent<Image>().color = Color.gray;
+                        break;
+                    case 100:
+                        impresbut.GetComponent<Image>().color = Color.white;
+                        chapbut.GetComponent<Image>().color = Color.gray;
+                        impre3dbut.GetComponent<Image>().color = Color.gray;
+                        plotbut.GetComponent<Image>().color = Color.gray;
+                        merchbut.GetComponent<Image>().color = Color.gray;
+                        indbut.GetComponent<Image>().color = Color.gray;
+                        scbut.GetComponent<Image>().color = Color.gray;
+                        break;
+                    case 150:
+                        impresbut.GetComponent<Image>().color = Color.white;
+                        chapbut.GetComponent<Image>().color = Color.white;
+                        impre3dbut.GetComponent<Image>().color = Color.gray;
+                        plotbut.GetComponent<Image>().color = Color.gray;
+                        merchbut.GetComponent<Image>().color = Color.gray;
+                        indbut.GetComponent<Image>().color = Color.gray;
+                        scbut.GetComponent<Image>().color = Color.gray;
+                        break;
+                    case 200:
+                        impresbut.GetComponent<Image>().color = Color.white;
+                        chapbut.GetComponent<Image>().color = Color.white;
+                        impre3dbut.GetComponent<Image>().color = Color.white;
+                        plotbut.GetComponent<Image>().color = Color.gray;
+                        merchbut.GetComponent<Image>().color = Color.gray;
+                        indbut.GetComponent<Image>().color = Color.gray;
+                        scbut.GetComponent<Image>().color = Color.gray;
+                        break;
+                    case 300:
+                        impresbut.GetComponent<Image>().color = Color.white;
+                        chapbut.GetComponent<Image>().color = Color.white;
+                        impre3dbut.GetComponent<Image>().color = Color.white;
+                        plotbut.GetComponent<Image>().color = Color.white;
+                        merchbut.GetComponent<Image>().color = Color.gray;
+                        indbut.GetComponent<Image>().color = Color.gray;
+                        scbut.GetComponent<Image>().color = Color.white;
+                        break;
+                    case 350:
+                        impresbut.GetComponent<Image>().color = Color.white;
+                        chapbut.GetComponent<Image>().color = Color.white;
+                        impre3dbut.GetComponent<Image>().color = Color.white;
+                        plotbut.GetComponent<Image>().color = Color.white;
+                        merchbut.GetComponent<Image>().color = Color.white;
+                        indbut.GetComponent<Image>().color = Color.gray;
+                        scbut.GetComponent<Image>().color = Color.white;
+                        break;
+                    case 500:
+                        impresbut.GetComponent<Image>().color = Color.white;
+                        chapbut.GetComponent<Image>().color = Color.white;
+                        impre3dbut.GetComponent<Image>().color = Color.white;
+                        plotbut.GetComponent<Image>().color = Color.white;
+                        merchbut.GetComponent<Image>().color = Color.white;
+                        indbut.GetComponent<Image>().color = Color.white;
+                        scbut.GetComponent<Image>().color = Color.white;
+                        break;
+                }
+                break;
+        }
+    }
     public void OtraCompra()
     {
         if (team)
@@ -308,7 +456,6 @@ public class ShopManager : MonoBehaviourPunCallbacks
                 MinigameManager.dineroB -= (int)scCost;
                 uiMan.CallRpc(team, 6);
                 photonView.RPC("cantBuy", RpcTarget.AllViaServer, 6);
-                //gameObject.GetComponent<TeamManager>().money -= impresoraCost;
             }
             else
             {
