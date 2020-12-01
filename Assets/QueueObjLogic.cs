@@ -70,6 +70,13 @@ public class QueueObjLogic : MonoBehaviour
                 canStart = true;
                 //StartCoroutine(Matate());
                 break;
+
+            case 3:
+                sprite.sprite = quedeData[3].spriteImg;
+                timeToDissapear = quedeData[3].Timer;
+                normalizedValue = timeToDissapear;
+                canStart = true;
+                break;
         }
     }
 
