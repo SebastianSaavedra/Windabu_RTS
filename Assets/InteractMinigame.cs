@@ -47,7 +47,7 @@ public class InteractMinigame : MonoBehaviourPunCallbacks
         switch (team) 
         {
             case true:
-                if (objectToInteract.GetComponent<TaskDropDownMinigame>().moneyToentry >= MinigameManager.dineroA) 
+                if (MinigameManager.dineroA >= objectToInteract.GetComponent<TaskDropDownMinigame>().moneyToentry)
                 {
                     GetComponent<TEST_Movement>().enabled = false;
                     // objectToInteract.GetComponent<I_Interactable>().OnInteract(true);
@@ -57,7 +57,7 @@ public class InteractMinigame : MonoBehaviourPunCallbacks
                 break;
 
             case false:
-                if (objectToInteract.GetComponent<TaskDropDownMinigame>().moneyToentry >= MinigameManager.dineroB)
+                if (MinigameManager.dineroB >= objectToInteract.GetComponent<TaskDropDownMinigame>().moneyToentry)
                 {
                     GetComponent<TEST_Movement>().enabled = false;
                     // objectToInteract.GetComponent<I_Interactable>().OnInteract(true);
