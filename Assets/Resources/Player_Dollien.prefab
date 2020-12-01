@@ -263,12 +263,12 @@ GameObject:
   - component: {fileID: 4489681878159138648}
   - component: {fileID: 4322383388125986165}
   - component: {fileID: 6617878842333182034}
-  - component: {fileID: 5173754573729893769}
   - component: {fileID: 8795063355648130829}
   - component: {fileID: 2779417046352815878}
   - component: {fileID: 7975786867480095155}
   - component: {fileID: 5053956623789073663}
   - component: {fileID: 769095869257446225}
+  - component: {fileID: 7042644985345981846}
   m_Layer: 9
   m_Name: Player_Dollien
   m_TagString: Player
@@ -565,19 +565,6 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 1.55
---- !u!114 &5173754573729893769
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5816013650376650916}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 15a6660f8414ca74081d307a0a5cdf13, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  boxHolder: {fileID: 942030114116439656}
 --- !u!114 &8795063355648130829
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -745,6 +732,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57f96f14b2637b74e966aefeee2c380a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &7042644985345981846
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5816013650376650916}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9791e25bce2c8a640bcd3b01bf90d75d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cartel: {fileID: 0}
+  chapitas: {fileID: 0}
+  stick: {fileID: 0}
 --- !u!95 &6037209170135813915
 Animator:
   serializedVersion: 3

@@ -63,7 +63,7 @@ public class MoneyClicker : MonoBehaviour
             {
                 macroLike += 10;
             }
-            Minijuegos.m_clicksA(macroLike / 10);
+            Minijuegos.m_clicksA(macroLike);
 
             likes -= macroLike;
             dineroText.text = "" + likes;
@@ -75,7 +75,7 @@ public class MoneyClicker : MonoBehaviour
             {
                 macroLike += 10;
             }
-            Minijuegos.m_clicksB(macroLike / 10);
+            Minijuegos.m_clicksB(macroLike);
 
             likes -= macroLike;
             dineroText.text = "" + likes;

@@ -30232,8 +30232,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac4a91ac6a2fa7843b3bff22709a4185, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moneyText: {fileID: 0}
-  moneyText2: {fileID: 0}
+  moneyText: {fileID: 1328016847}
+  moneyText2: {fileID: 1328016846}
   teamAHudParentTop: {fileID: 1328016833}
   teamAHudParentDown: {fileID: 1328016835}
   teamBHudParentTop: {fileID: 1328016832}
@@ -32560,6 +32560,30 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1328016825}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1328016846 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1655985368738129183, guid: a3149a40513b9544ba50dbc360b4355c,
+    type: 3}
+  m_PrefabInstance: {fileID: 1328016825}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1328016847 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2265386994971362418, guid: a3149a40513b9544ba50dbc360b4355c,
+    type: 3}
+  m_PrefabInstance: {fileID: 1328016825}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1328016852 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1592238322372927232, guid: a3149a40513b9544ba50dbc360b4355c,
@@ -32731,6 +32755,28 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1328016825}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1328016870
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1328016866}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  observableSearch: 2
+  Synchronization: 3
+  OwnershipTransfer: 0
+  ObservedComponents: []
+  viewIdField: 28
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
 --- !u!1 &1328016873 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3680924887095154968, guid: a3149a40513b9544ba50dbc360b4355c,
@@ -32770,6 +32816,28 @@ MonoBehaviour:
   superComputadora_3: {fileID: 0}
   team: 0
   uiMan: {fileID: 1160458838}
+--- !u!114 &1328016875
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1328016873}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  observableSearch: 2
+  Synchronization: 3
+  OwnershipTransfer: 0
+  ObservedComponents: []
+  viewIdField: 29
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
 --- !u!1 &1328016876 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4184184835737652793, guid: a3149a40513b9544ba50dbc360b4355c,
