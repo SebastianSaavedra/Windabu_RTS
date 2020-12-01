@@ -111,6 +111,45 @@ public class FinishMinigameManager : MonoBehaviour
                 }
                 break;
 
+            // SuperPc 1
+            case 7:
+                switch (GetComponentInParent<WhatTeamIsCalling>().team)
+                {
+                    case true:
+                        GameObject.Find("Obj_SuperPc1A").GetComponent<BoxProgression>().CallFinish();
+                        break;
+                    case false:
+                        GameObject.Find("Obj_SuperPc1B").GetComponent<BoxProgression>().CallFinish();
+                        break;
+                }
+                break;
+
+            // SuperPc 2
+            case 8:
+                switch (GetComponentInParent<WhatTeamIsCalling>().team)
+                {
+                    case true:
+                        GameObject.Find("Obj_SuperPc2A").GetComponent<BoxProgression>().CallFinish();
+                        break;
+                    case false:
+                        GameObject.Find("Obj_SuperPc2B").GetComponent<BoxProgression>().CallFinish();
+                        break;
+                }
+                break;
+
+            // SuperPc 3
+            case 9:
+                switch (GetComponentInParent<WhatTeamIsCalling>().team)
+                {
+                    case true:
+                        GameObject.Find("Obj_SuperPc3A").GetComponent<BoxProgression>().CallFinish();
+                        break;
+                    case false:
+                        GameObject.Find("Obj_SuperPc3B").GetComponent<BoxProgression>().CallFinish();
+                        break;
+                }
+                break;
+
             // -----------  Producir -------------
 
             // Cartel - Impresora
@@ -131,9 +170,17 @@ public class FinishMinigameManager : MonoBehaviour
                 Debug.Log(LocalPlayerManager.chapaCounter);
                 break;
 
+            // Plotter ?
             case 14:
                 LocalPlayerManager.paperCounter++;
                 Debug.Log(LocalPlayerManager.paperCounter);
+                break;
+
+
+
+            // SuperPc
+            case 18:
+                Debug.Log("Super Pc Procesando");
                 break;
         }
     }
