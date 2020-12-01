@@ -2776,6 +2776,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 261158692}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &261158694 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4073144790399955248, guid: f05eb4e68a631ea459cdb494ffa92325,
+    type: 3}
+  m_PrefabInstance: {fileID: 261158692}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &269876383
 GameObject:
   m_ObjectHideFlags: 0
@@ -3405,6 +3411,12 @@ MonoBehaviour:
   team: 1
   timer: 2
   moneyToGive: 1
+--- !u!1 &340589458 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4073144790399955248, guid: 9550b7a6e150e6f4ba99b2d40320a2ce,
+    type: 3}
+  m_PrefabInstance: {fileID: 340589454}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &344549558
 GameObject:
   m_ObjectHideFlags: 0
@@ -32766,7 +32778,7 @@ PrefabInstance:
     - target: {fileID: 1231250300444406844, guid: ab18c6628d0850e4c9ae0891f311f1fd,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2709780592258106591, guid: ab18c6628d0850e4c9ae0891f311f1fd,
         type: 3}
@@ -33501,6 +33513,82 @@ PrefabInstance:
       propertyPath: uiMan
       value: 
       objectReference: {fileID: 1160458838}
+    - target: {fileID: 1328016874, guid: a3149a40513b9544ba50dbc360b4355c, type: 3}
+      propertyPath: impIndus
+      value: 
+      objectReference: {fileID: 261158694}
+    - target: {fileID: 1328016874, guid: a3149a40513b9544ba50dbc360b4355c, type: 3}
+      propertyPath: merch
+      value: 
+      objectReference: {fileID: 1684200127}
+    - target: {fileID: 1328016874, guid: a3149a40513b9544ba50dbc360b4355c, type: 3}
+      propertyPath: plotter
+      value: 
+      objectReference: {fileID: 2087349018}
+    - target: {fileID: 1328016874, guid: a3149a40513b9544ba50dbc360b4355c, type: 3}
+      propertyPath: superComputadora_1
+      value: 
+      objectReference: {fileID: 1365518286}
+    - target: {fileID: 1328016874, guid: a3149a40513b9544ba50dbc360b4355c, type: 3}
+      propertyPath: superComputadora_2
+      value: 
+      objectReference: {fileID: 1798755456}
+    - target: {fileID: 1328016874, guid: a3149a40513b9544ba50dbc360b4355c, type: 3}
+      propertyPath: superComputadora_3
+      value: 
+      objectReference: {fileID: 340589458}
+    - target: {fileID: 1328016874, guid: a3149a40513b9544ba50dbc360b4355c, type: 3}
+      propertyPath: impresbut
+      value: 
+      objectReference: {fileID: 1328016887}
+    - target: {fileID: 1328016874, guid: a3149a40513b9544ba50dbc360b4355c, type: 3}
+      propertyPath: chapbut
+      value: 
+      objectReference: {fileID: 1328016886}
+    - target: {fileID: 1328016874, guid: a3149a40513b9544ba50dbc360b4355c, type: 3}
+      propertyPath: impre3dbut
+      value: 
+      objectReference: {fileID: 1328016883}
+    - target: {fileID: 1328016874, guid: a3149a40513b9544ba50dbc360b4355c, type: 3}
+      propertyPath: plotbut
+      value: 
+      objectReference: {fileID: 1328016882}
+    - target: {fileID: 1328016874, guid: a3149a40513b9544ba50dbc360b4355c, type: 3}
+      propertyPath: merchbut
+      value: 
+      objectReference: {fileID: 1328016881}
+    - target: {fileID: 1328016874, guid: a3149a40513b9544ba50dbc360b4355c, type: 3}
+      propertyPath: indbut
+      value: 
+      objectReference: {fileID: 1328016880}
+    - target: {fileID: 1328016874, guid: a3149a40513b9544ba50dbc360b4355c, type: 3}
+      propertyPath: scbut
+      value: 
+      objectReference: {fileID: 1328016875}
+    - target: {fileID: 1328016874, guid: a3149a40513b9544ba50dbc360b4355c, type: 3}
+      propertyPath: canBuy_3
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1328016874, guid: a3149a40513b9544ba50dbc360b4355c, type: 3}
+      propertyPath: canBuy_5
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1328016874, guid: a3149a40513b9544ba50dbc360b4355c, type: 3}
+      propertyPath: canBuy_4
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1328016874, guid: a3149a40513b9544ba50dbc360b4355c, type: 3}
+      propertyPath: sc0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1328016874, guid: a3149a40513b9544ba50dbc360b4355c, type: 3}
+      propertyPath: ploterCost
+      value: 300
+      objectReference: {fileID: 0}
+    - target: {fileID: 1328016874, guid: a3149a40513b9544ba50dbc360b4355c, type: 3}
+      propertyPath: ploterDelay
+      value: 15
+      objectReference: {fileID: 0}
     - target: {fileID: 1328016875, guid: a3149a40513b9544ba50dbc360b4355c, type: 3}
       propertyPath: itemSpawnerPos
       value: 
@@ -33772,7 +33860,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1328016874}
+      objectReference: {fileID: 0}
     - target: {fileID: 4111095810598201518, guid: a3149a40513b9544ba50dbc360b4355c,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
@@ -33837,7 +33925,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1328016874}
+      objectReference: {fileID: 0}
     - target: {fileID: 5541573759541270391, guid: a3149a40513b9544ba50dbc360b4355c,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
@@ -33902,7 +33990,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1328016874}
+      objectReference: {fileID: 0}
     - target: {fileID: 6497275860367971568, guid: a3149a40513b9544ba50dbc360b4355c,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
@@ -34367,59 +34455,12 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1328016825}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1328016874
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+--- !u!1 &1328016875 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4617858126619913111, guid: a3149a40513b9544ba50dbc360b4355c,
+    type: 3}
+  m_PrefabInstance: {fileID: 1328016825}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1328016873}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e1d845075849a6f4488bfc2a0e0c759c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  impresoraCost: 100
-  impresoraDelay: 15
-  imp3dCost: 200
-  imp3dDelay: 30
-  chapitaCost: 150
-  chapitaDelay: 20
-  ploterCost: 200
-  ploterDelay: 1
-  merchCost: 1
-  merchDelay: 1
-  impIndusCost: 1
-  impIndusDelay: 1
-  scCost: 1
-  scDelay: 20
-  canBuy_0: 1
-  canBuy_1: 1
-  canBuy_2: 1
-  canBuy_3: 0
-  canBuy_4: 0
-  canBuy_5: 0
-  sc0: 0
-  sc1: 0
-  sc2: 0
-  impresora: {fileID: 1814505637}
-  imp3d: {fileID: 1397747384}
-  chapita: {fileID: 1587239419}
-  impIndus: {fileID: 0}
-  merch: {fileID: 0}
-  plotter: {fileID: 0}
-  superComputadora_1: {fileID: 0}
-  superComputadora_2: {fileID: 0}
-  superComputadora_3: {fileID: 0}
-  team: 0
-  uiMan: {fileID: 1160458838}
-  impresbut: {fileID: 0}
-  chapbut: {fileID: 0}
-  impre3dbut: {fileID: 0}
-  plotbut: {fileID: 0}
-  merchbut: {fileID: 0}
-  indbut: {fileID: 0}
-  scbut: {fileID: 0}
 --- !u!1 &1328016876 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4184184835737652793, guid: a3149a40513b9544ba50dbc360b4355c,
@@ -34444,6 +34485,30 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1328016825}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1328016880 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6147210007186718730, guid: a3149a40513b9544ba50dbc360b4355c,
+    type: 3}
+  m_PrefabInstance: {fileID: 1328016825}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1328016881 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5452240224179466072, guid: a3149a40513b9544ba50dbc360b4355c,
+    type: 3}
+  m_PrefabInstance: {fileID: 1328016825}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1328016882 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5066162544437684301, guid: a3149a40513b9544ba50dbc360b4355c,
+    type: 3}
+  m_PrefabInstance: {fileID: 1328016825}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1328016883 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1833411062587993813, guid: a3149a40513b9544ba50dbc360b4355c,
+    type: 3}
+  m_PrefabInstance: {fileID: 1328016825}
+  m_PrefabAsset: {fileID: 0}
 --- !u!95 &1328016884 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 5501889181293021381, guid: a3149a40513b9544ba50dbc360b4355c,
@@ -34453,6 +34518,18 @@ Animator:
 --- !u!95 &1328016885 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 7833804632137416275, guid: a3149a40513b9544ba50dbc360b4355c,
+    type: 3}
+  m_PrefabInstance: {fileID: 1328016825}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1328016886 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7381856364160905124, guid: a3149a40513b9544ba50dbc360b4355c,
+    type: 3}
+  m_PrefabInstance: {fileID: 1328016825}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1328016887 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3651336094149817403, guid: a3149a40513b9544ba50dbc360b4355c,
     type: 3}
   m_PrefabInstance: {fileID: 1328016825}
   m_PrefabAsset: {fileID: 0}
@@ -34969,6 +35046,12 @@ MonoBehaviour:
   team: 1
   timer: 2
   moneyToGive: 1
+--- !u!1 &1365518286 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4073144790399955248, guid: 9550b7a6e150e6f4ba99b2d40320a2ce,
+    type: 3}
+  m_PrefabInstance: {fileID: 1365518282}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1372770742
 GameObject:
   m_ObjectHideFlags: 0
@@ -37509,6 +37592,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1684200125}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1684200127 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4073144790399955248, guid: fe4f4efd1e7989d43b5fc601da590cf1,
+    type: 3}
+  m_PrefabInstance: {fileID: 1684200125}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1685712182
 GameObject:
   m_ObjectHideFlags: 0
@@ -38841,6 +38930,12 @@ MonoBehaviour:
   team: 1
   timer: 2
   moneyToGive: 1
+--- !u!1 &1798755456 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4073144790399955248, guid: 9550b7a6e150e6f4ba99b2d40320a2ce,
+    type: 3}
+  m_PrefabInstance: {fileID: 1798755452}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1814505636
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -40821,6 +40916,12 @@ PrefabInstance:
 --- !u!4 &2087349017 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7754341705200370338, guid: bc13f6c2e80557049ac7edf708034b42,
+    type: 3}
+  m_PrefabInstance: {fileID: 2087349016}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &2087349018 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4073144790399955248, guid: bc13f6c2e80557049ac7edf708034b42,
     type: 3}
   m_PrefabInstance: {fileID: 2087349016}
   m_PrefabAsset: {fileID: 0}
