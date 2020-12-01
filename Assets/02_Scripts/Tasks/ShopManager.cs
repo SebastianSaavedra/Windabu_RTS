@@ -6,8 +6,6 @@ using Photon.Realtime;
 
 public class ShopManager : MonoBehaviourPunCallbacks
 {
-    GameObject itemSpawner;
-    [SerializeField] Transform itemSpawnerPos;
 
     //Stats
     [SerializeField]

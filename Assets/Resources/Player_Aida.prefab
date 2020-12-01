@@ -406,7 +406,6 @@ GameObject:
   - component: {fileID: 5816013650376650942}
   - component: {fileID: 5816013650376650914}
   - component: {fileID: 5816013650376650943}
-  - component: {fileID: 5816013650376650940}
   - component: {fileID: 1951634111931228394}
   - component: {fileID: 2907592072639719747}
   - component: {fileID: 8271775530220370060}
@@ -421,6 +420,7 @@ GameObject:
   - component: {fileID: 534458156709570265}
   - component: {fileID: 1518869735481190529}
   - component: {fileID: 1803611243156172909}
+  - component: {fileID: 5816013650376650940}
   m_Layer: 9
   m_Name: Player_Aida
   m_TagString: Player
@@ -548,31 +548,6 @@ MonoBehaviour:
   m_SynchronizePosition: 1
   m_SynchronizeRotation: 1
   m_SynchronizeScale: 0
---- !u!114 &5816013650376650940
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5816013650376650916}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ObservedComponentsFoldoutOpen: 1
-  Group: 0
-  prefixField: -1
-  observableSearch: 0
-  Synchronization: 1
-  OwnershipTransfer: 0
-  ObservedComponents:
-  - {fileID: 5816013650376650943}
-  - {fileID: 5397115746685493076}
-  - {fileID: 1951634111931228394}
-  viewIdField: 0
-  InstantiationId: 0
-  isRuntimeInstantiated: 0
 --- !u!114 &1951634111931228394
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -883,6 +858,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57f96f14b2637b74e966aefeee2c380a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &5816013650376650940
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5816013650376650916}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  observableSearch: 0
+  Synchronization: 1
+  OwnershipTransfer: 0
+  ObservedComponents:
+  - {fileID: 5816013650376650943}
+  - {fileID: 5397115746685493076}
+  - {fileID: 1951634111931228394}
+  viewIdField: 0
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
 --- !u!95 &5669031654474474030
 Animator:
   serializedVersion: 3
@@ -936,8 +936,8 @@ MonoBehaviour:
   Synchronization: 3
   OwnershipTransfer: 0
   ObservedComponents:
-  - {fileID: 8523698794941611045}
   - {fileID: 2778633007827537342}
+  - {fileID: 8523698794941611045}
   viewIdField: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0

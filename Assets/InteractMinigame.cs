@@ -37,7 +37,7 @@ public class InteractMinigame : MonoBehaviourPunCallbacks
         {
             objectToInteract.GetComponent<I_Interactable>().OnLeavePanel(true);
             GetComponent<TEST_Movement>().enabled = true;
-            alreadyInteracted = false;
+                alreadyInteracted = false;
         }
         }
     }
@@ -72,7 +72,6 @@ public class InteractMinigame : MonoBehaviourPunCallbacks
     {
         if (photonView.IsMine)
         {
-
             if (collision.GetComponent<TaskDropDownMinigame>())
         {
             objectToInteract = collision.gameObject;
@@ -88,8 +87,8 @@ public class InteractMinigame : MonoBehaviourPunCallbacks
             if (collision.GetComponent<TaskDropDownMinigame>())
         {
             alreadyInteracted = false;
-                objectToInteract.GetComponent<I_Interactable>().OnLeavePanel(GetComponent<PlayerTeam>().team);
-                objectToInteract = null;
+            objectToInteract = null;
+            objectToInteract.GetComponent<I_Interactable>().OnLeavePanel(GetComponent<PlayerTeam>().team);
             }
         }
         }

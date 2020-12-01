@@ -32030,6 +32030,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1328016867, guid: a3149a40513b9544ba50dbc360b4355c, type: 3}
+      propertyPath: impresora
+      value: 
+      objectReference: {fileID: 1614904822}
+    - target: {fileID: 1328016867, guid: a3149a40513b9544ba50dbc360b4355c, type: 3}
+      propertyPath: chapita
+      value: 
+      objectReference: {fileID: 1498434473}
+    - target: {fileID: 1328016867, guid: a3149a40513b9544ba50dbc360b4355c, type: 3}
+      propertyPath: imp3d
+      value: 
+      objectReference: {fileID: 630772098}
+    - target: {fileID: 1328016867, guid: a3149a40513b9544ba50dbc360b4355c, type: 3}
+      propertyPath: uiMan
+      value: 
+      objectReference: {fileID: 1160458838}
+    - target: {fileID: 1328016870, guid: a3149a40513b9544ba50dbc360b4355c, type: 3}
+      propertyPath: viewIdField
+      value: 78
+      objectReference: {fileID: 0}
     - target: {fileID: 1328016874, guid: a3149a40513b9544ba50dbc360b4355c, type: 3}
       propertyPath: itemSpawnerPos
       value: 
@@ -32070,6 +32090,10 @@ PrefabInstance:
       propertyPath: uiMan
       value: 
       objectReference: {fileID: 1160458838}
+    - target: {fileID: 1328016875, guid: a3149a40513b9544ba50dbc360b4355c, type: 3}
+      propertyPath: viewIdField
+      value: 79
+      objectReference: {fileID: 0}
     - target: {fileID: 1328016886, guid: a3149a40513b9544ba50dbc360b4355c, type: 3}
       propertyPath: viewIdField
       value: 28
@@ -32765,28 +32789,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1328016825}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1328016870
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1328016866}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ObservedComponentsFoldoutOpen: 1
-  Group: 0
-  prefixField: -1
-  observableSearch: 2
-  Synchronization: 3
-  OwnershipTransfer: 0
-  ObservedComponents: []
-  viewIdField: 28
-  InstantiationId: 0
-  isRuntimeInstantiated: 0
 --- !u!1 &1328016873 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3680924887095154968, guid: a3149a40513b9544ba50dbc360b4355c,
@@ -32826,28 +32828,6 @@ MonoBehaviour:
   superComputadora_3: {fileID: 0}
   team: 0
   uiMan: {fileID: 1160458838}
---- !u!114 &1328016875
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1328016873}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ObservedComponentsFoldoutOpen: 1
-  Group: 0
-  prefixField: -1
-  observableSearch: 2
-  Synchronization: 3
-  OwnershipTransfer: 0
-  ObservedComponents: []
-  viewIdField: 29
-  InstantiationId: 0
-  isRuntimeInstantiated: 0
 --- !u!1 &1328016876 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4184184835737652793, guid: a3149a40513b9544ba50dbc360b4355c,
