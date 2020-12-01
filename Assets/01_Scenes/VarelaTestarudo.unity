@@ -5488,6 +5488,11 @@ PrefabInstance:
       propertyPath: canInteract
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1696552624335281110, guid: b03046127fb7e9845925713c83dc62d8,
+        type: 3}
+      propertyPath: moneyToentry
+      value: 50
+      objectReference: {fileID: 0}
     - target: {fileID: 3072405017941865810, guid: b03046127fb7e9845925713c83dc62d8,
         type: 3}
       propertyPath: viewIdField
@@ -34072,6 +34077,11 @@ PrefabInstance:
         type: 3}
       propertyPath: canInteract
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1696552624335281110, guid: c502fd582e669024383d02b4d4b0f12f,
+        type: 3}
+      propertyPath: moneyToentry
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 3072405017941865810, guid: c502fd582e669024383d02b4d4b0f12f,
         type: 3}
