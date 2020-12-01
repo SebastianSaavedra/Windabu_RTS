@@ -1,14 +1,19 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Photon.Pun;
+using Photon.Realtime;
 using DG.Tweening;
 
-public class BehindRenderShader : MonoBehaviour
+public class BehindRenderShader : MonoBehaviourPunCallbacks         //Twekear shader
 {
+
     //[SerializeField] GameObject camara;
     //[SerializeField] GameObject target;
     //[SerializeField] LayerMask layerMask;
+    [SerializeField] GameObject player;
 
+    #region Raycast2D Fail
     //private void Update()
     //{
     //    RaycastHit2D hit = Physics2D.Raycast(camara.transform.position, (target.transform.position - camara.transform.position).normalized, Mathf.Infinity, layerMask);
@@ -25,19 +30,29 @@ public class BehindRenderShader : MonoBehaviour
     //        target.transform.DOScale(.5f, .5f);
     //    }
     //}
+    #endregion
 
-    private void OnTriggerStay2D(Collider2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Edificio"))
         {
-            Debug.Log("Hiteo a: " + collision.name);
-            gameObject.transform.DOScale(1f, .5f);
+            if (player.GetComponent<PlayerId>().id == PhotonNetwork.LocalPlayer.ActorNumber)
+            {
+                Debug.Log("Hiteo a: " + collision.name);
+                gameObject.transform.DOScale(1f, 1f);
+            }
         }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        Debug.Log("Salio del collider");
-        gameObject.transform.localScale = new Vector3(0f, 0f, 1f); //.DOScale(0, .5f);
+        if (collision.CompareTag("Edificio"))
+        {
+            if (player.GetComponent<PlayerId>().id == PhotonNetwork.LocalPlayer.ActorNumber)
+            {
+                Debug.Log("Salio del collider");
+                this.transform.DOScale(0, 1f);
+            }
+        }
     }
 }
