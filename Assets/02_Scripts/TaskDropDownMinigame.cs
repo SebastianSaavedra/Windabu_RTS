@@ -44,7 +44,6 @@ public class TaskDropDownMinigame : MonoBehaviourPunCallbacks, I_Interactable
     {
         taskBarPanel.transform.DOMoveY(1540, 1);
         Destroy(taskBarPanel.transform.GetChild(0).gameObject, 1.1f);
-
     }
 
     [PunRPC]

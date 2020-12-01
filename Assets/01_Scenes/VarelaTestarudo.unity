@@ -31979,6 +31979,11 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[3].m_Arguments.m_BoolArgument
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1231250300018699576, guid: ab18c6628d0850e4c9ae0891f311f1fd,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_BoolArgument
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1231250300018699580, guid: ab18c6628d0850e4c9ae0891f311f1fd,
         type: 3}
       propertyPath: viewIdField
@@ -32128,6 +32133,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[3].m_Arguments.m_BoolArgument
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1231250300091595870, guid: ab18c6628d0850e4c9ae0891f311f1fd,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_BoolArgument
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1231250300192149375, guid: ab18c6628d0850e4c9ae0891f311f1fd,
         type: 3}

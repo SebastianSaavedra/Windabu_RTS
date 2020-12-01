@@ -44,6 +44,7 @@ public class BoxProgression : MonoBehaviourPunCallbacks
     {
         photonView.RPC("Finished", RpcTarget.AllViaServer, false, true);
         taskDropDownMinigame.OnLeavePanel(true);
+        Debug.Log("Bruh");
     }
     [PunRPC]
     public void Finished(bool deactive, bool active) 
