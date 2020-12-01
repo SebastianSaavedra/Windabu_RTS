@@ -77,6 +77,25 @@ public class QueueObjLogic : MonoBehaviour
                 normalizedValue = timeToDissapear;
                 canStart = true;
                 break;
+            case 4:
+                sprite.sprite = quedeData[4].spriteImg;
+                timeToDissapear = quedeData[4].Timer;
+                normalizedValue = timeToDissapear;
+                canStart = true;
+                break;
+            case 5:
+                sprite.sprite = quedeData[5].spriteImg;
+                timeToDissapear = quedeData[5].Timer;
+                normalizedValue = timeToDissapear;
+                canStart = true;
+                break;
+            case 6:
+                sprite.sprite = quedeData[6].spriteImg;
+                timeToDissapear = quedeData[6].Timer;
+                normalizedValue = timeToDissapear;
+                canStart = true;
+                break;
+
         }
     }
 
