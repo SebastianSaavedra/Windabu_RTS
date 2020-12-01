@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Photon.Realtime;
 using Photon.Pun;
+using Com.MaluCompany.TestGame;
 
 public class BoxProgression : MonoBehaviourPunCallbacks
 {
@@ -23,7 +24,6 @@ public class BoxProgression : MonoBehaviourPunCallbacks
         inLvl1 = false;
 
         born.SetActive(true);
-        born.GetComponent<TaskDropDownMinigame>().enabled = false;
         ready.SetActive(false);
         upgraded.SetActive(false);
     }
@@ -44,7 +44,12 @@ public class BoxProgression : MonoBehaviourPunCallbacks
     public void CallFinish() 
     {
         photonView.RPC("Finished", RpcTarget.AllViaServer, false, true);
+        if (PhotonNetwork.LocalPlayer.ActorNumber == GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerId>().id) 
+        {
+        GameObject.FindGameObjectWithTag("Player").GetComponent<TEST_Movement>().enabled = true;
         taskDropDownMinigame.OnLeavePanel(true);
+        Debug.Log("Bruh");
+        }
     }
     [PunRPC]
     public void Finished(bool deactive, bool active) 

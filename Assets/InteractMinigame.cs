@@ -70,23 +70,28 @@ public class InteractMinigame : MonoBehaviourPunCallbacks
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        if (photonView.IsMine)
+        {
 
-        if (collision.GetComponent<TaskDropDownMinigame>())
+            if (collision.GetComponent<TaskDropDownMinigame>())
         {
             objectToInteract = collision.gameObject;
+        }
         }
 
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-
-        if (collision.GetComponent<TaskDropDownMinigame>())
+        if (photonView.IsMine) 
+        {
+            if (collision.GetComponent<TaskDropDownMinigame>())
         {
             alreadyInteracted = false;
                 objectToInteract.GetComponent<I_Interactable>().OnLeavePanel(GetComponent<PlayerTeam>().team);
                 objectToInteract = null;
             }
         }
-    
+        }
+ 
 }

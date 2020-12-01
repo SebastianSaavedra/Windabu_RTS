@@ -859,9 +859,10 @@ GameObject:
   m_Component:
   - component: {fileID: 5912795960340610821}
   - component: {fileID: 1018291175357575500}
+  - component: {fileID: 7352618292634798917}
   m_Layer: 11
   m_Name: StencilSphere
-  m_TagString: Untagged
+  m_TagString: EsferaMask
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -930,6 +931,22 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!58 &7352618292634798917
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6979004823807915595}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 1.2202393
 --- !u!1 &7109258280661515455
 GameObject:
   m_ObjectHideFlags: 0
@@ -1453,15 +1470,15 @@ PrefabInstance:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 3620353315930601743, guid: 36ca46e7fa3b4924ba8bb3ca34de65e5,
     type: 3}
---- !u!4 &144518004041788206 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: -1231877984295165430, guid: 36ca46e7fa3b4924ba8bb3ca34de65e5,
-    type: 3}
-  m_PrefabInstance: {fileID: 7846981235916753188}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &6455473296722791633 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -5372687594883136011, guid: 36ca46e7fa3b4924ba8bb3ca34de65e5,
+    type: 3}
+  m_PrefabInstance: {fileID: 7846981235916753188}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &144518004041788206 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -1231877984295165430, guid: 36ca46e7fa3b4924ba8bb3ca34de65e5,
     type: 3}
   m_PrefabInstance: {fileID: 7846981235916753188}
   m_PrefabAsset: {fileID: 0}
