@@ -85,6 +85,32 @@ public class FinishMinigameManager : MonoBehaviour
                 }
                 break;
 
+            // Merch
+            case 5:
+                switch (GetComponentInParent<WhatTeamIsCalling>().team)
+                {
+                    case true:
+                        GameObject.Find("Obj_MerchA").GetComponent<BoxProgression>().CallFinish();
+                        break;
+                    case false:
+                        GameObject.Find("Obj_MerchB").GetComponent<BoxProgression>().CallFinish();
+                        break;
+                }
+                break;
+
+            // Impresora industrial
+            case 6:
+                switch (GetComponentInParent<WhatTeamIsCalling>().team)
+                {
+                    case true:
+                        GameObject.Find("Obj_ImpIndusA").GetComponent<BoxProgression>().CallFinish();
+                        break;
+                    case false:
+                        GameObject.Find("Obj_ImpIndusB").GetComponent<BoxProgression>().CallFinish();
+                        break;
+                }
+                break;
+
             // -----------  Producir -------------
 
             // Cartel - Impresora

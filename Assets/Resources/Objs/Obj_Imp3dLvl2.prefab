@@ -72,7 +72,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 7
-  m_Sprite: {fileID: 21300000, guid: d8dc0a555cd880b468f0cd890b1d5752, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 1c878f08f9133344faaa13b6d5a80119, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -269,7 +269,7 @@ GameObject:
   - component: {fileID: 3072405017941865810}
   - component: {fileID: 7895517636570418864}
   m_Layer: 0
-  m_Name: Obj_ImpresoraLvl2
+  m_Name: Obj_Imp3dLvl2
   m_TagString: MjBox
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -448,7 +448,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 7
-  m_Sprite: {fileID: 21300000, guid: e86bedab965fbab41a9fb61b6bd4bd78, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 4a1e8756b0e0e3049b09acf7e2e4072d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -499,6 +499,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   taskBarPanel: {fileID: 0}
   managerMinijuegos: {fileID: 0}
-  panelData: {fileID: 11400000, guid: 4adb6ece33e00ba4098be77f9a79083a, type: 2}
+  panelData: {fileID: 11400000, guid: 6c0ca55306d9dc54887062e5fac03250, type: 2}
   moneyToentry: 0
   canInteract: 0

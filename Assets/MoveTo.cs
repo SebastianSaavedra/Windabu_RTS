@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MoveTo : MonoBehaviour
 {
-    [SerializeField] bool team, impre, impre3d, chapita, ploter;
+    [SerializeField] bool team, impre, impre3d, chapita, ploter, merch, impIndus;
     private void Awake()
     {
         if (team) 
@@ -25,6 +25,14 @@ public class MoveTo : MonoBehaviour
             {
                 transform.position = GameObject.Find("PlotA").transform.position;
             }
+            if (merch)
+            {
+                transform.position = GameObject.Find("MerchA").transform.position;
+            }
+            if (impIndus)
+            {
+                transform.position = GameObject.Find("ImpIndusA").transform.position;
+            }
         }
         else 
         {
@@ -43,6 +51,14 @@ public class MoveTo : MonoBehaviour
             if (ploter)
             {
                 transform.position = GameObject.Find("PlotB").transform.position;
+            }
+            if (merch)
+            {
+                transform.position = GameObject.Find("MerchB").transform.position;
+            }
+            if (impIndus)
+            {
+                transform.position = GameObject.Find("ImpIndusB").transform.position;
             }
         }
     }
@@ -67,6 +83,14 @@ public class MoveTo : MonoBehaviour
             {
                 transform.position = GameObject.Find("PlotA").transform.position;
             }
+            if (merch)
+            {
+                transform.position = GameObject.Find("MerchA").transform.position;
+            }
+            if (impIndus)
+            {
+                transform.position = GameObject.Find("ImpIndusA").transform.position;
+            }
         }
         else
         {
@@ -85,6 +109,14 @@ public class MoveTo : MonoBehaviour
             if (ploter)
             {
                 transform.position = GameObject.Find("PlotB").transform.position;
+            }
+            if (merch)
+            {
+                transform.position = GameObject.Find("MerchB").transform.position;
+            }
+            if (impIndus)
+            {
+                transform.position = GameObject.Find("ImpIndusB").transform.position;
             }
         }
     }
@@ -105,6 +137,18 @@ public class MoveTo : MonoBehaviour
             {
                 transform.position = GameObject.Find("ChaA").transform.position;
             }
+            if (ploter)
+            {
+                transform.position = GameObject.Find("PlotA").transform.position;
+            }
+            if (merch)
+            {
+                transform.position = GameObject.Find("MerchA").transform.position;
+            }
+            if (impIndus)
+            {
+                transform.position = GameObject.Find("ImpIndusA").transform.position;
+            }
         }
         else
         {
@@ -119,6 +163,18 @@ public class MoveTo : MonoBehaviour
             if (chapita)
             {
                 transform.position = GameObject.Find("ChaB").transform.position;
+            }
+            if (ploter)
+            {
+                transform.position = GameObject.Find("PlotB").transform.position;
+            }
+            if (merch)
+            {
+                transform.position = GameObject.Find("MerchB").transform.position;
+            }
+            if (impIndus)
+            {
+                transform.position = GameObject.Find("ImpIndusB").transform.position;
             }
         }
     }

@@ -9,10 +9,10 @@ public class ShopManager : MonoBehaviourPunCallbacks
 
     //Stats
     [SerializeField]
-    float impresoraCost = 100f, impresoraDelay = 15f, imp3dCost = 200f, imp3dDelay = 30f, chapitaCost = 150f, chapitaDelay = 20f, ploterCost = 300f, ploterDelay = 15f;
-    public bool canBuy_0, canBuy_1, canBuy_2, canBuy_3;
+    float impresoraCost = 100f, impresoraDelay = 15f, imp3dCost = 200f, imp3dDelay = 30f, chapitaCost = 150f, chapitaDelay = 20f, ploterCost = 300f, ploterDelay = 15f, merchCost = 1f, merchDelay = 1f, impIndusCost = 1f, impIndusDelay = 1f;
+    public bool canBuy_0, canBuy_1, canBuy_2, canBuy_3, canBuy_4, canBuy_5;
     //Prefabs
-    public GameObject impresora, imp3d, chapita,impresoraInd,merch,plotter,superComputadora_1, superComputadora_2, superComputadora_3;
+    public GameObject impresora, imp3d, chapita,impIndus,merch,plotter,superComputadora_1, superComputadora_2, superComputadora_3;
     [SerializeField] bool team;
     [SerializeField] UIManager uiMan;
 
@@ -54,6 +54,12 @@ public class ShopManager : MonoBehaviourPunCallbacks
                 break;
             case 3:
                 canBuy_3 = false;
+                break;
+            case 4:
+                canBuy_4 = false;
+                break;
+            case 5:
+                canBuy_5 = false;
                 break;
         }
     }
@@ -190,6 +196,72 @@ public class ShopManager : MonoBehaviourPunCallbacks
             }
         }
     }
+    public void Merch()
+    {
+        if (team)
+        {
+            if (MinigameManager.dineroA >= (int)merchCost && canBuy_4)// volver a referencia teamManager
+            {
+                RPCcor(merchDelay, 4);
+                Minijuegos.compraA((int)merchCost);
+                uiMan.CallRpc(team, 4);
+                photonView.RPC("cantBuy", RpcTarget.AllViaServer, 4);
+                //gameObject.GetComponent<TeamManager>().money -= impresoraCost;
+            }
+            else
+            {
+                Debug.Log("Dinero Insuficiente Pe");
+            }
+        }
+        else
+        {
+            if (MinigameManager.dineroB >= (int)merchCost && canBuy_4)// volver a referencia teamManager
+            {
+                RPCcor(merchDelay, 4);
+                MinigameManager.dineroB -= (int)merchCost;
+                uiMan.CallRpc(team, 4);
+                photonView.RPC("cantBuy", RpcTarget.AllViaServer, 4);
+                //gameObject.GetComponent<TeamManager>().money -= impresoraCost;
+            }
+            else
+            {
+                Debug.Log("Dinero Insuficiente Pe");
+            }
+        }
+    }
+    public void ImpIndus()
+    {
+        if (team)
+        {
+            if (MinigameManager.dineroA >= (int)impIndusCost && canBuy_5)// volver a referencia teamManager
+            {
+                RPCcor(impIndusDelay, 5);
+                Minijuegos.compraA((int)impIndusCost);
+                uiMan.CallRpc(team, 5);
+                photonView.RPC("cantBuy", RpcTarget.AllViaServer, 5);
+                //gameObject.GetComponent<TeamManager>().money -= impresoraCost;
+            }
+            else
+            {
+                Debug.Log("Dinero Insuficiente Pe");
+            }
+        }
+        else
+        {
+            if (MinigameManager.dineroB >= (int)impIndusCost && canBuy_5)// volver a referencia teamManager
+            {
+                RPCcor(impIndusDelay, 5);
+                MinigameManager.dineroB -= (int)impIndusCost;
+                uiMan.CallRpc(team, 5);
+                photonView.RPC("cantBuy", RpcTarget.AllViaServer, 5);
+                //gameObject.GetComponent<TeamManager>().money -= impresoraCost;
+            }
+            else
+            {
+                Debug.Log("Dinero Insuficiente Pe");
+            }
+        }
+    }
 
 
     public void RPCcor(float time, int whatItem) 
@@ -233,6 +305,12 @@ public class ShopManager : MonoBehaviourPunCallbacks
                 break;
             case 3:
                 plotter.SetActive(true);
+                break;
+            case 4:
+                merch.SetActive(true);
+                break;
+            case 5:
+                impIndus.SetActive(true);
                 break;
         }
         
