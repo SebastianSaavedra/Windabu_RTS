@@ -4,10 +4,7 @@ using UnityEngine;
 
 public class MoveTo : MonoBehaviour
 {
-    [SerializeField] bool team;
-    [SerializeField] bool impre;
-    [SerializeField] bool impre3d;
-    [SerializeField] bool chapita;
+    [SerializeField] bool team, impre, impre3d, chapita, ploter;
     private void Awake()
     {
         if (team) 
@@ -24,6 +21,10 @@ public class MoveTo : MonoBehaviour
             {
                 transform.position = GameObject.Find("ChaA").transform.position;
             }
+            if (ploter)
+            {
+                transform.position = GameObject.Find("PlotA").transform.position;
+            }
         }
         else 
         {
@@ -38,6 +39,10 @@ public class MoveTo : MonoBehaviour
             if (chapita)
             {
                 transform.position = GameObject.Find("ChaB").transform.position;
+            }
+            if (ploter)
+            {
+                transform.position = GameObject.Find("PlotB").transform.position;
             }
         }
     }
@@ -58,6 +63,10 @@ public class MoveTo : MonoBehaviour
             {
                 transform.position = GameObject.Find("ChaA").transform.position;
             }
+            if (ploter)
+            {
+                transform.position = GameObject.Find("PlotA").transform.position;
+            }
         }
         else
         {
@@ -72,6 +81,10 @@ public class MoveTo : MonoBehaviour
             if (chapita)
             {
                 transform.position = GameObject.Find("ChaB").transform.position;
+            }
+            if (ploter)
+            {
+                transform.position = GameObject.Find("PlotB").transform.position;
             }
         }
     }

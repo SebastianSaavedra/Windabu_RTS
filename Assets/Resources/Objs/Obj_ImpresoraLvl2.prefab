@@ -73,7 +73,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 7
-  m_Sprite: {fileID: 21300000, guid: 9549967b7752c7a4b8187e5556283396, type: 3}
+  m_Sprite: {fileID: 21300000, guid: d8dc0a555cd880b468f0cd890b1d5752, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -125,7 +125,7 @@ MonoBehaviour:
   taskBarPanel: {fileID: 0}
   managerMinijuegos: {fileID: 0}
   panelData: {fileID: 11400000, guid: e40bd0cea097f5144b0b6dbb266afad0, type: 2}
-  parent: {fileID: 4073144790399955248}
+  moneyToentry: 0
   canInteract: 1
 --- !u!114 &6350366187872575238
 MonoBehaviour:
@@ -140,9 +140,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   team: 1
-  impre: 1
+  impre: 0
   impre3d: 0
   chapita: 0
+  ploter: 1
 --- !u!1 &1842708776638207972
 GameObject:
   m_ObjectHideFlags: 0
@@ -286,7 +287,7 @@ GameObject:
   - component: {fileID: 3072405017941865810}
   - component: {fileID: 7895517636570418864}
   m_Layer: 0
-  m_Name: Obj_Impresora
+  m_Name: Obj_ImpresoraLvl2
   m_TagString: MjBox
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -465,7 +466,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 7
-  m_Sprite: {fileID: 21300000, guid: 9def5b6901d7e6a418fe231e93bd5e5c, type: 3}
+  m_Sprite: {fileID: 21300000, guid: e86bedab965fbab41a9fb61b6bd4bd78, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -516,6 +517,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   taskBarPanel: {fileID: 0}
   managerMinijuegos: {fileID: 0}
-  panelData: {fileID: 11400000, guid: 7f59c06bc5b00744fb8e4907be6fe5d6, type: 2}
-  parent: {fileID: 0}
+  panelData: {fileID: 11400000, guid: 4adb6ece33e00ba4098be77f9a79083a, type: 2}
+  moneyToentry: 0
   canInteract: 0

@@ -11,7 +11,7 @@ public class ShopManager : MonoBehaviourPunCallbacks
 
     //Stats
     [SerializeField]
-    float impresoraCost = 100f, impresoraDelay = 15f, imp3dCost = 200f, imp3dDelay = 30f, chapitaCost = 150f, chapitaDelay = 20f;
+    float impresoraCost = 100f, impresoraDelay = 15f, imp3dCost = 200f, imp3dDelay = 30f, chapitaCost = 150f, chapitaDelay = 20f, ploterCost = 200f, ploterDelay = 1f;
     public bool canBuy_0, canBuy_1, canBuy_2;
     //Prefabs
     public GameObject impresora, imp3d, chapita,impresoraInd,merch,plotter,superComputadora_1, superComputadora_2, superComputadora_3;
@@ -156,6 +156,39 @@ public class ShopManager : MonoBehaviourPunCallbacks
             }
         }
     }
+    public void Plotter()
+    {
+        if (team)
+        {
+            if (MinigameManager.dineroA >= (int)ploterCost && canBuy_2)// volver a referencia teamManager
+            {
+                RPCcor(ploterDelay, 2);
+                Minijuegos.compraA((int)ploterCost);
+                uiMan.CallRpc(team, 2);
+                photonView.RPC("cantBuy", RpcTarget.AllViaServer, 2);
+                //gameObject.GetComponent<TeamManager>().money -= impresoraCost;
+            }
+            else
+            {
+                Debug.Log("Dinero Insuficiente Pe");
+            }
+        }
+        else
+        {
+            if (MinigameManager.dineroB >= (int)ploterCost && canBuy_2)// volver a referencia teamManager
+            {
+                RPCcor(ploterDelay, 2);
+                MinigameManager.dineroB -= (int)ploterCost;
+                uiMan.CallRpc(team, 2);
+                photonView.RPC("cantBuy", RpcTarget.AllViaServer, 2);
+                //gameObject.GetComponent<TeamManager>().money -= impresoraCost;
+            }
+            else
+            {
+                Debug.Log("Dinero Insuficiente Pe");
+            }
+        }
+    }
 
 
     public void RPCcor(float time, int whatItem) 
@@ -196,6 +229,9 @@ public class ShopManager : MonoBehaviourPunCallbacks
                 //spawned3.GetComponentInChildren<TaskDropDownMinigame>().taskBarPanel = itemSpawnerPos.GetComponent<DataSaver>().originalPanel;
                 //spawned3.GetComponentInChildren<TaskDropDownMinigame>().managerMinijuegos = itemSpawnerPos.GetComponent<DataSaver>().manager;
                 chapita.SetActive(true);
+                break;
+            case 3:
+                plotter.SetActive(true);
                 break;
         }
         

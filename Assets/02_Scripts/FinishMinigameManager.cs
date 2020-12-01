@@ -72,8 +72,17 @@ public class FinishMinigameManager : MonoBehaviour
                 }
                 break;
 
-            // Super Pc
+            // Plotter
             case 4:
+                switch (GetComponentInParent<WhatTeamIsCalling>().team)
+                {
+                    case true:
+                        GameObject.Find("Obj_PlotA").GetComponent<BoxProgression>().CallFinish();
+                        break;
+                    case false:
+                        GameObject.Find("Obj_PlotB").GetComponent<BoxProgression>().CallFinish();
+                        break;
+                }
                 break;
 
             // -----------  Producir -------------
@@ -94,6 +103,11 @@ public class FinishMinigameManager : MonoBehaviour
             case 13:
                 LocalPlayerManager.chapaCounter++;
                 Debug.Log(LocalPlayerManager.chapaCounter);
+                break;
+
+            case 14:
+                LocalPlayerManager.paperCounter++;
+                Debug.Log(LocalPlayerManager.paperCounter);
                 break;
 
             // ----------  Upgrade  ---------------
