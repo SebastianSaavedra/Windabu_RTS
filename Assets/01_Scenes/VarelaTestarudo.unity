@@ -31355,17 +31355,17 @@ PrefabInstance:
         type: 3}
       propertyPath: cartel
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1328016844}
     - target: {fileID: 1231250300018699581, guid: ab18c6628d0850e4c9ae0891f311f1fd,
         type: 3}
       propertyPath: chapita
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1328016831}
     - target: {fileID: 1231250300018699581, guid: ab18c6628d0850e4c9ae0891f311f1fd,
         type: 3}
       propertyPath: stick
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1328016830}
     - target: {fileID: 1231250300091595842, guid: ab18c6628d0850e4c9ae0891f311f1fd,
         type: 3}
       propertyPath: viewIdField
@@ -31400,17 +31400,17 @@ PrefabInstance:
         type: 3}
       propertyPath: cartel
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1328016844}
     - target: {fileID: 1231250300091595843, guid: ab18c6628d0850e4c9ae0891f311f1fd,
         type: 3}
       propertyPath: chapita
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1328016831}
     - target: {fileID: 1231250300091595843, guid: ab18c6628d0850e4c9ae0891f311f1fd,
         type: 3}
       propertyPath: stick
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1328016830}
     - target: {fileID: 1231250300091595870, guid: ab18c6628d0850e4c9ae0891f311f1fd,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
@@ -32231,7 +32231,7 @@ PrefabInstance:
     - target: {fileID: 2286047941756319861, guid: a3149a40513b9544ba50dbc360b4355c,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2512481450350256352, guid: a3149a40513b9544ba50dbc360b4355c,
         type: 3}
@@ -32406,7 +32406,7 @@ PrefabInstance:
     - target: {fileID: 9089706889415762945, guid: a3149a40513b9544ba50dbc360b4355c,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a3149a40513b9544ba50dbc360b4355c, type: 3}
@@ -32446,6 +32446,30 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1328016825}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1328016830 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1407581025653201347, guid: a3149a40513b9544ba50dbc360b4355c,
+    type: 3}
+  m_PrefabInstance: {fileID: 1328016825}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1328016831 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4886023327355204415, guid: a3149a40513b9544ba50dbc360b4355c,
+    type: 3}
+  m_PrefabInstance: {fileID: 1328016825}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1328016832 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4972606870114137059, guid: a3149a40513b9544ba50dbc360b4355c,
@@ -32518,6 +32542,18 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1328016825}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1328016844 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7259080489407070696, guid: a3149a40513b9544ba50dbc360b4355c,
+    type: 3}
+  m_PrefabInstance: {fileID: 1328016825}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1328016845 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4475605350923219483, guid: a3149a40513b9544ba50dbc360b4355c,
