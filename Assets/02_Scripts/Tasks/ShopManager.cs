@@ -9,8 +9,8 @@ public class ShopManager : MonoBehaviourPunCallbacks
 
     //Stats
     [SerializeField]
-    float impresoraCost = 100f, impresoraDelay = 15f, imp3dCost = 200f, imp3dDelay = 30f, chapitaCost = 150f, chapitaDelay = 20f, ploterCost = 200f, ploterDelay = 1f;
-    public bool canBuy_0, canBuy_1, canBuy_2;
+    float impresoraCost = 100f, impresoraDelay = 15f, imp3dCost = 200f, imp3dDelay = 30f, chapitaCost = 150f, chapitaDelay = 20f, ploterCost = 300f, ploterDelay = 1f;
+    public bool canBuy_0, canBuy_1, canBuy_2, canBuy_3;
     //Prefabs
     public GameObject impresora, imp3d, chapita,impresoraInd,merch,plotter,superComputadora_1, superComputadora_2, superComputadora_3;
     [SerializeField] bool team;
@@ -51,6 +51,9 @@ public class ShopManager : MonoBehaviourPunCallbacks
                 break;
             case 2:
                 canBuy_2 = false;
+                break;
+            case 3:
+                canBuy_3 = false;
                 break;
         }
     }
@@ -158,7 +161,7 @@ public class ShopManager : MonoBehaviourPunCallbacks
     {
         if (team)
         {
-            if (MinigameManager.dineroA >= (int)ploterCost && canBuy_2)// volver a referencia teamManager
+            if (MinigameManager.dineroA >= (int)ploterCost && canBuy_3)// volver a referencia teamManager
             {
                 RPCcor(ploterDelay, 2);
                 Minijuegos.compraA((int)ploterCost);
@@ -173,7 +176,7 @@ public class ShopManager : MonoBehaviourPunCallbacks
         }
         else
         {
-            if (MinigameManager.dineroB >= (int)ploterCost && canBuy_2)// volver a referencia teamManager
+            if (MinigameManager.dineroB >= (int)ploterCost && canBuy_3)// volver a referencia teamManager
             {
                 RPCcor(ploterDelay, 2);
                 MinigameManager.dineroB -= (int)ploterCost;

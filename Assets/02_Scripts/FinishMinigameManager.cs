@@ -109,21 +109,6 @@ public class FinishMinigameManager : MonoBehaviour
                 LocalPlayerManager.paperCounter++;
                 Debug.Log(LocalPlayerManager.paperCounter);
                 break;
-
-            // ----------  Upgrade  ---------------
-
-            // Impresora
-            case 21:
-                break;
-
-            // Impres3D
-            case 22:
-                Debug.Log("Imp3d mejorada");
-                break;
-
-            // Chapa
-            case 23:
-                break;
         }
     }
 }
