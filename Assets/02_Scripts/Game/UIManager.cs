@@ -53,13 +53,15 @@ public class UIManager : MonoBehaviourPunCallbacks
     }
     public void RPCInstantiateInTeamB(int toSpawn)
     {
-        photonView.RPC("InstantiateInTeamA", RpcTarget.AllViaServer,toSpawn);
+        photonView.RPC("InstantiateInTeamB", RpcTarget.AllViaServer,toSpawn);
         //photonView.RPC("InstantiateInTeamB", TargetPlayerByActorNumber(PhotonManager.teamB_id[0]));
         //photonView.RPC("InstantiateInTeamB", TargetPlayerByActorNumber(PhotonManager.teamB_id[1]));
         //photonView.RPC("InstantiateInTeamB", TargetPlayerByActorNumber(PhotonManager.teamB_id[2]));
     }
+    [PunRPC]
     public void InstantiateInTeamB(int toSpawn)
     {
+        counterB++;
         if (counterB < 4)
         {
             GameObject objectToQue = Instantiate(objectToSpawn, teamBHudParentTop.transform.position, objectToSpawn.transform.rotation);

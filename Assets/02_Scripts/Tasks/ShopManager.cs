@@ -58,6 +58,7 @@ public class ShopManager : MonoBehaviourPunCallbacks
     }
     public void Impresora()
     {
+        Debug.Log(team);
         if (team)
         {
             if (MinigameManager.dineroA >= impresoraCost && canBuy_0)// volver a referencia teamManager
