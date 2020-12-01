@@ -289,6 +289,7 @@ public class ShopManager : MonoBehaviourPunCallbacks
         {
             if (MinigameManager.dineroA >= (int)scCost && (sc0 || sc1 || sc2))// volver a referencia teamManager
             {
+                Debug.Log(howManySc);
                 ActSuperPc(scDelay, howManySc);
                 Minijuegos.compraA((int)scCost);
                 uiMan.CallRpc(team, 6);
