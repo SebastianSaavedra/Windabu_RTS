@@ -23,7 +23,6 @@ public class BoxProgression : MonoBehaviourPunCallbacks
         inLvl1 = false;
 
         born.SetActive(true);
-        born.GetComponent<TaskDropDownMinigame>().enabled = false;
         ready.SetActive(false);
         upgraded.SetActive(false);
     }
