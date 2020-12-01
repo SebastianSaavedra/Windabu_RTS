@@ -5,6 +5,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class JoinTeamA : MonoBehaviourPunCallbacks
 {
@@ -19,6 +20,7 @@ public class JoinTeamA : MonoBehaviourPunCallbacks
     public GameObject fKey;
     public GameObject rKey;
     public GameObject escKey;
+    [SerializeField] TextMeshProUGUI cartel, chapita, stick;
 
     private void Start()
     {
@@ -82,7 +84,10 @@ public class JoinTeamA : MonoBehaviourPunCallbacks
             player.GetComponent<FeedbackTrigger>().rKey = rKey;
             player.GetComponent<FeedbackTrigger>().tKey = tKey;
             player.GetComponent<FeedbackTrigger>().fKey = fKey;
-            player.GetComponent<FeedbackTrigger>().escKey = escKey;         
+            player.GetComponent<FeedbackTrigger>().escKey = escKey;
+            player.GetComponent<LocalPlayerManager>().cartel = cartel;
+            player.GetComponent<LocalPlayerManager>().chapitas = chapita;
+            player.GetComponent<LocalPlayerManager>().stick = stick;
             JoinTeam(PhotonNetwork.LocalPlayer.NickName, PhotonNetwork.LocalPlayer.ActorNumber);
             Debug.Log("Llegaste aqui");
             callJoin = true;
