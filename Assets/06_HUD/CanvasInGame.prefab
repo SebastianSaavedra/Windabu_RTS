@@ -334,6 +334,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8857045076049294332}
+  - component: {fileID: 5640326612159241160}
   m_Layer: 0
   m_Name: Likes menu
   m_TagString: Untagged
@@ -359,6 +360,20 @@ Transform:
   m_Father: {fileID: 7460698970007427387}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5640326612159241160
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 131648352091251660}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f649a25e76c9f041861bc2a71dd2657, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  team: 0
+  dineroText: {fileID: 7882488863245045527}
 --- !u!1 &178238450056061786
 GameObject:
   m_ObjectHideFlags: 0
@@ -1811,7 +1826,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2768612220402245189}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 3884398525777129911}
+        m_MethodName: Like
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!95 &6981481125142878828
 Animator:
   serializedVersion: 3
@@ -3363,7 +3389,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2353586116222213472}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 3884398525777129911}
+        m_MethodName: Confirm
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!95 &1911062384993695063
 Animator:
   serializedVersion: 3
@@ -6298,7 +6335,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 100
+  m_text: 0
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: de11340373b9c2341bd1b347547e2af2, type: 2}
   m_sharedMaterial: {fileID: 4917605896477842616, guid: de11340373b9c2341bd1b347547e2af2,
@@ -10930,7 +10967,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 7035849834274435453}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 5640326612159241160}
+        m_MethodName: Like
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!95 &1157636278317271090
 Animator:
   serializedVersion: 3
@@ -16875,7 +16923,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 6057497836171432958}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 5640326612159241160}
+        m_MethodName: Confirm
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!95 &6798208723386829662
 Animator:
   serializedVersion: 3
@@ -19183,6 +19242,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1313634657680222194}
+  - component: {fileID: 3884398525777129911}
   m_Layer: 0
   m_Name: Likes menu
   m_TagString: Untagged
@@ -19208,6 +19268,20 @@ Transform:
   m_Father: {fileID: 3879138562105694702}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3884398525777129911
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7837639453624299352}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f649a25e76c9f041861bc2a71dd2657, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  team: 1
+  dineroText: {fileID: 544273717164523078}
 --- !u!1 &7862096720158120346
 GameObject:
   m_ObjectHideFlags: 0
@@ -20551,7 +20625,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 100
+  m_text: 0
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: de11340373b9c2341bd1b347547e2af2, type: 2}
   m_sharedMaterial: {fileID: 4917605896477842616, guid: de11340373b9c2341bd1b347547e2af2,
