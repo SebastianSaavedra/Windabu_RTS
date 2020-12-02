@@ -51,6 +51,16 @@ public class BoxProgression : MonoBehaviourPunCallbacks
         Debug.Log("Bruh");
         }
     }
+
+    public void FinishedMinigame() 
+    {
+        if (PhotonNetwork.LocalPlayer.ActorNumber == GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerId>().id)
+        {
+            GameObject.FindGameObjectWithTag("Player").GetComponent<TEST_Movement>().enabled = true;
+            taskDropDownMinigame.OnLeavePanel(true);
+            Debug.Log("Bruh2");
+        }
+    }
     [PunRPC]
     public void Finished(bool deactive, bool active) 
     {
