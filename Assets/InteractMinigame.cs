@@ -30,14 +30,7 @@ public class InteractMinigame : MonoBehaviourPunCallbacks
         {
             if (objectToInteract.GetComponent<I_Interactable>() != null && objectToInteract.GetComponent<TaskDropDownMinigame>().canInteract && !objectToInteract.GetComponent<TaskDropDownMinigame>().stopoutsiders)
         {
-                    if (objectToInteract.GetComponent<TaskDropDownMinigame>().Interactonce) 
-                    {
-                        Interact(team);
-                    }
-                    else 
-                    {
-                        Interact(team);
-                    }
+                        Interact(team);                   
         }
     }
         if (Input.GetKeyDown(KeyCode.Escape))
@@ -68,8 +61,11 @@ public class InteractMinigame : MonoBehaviourPunCallbacks
                     GetComponent<TEST_Movement>().enabled = false;
                     // objectToInteract.GetComponent<I_Interactable>().OnInteract(true);
                     objectToInteract.GetComponent<I_Interactable>().OnInteract(GetComponent<PlayerTeam>().team);
-                    objectToInteract.GetComponent<TaskDropDownMinigame>().StopOther(true);
                     alreadyInteracted = true;
+                    if (objectToInteract.GetComponent<TaskDropDownMinigame>().Interactonce) 
+                    {
+                    objectToInteract.GetComponent<TaskDropDownMinigame>().StopOther(true);
+                    }
                 }
                 else 
                 {
@@ -84,8 +80,11 @@ public class InteractMinigame : MonoBehaviourPunCallbacks
                     GetComponent<TEST_Movement>().enabled = false;
                     // objectToInteract.GetComponent<I_Interactable>().OnInteract(true);
                     objectToInteract.GetComponent<I_Interactable>().OnInteract(GetComponent<PlayerTeam>().team);
-                        objectToInteract.GetComponent<TaskDropDownMinigame>().StopOther(true);
                     alreadyInteracted = true;
+                    if (objectToInteract.GetComponent<TaskDropDownMinigame>().Interactonce)
+                    {
+                        objectToInteract.GetComponent<TaskDropDownMinigame>().StopOther(true);
+                    }
                 }
                 else 
                 {
