@@ -5547,11 +5547,16 @@ PrefabInstance:
     - target: {fileID: 1696552624335281110, guid: b03046127fb7e9845925713c83dc62d8,
         type: 3}
       propertyPath: moneyToentry
-      value: 50
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 1696552624335281110, guid: b03046127fb7e9845925713c83dc62d8,
         type: 3}
       propertyPath: Interactonce
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1696552624335281110, guid: b03046127fb7e9845925713c83dc62d8,
+        type: 3}
+      propertyPath: cantClosePanel
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3072405017941865810, guid: b03046127fb7e9845925713c83dc62d8,
@@ -5593,6 +5598,11 @@ PrefabInstance:
         type: 3}
       propertyPath: moneyToentry
       value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 5448557454086677644, guid: b03046127fb7e9845925713c83dc62d8,
+        type: 3}
+      propertyPath: cantClosePanel
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7754341705200370338, guid: b03046127fb7e9845925713c83dc62d8,
         type: 3}
@@ -5700,10 +5710,23 @@ MonoBehaviour:
   observableSearch: 2
   Synchronization: 3
   OwnershipTransfer: 0
-  ObservedComponents: []
+  ObservedComponents:
+  - {fileID: 630772104}
   viewIdField: 9
   InstantiationId: 0
   isRuntimeInstantiated: 0
+--- !u!114 &630772104 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1696552624335281110, guid: b03046127fb7e9845925713c83dc62d8,
+    type: 3}
+  m_PrefabInstance: {fileID: 630772097}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 630772102}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e0efa7f1b824204590681a68c414084, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &637134436
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -32026,7 +32049,7 @@ PrefabInstance:
     - target: {fileID: 1696552624335281110, guid: bc13f6c2e80557049ac7edf708034b42,
         type: 3}
       propertyPath: moneyToentry
-      value: 0
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 1696552624335281110, guid: bc13f6c2e80557049ac7edf708034b42,
         type: 3}
@@ -32036,6 +32059,11 @@ PrefabInstance:
     - target: {fileID: 1696552624335281110, guid: bc13f6c2e80557049ac7edf708034b42,
         type: 3}
       propertyPath: Interactonce
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1696552624335281110, guid: bc13f6c2e80557049ac7edf708034b42,
+        type: 3}
+      propertyPath: cantClosePanel
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3072405017941865810, guid: bc13f6c2e80557049ac7edf708034b42,
@@ -32076,7 +32104,12 @@ PrefabInstance:
     - target: {fileID: 5448557454086677644, guid: bc13f6c2e80557049ac7edf708034b42,
         type: 3}
       propertyPath: moneyToentry
-      value: 20
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 5448557454086677644, guid: bc13f6c2e80557049ac7edf708034b42,
+        type: 3}
+      propertyPath: cantClosePanel
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7754341705200370338, guid: bc13f6c2e80557049ac7edf708034b42,
         type: 3}
@@ -32178,10 +32211,23 @@ MonoBehaviour:
   observableSearch: 2
   Synchronization: 3
   OwnershipTransfer: 0
-  ObservedComponents: []
+  ObservedComponents:
+  - {fileID: 1282025010}
   viewIdField: 6
   InstantiationId: 0
   isRuntimeInstantiated: 0
+--- !u!114 &1282025010 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1696552624335281110, guid: bc13f6c2e80557049ac7edf708034b42,
+    type: 3}
+  m_PrefabInstance: {fileID: 1282025004}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1282025008}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e0efa7f1b824204590681a68c414084, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1283961908
 GameObject:
   m_ObjectHideFlags: 0
@@ -34945,11 +34991,16 @@ PrefabInstance:
     - target: {fileID: 1696552624335281110, guid: c502fd582e669024383d02b4d4b0f12f,
         type: 3}
       propertyPath: moneyToentry
-      value: 50
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 1696552624335281110, guid: c502fd582e669024383d02b4d4b0f12f,
         type: 3}
       propertyPath: Interactonce
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1696552624335281110, guid: c502fd582e669024383d02b4d4b0f12f,
+        type: 3}
+      propertyPath: cantClosePanel
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3072405017941865810, guid: c502fd582e669024383d02b4d4b0f12f,
@@ -34991,6 +35042,11 @@ PrefabInstance:
         type: 3}
       propertyPath: moneyToentry
       value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 5448557454086677644, guid: c502fd582e669024383d02b4d4b0f12f,
+        type: 3}
+      propertyPath: cantClosePanel
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7754341705200370338, guid: c502fd582e669024383d02b4d4b0f12f,
         type: 3}
@@ -35098,10 +35154,23 @@ MonoBehaviour:
   observableSearch: 2
   Synchronization: 3
   OwnershipTransfer: 0
-  ObservedComponents: []
+  ObservedComponents:
+  - {fileID: 1498434477}
   viewIdField: 8
   InstantiationId: 0
   isRuntimeInstantiated: 0
+--- !u!114 &1498434477 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1696552624335281110, guid: c502fd582e669024383d02b4d4b0f12f,
+    type: 3}
+  m_PrefabInstance: {fileID: 1498434470}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1498434475}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e0efa7f1b824204590681a68c414084, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1555146281
 GameObject:
   m_ObjectHideFlags: 0
@@ -35430,11 +35499,16 @@ PrefabInstance:
     - target: {fileID: 1696552624335281110, guid: 27f628dd141df584d81a36e777a36b23,
         type: 3}
       propertyPath: moneyToentry
-      value: 20
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 1696552624335281110, guid: 27f628dd141df584d81a36e777a36b23,
         type: 3}
       propertyPath: Interactonce
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1696552624335281110, guid: 27f628dd141df584d81a36e777a36b23,
+        type: 3}
+      propertyPath: cantClosePanel
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3072405017941865810, guid: 27f628dd141df584d81a36e777a36b23,
@@ -35476,6 +35550,11 @@ PrefabInstance:
         type: 3}
       propertyPath: moneyToentry
       value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 5448557454086677644, guid: 27f628dd141df584d81a36e777a36b23,
+        type: 3}
+      propertyPath: cantClosePanel
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7754341705200370338, guid: 27f628dd141df584d81a36e777a36b23,
         type: 3}
@@ -35583,10 +35662,23 @@ MonoBehaviour:
   observableSearch: 2
   Synchronization: 3
   OwnershipTransfer: 0
-  ObservedComponents: []
+  ObservedComponents:
+  - {fileID: 1614904828}
   viewIdField: 5
   InstantiationId: 0
   isRuntimeInstantiated: 0
+--- !u!114 &1614904828 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1696552624335281110, guid: 27f628dd141df584d81a36e777a36b23,
+    type: 3}
+  m_PrefabInstance: {fileID: 1614904821}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1614904826}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e0efa7f1b824204590681a68c414084, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1630174702
 GameObject:
   m_ObjectHideFlags: 0
