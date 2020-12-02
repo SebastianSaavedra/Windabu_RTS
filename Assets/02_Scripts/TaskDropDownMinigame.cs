@@ -29,7 +29,7 @@ public class TaskDropDownMinigame : MonoBehaviourPunCallbacks, I_Interactable,IP
 
     public void StopOther(bool bruh) 
     {
-        photonView.RPC("RpcOut", RpcTarget.MasterClient,bruh);
+        photonView.RPC("RpcOut", RpcTarget.AllViaServer,bruh);
     }
     [PunRPC]
     public void RpcOut(bool bruh) 
