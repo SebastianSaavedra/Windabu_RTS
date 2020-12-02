@@ -33385,7 +33385,7 @@ PrefabInstance:
     - target: {fileID: 923339950747580143, guid: a3149a40513b9544ba50dbc360b4355c,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1370950422360074744, guid: a3149a40513b9544ba50dbc360b4355c,
         type: 3}
@@ -34325,7 +34325,7 @@ PrefabInstance:
     - target: {fileID: 9096382026182759222, guid: a3149a40513b9544ba50dbc360b4355c,
         type: 3}
       propertyPath: m_fontColor32.rgba
-      value: 4278190079
+      value: 16777215
       objectReference: {fileID: 0}
     - target: {fileID: 9159631830691039603, guid: a3149a40513b9544ba50dbc360b4355c,
         type: 3}
@@ -34442,7 +34442,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parent: {fileID: 0}
-  padre: {fileID: 0}
+  padre: {fileID: 1328016835}
 --- !u!1 &1328016835 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 923339950747580143, guid: a3149a40513b9544ba50dbc360b4355c,
