@@ -6,14 +6,15 @@ using System.Runtime.CompilerServices;
 using Photon.Pun;
 using Photon.Realtime;
 
-public class TaskDropDownMinigame : MonoBehaviourPunCallbacks, I_Interactable
+public class TaskDropDownMinigame : MonoBehaviourPunCallbacks, I_Interactable,IPunObservable
 {
     public GameObject taskBarPanel;
     public ManagerMinijuegos managerMinijuegos;
     public PanelData panelData;
     GameObject objetoInstanciado;
     public int moneyToentry;
-
+    public bool Interactonce;
+    public bool stopoutsiders;
     public bool canInteract;
 
     private void Start()
@@ -25,6 +26,15 @@ public class TaskDropDownMinigame : MonoBehaviourPunCallbacks, I_Interactable
         }
     }
 
+    public void StopOther(bool bruh) 
+    {
+        photonView.RPC("RpcOut", RpcTarget.MasterClient,bruh);
+    }
+    [PunRPC]
+    public void RpcOut(bool bruh) 
+    {
+        stopoutsiders = bruh;
+    }
     private void Update()
     {
     }
@@ -42,7 +52,8 @@ public class TaskDropDownMinigame : MonoBehaviourPunCallbacks, I_Interactable
     }
     public void OnLeavePanel(bool call)
     {
-            taskBarPanel.transform.DOMoveY(1540, 1);
+        StopOther(false);
+        taskBarPanel.transform.DOMoveY(1540, 1);
         Destroy(taskBarPanel.transform.GetChild(0).gameObject, 1.1f);
     }
 
@@ -65,5 +76,16 @@ public class TaskDropDownMinigame : MonoBehaviourPunCallbacks, I_Interactable
         yield return new WaitForSeconds(5f);
         canInteract = true;
         yield break;
+    }
+    public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
+    {
+        if (stream.IsWriting)
+        {
+            stream.SendNext(stopoutsiders);
+        }
+        else if (stream.IsReading)
+        {
+            stopoutsiders = (bool)stream.ReceiveNext();
+        }
     }
 }

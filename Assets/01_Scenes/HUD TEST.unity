@@ -4347,6 +4347,19 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1328016870, guid: a3149a40513b9544ba50dbc360b4355c, type: 3}
+      propertyPath: viewIdField
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1328016875, guid: a3149a40513b9544ba50dbc360b4355c, type: 3}
+      propertyPath: viewIdField
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 217313512646547512, guid: a3149a40513b9544ba50dbc360b4355c,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 467709088710920555, guid: a3149a40513b9544ba50dbc360b4355c,
         type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -4391,6 +4404,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_fontColor32.rgba
       value: 16731390
+      objectReference: {fileID: 0}
+    - target: {fileID: 1680996827136333788, guid: a3149a40513b9544ba50dbc360b4355c,
+        type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 1710676928728547128, guid: a3149a40513b9544ba50dbc360b4355c,
         type: 3}
@@ -4717,6 +4735,11 @@ PrefabInstance:
       propertyPath: m_PixelPerfect
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7330370407154208826, guid: a3149a40513b9544ba50dbc360b4355c,
+        type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 2617245695
+      objectReference: {fileID: 0}
     - target: {fileID: 7425341563245976514, guid: a3149a40513b9544ba50dbc360b4355c,
         type: 3}
       propertyPath: m_fontColor32.rgba
@@ -4796,6 +4819,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_margin.x
       value: 18.60249
+      objectReference: {fileID: 0}
+    - target: {fileID: 8697078631139813382, guid: a3149a40513b9544ba50dbc360b4355c,
+        type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 8833864059378762795, guid: a3149a40513b9544ba50dbc360b4355c,
         type: 3}

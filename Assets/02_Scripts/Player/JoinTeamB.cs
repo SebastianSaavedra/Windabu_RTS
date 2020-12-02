@@ -18,6 +18,10 @@ public class JoinTeamB : MonoBehaviourPunCallbacks
     public GameObject fKey;
     public GameObject rKey;
     public GameObject escKey;
+    public GameObject needCarteles;
+    public GameObject needChapitas;
+    public GameObject needStick;
+    public GameObject needMoney;
     [SerializeField] TextMeshProUGUI cartel, chapita, stick;
     private void Start()
     {
@@ -86,6 +90,10 @@ public class JoinTeamB : MonoBehaviourPunCallbacks
             player.GetComponent<LocalPlayerManager>().cartel = cartel;
             player.GetComponent<LocalPlayerManager>().chapitas = chapita;
             player.GetComponent<LocalPlayerManager>().stick = stick;
+            player.GetComponent<TEST_Interact>().needC = needCarteles;
+            player.GetComponent<TEST_Interact>().needCH = needChapitas;
+            player.GetComponent<TEST_Interact>().needS = needStick;
+            player.GetComponent<TEST_Interact>().needM = needMoney;
             JoinTeam(PhotonNetwork.LocalPlayer.NickName, PhotonNetwork.LocalPlayer.ActorNumber);
             Debug.Log("Llegaste aqui");
             callJoin = true;

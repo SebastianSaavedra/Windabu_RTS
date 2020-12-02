@@ -13,6 +13,10 @@ public class TEST_Interact : MonoBehaviourPunCallbacks
     public bool alreadyInteracted;
     public int minigameID;
     public bool alreadyChanged;
+    public GameObject needC;
+    public GameObject needCH;
+    public GameObject needS;
+    public GameObject needM;
 
     private void Update()
     {
@@ -44,12 +48,20 @@ public class TEST_Interact : MonoBehaviourPunCallbacks
                                         callSingle();
                                         LocalPlayerManager.paperCounter--;
                                     }
+                                    else 
+                                    {
+                                        needC.SetActive(true);
+                                    }
                                     break;
                                 case 1:
                                     if (LocalPlayerManager.paperCounter > 0)
                                     {
                                         callSingle();
                                         LocalPlayerManager.paperCounter--;
+                                    }
+                                    else 
+                                    {
+                                        needC.SetActive(true);
                                     }
                                     break;
                                 case 2:
@@ -58,12 +70,20 @@ public class TEST_Interact : MonoBehaviourPunCallbacks
                                     callSingle();
                                     LocalPlayerManager.stickCounter--;
                                     }
+                                    else 
+                                    {
+                                        needS.SetActive(true);
+                                    }
                                     break;
                                 case 3:
                                     if (LocalPlayerManager.stickCounter > 0)
                                     {
                                         callSingle();
                                         LocalPlayerManager.stickCounter--;
+                                    }
+                                    else
+                                    {
+                                        needS.SetActive(true);
                                     }
                                     break;
                                 case 4:
@@ -72,12 +92,20 @@ public class TEST_Interact : MonoBehaviourPunCallbacks
                                         callSingle();
                                         LocalPlayerManager.chapaCounter--;
                                     }
+                                    else 
+                                    {
+                                        needCH.SetActive(true);
+                                    }
                                     break;
                                 case 5:
                                     if (LocalPlayerManager.chapaCounter > 0)
                                     {
                                         callSingle();
                                         LocalPlayerManager.chapaCounter--;
+                                    }
+                                    else
+                                    {
+                                        needCH.SetActive(true);
                                     }
                                     break;
                                 default:
