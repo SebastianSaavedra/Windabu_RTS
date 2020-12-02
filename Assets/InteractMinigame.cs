@@ -42,16 +42,16 @@ public class InteractMinigame : MonoBehaviourPunCallbacks
     }
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-                //if (objectToInteract.GetComponent<TaskDropDownMinigame>().cantClosePanel) 
-                //{
-                //    Debug.Log("Cagaste hermano no podi cerrar el panel");
-                //}
+                if (!objectToInteract.GetComponent<TaskDropDownMinigame>().cantClosePanel)
+                {
+                    Debug.Log("Cagaste hermano no podi cerrar el panel");
                 if (!objectToInteract.GetComponent<TaskDropDownMinigame>().stopoutsiders)
                 {
                     objectToInteract.GetComponent<I_Interactable>().OnLeavePanel(true);
                     objectToInteract.GetComponent<TaskDropDownMinigame>().StopOther(false);
                     GetComponent<TEST_Movement>().enabled = true;
                     alreadyInteracted = false;
+                }
                 }
         }
         }

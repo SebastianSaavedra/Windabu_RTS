@@ -156,18 +156,45 @@ public class FinishMinigameManager : MonoBehaviour
             case 11:
                 LocalPlayerManager.paperCounter++;
                 Debug.Log(LocalPlayerManager.paperCounter);
+                switch (GetComponentInParent<WhatTeamIsCalling>().team)
+                {
+                    case true:
+                        GameObject.Find("ImpresoraAObj").GetComponent<BoxProgression>().FinishedMinigame();
+                        break;
+                    case false:
+                        GameObject.Find("ImpresoraBObj").GetComponent<BoxProgression>().FinishedMinigame();
+                        break;
+                }
                 break;
 
             // Lightstick - Impre3D
             case 12:
                 LocalPlayerManager.stickCounter++;
                 Debug.Log(LocalPlayerManager.stickCounter);
+                switch (GetComponentInParent<WhatTeamIsCalling>().team)
+                {
+                    case true:
+                        GameObject.Find("Obj_Imp3dA").GetComponent<BoxProgression>().FinishedMinigame();
+                        break;
+                    case false:
+                        GameObject.Find("Obj_Imp3dB").GetComponent<BoxProgression>().FinishedMinigame();
+                        break;
+                }
                 break;
 
             // Chapita
             case 13:
                 LocalPlayerManager.chapaCounter++;
                 Debug.Log(LocalPlayerManager.chapaCounter);
+                switch (GetComponentInParent<WhatTeamIsCalling>().team)
+                {
+                    case true:
+                        GameObject.Find("Obj_ChapitasA").GetComponent<BoxProgression>().FinishedMinigame();
+                        break;
+                    case false:
+                        GameObject.Find("Obj_ChapitasB").GetComponent<BoxProgression>().FinishedMinigame();
+                        break;
+                }
                 break;
 
             // Plotter
