@@ -39,11 +39,13 @@ public class TeamManager : MonoBehaviourPunCallbacks
     [PunRPC]
     public void WinA() 
     {
+        fake.SetActive(true);
         GanoA.SetActive(true);
     }
     [PunRPC]
     public void WinB()
     {
+        fake.SetActive(true);
         GanoB.SetActive(true);
     }
 }
