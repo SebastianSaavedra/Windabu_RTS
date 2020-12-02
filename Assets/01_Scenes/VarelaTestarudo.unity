@@ -32022,6 +32022,12 @@ PrefabInstance:
       propertyPath: moneyToentry
       value: 20
       objectReference: {fileID: 0}
+    - target: {fileID: 5448557454086677644, guid: bc13f6c2e80557049ac7edf708034b42,
+        type: 3}
+      propertyPath: panelData
+      value: 
+      objectReference: {fileID: 11400000, guid: 834ebdb2206d2394ca251b8ff4654983,
+        type: 2}
     - target: {fileID: 7754341705200370338, guid: bc13f6c2e80557049ac7edf708034b42,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -32122,10 +32128,23 @@ MonoBehaviour:
   observableSearch: 2
   Synchronization: 3
   OwnershipTransfer: 0
-  ObservedComponents: []
+  ObservedComponents:
+  - {fileID: 1282025010}
   viewIdField: 6
   InstantiationId: 0
   isRuntimeInstantiated: 0
+--- !u!114 &1282025010 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1696552624335281110, guid: bc13f6c2e80557049ac7edf708034b42,
+    type: 3}
+  m_PrefabInstance: {fileID: 1282025004}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1282025008}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e0efa7f1b824204590681a68c414084, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1283961908
 GameObject:
   m_ObjectHideFlags: 0
