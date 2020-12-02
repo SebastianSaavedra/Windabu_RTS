@@ -24,20 +24,22 @@ public class ShopManager : MonoBehaviourPunCallbacks
     [Header("Botones")]
     [SerializeField]
     Button impresbut, chapbut, impre3dbut, plotbut, merchbut, indbut, scbut;
+    [SerializeField]
+    bool stage0, stage1, stage2, stage3, stage4, stage5, stage6, stage7;
 
 
     private void Start()
     {
-       // impresbut.GetComponent<Button>().animationTriggers.disabledTrigger=tru;
-
     }
 
-    private void Update()
+
+    
+    private void LateUpdate()
     {
         switch (team) 
         {
             case true:
-                if (MinigameManager.dineroA <= 0)
+                if (MinigameManager.dineroA <= 0 && !stage0)
                 {
                     impresbut.interactable = false;
                     chapbut.interactable = false;
@@ -46,9 +48,16 @@ public class ShopManager : MonoBehaviourPunCallbacks
                     merchbut.interactable = false;
                     indbut.interactable = false;
                     scbut.interactable = false;
-                    Debug.Log("ABCDHQQWE");
+                    //-------------
+                    stage0 = true;
+                    stage1 = false;
+                    stage2 = false;
+                    stage3 = false;
+                    stage4 = false;
+                    stage5 = false;
+                    stage6 = false;
                 }
-                else if (MinigameManager.dineroA >= 100 && MinigameManager.dineroA < 150)
+                else if (MinigameManager.dineroA >= 100 && MinigameManager.dineroA < 150 && !stage1)
                 {
                     impresbut.interactable = true;
                     chapbut.interactable = false;
@@ -57,9 +66,17 @@ public class ShopManager : MonoBehaviourPunCallbacks
                     merchbut.interactable = false;
                     indbut.interactable = false;
                     scbut.interactable = false;
+                    //----------------
+                    stage0 = false;
+                    stage1 = true;
+                    stage2 = false;
+                    stage3 = false;
+                    stage4 = false;
+                    stage5 = false;
+                    stage6 = false;
                     Debug.Log("ABCDHQ");
                 }
-                else if (MinigameManager.dineroA >= 150 && MinigameManager.dineroA < 200)
+                else if (MinigameManager.dineroA >= 150 && MinigameManager.dineroA < 200 && !stage2)
                 {
                     impresbut.interactable = true;
                     chapbut.interactable = true;
@@ -68,9 +85,17 @@ public class ShopManager : MonoBehaviourPunCallbacks
                     merchbut.interactable = false;
                     indbut.interactable = false;
                     scbut.interactable = false;
+                    //----------------
+                    stage0 = false;
+                    stage1 = false;
+                    stage2 = true;
+                    stage3 = false;
+                    stage4 = false;
+                    stage5 = false;
+                    stage6 = false;
                     Debug.Log("ABCDH");
                 }
-                else if (MinigameManager.dineroA >= 200 && MinigameManager.dineroA < 300)
+                else if (MinigameManager.dineroA >= 200 && MinigameManager.dineroA < 300 && !stage3)
                 {
                     impresbut.interactable = true;
                     chapbut.interactable = true;
@@ -79,9 +104,17 @@ public class ShopManager : MonoBehaviourPunCallbacks
                     merchbut.interactable = false;
                     indbut.interactable = false;
                     scbut.interactable = false;
+                    //----------------
+                    stage0 = false;
+                    stage1 = false;
+                    stage2 = false;
+                    stage3 = true;
+                    stage4 = false;
+                    stage5 = false;
+                    stage6 = false;
                     Debug.Log("ABCD");
                 }
-                else if (MinigameManager.dineroA >= 300 && MinigameManager.dineroA < 350)
+                else if (MinigameManager.dineroA >= 300 && MinigameManager.dineroA < 350 && !stage4)
                 {
                     impresbut.interactable = true;
                     chapbut.interactable = true;
@@ -90,9 +123,17 @@ public class ShopManager : MonoBehaviourPunCallbacks
                     merchbut.interactable = false;
                     indbut.interactable = false;
                     scbut.interactable = true;
+                    //----------------
+                    stage0 = false;
+                    stage1 = false;
+                    stage2 = false;
+                    stage3 = false;
+                    stage4 = true;
+                    stage5 = false;
+                    stage6 = false;
                     Debug.Log("ABC");
                 }
-                else if (MinigameManager.dineroA >= 350 && MinigameManager.dineroA < 500)
+                else if (MinigameManager.dineroA >= 350 && MinigameManager.dineroA < 500 && !stage5)
                 {
                     impresbut.interactable = true;
                     chapbut.interactable = true;
@@ -101,9 +142,17 @@ public class ShopManager : MonoBehaviourPunCallbacks
                     merchbut.interactable = true;
                     indbut.interactable = false;
                     scbut.interactable = true;
+                    //----------------
+                    stage0 = false;
+                    stage1 = false;
+                    stage2 = false;
+                    stage3 = false;
+                    stage4 = false;
+                    stage5 = true;
+                    stage6 = false;
                     Debug.Log("AB");
                 }
-                else if (MinigameManager.dineroA >= 500)
+                else if (MinigameManager.dineroA >= 500 && !stage6)
                     Debug.Log("A");
                     impresbut.interactable = true;
                 chapbut.interactable = true;
@@ -112,6 +161,14 @@ public class ShopManager : MonoBehaviourPunCallbacks
                 merchbut.interactable = true;
                 indbut.interactable = true;
                 scbut.interactable = true;
+                //----------------
+                stage0 = false;
+                stage1 = false;
+                stage2 = false;
+                stage3 = false;
+                stage4 = false;
+                stage5 = false;
+                stage6 = true;
                 {
                 }
                 break;
