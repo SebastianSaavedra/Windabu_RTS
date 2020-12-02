@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Com.MaluCompany.TestGame;
 
 public class FeedbackTrigger : MonoBehaviour
 {
@@ -22,25 +23,44 @@ public class FeedbackTrigger : MonoBehaviour
         {
             if (GetComponent<PlayerTeam>().TeamA && collision.CompareTag("Actividad B"))
             {
-              //  fKey.SetActive(true);
+              fKey.SetActive(true);
             }
             if (GetComponent<PlayerTeam>().TeamB && collision.CompareTag("Actividad A"))
             {
-               // fKey.SetActive(true);
+               fKey.SetActive(true);
             }
             if (GetComponent<PlayerTeam>().TeamA && collision.CompareTag("Actividad A"))
             {
-            escKey.SetActive(true);
-            eKey.SetActive(true);
-                rKey.SetActive(true);
-                tKey.SetActive(true);
+                if (collision.GetComponent<ColSaver>().canRepair)
+                {
+                    rKey.SetActive(true);
+                }
+                else
+                {
+                    escKey.SetActive(true);
+                    eKey.SetActive(true);
+                    tKey.SetActive(true);
+                }
+                if (GetComponent<Sabotage>().playerToInterrupt)
+                {
+                    tKey.SetActive(true);
+                }
             }
             if (GetComponent<PlayerTeam>().TeamB && collision.CompareTag("Actividad B"))
             {
-            escKey.SetActive(true);
-            eKey.SetActive(true);
-                //rKey.SetActive(true);
-                //tKey.SetActive(true);
+                if (collision.GetComponent<ColSaver>().canRepair)
+                {
+                    rKey.SetActive(true);
+                }
+                else
+                {
+                    escKey.SetActive(true);
+                    eKey.SetActive(true);                  
+                }
+                if (GetComponent<Sabotage>().playerToInterrupt) 
+                {
+                    tKey.SetActive(true);
+                }
             }
         }
     }
