@@ -58,14 +58,14 @@ public class InteractMinigame : MonoBehaviourPunCallbacks
                 if (MinigameManager.dineroA >= objectToInteract.GetComponent<TaskDropDownMinigame>().moneyToentry)
                 {
                     Minijuegos.compraA((int)objectToInteract.GetComponent<TaskDropDownMinigame>().moneyToentry);
-                    GetComponent<TEST_Movement>().enabled = false;
-                    // objectToInteract.GetComponent<I_Interactable>().OnInteract(true);
-                    objectToInteract.GetComponent<I_Interactable>().OnInteract(GetComponent<PlayerTeam>().team);
-                    alreadyInteracted = true;
                     if (objectToInteract.GetComponent<TaskDropDownMinigame>().Interactonce) 
                     {
                     objectToInteract.GetComponent<TaskDropDownMinigame>().StopOther(true);
                     }
+                    GetComponent<TEST_Movement>().enabled = false;
+                    // objectToInteract.GetComponent<I_Interactable>().OnInteract(true);
+                    objectToInteract.GetComponent<I_Interactable>().OnInteract(GetComponent<PlayerTeam>().team);
+                    alreadyInteracted = true;
                 }
                 else 
                 {
@@ -77,14 +77,14 @@ public class InteractMinigame : MonoBehaviourPunCallbacks
                 if (MinigameManager.dineroB >= objectToInteract.GetComponent<TaskDropDownMinigame>().moneyToentry)
                 {
                         Minijuegos.compraB((int)objectToInteract.GetComponent<TaskDropDownMinigame>().moneyToentry);
-                    GetComponent<TEST_Movement>().enabled = false;
-                    // objectToInteract.GetComponent<I_Interactable>().OnInteract(true);
-                    objectToInteract.GetComponent<I_Interactable>().OnInteract(GetComponent<PlayerTeam>().team);
-                    alreadyInteracted = true;
                     if (objectToInteract.GetComponent<TaskDropDownMinigame>().Interactonce)
                     {
                         objectToInteract.GetComponent<TaskDropDownMinigame>().StopOther(true);
                     }
+                    GetComponent<TEST_Movement>().enabled = false;
+                    // objectToInteract.GetComponent<I_Interactable>().OnInteract(true);
+                    objectToInteract.GetComponent<I_Interactable>().OnInteract(GetComponent<PlayerTeam>().team);
+                    alreadyInteracted = true;
                 }
                 else 
                 {
