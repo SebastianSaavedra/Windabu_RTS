@@ -23,18 +23,13 @@ public class ShopManager : MonoBehaviourPunCallbacks
     [SerializeField] UIManager uiMan;
     [Header("Botones")]
     [SerializeField]
-    GameObject impresbut, chapbut, impre3dbut, plotbut, merchbut, indbut, scbut;
+    Button impresbut, chapbut, impre3dbut, plotbut, merchbut, indbut, scbut;
 
 
     private void Start()
     {
        // impresbut.GetComponent<Button>().animationTriggers.disabledTrigger=tru;
-        chapbut.GetComponent<Image>().color = new Color(.5f, .5f, .5f, 1f);
-        impre3dbut.GetComponent<Image>().color = new Color(.5f, .5f, .5f, 1f);
-        plotbut.GetComponent<Image>().color = new Color(.5f, .5f, .5f, 1f);
-        merchbut.GetComponent<Image>().color = new Color(.5f, .5f, .5f, 1f);
-        indbut.GetComponent<Image>().color = new Color(.5f, .5f, .5f, 1f);
-        scbut.GetComponent<Image>().color = new Color(.5f, .5f, .5f, 1f);
+
     }
 
     private void Update()
@@ -42,94 +37,83 @@ public class ShopManager : MonoBehaviourPunCallbacks
         switch (team) 
         {
             case true:
-                if (MinigameManager.dineroA <= 0) 
-                {                   
-                      impresbut.GetComponent<Image>().color = new Color(.5f,.5f,.5f,1f);
-                        chapbut.GetComponent<Image>().color = new Color(.5f, .5f, .5f, 1f);
-                    impre3dbut.GetComponent<Image>().color = new Color(.5f, .5f, .5f, 1f);
-                    plotbut.GetComponent<Image>().color = new Color(.5f, .5f, .5f, 1f);
-                    merchbut.GetComponent<Image>().color = new Color(.5f, .5f, .5f, 1f);
-                    indbut.GetComponent<Image>().color = new Color(.5f, .5f, .5f, 1f);
-                    scbut.GetComponent<Image>().color = new Color(.5f, .5f, .5f, 1f);
-                    Debug.Log(scbut.GetComponent<Image>().color);
-                }
-                 else if (MinigameManager.dineroA >=100 && MinigameManager.dineroA <150)
+                if (MinigameManager.dineroA <= 0)
                 {
-                    impresbut.GetComponent<Image>().color = new Color(1f, 1f, 1f, 1f);
-                    chapbut.GetComponent<Image>().color = new Color(.5f, .5f, .5f, 1f);
-                    impre3dbut.GetComponent<Image>().color = new Color(.5f, .5f, .5f, 1f);
-                    plotbut.GetComponent<Image>().color = new Color(.5f, .5f, .5f, 1f);
-                    merchbut.GetComponent<Image>().color = new Color(.5f, .5f, .5f, 1f);
-                    indbut.GetComponent<Image>().color = new Color(.5f, .5f, .5f, 1f);
-                    scbut.GetComponent<Image>().color = new Color(.5f, .5f, .5f, 1f);
+                    impresbut.interactable = false;
+                    chapbut.interactable = false;
+                    impre3dbut.interactable = false;
+                    plotbut.interactable = false;
+                    merchbut.interactable = false;
+                    indbut.interactable = false;
+                    scbut.interactable = false;
+                    Debug.Log("ABCDHQQWE");
                 }
-              else if (MinigameManager.dineroA >= 150 && MinigameManager.dineroA < 200) 
+                else if (MinigameManager.dineroA >= 100 && MinigameManager.dineroA < 150)
                 {
-                    impresbut.GetComponent<Image>().color = new Color(1f, 1f, 1f, 1f);
-                    chapbut.GetComponent<Image>().color = new Color(1f, 1f, 1f, 1f);
-                    impre3dbut.GetComponent<Image>().color = new Color(.5f, .5f, .5f, 1f);
-                    plotbut.GetComponent<Image>().color = new Color(.5f, .5f, .5f, 1f);
-                    merchbut.GetComponent<Image>().color = new Color(.5f, .5f, .5f, 1f);
-                    indbut.GetComponent<Image>().color = new Color(.5f, .5f, .5f, 1f);
-                    scbut.GetComponent<Image>().color = new Color(.5f, .5f, .5f, 1f);
+                    impresbut.interactable = true;
+                    chapbut.interactable = false;
+                    impre3dbut.interactable = false;
+                    plotbut.interactable = false;
+                    merchbut.interactable = false;
+                    indbut.interactable = false;
+                    scbut.interactable = false;
+                    Debug.Log("ABCDHQ");
                 }
-                 else if (MinigameManager.dineroA >= 200 && MinigameManager.dineroA < 300) 
+                else if (MinigameManager.dineroA >= 150 && MinigameManager.dineroA < 200)
                 {
-                    impresbut.GetComponent<Image>().color = new Color(1f, 1f, 1f, 1f);
-                    chapbut.GetComponent<Image>().color = new Color(1f, 1f, 1f, 1f);
-                    impre3dbut.GetComponent<Image>().color = new Color(1f, 1f, 1f, 1f);
-                    plotbut.GetComponent<Image>().color = new Color(.5f, .5f, .5f, 1f);
-                    merchbut.GetComponent<Image>().color = new Color(.5f, .5f, .5f, 1f);
-                    indbut.GetComponent<Image>().color = new Color(.5f, .5f, .5f, 1f);
-                    scbut.GetComponent<Image>().color = new Color(.5f, .5f, .5f, 1f);
+                    impresbut.interactable = true;
+                    chapbut.interactable = true;
+                    impre3dbut.interactable = false;
+                    plotbut.interactable = false;
+                    merchbut.interactable = false;
+                    indbut.interactable = false;
+                    scbut.interactable = false;
+                    Debug.Log("ABCDH");
                 }
-              else  if (MinigameManager.dineroA >= 300 && MinigameManager.dineroA < 350) 
+                else if (MinigameManager.dineroA >= 200 && MinigameManager.dineroA < 300)
                 {
-                    impresbut.GetComponent<Image>().color = new Color(1f, 1f, 1f, 1f);
-                    chapbut.GetComponent<Image>().color = new Color(1f, 1f, 1f, 1f);
-                    impre3dbut.GetComponent<Image>().color = new Color(1f, 1f, 1f, 1f);
-                    plotbut.GetComponent<Image>().color = new Color(1f, 1f, 1f, 1f);
-                    merchbut.GetComponent<Image>().color = new Color(.5f, .5f, .5f, 1f);
-                    indbut.GetComponent<Image>().color = new Color(.5f, .5f, .5f, 1f);
-                    scbut.GetComponent<Image>().color = new Color(1f, 1f, 1f, 1f);
+                    impresbut.interactable = true;
+                    chapbut.interactable = true;
+                    impre3dbut.interactable = true;
+                    plotbut.interactable = false;
+                    merchbut.interactable = false;
+                    indbut.interactable = false;
+                    scbut.interactable = false;
+                    Debug.Log("ABCD");
                 }
-               else if (MinigameManager.dineroA >= 350 && MinigameManager.dineroA < 500) 
+                else if (MinigameManager.dineroA >= 300 && MinigameManager.dineroA < 350)
                 {
-                    impresbut.GetComponent<Image>().color = new Color(1f, 1f, 1f, 1f);
-                    chapbut.GetComponent<Image>().color = new Color(1f, 1f, 1f, 1f);
-                    impre3dbut.GetComponent<Image>().color = new Color(1f, 1f, 1f, 1f);
-                    plotbut.GetComponent<Image>().color = new Color(1f, 1f, 1f, 1f);
-                    merchbut.GetComponent<Image>().color = new Color(1f, 1f, 1f, 1f);
-                    indbut.GetComponent<Image>().color = new Color(.5f, .5f, .5f, 1f);
-                    scbut.GetComponent<Image>().color = new Color(1f, 1f, 1f, 1f);
+                    impresbut.interactable = true;
+                    chapbut.interactable = true;
+                    impre3dbut.interactable = true;
+                    plotbut.interactable = true;
+                    merchbut.interactable = false;
+                    indbut.interactable = false;
+                    scbut.interactable = true;
+                    Debug.Log("ABC");
                 }
-             else if (MinigameManager.dineroA >= 500)
-                    impresbut.GetComponent<Image>().color = new Color(1f, 1f, 1f, 1f);
-                chapbut.GetComponent<Image>().color = new Color(1f, 1f, 1f, 1f);
-                impre3dbut.GetComponent<Image>().color = new Color(1f, 1f, 1f, 1f);
-                plotbut.GetComponent<Image>().color = new Color(1f, 1f, 1f, 1f);
-                merchbut.GetComponent<Image>().color = new Color(1f, 1f, 1f, 1f);
-                indbut.GetComponent<Image>().color = new Color(1f, 1f, 1f, 1f);
-                scbut.GetComponent<Image>().color = new Color(1f, 1f, 1f, 1f);
+                else if (MinigameManager.dineroA >= 350 && MinigameManager.dineroA < 500)
+                {
+                    impresbut.interactable = true;
+                    chapbut.interactable = true;
+                    impre3dbut.interactable = true;
+                    plotbut.interactable = true;
+                    merchbut.interactable = true;
+                    indbut.interactable = false;
+                    scbut.interactable = true;
+                    Debug.Log("AB");
+                }
+                else if (MinigameManager.dineroA >= 500)
+                    Debug.Log("A");
+                    impresbut.interactable = true;
+                chapbut.interactable = true;
+                impre3dbut.interactable = true;
+                plotbut.interactable = true;
+                merchbut.interactable = true;
+                indbut.interactable = true;
+                scbut.interactable = true;
                 {
                 }
-                //switch (MinigameManager.dineroA) 
-                //{
-                //    case 0:
-                //        break;
-                //    case 100:
-                //        break;
-                //    case 150:
-                //        break;
-                //    case 200:
-                //        break;
-                //    case 300:
-                //        break;
-                //    case 350:
-                //        break;
-                //    case 500:
-                //        break;
-                //}
                 break;
 
 
