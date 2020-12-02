@@ -4121,6 +4121,11 @@ MonoBehaviour:
   fallos: []
   aciertosP2: []
   fallosP2: []
+  audioSource: {fileID: 0}
+  heySfx: {fileID: 0}
+  awwSfx: {fileID: 0}
+  winSFX: {fileID: 0}
+  loseSFX: {fileID: 0}
   speed: 121.68
   moving: 1
   maxSpeed: 0
@@ -29715,6 +29720,58 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1793778977}
   m_CullTransparentMesh: 0
+--- !u!1 &1836037467
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1836037469}
+  - component: {fileID: 1836037468}
+  m_Layer: 0
+  m_Name: SoundManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1836037468
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1836037467}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee073a637085b9d48bbb8f06a0829ee4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - name: DragDropPositive
+    clip: {fileID: 8300000, guid: d9e5d1bfa6bd7f447b0a0d84dc3da3c8, type: 3}
+    volume: 1
+    source: {fileID: 0}
+  - name: DragDropNegative
+    clip: {fileID: 8300000, guid: cfdd9cd3ef5d9c04ebd7554ac54dee58, type: 3}
+    volume: 1
+    source: {fileID: 0}
+--- !u!4 &1836037469
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1836037467}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 69.199585, y: 43.369087, z: -0.6230469}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 16
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1843285017
 GameObject:
   m_ObjectHideFlags: 0
@@ -32221,6 +32278,7 @@ MonoBehaviour:
   Interactonce: 0
   stopoutsiders: 0
   canInteract: 0
+  cantClosePanel: 0
 --- !u!224 &7496587211489063316 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 8889438373606068684, guid: a0b67b9995efafe40a56f7c80a341033,

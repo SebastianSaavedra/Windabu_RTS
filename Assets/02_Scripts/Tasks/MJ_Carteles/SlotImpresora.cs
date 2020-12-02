@@ -20,6 +20,7 @@ public class SlotImpresora : MonoBehaviour, IDropHandler
             if (draggedId == slotId)
             {
                 // Move to slot
+                FindObjectOfType<AudioManager>().Play("DragDropPositive");
                 eventData.pointerDrag.GetComponent<RectTransform>().anchoredPosition = GetComponent<RectTransform>().anchoredPosition;
                 eventData.pointerDrag.GetComponent<DragDropStay>().locked = true;
                 GetComponentInParent<ProductImpresora>().AddCounter();
@@ -29,7 +30,7 @@ public class SlotImpresora : MonoBehaviour, IDropHandler
             // Failed Scan
             else
             {
-                Debug.Log("Aqui no es bro");
+                FindObjectOfType<AudioManager>().Play("DragDropNegative");
             }
         }
     }
