@@ -52,7 +52,11 @@ public class JoinTeamA : MonoBehaviourPunCallbacks
     {
         FakeLobbyUsers.users[playerPos].gameObject.SetActive(true);
         FakeLobbyUsers.users[playerPos].text = name;
-        playerPos = playerPos + 1;     
+        playerPos = playerPos + 1;
+        if (playerPos >= 3) 
+        {
+            this.gameObject.SetActive(false);
+        }
     }
     [PunRPC]
     public void AddPlayerId(int id) 
