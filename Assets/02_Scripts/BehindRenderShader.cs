@@ -7,13 +7,14 @@ using DG.Tweening;
 
 public class BehindRenderShader : MonoBehaviourPunCallbacks         //Tweakear shader
 {
-    public static int posID = Shader.PropertyToID("_Position");
-    public static int sizeID = Shader.PropertyToID("_Size");
+    public int posID = Shader.PropertyToID("_Position");
+    public int sizeID = Shader.PropertyToID("_Size");
+
     [SerializeField] Camera camara;
-    //[SerializeField] GameObject target;
-    //[SerializeField] LayerMask layerMask;
     [SerializeField] Material wallMaterial;
     [SerializeField] GameObject player;
+    //[SerializeField] GameObject target;
+    //[SerializeField] LayerMask layerMask;
 
     #region Raycast2D Fail
     //private void Start()
