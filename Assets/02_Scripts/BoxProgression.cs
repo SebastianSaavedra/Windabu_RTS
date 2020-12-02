@@ -15,6 +15,7 @@ public class BoxProgression : MonoBehaviourPunCallbacks
     bool inLvl1;
     [SerializeField] bool team;
     [SerializeField] GameObject[] players;
+    [SerializeField] GameObject done;
 
     // Tras comprar - Listo para armar - Disponible para producir - Mejorado
     public GameObject born, ready, upgraded;
@@ -52,6 +53,7 @@ public class BoxProgression : MonoBehaviourPunCallbacks
             {
                 player.GetComponent<TEST_Movement>().enabled = true;
                 taskDropDownMinigame.OnLeavePanel(true);
+                done.SetActive(true);
             }
         }
     }
@@ -65,6 +67,7 @@ public class BoxProgression : MonoBehaviourPunCallbacks
             {
                 player.GetComponent<TEST_Movement>().enabled = true;
                 taskDropDownMinigame.OnLeavePanel(true);
+                done.SetActive(true);
             }
         }
     }
