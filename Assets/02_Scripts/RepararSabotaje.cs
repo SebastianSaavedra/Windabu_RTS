@@ -12,6 +12,9 @@ public class RepararSabotaje : MonoBehaviourPunCallbacks
 
     private void OnTriggerStay2D(Collider2D collision)
     {
+            if (collision.GetComponent<ColSaver>().canRepair) 
+            {
+
         if (Input.GetKeyDown(KeyCode.R)) 
         {
             if (GetComponent<PlayerTeam>().TeamA && boxcol2d.GetComponent<ColSaver>().team)
@@ -22,8 +25,10 @@ public class RepararSabotaje : MonoBehaviourPunCallbacks
             {
                 photonView.RPC("LlamarCorutinaReparar", RpcTarget.AllViaServer);
             }
-
+            }
         }
+
+
     }
 
     [PunRPC]

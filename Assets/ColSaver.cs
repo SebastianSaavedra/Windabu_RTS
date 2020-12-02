@@ -4,6 +4,7 @@ using UnityEngine;
 using Photon.Realtime;
 using Photon.Pun;
 using UnityEngine.UI;
+using Com.MaluCompany.TestGame;
 
 public class ColSaver : MonoBehaviourPunCallbacks,IPunObservable
 {
@@ -12,6 +13,7 @@ public class ColSaver : MonoBehaviourPunCallbacks,IPunObservable
     public bool team;
     public Minijuego room;
     public Transform goToOnInterrupt;
+    public bool canRepair;
     
     int queJugador;
 
@@ -63,14 +65,15 @@ public class ColSaver : MonoBehaviourPunCallbacks,IPunObservable
     [PunRPC]
     public void DisableCols() 
     {
-       
+        canRepair = true;
             cols.enabled = false;
             cols2.enabled = false;
         
     }
     [PunRPC]
     public void EnableCols()
-    {     
+    {
+            canRepair = false;
             cols.enabled = true;       
             cols2.enabled = true;       
     }
