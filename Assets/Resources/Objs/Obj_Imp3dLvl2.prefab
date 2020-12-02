@@ -123,8 +123,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   taskBarPanel: {fileID: 0}
   managerMinijuegos: {fileID: 0}
-  panelData: {fileID: 11400000, guid: e40bd0cea097f5144b0b6dbb266afad0, type: 2}
+  panelData: {fileID: 11400000, guid: d790542d902c9bd478d46f88caa48715, type: 2}
   moneyToentry: 0
+  Interactonce: 0
+  stopoutsiders: 0
   canInteract: 1
 --- !u!1 &1842708776638207972
 GameObject:
@@ -501,4 +503,6 @@ MonoBehaviour:
   managerMinijuegos: {fileID: 0}
   panelData: {fileID: 11400000, guid: 6c0ca55306d9dc54887062e5fac03250, type: 2}
   moneyToentry: 0
+  Interactonce: 0
+  stopoutsiders: 0
   canInteract: 0

@@ -343,6 +343,10 @@ MonoBehaviour:
   fKey: {fileID: 0}
   rKey: {fileID: 0}
   escKey: {fileID: 0}
+  needCarteles: {fileID: 0}
+  needChapitas: {fileID: 0}
+  needStick: {fileID: 0}
+  needMoney: {fileID: 0}
   cartel: {fileID: 0}
   chapita: {fileID: 0}
   stick: {fileID: 0}
@@ -888,6 +892,10 @@ MonoBehaviour:
   fKey: {fileID: 0}
   rKey: {fileID: 0}
   escKey: {fileID: 0}
+  needCarteles: {fileID: 0}
+  needChapitas: {fileID: 0}
+  needStick: {fileID: 0}
+  needMoney: {fileID: 0}
   cartel: {fileID: 0}
   chapita: {fileID: 0}
   stick: {fileID: 0}
@@ -1503,6 +1511,14 @@ MonoBehaviour:
   merchbut: {fileID: 0}
   indbut: {fileID: 0}
   scbut: {fileID: 0}
+  stage0: 0
+  stage1: 0
+  stage2: 0
+  stage3: 0
+  stage4: 0
+  stage5: 0
+  stage6: 0
+  stage7: 0
 --- !u!114 &158597913
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -30166,6 +30182,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 477ae709558aa1647815fd59245f49de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  go: {fileID: 0}
   parentObjetosMinijuegosUNPlayer:
   - {fileID: 1889526653}
   parentObjetosMinijuegosDOSPlayers:
@@ -31249,6 +31266,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1216706948}
     m_Modifications:
+    - target: {fileID: 2060381049416135644, guid: a0b67b9995efafe40a56f7c80a341033,
+        type: 3}
+      propertyPath: finishedMinigameId
+      value: 16
+      objectReference: {fileID: 0}
     - target: {fileID: 8889438373606068684, guid: a0b67b9995efafe40a56f7c80a341033,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -31362,7 +31384,7 @@ PrefabInstance:
     - target: {fileID: 8889438373606068685, guid: a0b67b9995efafe40a56f7c80a341033,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a0b67b9995efafe40a56f7c80a341033, type: 3}
@@ -31492,6 +31514,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Producir_Merch
+      objectReference: {fileID: 0}
+    - target: {fileID: 4816750606479483167, guid: a724d08fc4cbb6f4c9b31466cbdf9c03,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a724d08fc4cbb6f4c9b31466cbdf9c03, type: 3}
@@ -32191,6 +32218,8 @@ MonoBehaviour:
   managerMinijuegos: {fileID: 0}
   panelData: {fileID: 11400000, guid: d4b04d531e7969f48a73be728c635b9e, type: 2}
   moneyToentry: 0
+  Interactonce: 0
+  stopoutsiders: 0
   canInteract: 0
 --- !u!224 &7496587211489063316 stripped
 RectTransform:

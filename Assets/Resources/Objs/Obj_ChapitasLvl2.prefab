@@ -123,8 +123,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   taskBarPanel: {fileID: 0}
   managerMinijuegos: {fileID: 0}
-  panelData: {fileID: 11400000, guid: e40bd0cea097f5144b0b6dbb266afad0, type: 2}
+  panelData: {fileID: 11400000, guid: d5a2e6b9dea7bca45b4e36b55ec12ae5, type: 2}
   moneyToentry: 0
+  Interactonce: 0
+  stopoutsiders: 0
   canInteract: 1
 --- !u!1 &1842708776638207972
 GameObject:
@@ -358,6 +360,8 @@ MonoBehaviour:
   OwnershipTransfer: 0
   ObservedComponents:
   - {fileID: 7895517636570418864}
+  - {fileID: 1696552624335281110}
+  - {fileID: 5448557454086677644}
   viewIdField: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
@@ -448,7 +452,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 7
-  m_Sprite: {fileID: 21300000, guid: c793abdbb91118e4db2688f4ffbd9765, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 02f16a1167519d54086065269cc0ecf8, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -499,6 +503,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   taskBarPanel: {fileID: 0}
   managerMinijuegos: {fileID: 0}
-  panelData: {fileID: 11400000, guid: 4adb6ece33e00ba4098be77f9a79083a, type: 2}
+  panelData: {fileID: 11400000, guid: 490ded78d252b28449a210fb35039508, type: 2}
   moneyToentry: 0
+  Interactonce: 0
+  stopoutsiders: 0
   canInteract: 0
