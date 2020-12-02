@@ -28,15 +28,24 @@ public class InteractMinigame : MonoBehaviourPunCallbacks
         if (!objectToInteract) return;
         if (Input.GetKeyDown(KeyCode.E) && !alreadyInteracted)
         {
-            if (objectToInteract.GetComponent<I_Interactable>() != null && objectToInteract.GetComponent<TaskDropDownMinigame>().canInteract)
+            if (objectToInteract.GetComponent<I_Interactable>() != null && objectToInteract.GetComponent<TaskDropDownMinigame>().canInteract && !objectToInteract.GetComponent<TaskDropDownMinigame>().stopoutsiders)
         {
+                    if (objectToInteract.GetComponent<TaskDropDownMinigame>().Interactonce) 
+                    {
+                        Interact(team);
+                        objectToInteract.GetComponent<TaskDropDownMinigame>().StopOther(true);
+                    }
+                    else 
+                    {
                     Interact(team);
+                    }
         }
     }
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            objectToInteract.GetComponent<I_Interactable>().OnLeavePanel(true);
-            GetComponent<TEST_Movement>().enabled = true;
+                objectToInteract.GetComponent<I_Interactable>().OnLeavePanel(true);
+                objectToInteract.GetComponent<TaskDropDownMinigame>().StopOther(false);
+                GetComponent<TEST_Movement>().enabled = true;
                 alreadyInteracted = false;
         }
         }
