@@ -64,12 +64,16 @@ public class InteractMinigame : MonoBehaviourPunCallbacks
             case true:
                 if (MinigameManager.dineroA >= objectToInteract.GetComponent<TaskDropDownMinigame>().moneyToentry)
                 {
-                        Minijuegos.compraA((int)objectToInteract.GetComponent<TaskDropDownMinigame>().moneyToentry);
+                    Minijuegos.compraA((int)objectToInteract.GetComponent<TaskDropDownMinigame>().moneyToentry);
                     GetComponent<TEST_Movement>().enabled = false;
                     // objectToInteract.GetComponent<I_Interactable>().OnInteract(true);
                     objectToInteract.GetComponent<I_Interactable>().OnInteract(GetComponent<PlayerTeam>().team);
-                        objectToInteract.GetComponent<TaskDropDownMinigame>().StopOther(true);
+                    objectToInteract.GetComponent<TaskDropDownMinigame>().StopOther(true);
                     alreadyInteracted = true;
+                }
+                else 
+                {
+                    GetComponent<TEST_Interact>().needM.SetActive(true);
                 }
                 break;
 
@@ -82,6 +86,10 @@ public class InteractMinigame : MonoBehaviourPunCallbacks
                     objectToInteract.GetComponent<I_Interactable>().OnInteract(GetComponent<PlayerTeam>().team);
                         objectToInteract.GetComponent<TaskDropDownMinigame>().StopOther(true);
                     alreadyInteracted = true;
+                }
+                else 
+                {
+                    GetComponent<TEST_Interact>().needM.SetActive(true);
                 }
                 break;
         }
