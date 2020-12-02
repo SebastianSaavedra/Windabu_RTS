@@ -3,15 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class ProductChapita : MonoBehaviour, IDropHandler
+public class ProductMerch : MonoBehaviour, IDropHandler
 {
     public float slotId;
     private float draggedId;
 
+    public GameObject readySprite;
     public GameObject chapita;
     public GameObject resetPos;
 
-    public int chapitaIn;
+    bool chapitaIn;
     int chapitaCounter;
     public int maxChapitas;
 
@@ -29,9 +30,10 @@ public class ProductChapita : MonoBehaviour, IDropHandler
                 chapita = eventData.pointerDrag;
 
                 // Move to slot
-                chapita.GetComponent<RectTransform>().anchoredPosition = GetComponent<RectTransform>().anchoredPosition;
+                readySprite.SetActive(true);
                 chapita.GetComponent<DragDropStay>().locked = true;
-                GetComponentInParent<ChapaCountet>().AddChapa();
+                chapitaIn = true;
+                chapita.SetActive(false);
             }
             // Failed Scan
             else
@@ -43,35 +45,27 @@ public class ProductChapita : MonoBehaviour, IDropHandler
 
     public void AddChapita()
     {
-        if (GetComponentInParent<ChapaCountet>().chapas == 3)
+        if (chapitaIn)
         {
+            chapitaIn = false;
             chapitaCounter++;
 
-            if(chapitaCounter == maxChapitas)
+            if (chapitaCounter == maxChapitas)
             {
                 GetComponentInParent<FinishMinigameManager>().AddSlotCounter();
-                Debug.Log("Listo");
+                Debug.Log("Listopo");
+                readySprite.SetActive(false);
             }
             else
             {
+                chapita.SetActive(true);
+                readySprite.SetActive(false);
                 chapita.transform.position = resetPos.transform.position;
                 chapita.GetComponent<DragDropStay>().locked = false;
                 chapita.GetComponent<CanvasGroup>().blocksRaycasts = true;
-                Debug.Log("Added");
+                Debug.Log("Faltan");
             }
-            GetComponentInParent<ChapaCountet>().NullChapas();
         }
-        else { Debug.Log("Faltan Chapitas"); }
-    }
-
-    public void ResetPos()
-    {
-        chapitaCounter++;
-        if (chapitaCounter != maxChapitas)
-        {
-            chapita.transform.position = resetPos.transform.position;
-            chapita.GetComponent<DragDropStay>().locked = false;
-            chapita.GetComponent<CanvasGroup>().blocksRaycasts = true;
-        }
+        else { Debug.Log("Falta Chapita"); }
     }
 }

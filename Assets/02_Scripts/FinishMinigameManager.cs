@@ -30,7 +30,7 @@ public class FinishMinigameManager : MonoBehaviour
     {
         switch (finishedMinigameId)
         {
-            // ----------  Construir ------------
+            // ---------------------  Construir ----------------------
 
             // Impresora
             case 1:
@@ -150,7 +150,7 @@ public class FinishMinigameManager : MonoBehaviour
                 }
                 break;
 
-            // -----------  Producir -------------
+            // -------------------------  Producir ----------------------------
 
             // Cartel - Impresora
             case 11:
@@ -164,14 +164,26 @@ public class FinishMinigameManager : MonoBehaviour
                 Debug.Log(LocalPlayerManager.stickCounter);
                 break;
 
-            // Merchandise - Chapita
+            // Chapita
             case 13:
                 LocalPlayerManager.chapaCounter++;
                 Debug.Log(LocalPlayerManager.chapaCounter);
                 break;
 
-            // Plotter ?
+            // Plotter
             case 14:
+                LocalPlayerManager.paperCounter++;
+                Debug.Log(LocalPlayerManager.paperCounter);
+                break;
+
+            // Merch
+            case 15:
+                LocalPlayerManager.paperCounter++;
+                Debug.Log(LocalPlayerManager.paperCounter);
+                break;
+
+            // Impresora Indust
+            case 16:
                 LocalPlayerManager.paperCounter++;
                 Debug.Log(LocalPlayerManager.paperCounter);
                 break;
