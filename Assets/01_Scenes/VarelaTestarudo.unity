@@ -2782,6 +2782,29 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 261158692}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &261158695
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 261158694}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b45f3b34aca77ce40af2fab95b54ce6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tipoDeFanA: {fileID: 4312060850811413569, guid: e7650c2a7281e3d4da151817a0addf3a,
+    type: 3}
+  tipoDeFanB: {fileID: 4312060850811413569, guid: 4cd5a7f4648c85544aaf22a477a62d4b,
+    type: 3}
+  spawnPoint: {fileID: 0}
+  timer: 20
+  puedeSpawnear: 1
+  waypointsA: []
+  waypointsB: []
+  spawnAs: 2
+  team: 0
 --- !u!1 &269876383
 GameObject:
   m_ObjectHideFlags: 0
@@ -4778,6 +4801,29 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1282025004}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &497222240
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 497222239}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b45f3b34aca77ce40af2fab95b54ce6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tipoDeFanA: {fileID: 4312060850811413569, guid: dbfe584b487fe0e479b12d941fcecfdc,
+    type: 3}
+  tipoDeFanB: {fileID: 4312060850811413569, guid: 5d45cf043439e774bb636a1bc71b352f,
+    type: 3}
+  spawnPoint: {fileID: 0}
+  timer: 20
+  puedeSpawnear: 1
+  waypointsA: []
+  waypointsB: []
+  spawnAs: 0
+  team: 1
 --- !u!1 &498185751
 GameObject:
   m_ObjectHideFlags: 0
@@ -30920,6 +30966,29 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1098970236}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1098970239
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1098970237}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b45f3b34aca77ce40af2fab95b54ce6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tipoDeFanA: {fileID: 4312060850811413569, guid: 4e5ff7f611776fb4395c00a67aa4b516,
+    type: 3}
+  tipoDeFanB: {fileID: 4312060850811413569, guid: 930ec0861a2f8e44da5fae08c26fba70,
+    type: 3}
+  spawnPoint: {fileID: 0}
+  timer: 20
+  puedeSpawnear: 1
+  waypointsA: []
+  waypointsB: []
+  spawnAs: 1
+  team: 1
 --- !u!1 &1111155382
 GameObject:
   m_ObjectHideFlags: 0
@@ -37598,6 +37667,29 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1684200125}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1684200128
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1684200127}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b45f3b34aca77ce40af2fab95b54ce6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tipoDeFanA: {fileID: 4312060850811413569, guid: 4e5ff7f611776fb4395c00a67aa4b516,
+    type: 3}
+  tipoDeFanB: {fileID: 4312060850811413569, guid: 930ec0861a2f8e44da5fae08c26fba70,
+    type: 3}
+  spawnPoint: {fileID: 0}
+  timer: 20
+  puedeSpawnear: 1
+  waypointsA: []
+  waypointsB: []
+  spawnAs: 1
+  team: 0
 --- !u!1 &1685712182
 GameObject:
   m_ObjectHideFlags: 0
@@ -38014,6 +38106,29 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1697658694}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1697658697
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1697658695}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b45f3b34aca77ce40af2fab95b54ce6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tipoDeFanA: {fileID: 4312060850811413569, guid: e7650c2a7281e3d4da151817a0addf3a,
+    type: 3}
+  tipoDeFanB: {fileID: 4312060850811413569, guid: 4cd5a7f4648c85544aaf22a477a62d4b,
+    type: 3}
+  spawnPoint: {fileID: 0}
+  timer: 20
+  puedeSpawnear: 1
+  waypointsA: []
+  waypointsB: []
+  spawnAs: 2
+  team: 1
 --- !u!1 &1706851650
 GameObject:
   m_ObjectHideFlags: 0
@@ -40925,6 +41040,29 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 2087349016}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2087349019
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2087349018}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b45f3b34aca77ce40af2fab95b54ce6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tipoDeFanA: {fileID: 4312060850811413569, guid: dbfe584b487fe0e479b12d941fcecfdc,
+    type: 3}
+  tipoDeFanB: {fileID: 4312060850811413569, guid: 5d45cf043439e774bb636a1bc71b352f,
+    type: 3}
+  spawnPoint: {fileID: 0}
+  timer: 20
+  puedeSpawnear: 1
+  waypointsA: []
+  waypointsB: []
+  spawnAs: 0
+  team: 0
 --- !u!1 &2093210542
 GameObject:
   m_ObjectHideFlags: 0
