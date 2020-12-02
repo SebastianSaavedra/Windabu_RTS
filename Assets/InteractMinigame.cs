@@ -43,10 +43,13 @@ public class InteractMinigame : MonoBehaviourPunCallbacks
     }
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-                objectToInteract.GetComponent<I_Interactable>().OnLeavePanel(true);
-                objectToInteract.GetComponent<TaskDropDownMinigame>().StopOther(false);
-                GetComponent<TEST_Movement>().enabled = true;
-                alreadyInteracted = false;
+                if (!objectToInteract.GetComponent<TaskDropDownMinigame>().stopoutsiders)
+                {
+                    objectToInteract.GetComponent<I_Interactable>().OnLeavePanel(true);
+                    objectToInteract.GetComponent<TaskDropDownMinigame>().StopOther(false);
+                    GetComponent<TEST_Movement>().enabled = true;
+                    alreadyInteracted = false;
+                }
         }
         }
     }
