@@ -201,18 +201,45 @@ public class FinishMinigameManager : MonoBehaviour
             case 14:
                 LocalPlayerManager.paperCounter++;
                 Debug.Log(LocalPlayerManager.paperCounter);
+                switch (GetComponentInParent<WhatTeamIsCalling>().team)
+                {
+                    case true:
+                        GameObject.Find("Obj_PlotA").GetComponent<BoxProgression>().FinishedMinigame();
+                        break;
+                    case false:
+                        GameObject.Find("Obj_PlotB").GetComponent<BoxProgression>().FinishedMinigame();
+                        break;
+                }
                 break;
 
             // Merch
             case 15:
                 LocalPlayerManager.paperCounter++;
                 Debug.Log(LocalPlayerManager.paperCounter);
+                switch (GetComponentInParent<WhatTeamIsCalling>().team)
+                {
+                    case true:
+                        GameObject.Find("Obj_MerchA").GetComponent<BoxProgression>().FinishedMinigame();
+                        break;
+                    case false:
+                        GameObject.Find("Obj_MerchB").GetComponent<BoxProgression>().FinishedMinigame();
+                        break;
+                }
                 break;
 
             // Impresora Indust
             case 16:
                 LocalPlayerManager.paperCounter++;
                 Debug.Log(LocalPlayerManager.paperCounter);
+                switch (GetComponentInParent<WhatTeamIsCalling>().team)
+                {
+                    case true:
+                        GameObject.Find("Obj_ImpIndusA").GetComponent<BoxProgression>().FinishedMinigame();
+                        break;
+                    case false:
+                        GameObject.Find("Obj_ImpIndusB").GetComponent<BoxProgression>().FinishedMinigame();
+                        break;
+                }
                 break;
 
 
