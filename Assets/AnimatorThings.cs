@@ -6,7 +6,7 @@ public class AnimatorThings : MonoBehaviour
 {
     // Start is called before the first frame update
     public GameObject parent;
-    [SerializeField] GameObject gameObject;
+    [SerializeField] GameObject padre;
 
     private void Start()
     {
@@ -20,5 +20,9 @@ public class AnimatorThings : MonoBehaviour
     public void DesaparecerUngAMEobject() 
     {
         gameObject.SetActive(false);
+    }
+    public void DestruirPadre() 
+    {
+        Destroy(padre);
     }
 }
