@@ -39,7 +39,7 @@ public class ShopManager : MonoBehaviourPunCallbacks
         switch (team) 
         {
             case true:
-                if (MinigameManager.dineroA <= 0 && !stage0)
+                if (MinigameManager.dineroA < 100 && !stage0)
                 {
                     impresbut.interactable = false;
                     chapbut.interactable = false;
@@ -74,7 +74,6 @@ public class ShopManager : MonoBehaviourPunCallbacks
                     stage4 = false;
                     stage5 = false;
                     stage6 = false;
-                    Debug.Log("ABCDHQ");
                 }
                 else if (MinigameManager.dineroA >= 150 && MinigameManager.dineroA < 200 && !stage2)
                 {
@@ -93,7 +92,6 @@ public class ShopManager : MonoBehaviourPunCallbacks
                     stage4 = false;
                     stage5 = false;
                     stage6 = false;
-                    Debug.Log("ABCDH");
                 }
                 else if (MinigameManager.dineroA >= 200 && MinigameManager.dineroA < 300 && !stage3)
                 {
@@ -112,7 +110,6 @@ public class ShopManager : MonoBehaviourPunCallbacks
                     stage4 = false;
                     stage5 = false;
                     stage6 = false;
-                    Debug.Log("ABCD");
                 }
                 else if (MinigameManager.dineroA >= 300 && MinigameManager.dineroA < 350 && !stage4)
                 {
@@ -131,7 +128,6 @@ public class ShopManager : MonoBehaviourPunCallbacks
                     stage4 = true;
                     stage5 = false;
                     stage6 = false;
-                    Debug.Log("ABC");
                 }
                 else if (MinigameManager.dineroA >= 350 && MinigameManager.dineroA < 500 && !stage5)
                 {
@@ -150,10 +146,9 @@ public class ShopManager : MonoBehaviourPunCallbacks
                     stage4 = false;
                     stage5 = true;
                     stage6 = false;
-                    Debug.Log("AB");
                 }
                 else if (MinigameManager.dineroA >= 500 && !stage6)
-                    Debug.Log("A");
+                {
                     impresbut.interactable = true;
                 chapbut.interactable = true;
                 impre3dbut.interactable = true;
@@ -169,99 +164,138 @@ public class ShopManager : MonoBehaviourPunCallbacks
                 stage4 = false;
                 stage5 = false;
                 stage6 = true;
-                {
                 }
                 break;
 
+                
 
             case false:
-                if (MinigameManager.dineroB <= 0)
+                if (MinigameManager.dineroB < 100 && !stage0)
                 {
-                    impresbut.GetComponent<Image>().color = Color.gray;
-                    chapbut.GetComponent<Image>().color = Color.gray;
-                    impre3dbut.GetComponent<Image>().color = Color.gray;
-                    plotbut.GetComponent<Image>().color = Color.gray;
-                    merchbut.GetComponent<Image>().color = Color.gray;
-                    indbut.GetComponent<Image>().color = Color.gray;
-                    scbut.GetComponent<Image>().color = Color.gray;
+                    impresbut.interactable = false;
+                    chapbut.interactable = false;
+                    impre3dbut.interactable = false;
+                    plotbut.interactable = false;
+                    merchbut.interactable = false;
+                    indbut.interactable = false;
+                    scbut.interactable = false;
+                    //-------------
+                    stage0 = true;
+                    stage1 = false;
+                    stage2 = false;
+                    stage3 = false;
+                    stage4 = false;
+                    stage5 = false;
+                    stage6 = false;
                 }
-                else if (MinigameManager.dineroB >= 100 && MinigameManager.dineroB < 150)
+                else if (MinigameManager.dineroB >= 100 && MinigameManager.dineroB < 150 && !stage1)
                 {
-                    impresbut.GetComponent<Image>().color = Color.white;
-                    chapbut.GetComponent<Image>().color = Color.gray;
-                    impre3dbut.GetComponent<Image>().color = Color.gray;
-                    plotbut.GetComponent<Image>().color = Color.gray;
-                    merchbut.GetComponent<Image>().color = Color.gray;
-                    indbut.GetComponent<Image>().color = Color.gray;
-                    scbut.GetComponent<Image>().color = Color.gray;
+                    impresbut.interactable = true;
+                    chapbut.interactable = false;
+                    impre3dbut.interactable = false;
+                    plotbut.interactable = false;
+                    merchbut.interactable = false;
+                    indbut.interactable = false;
+                    scbut.interactable = false;
+                    //----------------
+                    stage0 = false;
+                    stage1 = true;
+                    stage2 = false;
+                    stage3 = false;
+                    stage4 = false;
+                    stage5 = false;
+                    stage6 = false;
                 }
-                else if (MinigameManager.dineroB >= 150 && MinigameManager.dineroB < 200)
+                else if (MinigameManager.dineroB >= 150 && MinigameManager.dineroB < 200 && !stage2)
                 {
-                    impresbut.GetComponent<Image>().color = Color.white;
-                    chapbut.GetComponent<Image>().color = Color.white;
-                    impre3dbut.GetComponent<Image>().color = Color.gray;
-                    plotbut.GetComponent<Image>().color = Color.gray;
-                    merchbut.GetComponent<Image>().color = Color.gray;
-                    indbut.GetComponent<Image>().color = Color.gray;
-                    scbut.GetComponent<Image>().color = Color.gray;
+                    impresbut.interactable = true;
+                    chapbut.interactable = true;
+                    impre3dbut.interactable = false;
+                    plotbut.interactable = false;
+                    merchbut.interactable = false;
+                    indbut.interactable = false;
+                    scbut.interactable = false;
+                    //----------------
+                    stage0 = false;
+                    stage1 = false;
+                    stage2 = true;
+                    stage3 = false;
+                    stage4 = false;
+                    stage5 = false;
+                    stage6 = false;
                 }
-                else if (MinigameManager.dineroB >= 200 && MinigameManager.dineroB < 300)
+                else if (MinigameManager.dineroB>= 200 && MinigameManager.dineroB < 300 && !stage3)
                 {
-                    impresbut.GetComponent<Image>().color = Color.white;
-                    chapbut.GetComponent<Image>().color = Color.white;
-                    impre3dbut.GetComponent<Image>().color = Color.white;
-                    plotbut.GetComponent<Image>().color = Color.gray;
-                    merchbut.GetComponent<Image>().color = Color.gray;
-                    indbut.GetComponent<Image>().color = Color.gray;
-                    scbut.GetComponent<Image>().color = Color.gray;
+                    impresbut.interactable = true;
+                    chapbut.interactable = true;
+                    impre3dbut.interactable = true;
+                    plotbut.interactable = false;
+                    merchbut.interactable = false;
+                    indbut.interactable = false;
+                    scbut.interactable = false;
+                    //----------------
+                    stage0 = false;
+                    stage1 = false;
+                    stage2 = false;
+                    stage3 = true;
+                    stage4 = false;
+                    stage5 = false;
+                    stage6 = false;
                 }
-                else if (MinigameManager.dineroB >= 300 && MinigameManager.dineroB < 350)
+                else if (MinigameManager.dineroB >= 300 && MinigameManager.dineroB < 350 && !stage4)
                 {
-                    impresbut.GetComponent<Image>().color = Color.white;
-                    chapbut.GetComponent<Image>().color = Color.white;
-                    impre3dbut.GetComponent<Image>().color = Color.white;
-                    plotbut.GetComponent<Image>().color = Color.white;
-                    merchbut.GetComponent<Image>().color = Color.gray;
-                    indbut.GetComponent<Image>().color = Color.gray;
-                    scbut.GetComponent<Image>().color = Color.white;
+                    impresbut.interactable = true;
+                    chapbut.interactable = true;
+                    impre3dbut.interactable = true;
+                    plotbut.interactable = true;
+                    merchbut.interactable = false;
+                    indbut.interactable = false;
+                    scbut.interactable = true;
+                    //----------------
+                    stage0 = false;
+                    stage1 = false;
+                    stage2 = false;
+                    stage3 = false;
+                    stage4 = true;
+                    stage5 = false;
+                    stage6 = false;
                 }
-                else if (MinigameManager.dineroB >= 350 && MinigameManager.dineroB < 500)
+                else if (MinigameManager.dineroB>= 350 && MinigameManager.dineroB < 500 && !stage5)
                 {
-                    impresbut.GetComponent<Image>().color = Color.white;
-                    chapbut.GetComponent<Image>().color = Color.white;
-                    impre3dbut.GetComponent<Image>().color = Color.white;
-                    plotbut.GetComponent<Image>().color = Color.white;
-                    merchbut.GetComponent<Image>().color = Color.white;
-                    indbut.GetComponent<Image>().color = Color.gray;
-                    scbut.GetComponent<Image>().color = Color.white;
+                    impresbut.interactable = true;
+                    chapbut.interactable = true;
+                    impre3dbut.interactable = true;
+                    plotbut.interactable = true;
+                    merchbut.interactable = true;
+                    indbut.interactable = false;
+                    scbut.interactable = true;
+                    //----------------
+                    stage0 = false;
+                    stage1 = false;
+                    stage2 = false;
+                    stage3 = false;
+                    stage4 = false;
+                    stage5 = true;
+                    stage6 = false;
                 }
-                else if (MinigameManager.dineroB >= 500)
-                    impresbut.GetComponent<Image>().color = Color.white;
-                chapbut.GetComponent<Image>().color = Color.white;
-                impre3dbut.GetComponent<Image>().color = Color.white;
-                plotbut.GetComponent<Image>().color = Color.white;
-                merchbut.GetComponent<Image>().color = Color.white;
-                indbut.GetComponent<Image>().color = Color.white;
-                scbut.GetComponent<Image>().color = Color.white;
+                else if (MinigameManager.dineroB >= 500 && !stage6)
                 {
+                    impresbut.interactable = true;
+                    chapbut.interactable = true;
+                    impre3dbut.interactable = true;
+                    plotbut.interactable = true;
+                    merchbut.interactable = true;
+                    indbut.interactable = true;
+                    scbut.interactable = true;
+                    //----------------
+                    stage0 = false;
+                    stage1 = false;
+                    stage2 = false;
+                    stage3 = false;
+                    stage4 = false;
+                    stage5 = false;
+                    stage6 = true;
                 }
-                //switch (MinigameManager.dineroA) 
-                //{
-                //    case 0:
-                //        break;
-                //    case 100:
-                //        break;
-                //    case 150:
-                //        break;
-                //    case 200:
-                //        break;
-                //    case 300:
-                //        break;
-                //    case 350:
-                //        break;
-                //    case 500:
-                //        break;
-                //}
                 break;
         }
     }
