@@ -16,6 +16,7 @@ public class TaskDropDownMinigame : MonoBehaviourPunCallbacks, I_Interactable,IP
     public bool Interactonce;
     public bool stopoutsiders;
     public bool canInteract;
+    public bool cantClosePanel;
 
     private void Start()
     {

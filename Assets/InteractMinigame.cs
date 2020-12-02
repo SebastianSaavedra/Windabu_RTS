@@ -33,16 +33,19 @@ public class InteractMinigame : MonoBehaviourPunCallbacks
                     if (objectToInteract.GetComponent<TaskDropDownMinigame>().Interactonce) 
                     {
                         Interact(team);
-                        objectToInteract.GetComponent<TaskDropDownMinigame>().StopOther(true);
                     }
                     else 
                     {
-                    Interact(team);
+                        Interact(team);
                     }
         }
     }
         if (Input.GetKeyDown(KeyCode.Escape))
         {
+                //if (objectToInteract.GetComponent<TaskDropDownMinigame>().cantClosePanel) 
+                //{
+                //    Debug.Log("Cagaste hermano no podi cerrar el panel");
+                //}
                 if (!objectToInteract.GetComponent<TaskDropDownMinigame>().stopoutsiders)
                 {
                     objectToInteract.GetComponent<I_Interactable>().OnLeavePanel(true);
@@ -61,9 +64,11 @@ public class InteractMinigame : MonoBehaviourPunCallbacks
             case true:
                 if (MinigameManager.dineroA >= objectToInteract.GetComponent<TaskDropDownMinigame>().moneyToentry)
                 {
+                        Minijuegos.compraA((int)objectToInteract.GetComponent<TaskDropDownMinigame>().moneyToentry);
                     GetComponent<TEST_Movement>().enabled = false;
                     // objectToInteract.GetComponent<I_Interactable>().OnInteract(true);
                     objectToInteract.GetComponent<I_Interactable>().OnInteract(GetComponent<PlayerTeam>().team);
+                        objectToInteract.GetComponent<TaskDropDownMinigame>().StopOther(true);
                     alreadyInteracted = true;
                 }
                 break;
@@ -71,9 +76,11 @@ public class InteractMinigame : MonoBehaviourPunCallbacks
             case false:
                 if (MinigameManager.dineroB >= objectToInteract.GetComponent<TaskDropDownMinigame>().moneyToentry)
                 {
+                        Minijuegos.compraB((int)objectToInteract.GetComponent<TaskDropDownMinigame>().moneyToentry);
                     GetComponent<TEST_Movement>().enabled = false;
                     // objectToInteract.GetComponent<I_Interactable>().OnInteract(true);
                     objectToInteract.GetComponent<I_Interactable>().OnInteract(GetComponent<PlayerTeam>().team);
+                        objectToInteract.GetComponent<TaskDropDownMinigame>().StopOther(true);
                     alreadyInteracted = true;
                 }
                 break;
