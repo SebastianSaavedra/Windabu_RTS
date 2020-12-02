@@ -18,7 +18,8 @@ namespace Com.MaluCompany.TestGame
         float backTimer;
     [SerializeField] Coroutine cor;
     [SerializeField] BoxCollider2D colliderAct;
-        public bool saboteando; 
+        public bool saboteando;
+        [SerializeField] bool puedeSabotear;
 
     //private new void OnEnable()
     //{
@@ -41,6 +42,15 @@ namespace Com.MaluCompany.TestGame
             if (saboteando) 
             {
                 Sabotaje();
+            }
+            if (puedeSabotear) 
+            {
+                if (Input.GetKeyDown(KeyCode.F)) 
+                {
+                    Debug.Log("Un loco del" + GetComponent<PlayerTeam>().team);
+                    photonView.RPC("LlamarCorutinaSabotaje", TargetPlayerByActorNumber(GetComponent<PlayerId>().id));
+                    puedeSabotear = false;
+                }
             }
         }
 
@@ -72,20 +82,20 @@ namespace Com.MaluCompany.TestGame
                 #region Sabotaje
                 if (this.playerTeam.TeamA && collision.CompareTag("Actividad B"))
         {
-            if (Input.GetKeyDown(KeyCode.F))
-            {
-                Debug.Log("Presiono la F y es del team A");
-                photonView.RPC("LlamarCorutinaSabotaje", TargetPlayerByActorNumber(GetComponent<PlayerId>().id));
-            }
+            //if (Input.GetKeyDown(KeyCode.F))
+            //{
+            //    Debug.Log("Presiono la F y es del team A");
+            //    photonView.RPC("LlamarCorutinaSabotaje", TargetPlayerByActorNumber(GetComponent<PlayerId>().id));
+            //}
         }
 
         if (this.playerTeam.TeamB && collision.CompareTag("Actividad A"))
         {
-            if (Input.GetKeyDown(KeyCode.F))
-            {
-                Debug.Log("Presiono la F y es del team B");
-                photonView.RPC("LlamarCorutinaSabotaje", TargetPlayerByActorNumber(GetComponent<PlayerId>().id));             
-            }
+            //if (Input.GetKeyDown(KeyCode.F))
+            //{
+            //    Debug.Log("Presiono la F y es del team B");
+            //    photonView.RPC("LlamarCorutinaSabotaje", TargetPlayerByActorNumber(GetComponent<PlayerId>().id));             
+            //}
         }
                 #endregion
 
@@ -198,6 +208,7 @@ namespace Com.MaluCompany.TestGame
     {
             if (this.playerTeam.TeamA && collision.CompareTag("Actividad B"))
             {
+                puedeSabotear = true;
                 colliderAct = collision.GetComponent<BoxCollider2D>();
                 Debug.Log("Agarro el colliderAct: " + colliderAct);
             }
@@ -218,6 +229,7 @@ namespace Com.MaluCompany.TestGame
 
         if (this.playerTeam.TeamB && collision.CompareTag("Actividad A"))
         {
+                puedeSabotear = true;
             colliderAct = collision.GetComponent<BoxCollider2D>();
             Debug.Log("Agarro el colliderAct: " + colliderAct);
         }
@@ -225,10 +237,24 @@ namespace Com.MaluCompany.TestGame
 
     private void OnTriggerExit2D(Collider2D collision)
     {
+            if (photonView.IsMine) 
+            {
         if (collision.GetComponent<TEST_Interact>())
         {
             playerToInterrupt = null;
         }
+
+                if (this.playerTeam.TeamA && collision.CompareTag("Actividad B"))
+                {
+                    puedeSabotear = false;
+                }
+
+                if (this.playerTeam.TeamB && collision.CompareTag("Actividad A"))
+                {
+                    puedeSabotear = false;
+                }
+
+            }
     }
 
     public override void OnPlayerEnteredRoom(Player newPlayer)
