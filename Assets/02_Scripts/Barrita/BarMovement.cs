@@ -34,6 +34,11 @@ public class BarMovement : MonoBehaviourPunCallbacks        //Literal este codig
     [SerializeField] GameObject[] aciertosP2;
     [SerializeField] GameObject[] fallosP2;
 
+    //Audio
+    [SerializeField] AudioSource audioSource;
+    [SerializeField] AudioClip heySfx,awwSfx;
+    [SerializeField] AudioClip winSFX,loseSFX;
+
 
     [Space(10)]
     public float speed;
@@ -94,7 +99,7 @@ public class BarMovement : MonoBehaviourPunCallbacks        //Literal este codig
         {
             StopCoroutine("StoppedLocal");
             cor = StartCoroutine("StoppedVS");
-            Debug.Log("Cuantas weas buenas ha hecho: " + cantidadDeAciertos);
+            //Debug.Log("Cuantas weas buenas ha hecho: " + cantidadDeAciertos);
         }
     }
 
@@ -152,12 +157,13 @@ public class BarMovement : MonoBehaviourPunCallbacks        //Literal este codig
 
         if (scored)         // Si esque logro achuntar al collider
         {
-            Debug.Log("Wena");
+            //Debug.Log("Wena");
 
             yield return new WaitForSeconds(.75f);
 
             //DecirleAMasterClienteQueHiceUnCambio();
-            Debug.Log("Intentos: " + intentos);
+            //Debug.Log("Intentos: " + intentos);
+            audioSource.PlayOneShot(heySfx);
 
             if (intentos > 4)
             {
@@ -166,6 +172,7 @@ public class BarMovement : MonoBehaviourPunCallbacks        //Literal este codig
                     intentos = 0;
                     cantidadDeFallos = 0;
                     cantidadDeAciertos = 0;
+                    audioSource.PlayOneShot(winSFX);
                     managerMinigame.FinishTask();
                 }
                 else
@@ -173,7 +180,8 @@ public class BarMovement : MonoBehaviourPunCallbacks        //Literal este codig
                     intentos = 0;
                     cantidadDeFallos = 0;
                     cantidadDeAciertos = 0;
-                    Debug.Log("Perdio");
+                    audioSource.PlayOneShot(loseSFX);
+                    //Debug.Log("Perdio");
                     //OnLosePanel;
                 }
 
@@ -186,9 +194,10 @@ public class BarMovement : MonoBehaviourPunCallbacks        //Literal este codig
 
         else            // Si esque fallo al achuntarle al collider
         {
-            Debug.Log("Ksi");
+            //Debug.Log("Ksi");
 
             yield return new WaitForSeconds(.75f);
+            audioSource.PlayOneShot(awwSfx);
 
             //DecirleAMasterClienteQueHiceUnCambio();
             if (intentos > 4)
@@ -198,6 +207,7 @@ public class BarMovement : MonoBehaviourPunCallbacks        //Literal este codig
                     intentos = 0;
                     cantidadDeFallos = 0;
                     cantidadDeAciertos = 0;
+                    audioSource.PlayOneShot(winSFX);
                     managerMinigame.FinishTask();
                 }
                 else
@@ -205,7 +215,8 @@ public class BarMovement : MonoBehaviourPunCallbacks        //Literal este codig
                     intentos = 0;
                     cantidadDeFallos = 0;
                     cantidadDeAciertos = 0;
-                    Debug.Log("Perdio");
+                    audioSource.PlayOneShot(loseSFX);
+                    //Debug.Log("Perdio");
                     //OnLosePanel;
 
                 }
@@ -241,12 +252,13 @@ public class BarMovement : MonoBehaviourPunCallbacks        //Literal este codig
 
         if (scored)              // Si esque logro achuntar al collider
         {
-            Debug.Log("Wena");
+            //Debug.Log("Wena");
 
             yield return new WaitForSeconds(.75f);
+            audioSource.PlayOneShot(heySfx);
 
             //DecirleAMasterClienteQueHiceUnCambio();
-            Debug.Log("Intentos: " + intentos);
+            //Debug.Log("Intentos: " + intentos);
 
             if (intentos > 4)
             {
@@ -260,7 +272,7 @@ public class BarMovement : MonoBehaviourPunCallbacks        //Literal este codig
                     yield return new WaitUntil(() => managerLocal.minijuegos[originPanel.GetComponent<WhatTeamIsCalling>().id].rondaA ==
                     managerLocal.minijuegos[originPanel.GetComponent<WhatTeamIsCalling>().id].rondaB);
 
-                    Debug.Log("los 2 cumplieron la ronda");
+                    //Debug.Log("los 2 cumplieron la ronda");
 
 
                     if (managerLocal.minijuegos[originPanel.GetComponent<WhatTeamIsCalling>().id].barraVersusA > 
@@ -270,8 +282,9 @@ public class BarMovement : MonoBehaviourPunCallbacks        //Literal este codig
                         intentos = 0;
                         cantidadDeFallos = 0;
                         cantidadDeAciertos = 0;
+                        audioSource.PlayOneShot(winSFX);
                         managerMinigame.FinishTask();
-                        Debug.Log("Se llamo gano A");
+                        //Debug.Log("Se llamo gano A");
                     }
 
                     else if (managerLocal.minijuegos[originPanel.GetComponent<WhatTeamIsCalling>().id].barraVersusA ==
@@ -280,6 +293,7 @@ public class BarMovement : MonoBehaviourPunCallbacks        //Literal este codig
                         // Empate
                         //managerLocal.minijuegos[originPanel.GetComponent<WhatTeamIsCalling>().id].barraVersusA = 0;
                         //managerLocal.minijuegos[originPanel.GetComponent<WhatTeamIsCalling>().id].barraVersusB = 0;
+                        audioSource.PlayOneShot(loseSFX);
                         cantidadDeAciertos = 0;
                         cantidadDeFallos = 0;
                         intentos = 0;
@@ -300,7 +314,8 @@ public class BarMovement : MonoBehaviourPunCallbacks        //Literal este codig
                         intentos = 0;
                         cantidadDeFallos = 0;
                         cantidadDeAciertos = 0;
-                        Debug.Log("Perdio");
+                        audioSource.PlayOneShot(loseSFX);
+                        //Debug.Log("Perdio");
                         //OnLosePanel;
                     }
                 }
@@ -319,16 +334,18 @@ public class BarMovement : MonoBehaviourPunCallbacks        //Literal este codig
                         managerLocal.minijuegos[originPanel.GetComponent<WhatTeamIsCalling>().id].barraVersusA)
                     {
                         //Victoria Team B
+                        audioSource.PlayOneShot(winSFX);
                         intentos = 0;
                         cantidadDeFallos = 0;
                         cantidadDeAciertos = 0;
                         managerMinigame.FinishTask();
-                        Debug.Log("Se llamo gano B");
+                        //Debug.Log("Se llamo gano B");
                     }
                     else if (managerLocal.minijuegos[originPanel.GetComponent<WhatTeamIsCalling>().id].barraVersusB ==
                         managerLocal.minijuegos[originPanel.GetComponent<WhatTeamIsCalling>().id].barraVersusA)
                     {
                         // Empate
+                        audioSource.PlayOneShot(loseSFX);
                         cantidadDeAciertos = 0;
                         cantidadDeFallos = 0;
                         intentos = 0;
@@ -348,7 +365,8 @@ public class BarMovement : MonoBehaviourPunCallbacks        //Literal este codig
                         intentos = 0;
                         cantidadDeFallos = 0;
                         cantidadDeAciertos = 0;
-                        Debug.Log("Perdio");
+                        audioSource.PlayOneShot(loseSFX);
+                        //Debug.Log("Perdio");
                         //OnLosePanel;
                     }
                 }
@@ -362,9 +380,10 @@ public class BarMovement : MonoBehaviourPunCallbacks        //Literal este codig
 
         else          // Si esque fallo al achuntarle al collider
         {
-            Debug.Log("Ksi");
+            //Debug.Log("Ksi");
 
             yield return new WaitForSeconds(.75f);
+            audioSource.PlayOneShot(awwSfx);
 
             //DecirleAMasterClienteQueHiceUnCambio();
 
@@ -379,12 +398,13 @@ public class BarMovement : MonoBehaviourPunCallbacks        //Literal este codig
 
                     yield return new WaitUntil(() => managerLocal.minijuegos[originPanel.GetComponent<WhatTeamIsCalling>().id].rondaA ==
                     managerLocal.minijuegos[originPanel.GetComponent<WhatTeamIsCalling>().id].rondaB);      //Esperar a que el otro pibe termine su ronda
-                    Debug.Log("Ambos terminaron sus rondas");
+                    //Debug.Log("Ambos terminaron sus rondas");
 
                     if (managerLocal.minijuegos[originPanel.GetComponent<WhatTeamIsCalling>().id].barraVersusA >
                         managerLocal.minijuegos[originPanel.GetComponent<WhatTeamIsCalling>().id].barraVersusB)     //Si esque Team A saco más puntos
                     {
                         //Victoria Team A
+                        audioSource.PlayOneShot(winSFX);
                         intentos = 0;
                         cantidadDeFallos = 0;
                         cantidadDeAciertos = 0;
@@ -397,6 +417,7 @@ public class BarMovement : MonoBehaviourPunCallbacks        //Literal este codig
                         // Empate
                         //managerLocal.minijuegos[originPanel.GetComponent<WhatTeamIsCalling>().id].barraVersusA = 0;
                         //managerLocal.minijuegos[originPanel.GetComponent<WhatTeamIsCalling>().id].barraVersusB = 0;
+                        audioSource.PlayOneShot(loseSFX);
                         cantidadDeAciertos = 0;
                         cantidadDeFallos = 0;
                         intentos = 0;
@@ -415,7 +436,8 @@ public class BarMovement : MonoBehaviourPunCallbacks        //Literal este codig
                         intentos = 0;
                         cantidadDeFallos = 0;
                         cantidadDeAciertos = 0;
-                        Debug.Log("Perdio");
+                        audioSource.PlayOneShot(loseSFX);
+                        //Debug.Log("Perdio");
                         //OnLosePanel;
                     }
                 }
@@ -429,12 +451,13 @@ public class BarMovement : MonoBehaviourPunCallbacks        //Literal este codig
 
                     yield return new WaitUntil(() => managerLocal.minijuegos[originPanel.GetComponent<WhatTeamIsCalling>().id].rondaB ==
                     managerLocal.minijuegos[originPanel.GetComponent<WhatTeamIsCalling>().id].rondaA);      //Esperar a que te termine la ronda del otro pibe
-                    Debug.Log("Ambos terminaron sus rondas");
+                    //Debug.Log("Ambos terminaron sus rondas");
 
                     if (managerLocal.minijuegos[originPanel.GetComponent<WhatTeamIsCalling>().id].barraVersusB >
                         managerLocal.minijuegos[originPanel.GetComponent<WhatTeamIsCalling>().id].barraVersusA)     //Si esque sacaste más puntos que el Team A
                     {
                         //Victoria Team B
+                        audioSource.PlayOneShot(winSFX);
                         intentos = 0;
                         cantidadDeFallos = 0;
                         cantidadDeAciertos = 0;
@@ -446,6 +469,7 @@ public class BarMovement : MonoBehaviourPunCallbacks        //Literal este codig
                         // Empate
                         //managerLocal.minijuegos[originPanel.GetComponent<WhatTeamIsCalling>().id].barraVersusA = 0;
                         //managerLocal.minijuegos[originPanel.GetComponent<WhatTeamIsCalling>().id].barraVersusB = 0;
+                        audioSource.PlayOneShot(loseSFX);
                         cantidadDeAciertos = 0;
                         cantidadDeFallos = 0;
                         intentos = 0;
@@ -464,7 +488,8 @@ public class BarMovement : MonoBehaviourPunCallbacks        //Literal este codig
                         intentos = 0;
                         cantidadDeFallos = 0;
                         cantidadDeAciertos = 0;
-                        Debug.Log("Perdio");
+                        audioSource.PlayOneShot(loseSFX);
+                        //Debug.Log("Perdio");
                         //OnLosePanel;
                     }
                 }
@@ -485,7 +510,7 @@ public class BarMovement : MonoBehaviourPunCallbacks        //Literal este codig
             if (intentos != aciertos.Length)
             {
                 aciertos[intentos].SetActive(true);
-                Debug.Log("Player A acerto una vez");
+                //Debug.Log("Player A acerto una vez");
                 cantidadDeAciertos++;
 
 
@@ -504,7 +529,7 @@ public class BarMovement : MonoBehaviourPunCallbacks        //Literal este codig
             if (intentos != aciertosP2.Length)
             {
                 aciertosP2[intentos].SetActive(true);
-                Debug.Log("Player B acerto una vez");
+                //Debug.Log("Player B acerto una vez");
                 cantidadDeAciertos++;
 
 
@@ -519,7 +544,7 @@ public class BarMovement : MonoBehaviourPunCallbacks        //Literal este codig
         }
 
         intentos++;
-        Debug.Log("Intentos: " + intentos);
+        //Debug.Log("Intentos: " + intentos);
 
         transform.position = punto0.transform.position;
         if (speed <= maxSpeed)
@@ -530,7 +555,7 @@ public class BarMovement : MonoBehaviourPunCallbacks        //Literal este codig
                 speed = maxSpeed;
             }
         }
-        Debug.Log("La velocidad del lighstick es: " + speed);
+        //Debug.Log("La velocidad del lighstick es: " + speed);
         moving = true;
     }
 
@@ -542,7 +567,7 @@ public class BarMovement : MonoBehaviourPunCallbacks        //Literal este codig
             if (intentos != fallos.Length)
             {
                 fallos[intentos].SetActive(true);
-                Debug.Log("Player A fallo una vez");
+                //Debug.Log("Player A fallo una vez");
                 cantidadDeFallos++;
 
 
@@ -561,7 +586,7 @@ public class BarMovement : MonoBehaviourPunCallbacks        //Literal este codig
             if (intentos != fallosP2.Length)
             {
                 fallosP2[intentos].SetActive(true);
-                Debug.Log("Player B fallo una vez");
+                //Debug.Log("Player B fallo una vez");
                 cantidadDeFallos++;
 
 
@@ -576,7 +601,7 @@ public class BarMovement : MonoBehaviourPunCallbacks        //Literal este codig
         }
 
         intentos++;
-        Debug.Log("Intentos: " + intentos);
+        //Debug.Log("Intentos: " + intentos);
 
         transform.position = punto0.transform.position;
         moving = true;

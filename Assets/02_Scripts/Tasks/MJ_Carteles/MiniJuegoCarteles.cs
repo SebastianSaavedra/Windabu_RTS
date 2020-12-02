@@ -27,6 +27,11 @@ public class MiniJuegoCarteles : MonoBehaviourPunCallbacks
     [SerializeField] List<Transform> posicionesDePegado = new List<Transform>();
     List<Transform> posicionesRestantes;
 
+    //Audio
+    [SerializeField] AudioSource audioSource;
+    [SerializeField] AudioClip[] sonidos;
+    [SerializeField] AudioClip winSFX;
+
     Coroutine sgteCor;
     [SerializeField] Cartel cartel;
     int esquinas;
@@ -64,6 +69,7 @@ public class MiniJuegoCarteles : MonoBehaviourPunCallbacks
         sgteCor = StartCoroutine("SgteCartel");
         Carteles(1);
         esquinas = 0;
+
         DecirleAMasterClienteQueHiceUnCambio();
     }
 
@@ -111,6 +117,7 @@ public class MiniJuegoCarteles : MonoBehaviourPunCallbacks
         if (collision.CompareTag("Esquina"))
         {
             // Esquina es pegada;
+            audioSource.PlayOneShot(sonidos[Random.Range(0,2)]);
             
             esquinas++;
             collision.GetComponent<BoxCollider2D>().enabled = false;
@@ -154,6 +161,7 @@ public class MiniJuegoCarteles : MonoBehaviourPunCallbacks
     {
         cartel.hayCartel = false;
         yield return new WaitForSeconds(.25f);
+        audioSource.PlayOneShot(winSFX);
         RandomPos();
         this.transform.parent.GetComponentInChildren<Cartel>().SpawnCartel();
         yield break;
