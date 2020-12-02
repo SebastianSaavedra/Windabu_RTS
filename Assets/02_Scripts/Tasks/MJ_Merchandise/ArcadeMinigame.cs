@@ -28,6 +28,11 @@ public class ArcadeMinigame : MonoBehaviourPunCallbacks
     [SerializeField] int mashScore;
     private bool leftActive;
 
+    //Audio
+    [SerializeField] AudioSource audioSource;
+    [SerializeField] AudioClip mashSfx1,mashSfx2,smashMusic;
+    [SerializeField] AudioClip winSFX;
+
     // Pantallas que se muestran
     public Text uiMashCounter;
     public GameObject p1, p1z, p1x, p2;
@@ -54,6 +59,7 @@ public class ArcadeMinigame : MonoBehaviourPunCallbacks
     IEnumerator IniciarAct()
     {
         yield return new WaitForSeconds(.5f);
+        audioSource.PlayOneShot(smashMusic);
         inicio = true;
         yield break;
     }
@@ -85,6 +91,7 @@ public class ArcadeMinigame : MonoBehaviourPunCallbacks
                     RPCManager.RPCActualizarDatosA(originPanel.GetComponent<WhatTeamIsCalling>().id, mashScore);
                     barraA.fillAmount = (float)managerMinijuegos.minijuegos[originPanel.GetComponent<WhatTeamIsCalling>().id].barraVersusA / mashLimit;
                     uiMashCounter.text = mashScore.ToString("0");
+                    audioSource.PlayOneShot(mashSfx1);
 
                     // UI
                     p1.SetActive(false);
@@ -98,6 +105,7 @@ public class ArcadeMinigame : MonoBehaviourPunCallbacks
                     RPCManager.RPCActualizarDatosA(originPanel.GetComponent<WhatTeamIsCalling>().id, mashScore);
                     barraA.fillAmount = (float)managerMinijuegos.minijuegos[originPanel.GetComponent<WhatTeamIsCalling>().id].barraVersusA / mashLimit;
                     uiMashCounter.text = mashScore.ToString("0");
+                    audioSource.PlayOneShot(mashSfx2);
 
                     #region UI
                     p1z.SetActive(false);
@@ -120,6 +128,7 @@ public class ArcadeMinigame : MonoBehaviourPunCallbacks
                 // Win con //managerMinijuegos.minijuegos[originPanel.GetComponent<WhatTeamIsCalling>().id].barraVersusA
                 if (mashScore >= mashLimit)
                 {
+                    audioSource.PlayOneShot(winSFX);
                     // UI
                     p1.SetActive(true);
                     p1z.SetActive(false);
@@ -146,6 +155,7 @@ public class ArcadeMinigame : MonoBehaviourPunCallbacks
                     RPCManager.RPCActualizarDatosB(originPanel.GetComponent<WhatTeamIsCalling>().id, mashScore);
                     barraB.fillAmount = (float)managerMinijuegos.minijuegos[originPanel.GetComponent<WhatTeamIsCalling>().id].barraVersusB / mashLimit;
                     uiMashCounter.text = mashScore.ToString("0");
+                    audioSource.PlayOneShot(mashSfx1);
 
                     // UI
                     p1.SetActive(false);
@@ -159,6 +169,7 @@ public class ArcadeMinigame : MonoBehaviourPunCallbacks
                     RPCManager.RPCActualizarDatosB(originPanel.GetComponent<WhatTeamIsCalling>().id, mashScore);
                     barraB.fillAmount = (float)managerMinijuegos.minijuegos[originPanel.GetComponent<WhatTeamIsCalling>().id].barraVersusB / mashLimit;
                     uiMashCounter.text = mashScore.ToString("0");
+                    audioSource.PlayOneShot(mashSfx2);
 
                     #region UI
                     p1z.SetActive(false);
@@ -181,6 +192,7 @@ public class ArcadeMinigame : MonoBehaviourPunCallbacks
                 // Win con //managerMinijuegos.minijuegos[originPanel.GetComponent<WhatTeamIsCalling>().id].barraVersusB
                 if (mashScore >= mashLimit)
                 {
+                    audioSource.PlayOneShot(winSFX);
                     // UI
                     p1.SetActive(true);
                     p1z.SetActive(false);
