@@ -14,6 +14,7 @@ public class BoxProgression : MonoBehaviourPunCallbacks
     public bool inRoom;
     bool inLvl1;
     [SerializeField] bool team;
+    [SerializeField] GameObject[] players;
 
     // Tras comprar - Listo para armar - Disponible para producir - Mejorado
     public GameObject born, ready, upgraded;
@@ -44,23 +45,30 @@ public class BoxProgression : MonoBehaviourPunCallbacks
     public void CallFinish() 
     {
         photonView.RPC("Finished", RpcTarget.AllViaServer, false, true);
-        if (PhotonNetwork.LocalPlayer.ActorNumber == GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerId>().id) 
+        players = GameObject.FindGameObjectsWithTag("Player");
+        foreach(GameObject player in players) 
         {
-        GameObject.FindGameObjectWithTag("Player").GetComponent<TEST_Movement>().enabled = true;
-        taskDropDownMinigame.OnLeavePanel(true);
-        Debug.Log("Bruh");
+            if (player.GetComponent<PlayerId>().id == PhotonNetwork.LocalPlayer.ActorNumber) 
+            {
+                player.GetComponent<TEST_Movement>().enabled = true;
+                taskDropDownMinigame.OnLeavePanel(true);
+            }
         }
     }
 
     public void FinishedMinigame() 
     {
-        if (PhotonNetwork.LocalPlayer.ActorNumber == GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerId>().id)
+        players = GameObject.FindGameObjectsWithTag("Player");
+        foreach (GameObject player in players)
         {
-            GameObject.FindGameObjectWithTag("Player").GetComponent<TEST_Movement>().enabled = true;
-            taskDropDownMinigame.OnLeavePanel(true);
-            Debug.Log("Bruh2");
+            if (player.GetComponent<PlayerId>().id == PhotonNetwork.LocalPlayer.ActorNumber)
+            {
+                player.GetComponent<TEST_Movement>().enabled = true;
+                taskDropDownMinigame.OnLeavePanel(true);
+            }
         }
     }
+
     [PunRPC]
     public void Finished(bool deactive, bool active) 
     {
