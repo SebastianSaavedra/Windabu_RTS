@@ -26,6 +26,7 @@ public class ShopManager : MonoBehaviourPunCallbacks
     Button impresbut, chapbut, impre3dbut, plotbut, merchbut, indbut, scbut;
     [SerializeField]
     bool stage0, stage1, stage2, stage3, stage4, stage5, stage6, stage7;
+    [SerializeField] BaseManager bM;
 
 
     private void Start()
@@ -627,6 +628,15 @@ public class ShopManager : MonoBehaviourPunCallbacks
     {
         yield return new WaitForSeconds(waitTime);
         superComputadora_1.SetActive(true);
+        switch (team)
+        {
+            case true:
+                bM.RPCActivate(true, 12);
+                break;
+            case false:
+                bM.RPCActivate(false, 30);
+                break;
+        }
         yield break;
     }
     [PunRPC]
@@ -634,6 +644,15 @@ public class ShopManager : MonoBehaviourPunCallbacks
     {
         yield return new WaitForSeconds(waitTime);
         superComputadora_2.SetActive(true);
+        switch (team)
+        {
+            case true:
+                bM.RPCActivate(true, 14);
+                break;
+            case false:
+                bM.RPCActivate(false, 32);
+                break;
+        }
         yield break;
     }
     [PunRPC]
@@ -641,6 +660,15 @@ public class ShopManager : MonoBehaviourPunCallbacks
     {
         yield return new WaitForSeconds(waitTime);
         superComputadora_3.SetActive(true);
+        switch (team)
+        {
+            case true:
+                bM.RPCActivate(true, 16);
+                break;
+            case false:
+                bM.RPCActivate(false, 34);
+                break;
+        }
         yield break;
     }
 
@@ -652,21 +680,75 @@ public class ShopManager : MonoBehaviourPunCallbacks
         {
             case 0:
                 impresora.SetActive(true);
+                switch (team) 
+                {
+                    case true:
+                        bM.RPCActivate(true, 0);
+                        break;
+                    case false:
+                        bM.RPCActivate(false, 18);
+                        break;
+                }
                 break;
             case 1:
                 imp3d.SetActive(true);
+                switch (team)
+                {
+                    case true:
+                        bM.RPCActivate(true,4);
+                        break;
+                    case false:
+                        bM.RPCActivate(false, 22);
+                        break;
+                }
                 break;
             case 2:
                 chapita.SetActive(true);
+                switch (team)
+                {
+                    case true:
+                        bM.RPCActivate(true, 2);
+                        break;
+                    case false:
+                        bM.RPCActivate(false, 20);
+                        break;
+                }
                 break;
             case 3:
                 plotter.SetActive(true);
+                switch (team)
+                {
+                    case true:
+                        bM.RPCActivate(true, 6);
+                        break;
+                    case false:
+                        bM.RPCActivate(false, 24);
+                        break;
+                }
                 break;
             case 4:
                 merch.SetActive(true);
+                switch (team)
+                {
+                    case true:
+                        bM.RPCActivate(true, 10);
+                        break;
+                    case false:
+                        bM.RPCActivate(false, 28);
+                        break;
+                }
                 break;
             case 5:
                 impIndus.SetActive(true);
+                switch (team)
+                {
+                    case true:
+                        bM.RPCActivate(true, 8);
+                        break;
+                    case false:
+                        bM.RPCActivate(false, 26);
+                        break;
+                }
                 break;
         }       
         yield break;
