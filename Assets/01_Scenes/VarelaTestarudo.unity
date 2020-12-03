@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -2445,7 +2445,7 @@ PrefabInstance:
     - target: {fileID: 5448557454086677644, guid: f05eb4e68a631ea459cdb494ffa92325,
         type: 3}
       propertyPath: moneyToentry
-      value: 10
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 7754341705200370338, guid: f05eb4e68a631ea459cdb494ffa92325,
         type: 3}
@@ -3665,7 +3665,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   teamManager1: {fileID: 158597911}
-  fameAdded: 0.0025
+  fameAdded: 0.001
   slider: {fileID: 2886803858108869105}
   slider2: {fileID: 4549890756219504085}
   whatTeamInControl: 0
@@ -4717,7 +4717,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   teamManager1: {fileID: 158597911}
-  fameAdded: 0.0025
+  fameAdded: 0.001
   slider: {fileID: 2886803858108869105}
   slider2: {fileID: 4549890756219504085}
   whatTeamInControl: 0
@@ -8016,7 +8016,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   teamManager1: {fileID: 158597911}
-  fameAdded: 0.0025
+  fameAdded: 0.001
   slider: {fileID: 2886803858108869105}
   slider2: {fileID: 4549890756219504085}
   whatTeamInControl: 0
@@ -30137,10 +30137,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   teamManager1: {fileID: 158597911}
-  fameAdded: 0.008
+  fameAdded: 0.005
   slider: {fileID: 2886803858108869105}
   slider2: {fileID: 4549890756219504085}
-  timer: 5
+  timer: 10
   tijerasA: 0
   tijerasB: 0
   piedrasA: 0
@@ -30359,7 +30359,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   teamManager1: {fileID: 158597911}
-  fameAdded: 0.0025
+  fameAdded: 0.001
   slider: {fileID: 2886803858108869105}
   slider2: {fileID: 4549890756219504085}
   whatTeamInControl: 0
@@ -32176,6 +32176,11 @@ PrefabInstance:
       propertyPath: cantClosePanel
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5448557454086677644, guid: fe4f4efd1e7989d43b5fc601da590cf1,
+        type: 3}
+      propertyPath: moneyToentry
+      value: 50
+      objectReference: {fileID: 0}
     - target: {fileID: 7754341705200370338, guid: fe4f4efd1e7989d43b5fc601da590cf1,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -33084,7 +33089,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   teamManager1: {fileID: 158597911}
-  fameAdded: 0.0025
+  fameAdded: 0.001
   slider: {fileID: 2886803858108869105}
   slider2: {fileID: 4549890756219504085}
   whatTeamInControl: 0
@@ -41110,7 +41115,7 @@ PrefabInstance:
     - target: {fileID: 5448557454086677644, guid: fe4f4efd1e7989d43b5fc601da590cf1,
         type: 3}
       propertyPath: moneyToentry
-      value: 40
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 7754341705200370338, guid: fe4f4efd1e7989d43b5fc601da590cf1,
         type: 3}
@@ -41611,6 +41616,11 @@ PrefabInstance:
         type: 3}
       propertyPath: cantClosePanel
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5448557454086677644, guid: f05eb4e68a631ea459cdb494ffa92325,
+        type: 3}
+      propertyPath: moneyToentry
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 7754341705200370338, guid: f05eb4e68a631ea459cdb494ffa92325,
         type: 3}
@@ -45518,7 +45528,7 @@ PrefabInstance:
     - target: {fileID: 5448557454086677644, guid: bc13f6c2e80557049ac7edf708034b42,
         type: 3}
       propertyPath: moneyToentry
-      value: 20
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 5448557454086677644, guid: bc13f6c2e80557049ac7edf708034b42,
         type: 3}
@@ -45956,7 +45966,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   teamManager1: {fileID: 158597911}
-  fameAdded: 0.0025
+  fameAdded: 0.001
   slider: {fileID: 2886803858108869105}
   slider2: {fileID: 4549890756219504085}
   whatTeamInControl: 0
