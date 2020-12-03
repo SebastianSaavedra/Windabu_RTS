@@ -4921,7 +4921,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   teamManager1: {fileID: 158597911}
-  fameAdded: 0.001
+  fameAdded: 0.005
   slider: {fileID: 2886803858108869105}
   slider2: {fileID: 4549890756219504085}
   whatTeamInControl: 0
@@ -6517,7 +6517,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   teamManager1: {fileID: 158597911}
-  fameAdded: 0.001
+  fameAdded: 0.005
   slider: {fileID: 2886803858108869105}
   slider2: {fileID: 4549890756219504085}
   whatTeamInControl: 0
@@ -12357,7 +12357,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   teamManager1: {fileID: 158597911}
-  fameAdded: 0.001
+  fameAdded: 0.005
   slider: {fileID: 2886803858108869105}
   slider2: {fileID: 4549890756219504085}
   whatTeamInControl: 0
@@ -34568,7 +34568,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   teamManager1: {fileID: 158597911}
-  fameAdded: 0.001
+  fameAdded: 0.005
   slider: {fileID: 2886803858108869105}
   slider2: {fileID: 4549890756219504085}
   timer: 10
@@ -34790,7 +34790,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   teamManager1: {fileID: 158597911}
-  fameAdded: 0.001
+  fameAdded: 0.005
   slider: {fileID: 2886803858108869105}
   slider2: {fileID: 4549890756219504085}
   whatTeamInControl: 0
@@ -38114,7 +38114,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   teamManager1: {fileID: 158597911}
-  fameAdded: 0.001
+  fameAdded: 0.005
   slider: {fileID: 2886803858108869105}
   slider2: {fileID: 4549890756219504085}
   whatTeamInControl: 0
@@ -40356,7 +40356,7 @@ MonoBehaviour:
     type: 3}
   tipoDeFanB: {fileID: 4312060850811413569, guid: 5d45cf043439e774bb636a1bc71b352f,
     type: 3}
-  spawnPoint: {fileID: 0}
+  spawnPoint: {fileID: 231384518}
   timer: 20
   puedeSpawnear: 1
   waypointsA:
@@ -40384,7 +40384,8 @@ MonoBehaviour:
   observableSearch: 2
   Synchronization: 3
   OwnershipTransfer: 0
-  ObservedComponents: []
+  ObservedComponents:
+  - {fileID: 1282025011}
   viewIdField: 31
   InstantiationId: 0
   isRuntimeInstantiated: 0
@@ -47865,10 +47866,23 @@ MonoBehaviour:
   observableSearch: 2
   Synchronization: 3
   OwnershipTransfer: 0
-  ObservedComponents: []
+  ObservedComponents:
+  - {fileID: 1684200138}
   viewIdField: 106
   InstantiationId: 0
   isRuntimeInstantiated: 0
+--- !u!114 &1684200138 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5448557454086677644, guid: fe4f4efd1e7989d43b5fc601da590cf1,
+    type: 3}
+  m_PrefabInstance: {fileID: 1684200125}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1684200135}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e0efa7f1b824204590681a68c414084, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1685712182
 GameObject:
   m_ObjectHideFlags: 0
@@ -48465,10 +48479,23 @@ MonoBehaviour:
   observableSearch: 2
   Synchronization: 3
   OwnershipTransfer: 0
-  ObservedComponents: []
+  ObservedComponents:
+  - {fileID: 1697658705}
   viewIdField: 103
   InstantiationId: 0
   isRuntimeInstantiated: 0
+--- !u!114 &1697658705 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5448557454086677644, guid: f05eb4e68a631ea459cdb494ffa92325,
+    type: 3}
+  m_PrefabInstance: {fileID: 1697658694}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1697658702}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e0efa7f1b824204590681a68c414084, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1706851650
 GameObject:
   m_ObjectHideFlags: 0
@@ -53625,10 +53652,23 @@ MonoBehaviour:
   observableSearch: 2
   Synchronization: 3
   OwnershipTransfer: 0
-  ObservedComponents: []
+  ObservedComponents:
+  - {fileID: 2087349029}
   viewIdField: 108
   InstantiationId: 0
   isRuntimeInstantiated: 0
+--- !u!114 &2087349029 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5448557454086677644, guid: bc13f6c2e80557049ac7edf708034b42,
+    type: 3}
+  m_PrefabInstance: {fileID: 2087349016}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2087349026}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e0efa7f1b824204590681a68c414084, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2091545581
 GameObject:
   m_ObjectHideFlags: 0
@@ -53914,7 +53954,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   teamManager1: {fileID: 158597911}
-  fameAdded: 0.001
+  fameAdded: 0.005
   slider: {fileID: 2886803858108869105}
   slider2: {fileID: 4549890756219504085}
   whatTeamInControl: 0
