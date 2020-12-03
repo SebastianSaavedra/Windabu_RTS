@@ -35799,10 +35799,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1160458838}
     - target: {fileID: 1328016867, guid: a3149a40513b9544ba50dbc360b4355c, type: 3}
-      propertyPath: ploterCost
-      value: 300
-      objectReference: {fileID: 0}
-    - target: {fileID: 1328016867, guid: a3149a40513b9544ba50dbc360b4355c, type: 3}
       propertyPath: plotter
       value: 
       objectReference: {fileID: 497222239}
@@ -35848,7 +35844,7 @@ PrefabInstance:
       objectReference: {fileID: 1098970237}
     - target: {fileID: 1328016867, guid: a3149a40513b9544ba50dbc360b4355c, type: 3}
       propertyPath: merchCost
-      value: 350
+      value: 700
       objectReference: {fileID: 0}
     - target: {fileID: 1328016867, guid: a3149a40513b9544ba50dbc360b4355c, type: 3}
       propertyPath: merchDelay
@@ -35856,7 +35852,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1328016867, guid: a3149a40513b9544ba50dbc360b4355c, type: 3}
       propertyPath: impIndusCost
-      value: 500
+      value: 990
       objectReference: {fileID: 0}
     - target: {fileID: 1328016867, guid: a3149a40513b9544ba50dbc360b4355c, type: 3}
       propertyPath: impIndusDelay
@@ -35864,7 +35860,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1328016867, guid: a3149a40513b9544ba50dbc360b4355c, type: 3}
       propertyPath: scCost
-      value: 300
+      value: 750
       objectReference: {fileID: 0}
     - target: {fileID: 1328016867, guid: a3149a40513b9544ba50dbc360b4355c, type: 3}
       propertyPath: scDelay
@@ -35902,6 +35898,22 @@ PrefabInstance:
       propertyPath: bM
       value: 
       objectReference: {fileID: 2091545583}
+    - target: {fileID: 1328016867, guid: a3149a40513b9544ba50dbc360b4355c, type: 3}
+      propertyPath: ploterCost
+      value: 600
+      objectReference: {fileID: 0}
+    - target: {fileID: 1328016867, guid: a3149a40513b9544ba50dbc360b4355c, type: 3}
+      propertyPath: impresoraCost
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 1328016867, guid: a3149a40513b9544ba50dbc360b4355c, type: 3}
+      propertyPath: chapitaCost
+      value: 300
+      objectReference: {fileID: 0}
+    - target: {fileID: 1328016867, guid: a3149a40513b9544ba50dbc360b4355c, type: 3}
+      propertyPath: imp3dCost
+      value: 400
+      objectReference: {fileID: 0}
     - target: {fileID: 1328016870, guid: a3149a40513b9544ba50dbc360b4355c, type: 3}
       propertyPath: viewIdField
       value: 78
@@ -35996,7 +36008,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1328016874, guid: a3149a40513b9544ba50dbc360b4355c, type: 3}
       propertyPath: ploterCost
-      value: 300
+      value: 600
       objectReference: {fileID: 0}
     - target: {fileID: 1328016874, guid: a3149a40513b9544ba50dbc360b4355c, type: 3}
       propertyPath: ploterDelay
@@ -36006,6 +36018,30 @@ PrefabInstance:
       propertyPath: bM
       value: 
       objectReference: {fileID: 2091545583}
+    - target: {fileID: 1328016874, guid: a3149a40513b9544ba50dbc360b4355c, type: 3}
+      propertyPath: impresoraCost
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 1328016874, guid: a3149a40513b9544ba50dbc360b4355c, type: 3}
+      propertyPath: chapitaCost
+      value: 300
+      objectReference: {fileID: 0}
+    - target: {fileID: 1328016874, guid: a3149a40513b9544ba50dbc360b4355c, type: 3}
+      propertyPath: imp3dCost
+      value: 400
+      objectReference: {fileID: 0}
+    - target: {fileID: 1328016874, guid: a3149a40513b9544ba50dbc360b4355c, type: 3}
+      propertyPath: merchCost
+      value: 700
+      objectReference: {fileID: 0}
+    - target: {fileID: 1328016874, guid: a3149a40513b9544ba50dbc360b4355c, type: 3}
+      propertyPath: impIndusCost
+      value: 990
+      objectReference: {fileID: 0}
+    - target: {fileID: 1328016874, guid: a3149a40513b9544ba50dbc360b4355c, type: 3}
+      propertyPath: scCost
+      value: 750
+      objectReference: {fileID: 0}
     - target: {fileID: 1328016875, guid: a3149a40513b9544ba50dbc360b4355c, type: 3}
       propertyPath: itemSpawnerPos
       value: 
