@@ -52,7 +52,6 @@ public class QueueObjLogic : MonoBehaviour
                 timeToDissapear = quedeData[0].Timer;
                 normalizedValue = timeToDissapear;
                 canStart = true;
-                //StartCoroutine(Matate());
                 break;      
                 
             case 1:
@@ -60,7 +59,6 @@ public class QueueObjLogic : MonoBehaviour
                 timeToDissapear = quedeData[1].Timer;
                 normalizedValue = timeToDissapear;
                 canStart = true;
-                //StartCoroutine(Matate());
                 break;    
                 
             case 2:
@@ -68,7 +66,6 @@ public class QueueObjLogic : MonoBehaviour
                 timeToDissapear = quedeData[2].Timer;
                 normalizedValue = timeToDissapear;
                 canStart = true;
-                //StartCoroutine(Matate());
                 break;
 
             case 3:

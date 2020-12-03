@@ -39,7 +39,7 @@ public class PlazaCentralManager : MonoBehaviourPunCallbacks,IPunObservable
     private void Awake()
     {
         PhotonNetwork.AddCallbackTarget(this);
-        PhotonNetwork.SendRate = 20;
+        PhotonNetwork.SendRate = 30;
         PhotonNetwork.SerializationRate = 10;
     }
     void Update()

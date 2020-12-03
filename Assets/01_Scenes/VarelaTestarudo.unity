@@ -1300,6 +1300,11 @@ PrefabInstance:
       propertyPath: Interactonce
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1696552624335281110, guid: 9550b7a6e150e6f4ba99b2d40320a2ce,
+        type: 3}
+      propertyPath: cantClosePanel
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3072405017941865810, guid: 9550b7a6e150e6f4ba99b2d40320a2ce,
         type: 3}
       propertyPath: viewIdField
@@ -3411,7 +3416,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   teamManager1: {fileID: 158597911}
-  fameAdded: 0.1
+  fameAdded: 0.0025
   slider: {fileID: 2886803858108869105}
   slider2: {fileID: 4549890756219504085}
   whatTeamInControl: 0
@@ -4269,7 +4274,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   teamManager1: {fileID: 158597911}
-  fameAdded: 0.1
+  fameAdded: 0.0025
   slider: {fileID: 2886803858108869105}
   slider2: {fileID: 4549890756219504085}
   whatTeamInControl: 0
@@ -5916,6 +5921,11 @@ PrefabInstance:
       propertyPath: Interactonce
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1696552624335281110, guid: 9550b7a6e150e6f4ba99b2d40320a2ce,
+        type: 3}
+      propertyPath: cantClosePanel
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3072405017941865810, guid: 9550b7a6e150e6f4ba99b2d40320a2ce,
         type: 3}
       propertyPath: viewIdField
@@ -6071,10 +6081,23 @@ MonoBehaviour:
   observableSearch: 2
   Synchronization: 3
   OwnershipTransfer: 0
-  ObservedComponents: []
+  ObservedComponents:
+  - {fileID: 612694101}
   viewIdField: 91
   InstantiationId: 0
   isRuntimeInstantiated: 0
+--- !u!114 &612694101 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1696552624335281110, guid: 9550b7a6e150e6f4ba99b2d40320a2ce,
+    type: 3}
+  m_PrefabInstance: {fileID: 612694084}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 612694089}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e0efa7f1b824204590681a68c414084, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &630772097
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6968,7 +6991,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   teamManager1: {fileID: 158597911}
-  fameAdded: 0.1
+  fameAdded: 0.0025
   slider: {fileID: 2886803858108869105}
   slider2: {fileID: 4549890756219504085}
   whatTeamInControl: 0
@@ -7224,6 +7247,11 @@ PrefabInstance:
       propertyPath: Interactonce
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1696552624335281110, guid: 9550b7a6e150e6f4ba99b2d40320a2ce,
+        type: 3}
+      propertyPath: cantClosePanel
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3072405017941865810, guid: 9550b7a6e150e6f4ba99b2d40320a2ce,
         type: 3}
       propertyPath: viewIdField
@@ -7379,10 +7407,23 @@ MonoBehaviour:
   observableSearch: 2
   Synchronization: 3
   OwnershipTransfer: 0
-  ObservedComponents: []
+  ObservedComponents:
+  - {fileID: 734604619}
   viewIdField: 19
   InstantiationId: 0
   isRuntimeInstantiated: 0
+--- !u!114 &734604619 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1696552624335281110, guid: 9550b7a6e150e6f4ba99b2d40320a2ce,
+    type: 3}
+  m_PrefabInstance: {fileID: 734604602}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 734604607}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e0efa7f1b824204590681a68c414084, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &735881922 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8811579385368894350, guid: ab18c6628d0850e4c9ae0891f311f1fd,
@@ -28715,7 +28756,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   teamManager1: {fileID: 158597911}
-  fameAdded: 0.05
+  fameAdded: 0.01
   slider: {fileID: 2886803858108869105}
   slider2: {fileID: 4549890756219504085}
   timer: 5
@@ -28937,7 +28978,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   teamManager1: {fileID: 158597911}
-  fameAdded: 0.1
+  fameAdded: 0.0025
   slider: {fileID: 2886803858108869105}
   slider2: {fileID: 4549890756219504085}
   whatTeamInControl: 0
@@ -31350,7 +31391,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   teamManager1: {fileID: 158597911}
-  fameAdded: 0.1
+  fameAdded: 0.0025
   slider: {fileID: 2886803858108869105}
   slider2: {fileID: 4549890756219504085}
   whatTeamInControl: 0
@@ -42302,7 +42343,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   teamManager1: {fileID: 158597911}
-  fameAdded: 0.1
+  fameAdded: 0.0025
   slider: {fileID: 2886803858108869105}
   slider2: {fileID: 4549890756219504085}
   whatTeamInControl: 0
