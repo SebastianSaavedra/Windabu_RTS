@@ -2445,7 +2445,7 @@ PrefabInstance:
     - target: {fileID: 5448557454086677644, guid: f05eb4e68a631ea459cdb494ffa92325,
         type: 3}
       propertyPath: moneyToentry
-      value: 50
+      value: 75
       objectReference: {fileID: 0}
     - target: {fileID: 7754341705200370338, guid: f05eb4e68a631ea459cdb494ffa92325,
         type: 3}
@@ -7442,7 +7442,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &657587335
 Transform:
   m_ObjectHideFlags: 0
@@ -7751,7 +7751,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &696639509
 Transform:
   m_ObjectHideFlags: 0
@@ -30137,7 +30137,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   teamManager1: {fileID: 158597911}
-  fameAdded: 0.005
+  fameAdded: 0.001
   slider: {fileID: 2886803858108869105}
   slider2: {fileID: 4549890756219504085}
   timer: 10
@@ -31708,7 +31708,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1084907101}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 13.9, y: -19.9, z: 0}
+  m_LocalPosition: {x: -2.69, y: -28.28, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1643665621}
@@ -32179,7 +32179,7 @@ PrefabInstance:
     - target: {fileID: 5448557454086677644, guid: fe4f4efd1e7989d43b5fc601da590cf1,
         type: 3}
       propertyPath: moneyToentry
-      value: 50
+      value: 75
       objectReference: {fileID: 0}
     - target: {fileID: 7754341705200370338, guid: fe4f4efd1e7989d43b5fc601da590cf1,
         type: 3}
@@ -35131,7 +35131,7 @@ PrefabInstance:
     - target: {fileID: 5448557454086677644, guid: bc13f6c2e80557049ac7edf708034b42,
         type: 3}
       propertyPath: moneyToentry
-      value: 50
+      value: 75
       objectReference: {fileID: 0}
     - target: {fileID: 5448557454086677644, guid: bc13f6c2e80557049ac7edf708034b42,
         type: 3}
@@ -39700,7 +39700,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1540396864}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.8, y: -27.67, z: 0}
+  m_LocalPosition: {x: 13.87, y: -20.04, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1770789908}
@@ -41115,7 +41115,7 @@ PrefabInstance:
     - target: {fileID: 5448557454086677644, guid: fe4f4efd1e7989d43b5fc601da590cf1,
         type: 3}
       propertyPath: moneyToentry
-      value: 50
+      value: 75
       objectReference: {fileID: 0}
     - target: {fileID: 7754341705200370338, guid: fe4f4efd1e7989d43b5fc601da590cf1,
         type: 3}
@@ -41620,7 +41620,7 @@ PrefabInstance:
     - target: {fileID: 5448557454086677644, guid: f05eb4e68a631ea459cdb494ffa92325,
         type: 3}
       propertyPath: moneyToentry
-      value: 50
+      value: 75
       objectReference: {fileID: 0}
     - target: {fileID: 7754341705200370338, guid: f05eb4e68a631ea459cdb494ffa92325,
         type: 3}
@@ -42208,7 +42208,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1737178612}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -10.97, y: -3.48, z: 0}
+  m_LocalPosition: {x: -27.56, y: -11.07, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 903645612}
@@ -45528,7 +45528,7 @@ PrefabInstance:
     - target: {fileID: 5448557454086677644, guid: bc13f6c2e80557049ac7edf708034b42,
         type: 3}
       propertyPath: moneyToentry
-      value: 50
+      value: 75
       objectReference: {fileID: 0}
     - target: {fileID: 5448557454086677644, guid: bc13f6c2e80557049ac7edf708034b42,
         type: 3}
@@ -46125,7 +46125,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2139835168}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -28.01, y: -11.52, z: 0}
+  m_LocalPosition: {x: -10.74, y: -3.53, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 568322796}
