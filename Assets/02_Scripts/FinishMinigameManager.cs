@@ -224,7 +224,7 @@ public class FinishMinigameManager : MonoBehaviour
 
             // Plotter
             case 14:
-                LocalPlayerManager.paperCounter++;
+                LocalPlayerManager.paperCounter += 2;
                 Debug.Log(LocalPlayerManager.paperCounter);
                 switch (GetComponentInParent<WhatTeamIsCalling>().team)
                 {
@@ -239,7 +239,7 @@ public class FinishMinigameManager : MonoBehaviour
 
             // Merch
             case 15:
-                LocalPlayerManager.chapaCounter++;
+                LocalPlayerManager.chapaCounter += 2;
                 Debug.Log(LocalPlayerManager.paperCounter);
                 switch (GetComponentInParent<WhatTeamIsCalling>().team)
                 {
@@ -254,7 +254,7 @@ public class FinishMinigameManager : MonoBehaviour
 
             // Impresora Indust
             case 16:
-                LocalPlayerManager.stickCounter++;
+                LocalPlayerManager.stickCounter += 2;
                 Debug.Log(LocalPlayerManager.paperCounter);
                 switch (GetComponentInParent<WhatTeamIsCalling>().team)
                 {
