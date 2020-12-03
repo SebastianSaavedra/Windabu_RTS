@@ -60,11 +60,11 @@ public class MouseOverThings : MonoBehaviour
                 }
                 break;
             case 4://Merch
-                if (manager.canBuy_4 && !manager.canBuy_1)
+                if (manager.canBuy_4 && !manager.canBuy_2)
                 {
                     canBuy.SetActive(true);
                 }
-                if (manager.canBuy_4 && manager.canBuy_1)
+                if (manager.canBuy_4 && manager.canBuy_2)
                 {
                     requiere.SetActive(true);
                 }
@@ -74,11 +74,11 @@ public class MouseOverThings : MonoBehaviour
                 }
                 break;
             case 5://ImpInd
-                if (manager.canBuy_5 && !manager.canBuy_2)
+                if (manager.canBuy_5 && !manager.canBuy_1)
                 {
                     canBuy.SetActive(true);
                 }
-                if (manager.canBuy_5 && manager.canBuy_2)
+                if (manager.canBuy_5 && manager.canBuy_1)
                 {
                     requiere.SetActive(true);
                 }

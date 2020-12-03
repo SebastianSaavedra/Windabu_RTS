@@ -495,7 +495,7 @@ public class ShopManager : MonoBehaviourPunCallbacks
     {
         if (team)
         {
-            if (MinigameManager.dineroA >= (int)merchCost && (canBuy_4 && !canBuy_1))// volver a referencia teamManager
+            if (MinigameManager.dineroA >= (int)merchCost && (canBuy_4 && !canBuy_2))// volver a referencia teamManager
             {
                 RPCcor(merchDelay, 4);
                 Minijuegos.compraA((int)merchCost);
@@ -510,7 +510,7 @@ public class ShopManager : MonoBehaviourPunCallbacks
         }
         else
         {
-            if (MinigameManager.dineroB >= (int)merchCost && (canBuy_4 && !canBuy_1))// volver a referencia teamManager
+            if (MinigameManager.dineroB >= (int)merchCost && (canBuy_4 && !canBuy_2))// volver a referencia teamManager
             {
                 RPCcor(merchDelay, 4);
                 Minijuegos.compraB((int)merchCost);
@@ -528,7 +528,7 @@ public class ShopManager : MonoBehaviourPunCallbacks
     {
         if (team)
         {
-            if (MinigameManager.dineroA >= (int)impIndusCost && (canBuy_5 && !canBuy_2))// volver a referencia teamManager
+            if (MinigameManager.dineroA >= (int)impIndusCost && (canBuy_5 && !canBuy_1))// volver a referencia teamManager
             {
                 RPCcor(impIndusDelay, 5);
                 Minijuegos.compraA((int)impIndusCost);
@@ -543,7 +543,7 @@ public class ShopManager : MonoBehaviourPunCallbacks
         }
         else
         {
-            if (MinigameManager.dineroB >= (int)impIndusCost && (canBuy_5 && !canBuy_2))// volver a referencia teamManager
+            if (MinigameManager.dineroB >= (int)impIndusCost && (canBuy_5 && !canBuy_1))// volver a referencia teamManager
             {
                 RPCcor(impIndusDelay, 5);
                 Minijuegos.compraB((int)impIndusCost);
