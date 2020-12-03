@@ -1395,7 +1395,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5448557454086677644, guid: 9550b7a6e150e6f4ba99b2d40320a2ce, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 9550b7a6e150e6f4ba99b2d40320a2ce, type: 3}
 --- !u!1 &149878093 stripped
 GameObject:
@@ -1663,7 +1664,24 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1328016825}
   m_PrefabAsset: {fileID: 0}
---- !u!61 &169900992
+--- !u!114 &169900996
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 169900991}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e8eb1df221e0704f9cec8482bb0d8e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  manager: {fileID: 3680924888284296356}
+  sold: {fileID: 2041261218}
+  requiere: {fileID: 0}
+  canBuy: {fileID: 236159199}
+  wichbutton: 2
+--- !u!61 &169900997
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1689,23 +1707,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 120, y: 100}
   m_EdgeRadius: 0
---- !u!114 &169900996
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 169900991}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5e8eb1df221e0704f9cec8482bb0d8e3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  manager: {fileID: 3680924888284296356}
-  sold: {fileID: 2041261218}
-  requiere: {fileID: 0}
-  canBuy: {fileID: 236159199}
-  wichbutton: 2
 --- !u!1 &177946562
 GameObject:
   m_ObjectHideFlags: 0
@@ -3108,7 +3109,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5448557454086677644, guid: 9550b7a6e150e6f4ba99b2d40320a2ce, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 9550b7a6e150e6f4ba99b2d40320a2ce, type: 3}
 --- !u!4 &340589455 stripped
 Transform:
@@ -3134,7 +3136,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5292e98bf4eb7464b9220a4900296b6f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  team: 1
+  team: 0
   timer: 2
   moneyToGive: 1
 --- !u!1 &340589458 stripped
@@ -6009,7 +6011,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5448557454086677644, guid: 9550b7a6e150e6f4ba99b2d40320a2ce, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 9550b7a6e150e6f4ba99b2d40320a2ce, type: 3}
 --- !u!1 &612694085 stripped
 GameObject:
@@ -7316,7 +7319,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5448557454086677644, guid: 9550b7a6e150e6f4ba99b2d40320a2ce, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 9550b7a6e150e6f4ba99b2d40320a2ce, type: 3}
 --- !u!1 &734604603 stripped
 GameObject:
@@ -7403,7 +7407,24 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1328016825}
   m_PrefabAsset: {fileID: 0}
---- !u!61 &749101948
+--- !u!114 &749101952
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 749101947}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e8eb1df221e0704f9cec8482bb0d8e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  manager: {fileID: 3680924888284296356}
+  sold: {fileID: 1555070895}
+  requiere: {fileID: 0}
+  canBuy: {fileID: 342895774}
+  wichbutton: 6
+--- !u!61 &749101953
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -7429,23 +7450,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 120, y: 100}
   m_EdgeRadius: 0
---- !u!114 &749101952
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 749101947}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5e8eb1df221e0704f9cec8482bb0d8e3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  manager: {fileID: 3680924888284296356}
-  sold: {fileID: 1555070895}
-  requiere: {fileID: 0}
-  canBuy: {fileID: 342895774}
-  wichbutton: 6
 --- !u!1 &754976359
 GameObject:
   m_ObjectHideFlags: 0
@@ -25979,7 +25983,24 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1328016825}
   m_PrefabAsset: {fileID: 0}
---- !u!61 &809211806
+--- !u!114 &809211810
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 809211805}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e8eb1df221e0704f9cec8482bb0d8e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  manager: {fileID: 3680924888284296356}
+  sold: {fileID: 1108194004}
+  requiere: {fileID: 0}
+  canBuy: {fileID: 324864330}
+  wichbutton: 0
+--- !u!61 &809211811
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -26005,23 +26026,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 120, y: 100}
   m_EdgeRadius: 0
---- !u!114 &809211810
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 809211805}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5e8eb1df221e0704f9cec8482bb0d8e3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  manager: {fileID: 3680924888284296356}
-  sold: {fileID: 1108194004}
-  requiere: {fileID: 0}
-  canBuy: {fileID: 324864330}
-  wichbutton: 0
 --- !u!1 &811612492
 GameObject:
   m_ObjectHideFlags: 0
@@ -31470,7 +31474,24 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1328016825}
   m_PrefabAsset: {fileID: 0}
---- !u!61 &1190874630
+--- !u!114 &1190874634
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1190874629}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e8eb1df221e0704f9cec8482bb0d8e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  manager: {fileID: 3680924888284296356}
+  sold: {fileID: 195093323}
+  requiere: {fileID: 1309501428}
+  canBuy: {fileID: 1323837989}
+  wichbutton: 3
+--- !u!61 &1190874635
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -31496,23 +31517,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 120, y: 100}
   m_EdgeRadius: 0
---- !u!114 &1190874634
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1190874629}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5e8eb1df221e0704f9cec8482bb0d8e3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  manager: {fileID: 3680924888284296356}
-  sold: {fileID: 195093323}
-  requiere: {fileID: 1309501428}
-  canBuy: {fileID: 1323837989}
-  wichbutton: 3
 --- !u!1 &1196952986
 GameObject:
   m_ObjectHideFlags: 0
@@ -32129,7 +32133,24 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1328016825}
   m_PrefabAsset: {fileID: 0}
---- !u!61 &1234707782
+--- !u!114 &1234707786
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1234707781}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e8eb1df221e0704f9cec8482bb0d8e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  manager: {fileID: 3680924888284296356}
+  sold: {fileID: 213879252}
+  requiere: {fileID: 0}
+  canBuy: {fileID: 1314934993}
+  wichbutton: 1
+--- !u!61 &1234707787
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -32155,23 +32176,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 120, y: 100}
   m_EdgeRadius: 0
---- !u!114 &1234707786
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1234707781}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5e8eb1df221e0704f9cec8482bb0d8e3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  manager: {fileID: 3680924888284296356}
-  sold: {fileID: 213879252}
-  requiere: {fileID: 0}
-  canBuy: {fileID: 1314934993}
-  wichbutton: 1
 --- !u!1 &1247359655
 GameObject:
   m_ObjectHideFlags: 0
@@ -35966,7 +35970,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5448557454086677644, guid: 9550b7a6e150e6f4ba99b2d40320a2ce, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 9550b7a6e150e6f4ba99b2d40320a2ce, type: 3}
 --- !u!4 &1365518283 stripped
 Transform:
@@ -35992,7 +35997,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5292e98bf4eb7464b9220a4900296b6f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  team: 1
+  team: 0
   timer: 2
   moneyToGive: 1
 --- !u!1 &1365518286 stripped
@@ -37895,7 +37900,24 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1328016825}
   m_PrefabAsset: {fileID: 0}
---- !u!61 &1639873732
+--- !u!114 &1639873736
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1639873731}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e8eb1df221e0704f9cec8482bb0d8e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  manager: {fileID: 3680924888284296356}
+  sold: {fileID: 1466136088}
+  requiere: {fileID: 87836147}
+  canBuy: {fileID: 73645034}
+  wichbutton: 5
+--- !u!61 &1639873737
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -37921,23 +37943,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 120, y: 100}
   m_EdgeRadius: 0
---- !u!114 &1639873736
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1639873731}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5e8eb1df221e0704f9cec8482bb0d8e3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  manager: {fileID: 3680924888284296356}
-  sold: {fileID: 1466136088}
-  requiere: {fileID: 87836147}
-  canBuy: {fileID: 73645034}
-  wichbutton: 5
 --- !u!1 &1643072877
 GameObject:
   m_ObjectHideFlags: 0
@@ -39318,7 +39323,24 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1328016825}
   m_PrefabAsset: {fileID: 0}
---- !u!61 &1739824672
+--- !u!114 &1739824676
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1739824671}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e8eb1df221e0704f9cec8482bb0d8e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  manager: {fileID: 3680924888284296356}
+  sold: {fileID: 1570404325}
+  requiere: {fileID: 718065943}
+  canBuy: {fileID: 1821848996}
+  wichbutton: 4
+--- !u!61 &1739824677
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -39344,23 +39366,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 120, y: 100}
   m_EdgeRadius: 0
---- !u!114 &1739824676
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1739824671}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5e8eb1df221e0704f9cec8482bb0d8e3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  manager: {fileID: 3680924888284296356}
-  sold: {fileID: 1570404325}
-  requiere: {fileID: 718065943}
-  canBuy: {fileID: 1821848996}
-  wichbutton: 4
 --- !u!1 &1756523333
 GameObject:
   m_ObjectHideFlags: 0
@@ -39789,7 +39794,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5448557454086677644, guid: 9550b7a6e150e6f4ba99b2d40320a2ce, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 9550b7a6e150e6f4ba99b2d40320a2ce, type: 3}
 --- !u!4 &1798755453 stripped
 Transform:
@@ -39815,7 +39821,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5292e98bf4eb7464b9220a4900296b6f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  team: 1
+  team: 0
   timer: 2
   moneyToGive: 1
 --- !u!1 &1798755456 stripped
