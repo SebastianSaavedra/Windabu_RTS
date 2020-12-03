@@ -39,7 +39,6 @@ public class FeedbackTrigger : MonoBehaviour
                 {
                     escKey.SetActive(true);
                     eKey.SetActive(true);
-                    tKey.SetActive(true);
                 }
                 if (GetComponent<Sabotage>().playerToInterrupt)
                 {
