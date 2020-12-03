@@ -22,6 +22,17 @@ public class QueueObjLogic : MonoBehaviour
     {
         counter = GameObject.Find("UIManager").GetComponent<UIManager>();
     }
+    private void Start()
+    {
+        if (teamA) 
+        {
+            panelTimer.sprite = imageA;
+        }
+        if (teamB) 
+        {
+            panelTimer.sprite = imageB;
+        }
+    }
 
     // Update is called once per frame
     void Update()
