@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using TMPro;
 
 public class ProductChapita : MonoBehaviour, IDropHandler
 {
@@ -10,6 +11,8 @@ public class ProductChapita : MonoBehaviour, IDropHandler
 
     public GameObject chapita;
     public GameObject resetPos;
+    public TextMeshProUGUI counterText;
+    int counterNum = 5;
 
     public int chapitaIn;
     [SerializeField]int chapitaCounter;
@@ -48,7 +51,7 @@ public class ProductChapita : MonoBehaviour, IDropHandler
         {
             chapitaCounter++;
 
-            if(chapitaCounter == maxChapitas)
+            if (chapitaCounter == maxChapitas)
             {
                 GetComponentInParent<FinishMinigameManager>().AddSlotCounter();
                 Debug.Log("Listo");
@@ -61,6 +64,13 @@ public class ProductChapita : MonoBehaviour, IDropHandler
                 Debug.Log("Added");
             }
             GetComponentInParent<ChapaCountet>().NullChapas();
+
+            // UI Counter
+            if (counterText != null)
+            {
+                counterNum--;
+                counterText.text = counterNum.ToString();
+            }
         }
         else { Debug.Log("Faltan Chapitas"); }
     }

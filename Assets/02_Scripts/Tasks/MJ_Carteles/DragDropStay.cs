@@ -55,4 +55,9 @@ public class DragDropStay : MonoBehaviour, IDragHandler, IPointerDownHandler, IB
     {
         rectTransform.localPosition = posInicial;
     }
+
+    private void OnEnable()
+    {
+        canvasGroup.alpha = 1f;
+    }
 }
