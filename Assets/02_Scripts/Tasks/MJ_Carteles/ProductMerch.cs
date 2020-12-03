@@ -16,7 +16,7 @@ public class ProductMerch : MonoBehaviour, IDropHandler
     int counterNum = 5;
 
     bool chapitaIn;
-    int chapitaCounter;
+    [SerializeField]int chapitaCounter;
     public int maxChapitas;
 
     public void OnDrop(PointerEventData eventData)
@@ -77,16 +77,5 @@ public class ProductMerch : MonoBehaviour, IDropHandler
             }
         }
         else { Debug.Log("Falta Chapita"); }
-    }
-
-    public void Buffer()
-    {
-        StartCoroutine(Buffering());
-    }
-
-    IEnumerator Buffering()
-    {
-        yield return new WaitForSeconds(1.4f);
-        AddChapita();
     }
 }

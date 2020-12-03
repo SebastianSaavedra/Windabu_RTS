@@ -31522,16 +31522,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1216706948}
     m_Modifications:
-    - target: {fileID: 2512629631070823767, guid: a724d08fc4cbb6f4c9b31466cbdf9c03,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 8420338820874049422}
-    - target: {fileID: 2512629631070823767, guid: a724d08fc4cbb6f4c9b31466cbdf9c03,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: AddChapita
-      objectReference: {fileID: 0}
     - target: {fileID: 4816750606479483166, guid: a724d08fc4cbb6f4c9b31466cbdf9c03,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -31641,11 +31631,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Producir_Merch
-      objectReference: {fileID: 0}
-    - target: {fileID: 4816750606479483167, guid: a724d08fc4cbb6f4c9b31466cbdf9c03,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a724d08fc4cbb6f4c9b31466cbdf9c03, type: 3}
@@ -32554,15 +32539,3 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 2540300189229066401}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &8420338820874049422 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8633934462307266066, guid: a724d08fc4cbb6f4c9b31466cbdf9c03,
-    type: 3}
-  m_PrefabInstance: {fileID: 1548528154870261735}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e0a0d9a5b1274194b9225935b6b3ad38, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

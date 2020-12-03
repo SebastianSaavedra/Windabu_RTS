@@ -581,7 +581,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 8633934462307266066}
-        m_MethodName: Buffer
+        m_MethodName: AddChapita
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -592,7 +592,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 9107533776782006024}
-        m_MethodName: Palanca
+        m_MethodName: PalancaWithStages
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1088,6 +1088,7 @@ MonoBehaviour:
   chapita: {fileID: 7125335436508530377}
   resetPos: {fileID: 2512629631370786268}
   counterText: {fileID: 3916161405528850192}
+  chapitaCounter: 0
   maxChapitas: 5
 --- !u!1 &7036443050377578034
 GameObject:
