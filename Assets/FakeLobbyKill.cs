@@ -9,11 +9,11 @@ public class FakeLobbyKill : MonoBehaviourPunCallbacks
     [SerializeField] GameObject lobby;
  public void fakeloby() 
     {
-        photonView.RPC("rpcthing", RpcTarget.AllBuffered);
+        photonView.RPC("rpcthing", RpcTarget.AllViaServer,false);
     }
     [PunRPC]
-    public void rpcthing() 
+    public void rpcthing(bool call)
     {
-        lobby.SetActive(false);
+        lobby.SetActive(call);
     }
 }

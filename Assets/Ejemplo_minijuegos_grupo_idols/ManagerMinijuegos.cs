@@ -12,6 +12,7 @@ using System.Xml.Schema;
 public class ManagerMinijuegos : MonoBehaviourPunCallbacks,IPunObservable
 {
     [SerializeField] GameObject go;
+    [SerializeField] GameObject fakelobby;
     //Lista que guarda los jugadores que están en la sala
     public List<Player> playersActuales = new List<Player>();
 
@@ -354,7 +355,8 @@ public class ManagerMinijuegos : MonoBehaviourPunCallbacks,IPunObservable
     [PunRPC]
     public void RpcGo() 
     {
-       go.SetActive(true);
+        go.SetActive(true);
+        fakelobby.SetActive(false);
     }
 
 

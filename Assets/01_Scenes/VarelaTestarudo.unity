@@ -30215,7 +30215,7 @@ PrefabInstance:
     - target: {fileID: 4370072088701623706, guid: 99660c58d0bb6e342807c5b632dc22b5,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: rpcthing
+      value: fakeloby
       objectReference: {fileID: 0}
     - target: {fileID: 4370072088701623706, guid: 99660c58d0bb6e342807c5b632dc22b5,
         type: 3}
@@ -40796,6 +40796,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   go: {fileID: 2512481449526250841}
+  fakelobby: {fileID: 1261384795}
   parentObjetosMinijuegosUNPlayer:
   - {fileID: 1706851650}
   parentObjetosMinijuegosDOSPlayers:
