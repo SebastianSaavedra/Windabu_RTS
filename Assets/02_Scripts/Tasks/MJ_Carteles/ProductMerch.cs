@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using TMPro;
 
 public class ProductMerch : MonoBehaviour, IDropHandler
 {
@@ -11,6 +12,8 @@ public class ProductMerch : MonoBehaviour, IDropHandler
     public GameObject readySprite;
     public GameObject chapita;
     public GameObject resetPos;
+    public TextMeshProUGUI counterText;
+    int counterNum = 5;
 
     bool chapitaIn;
     int chapitaCounter;
@@ -65,7 +68,25 @@ public class ProductMerch : MonoBehaviour, IDropHandler
                 chapita.GetComponent<CanvasGroup>().blocksRaycasts = true;
                 Debug.Log("Faltan");
             }
+
+            // UI Counter
+            if (counterText != null)
+            {
+                counterNum--;
+                counterText.text = counterNum.ToString();
+            }
         }
         else { Debug.Log("Falta Chapita"); }
+    }
+
+    public void Buffer()
+    {
+        StartCoroutine(Buffering());
+    }
+
+    IEnumerator Buffering()
+    {
+        yield return new WaitForSeconds(1.4f);
+        AddChapita();
     }
 }

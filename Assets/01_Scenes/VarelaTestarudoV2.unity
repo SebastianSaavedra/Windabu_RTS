@@ -26953,7 +26953,7 @@ PrefabInstance:
     - target: {fileID: 5950700985929721154, guid: 6a561e5166bf0044cb00ca3b43bbd04b,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5950700985929721155, guid: 6a561e5166bf0044cb00ca3b43bbd04b,
         type: 3}
@@ -30319,6 +30319,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   go: {fileID: 0}
+  fakelobby: {fileID: 0}
   parentObjetosMinijuegosUNPlayer:
   - {fileID: 1889526653}
   parentObjetosMinijuegosDOSPlayers:
@@ -31664,7 +31665,7 @@ PrefabInstance:
     - target: {fileID: 4816750606479483167, guid: a724d08fc4cbb6f4c9b31466cbdf9c03,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a724d08fc4cbb6f4c9b31466cbdf9c03, type: 3}
