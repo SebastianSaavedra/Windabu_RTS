@@ -14,7 +14,8 @@ public class UIManager : MonoBehaviourPunCallbacks
     [SerializeField] GameObject teamAHudParentDown;
     [SerializeField] GameObject teamBHudParentTop;
     [SerializeField] GameObject teamBHudParentDown;
-    [SerializeField] GameObject objectToSpawn;
+    [SerializeField] GameObject objectToSpawnA;
+    [SerializeField] GameObject objectToSpawnB;
     public int counterA;
     public int counterB; 
     public static List<Player> playersActuales = new List<Player>();
@@ -64,7 +65,7 @@ public class UIManager : MonoBehaviourPunCallbacks
         counterB++;
         if (counterB < 4)
         {
-            GameObject objectToQue = Instantiate(objectToSpawn, teamBHudParentTop.transform.position, objectToSpawn.transform.rotation);
+            GameObject objectToQue = Instantiate(objectToSpawnB, teamBHudParentTop.transform.position, objectToSpawnB.transform.rotation);
             objectToQue.transform.parent = teamBHudParentTop.transform;
             objectToQue.transform.localScale = teamBHudParentTop.transform.localScale;
             objectToQue.GetComponent<QueueObjLogic>().ChangeAppearence(toSpawn);
@@ -72,7 +73,7 @@ public class UIManager : MonoBehaviourPunCallbacks
         }
         else
         {
-            GameObject objectToQue = Instantiate(objectToSpawn, teamBHudParentDown.transform.position, objectToSpawn.transform.rotation);
+            GameObject objectToQue = Instantiate(objectToSpawnB, teamBHudParentDown.transform.position, objectToSpawnB.transform.rotation);
             objectToQue.transform.parent = teamBHudParentDown.transform;
             objectToQue.transform.localScale = teamBHudParentDown.transform.localScale;
             objectToQue.GetComponent<QueueObjLogic>().ChangeAppearence(toSpawn);
@@ -86,7 +87,7 @@ public class UIManager : MonoBehaviourPunCallbacks
         counterA++;
         if (counterA < 4)
         {
-            GameObject objectToQue = Instantiate(objectToSpawn, teamAHudParentTop.transform.position, Quaternion.identity);
+            GameObject objectToQue = Instantiate(objectToSpawnA, teamAHudParentTop.transform.position, Quaternion.identity);
             objectToQue.transform.parent = teamAHudParentTop.transform;
             objectToQue.transform.localScale = teamAHudParentTop.transform.localScale;
             objectToQue.GetComponent<QueueObjLogic>().ChangeAppearence(toSpawn);
@@ -94,7 +95,7 @@ public class UIManager : MonoBehaviourPunCallbacks
         }
         else
         {
-            GameObject objectToQue = Instantiate(objectToSpawn, teamAHudParentDown.transform.position, Quaternion.identity);
+            GameObject objectToQue = Instantiate(objectToSpawnA, teamAHudParentDown.transform.position, Quaternion.identity);
             objectToQue.transform.parent = teamAHudParentDown.transform;
             objectToQue.transform.localScale = teamAHudParentDown.transform.localScale;
             objectToQue.GetComponent<QueueObjLogic>().ChangeAppearence(toSpawn);
