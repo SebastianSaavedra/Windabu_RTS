@@ -5,6 +5,7 @@ using UnityEngine;
 public class ProductImpresora : MonoBehaviour
 {
     public GameObject text;
+    public GameObject timerBar;
     public GameObject loadingSprite;
     private int partesCounter;
     public int maxPartes;
@@ -12,7 +13,8 @@ public class ProductImpresora : MonoBehaviour
     private void Start()
     {
         text.SetActive(false);
-        if(loadingSprite != null)
+        timerBar.SetActive(false);
+        if (loadingSprite != null)
         {
             loadingSprite.SetActive(false);
         }
@@ -31,6 +33,7 @@ public class ProductImpresora : MonoBehaviour
     IEnumerator WaitToFinish()
     {
         text.SetActive(true);
+        timerBar.SetActive(true);
         if (loadingSprite != null)
         {
             loadingSprite.SetActive(true);
@@ -42,6 +45,7 @@ public class ProductImpresora : MonoBehaviour
             loadingSprite.SetActive(false);
         }
         text.SetActive(false);
+        timerBar.SetActive(false);
         GetComponentInParent<FinishMinigameManager>().AddSlotCounter();
         Debug.Log("Carga2");
     }

@@ -25903,6 +25903,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Producir_ImpIndus
       objectReference: {fileID: 0}
+    - target: {fileID: 8889438373606068685, guid: 3cc803e0e50dc5a4ba2c9ff020a1a086,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3cc803e0e50dc5a4ba2c9ff020a1a086, type: 3}
 --- !u!1 &1020630123
@@ -26948,7 +26953,7 @@ PrefabInstance:
     - target: {fileID: 5950700985929721154, guid: 6a561e5166bf0044cb00ca3b43bbd04b,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5950700985929721155, guid: 6a561e5166bf0044cb00ca3b43bbd04b,
         type: 3}
@@ -32559,11 +32564,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4698955448614919350, guid: e06ebb87c16e2dc4eb269f379515a3e6,
-        type: 3}
-      propertyPath: finishedMinigameId
-      value: 13
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e06ebb87c16e2dc4eb269f379515a3e6, type: 3}
