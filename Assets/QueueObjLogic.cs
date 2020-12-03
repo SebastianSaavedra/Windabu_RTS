@@ -16,6 +16,7 @@ public class QueueObjLogic : MonoBehaviour
     public bool teamA, teamB;
     [SerializeField]
     UIManager counter;
+    [SerializeField] Sprite imageA, imageB;
 
     private void Awake()
     {
@@ -33,10 +34,13 @@ public class QueueObjLogic : MonoBehaviour
                 if (teamA) 
                 {
                     counter.DeValueCounterA();
+                    panelTimer.sprite = imageA;
+
                 }
                 else if (teamB) 
                 {
                     counter.DeValueCounterB();
+                    panelTimer.sprite = imageB;
                 }
                 Destroy(gameObject);
             }
