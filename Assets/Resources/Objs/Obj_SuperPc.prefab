@@ -125,7 +125,10 @@ MonoBehaviour:
   managerMinijuegos: {fileID: 0}
   panelData: {fileID: 11400000, guid: e40bd0cea097f5144b0b6dbb266afad0, type: 2}
   moneyToentry: 0
+  Interactonce: 0
+  stopoutsiders: 0
   canInteract: 1
+  cantClosePanel: 0
 --- !u!1 &1842708776638207972
 GameObject:
   m_ObjectHideFlags: 0
@@ -226,7 +229,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 2.56, y: 2.56}
+    oldSize: {x: 4.6545453, y: 4.6545453}
     newSize: {x: 2.56, y: 2.56}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -268,6 +271,7 @@ GameObject:
   - component: {fileID: 3162195558729469645}
   - component: {fileID: 3072405017941865810}
   - component: {fileID: 7895517636570418864}
+  - component: {fileID: 4686049506296314516}
   m_Layer: 0
   m_Name: Obj_SuperPc
   m_TagString: MjBox
@@ -335,6 +339,8 @@ MonoBehaviour:
   oP: {fileID: 0}
   inRoom: 0
   team: 1
+  players: []
+  done: {fileID: 0}
   born: {fileID: 5095613476002801342}
   ready: {fileID: 1564176127081807766}
   upgraded: {fileID: 1842708776638207972}
@@ -358,6 +364,8 @@ MonoBehaviour:
   OwnershipTransfer: 0
   ObservedComponents:
   - {fileID: 7895517636570418864}
+  - {fileID: 1696552624335281110}
+  - {fileID: 5448557454086677644}
   viewIdField: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
@@ -376,6 +384,102 @@ MonoBehaviour:
   m_SynchronizePosition: 1
   m_SynchronizeRotation: 1
   m_SynchronizeScale: 0
+--- !u!82 &4686049506296314516
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4073144790399955248}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 9c8c5caaa50f1bb4cb4517cf55e049ed, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &5095613476002801342
 GameObject:
   m_ObjectHideFlags: 0
@@ -501,4 +605,7 @@ MonoBehaviour:
   managerMinijuegos: {fileID: 0}
   panelData: {fileID: 11400000, guid: 4b42c9c525e4d574ebea12fa5f885709, type: 2}
   moneyToentry: 0
+  Interactonce: 0
+  stopoutsiders: 0
   canInteract: 0
+  cantClosePanel: 0
