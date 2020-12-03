@@ -19,7 +19,7 @@ public class AnimatorThings : MonoBehaviour
 
     public void DesaparecerUngAMEobject() 
     {
-        gameObject.SetActive(false);
+        padre.SetActive(false);
     }
     public void DestruirPadre() 
     {

@@ -58,7 +58,7 @@ public class MouseOverThings : MonoBehaviour
                 {
                     requiere.SetActive(true);
                 }
-                if (!manager.canBuy_3)
+                if (!manager.canBuy_3 && manager.impreArmada)
                 {
                     sold.SetActive(true);
                 }
@@ -76,7 +76,7 @@ public class MouseOverThings : MonoBehaviour
                 {
                     requiere.SetActive(true);
                 }
-                if (!manager.canBuy_4)
+                if (!manager.canBuy_4 && manager.chapArmada)
                 {
                     sold.SetActive(true);
                 }
@@ -94,7 +94,7 @@ public class MouseOverThings : MonoBehaviour
                 {
                     requiere.SetActive(true);
                 }
-                if (!manager.canBuy_5)
+                if (!manager.canBuy_5 && manager.imp3dArmada)
                 {
                     sold.SetActive(true);
                 }

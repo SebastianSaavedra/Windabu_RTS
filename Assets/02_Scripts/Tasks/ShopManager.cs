@@ -14,6 +14,7 @@ public class ShopManager : MonoBehaviourPunCallbacks
     float impresoraCost = 100f, impresoraDelay = 15f, imp3dCost = 200f, imp3dDelay = 30f, chapitaCost = 150f, chapitaDelay = 20f, ploterCost = 300f, ploterDelay = 15f,
           merchCost = 350f, merchDelay = 30f, impIndusCost = 500f, impIndusDelay = 60f, scCost = 300f, scDelay = 30f;
     public bool canBuy_0, canBuy_1, canBuy_2, canBuy_3, canBuy_4, canBuy_5;
+    public bool impreArmada,imp3dArmada,chapArmada;
     public bool sc0, sc1, sc2;
     int howManySc;
     //Prefabs
@@ -334,16 +335,19 @@ public class ShopManager : MonoBehaviourPunCallbacks
     public void canBuyPlotter() 
     {
         canBuy_3 = true;
+        impreArmada = true;
     }
     [PunRPC]
     public void canBuyMerch()
     {
         canBuy_4 = true;
+        chapArmada = true;
     }
     [PunRPC]
     public void canBuyind()
     {
         canBuy_5 = true;
+        imp3dArmada = true;
     }
     [PunRPC]
     public void cantBuy(int wichItem) 
