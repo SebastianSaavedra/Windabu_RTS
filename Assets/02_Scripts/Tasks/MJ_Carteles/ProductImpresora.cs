@@ -12,13 +12,17 @@ public class ProductImpresora : MonoBehaviour
     private void Start()
     {
         text.SetActive(false);
-        loadingSprite.SetActive(false);
+        if(loadingSprite != null)
+        {
+            loadingSprite.SetActive(false);
+        }
     }
 
     public void AddCounter()
     {
         // Complete MJ
         partesCounter++;
+        Debug.Log(partesCounter);
         if (partesCounter == maxPartes)
         {
             StartCoroutine(WaitToFinish());
@@ -27,10 +31,16 @@ public class ProductImpresora : MonoBehaviour
     IEnumerator WaitToFinish()
     {
         text.SetActive(true);
-        loadingSprite.SetActive(true);
+        if (loadingSprite != null)
+        {
+            loadingSprite.SetActive(true);
+        }
         yield return new WaitForSeconds(15);
 
-        loadingSprite.SetActive(false);
+        if (loadingSprite != null)
+        {
+            loadingSprite.SetActive(false);
+        }
         text.SetActive(false);
         GetComponentInParent<FinishMinigameManager>().AddSlotCounter();
         Debug.Log("Carga2");

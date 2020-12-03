@@ -184,6 +184,7 @@ public class FinishMinigameManager : MonoBehaviour
 
             // Chapita
             case 13:
+                Debug.Log("Chapa Finish");
                 LocalPlayerManager.chapaCounter++;
                 Debug.Log(LocalPlayerManager.chapaCounter);
                 switch (GetComponentInParent<WhatTeamIsCalling>().team)
@@ -214,7 +215,7 @@ public class FinishMinigameManager : MonoBehaviour
 
             // Merch
             case 15:
-                LocalPlayerManager.paperCounter++;
+                LocalPlayerManager.chapaCounter++;
                 Debug.Log(LocalPlayerManager.paperCounter);
                 switch (GetComponentInParent<WhatTeamIsCalling>().team)
                 {
@@ -229,7 +230,7 @@ public class FinishMinigameManager : MonoBehaviour
 
             // Impresora Indust
             case 16:
-                LocalPlayerManager.paperCounter++;
+                LocalPlayerManager.stickCounter++;
                 Debug.Log(LocalPlayerManager.paperCounter);
                 switch (GetComponentInParent<WhatTeamIsCalling>().team)
                 {
@@ -240,6 +241,7 @@ public class FinishMinigameManager : MonoBehaviour
                         GameObject.Find("Obj_ImpIndusB").GetComponent<BoxProgression>().FinishedMinigame();
                         break;
                 }
+                Debug.Log("finished");
                 break;
 
 
