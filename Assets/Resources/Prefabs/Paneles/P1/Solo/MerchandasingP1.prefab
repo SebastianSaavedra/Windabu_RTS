@@ -2089,6 +2089,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 613385977143902141, guid: cf460235a74745a4f9185e556b7a83ea,
         type: 3}
+      propertyPath: screens.Array.size
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 613385977143902141, guid: cf460235a74745a4f9185e556b7a83ea,
+        type: 3}
       propertyPath: barraA
       value: 
       objectReference: {fileID: 3626923126321562497}
