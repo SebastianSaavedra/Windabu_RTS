@@ -317,6 +317,34 @@ public class ShopManager : MonoBehaviourPunCallbacks
             }
         }
     }
+    public void rpcPlot()
+    {
+        photonView.RPC("canBuyPlotter", RpcTarget.AllViaServer);
+    }
+    public void rpcMerch()
+    {
+        photonView.RPC("canBuyMerch", RpcTarget.AllViaServer);
+    }
+    public void rpcInd()
+    {
+        photonView.RPC("canBuyind", RpcTarget.AllViaServer);
+    }
+
+    [PunRPC]
+    public void canBuyPlotter() 
+    {
+        canBuy_3 = true;
+    }
+    [PunRPC]
+    public void canBuyMerch()
+    {
+        canBuy_4 = true;
+    }
+    [PunRPC]
+    public void canBuyind()
+    {
+        canBuy_5 = true;
+    }
     [PunRPC]
     public void cantBuy(int wichItem) 
     {

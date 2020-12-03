@@ -39,9 +39,13 @@ public class FinishMinigameManager : MonoBehaviour
                 {
                     case true:
                         GameObject.Find("ImpresoraAObj").GetComponent<BoxProgression>().CallFinish();
+                        GameObject.Find("BaseManager").GetComponent<BaseManager>().RPCActivate(true,1);
+                        GameObject.Find("CelularA").GetComponent<ShopManager>().rpcPlot();
                         break;
                     case false:
                         GameObject.Find("ImpresoraBObj").GetComponent<BoxProgression>().CallFinish();
+                        GameObject.Find("BaseManager").GetComponent<BaseManager>().RPCActivate(false,19);
+                        GameObject.Find("CelularB").GetComponent<ShopManager>().rpcPlot();
                         break;
                 }
                 break;
@@ -52,9 +56,13 @@ public class FinishMinigameManager : MonoBehaviour
                 {
                     case true:
                         GameObject.Find("Obj_Imp3dA").GetComponent<BoxProgression>().CallFinish();
+                        GameObject.Find("BaseManager").GetComponent<BaseManager>().RPCActivate(true,5);
+                        GameObject.Find("CelularA").GetComponent<ShopManager>().rpcInd();
                         break;
                     case false:
                         GameObject.Find("Obj_Imp3dB").GetComponent<BoxProgression>().CallFinish();
+                        GameObject.Find("BaseManager").GetComponent<BaseManager>().RPCActivate(false,23);
+                        GameObject.Find("CelularB").GetComponent<ShopManager>().rpcInd();
                         break;
                 }
                 break;
@@ -65,9 +73,13 @@ public class FinishMinigameManager : MonoBehaviour
                 {
                     case true:
                         GameObject.Find("Obj_ChapitasA").GetComponent<BoxProgression>().CallFinish();
+                        GameObject.Find("BaseManager").GetComponent<BaseManager>().RPCActivate(true, 3);
+                        GameObject.Find("CelularA").GetComponent<ShopManager>().rpcMerch();
                         break;
                     case false:
                         GameObject.Find("Obj_ChapitasB").GetComponent<BoxProgression>().CallFinish();
+                        GameObject.Find("BaseManager").GetComponent<BaseManager>().RPCActivate(false,21);
+                        GameObject.Find("CelularB").GetComponent<ShopManager>().rpcMerch();
                         break;
                 }
                 break;
@@ -78,9 +90,11 @@ public class FinishMinigameManager : MonoBehaviour
                 {
                     case true:
                         GameObject.Find("Obj_PlotA").GetComponent<BoxProgression>().CallFinish();
+                        GameObject.Find("BaseManager").GetComponent<BaseManager>().RPCActivate(true,7);
                         break;
                     case false:
                         GameObject.Find("Obj_PlotB").GetComponent<BoxProgression>().CallFinish();
+                        GameObject.Find("BaseManager").GetComponent<BaseManager>().RPCActivate(false,25);
                         break;
                 }
                 break;
@@ -91,9 +105,11 @@ public class FinishMinigameManager : MonoBehaviour
                 {
                     case true:
                         GameObject.Find("Obj_MerchA").GetComponent<BoxProgression>().CallFinish();
+                        GameObject.Find("BaseManager").GetComponent<BaseManager>().RPCActivate(true,11);
                         break;
                     case false:
                         GameObject.Find("Obj_MerchB").GetComponent<BoxProgression>().CallFinish();
+                        GameObject.Find("BaseManager").GetComponent<BaseManager>().RPCActivate(false,29);
                         break;
                 }
                 break;
@@ -104,9 +120,11 @@ public class FinishMinigameManager : MonoBehaviour
                 {
                     case true:
                         GameObject.Find("Obj_ImpIndusA").GetComponent<BoxProgression>().CallFinish();
+                        GameObject.Find("BaseManager").GetComponent<BaseManager>().RPCActivate(true,9);
                         break;
                     case false:
                         GameObject.Find("Obj_ImpIndusB").GetComponent<BoxProgression>().CallFinish();
+                        GameObject.Find("BaseManager").GetComponent<BaseManager>().RPCActivate(false,27);
                         break;
                 }
                 break;
@@ -117,9 +135,11 @@ public class FinishMinigameManager : MonoBehaviour
                 {
                     case true:
                         GameObject.Find("Obj_SuperPc1A").GetComponent<BoxProgression>().CallFinish();
+                        GameObject.Find("BaseManager").GetComponent<BaseManager>().RPCActivate(true,13);
                         break;
                     case false:
                         GameObject.Find("Obj_SuperPc1B").GetComponent<BoxProgression>().CallFinish();
+                        GameObject.Find("BaseManager").GetComponent<BaseManager>().RPCActivate(false,31);
                         break;
                 }
                 break;
@@ -130,9 +150,11 @@ public class FinishMinigameManager : MonoBehaviour
                 {
                     case true:
                         GameObject.Find("Obj_SuperPc2A").GetComponent<BoxProgression>().CallFinish();
+                        GameObject.Find("BaseManager").GetComponent<BaseManager>().RPCActivate(true,15);
                         break;
                     case false:
                         GameObject.Find("Obj_SuperPc2B").GetComponent<BoxProgression>().CallFinish();
+                        GameObject.Find("BaseManager").GetComponent<BaseManager>().RPCActivate(false,33);
                         break;
                 }
                 break;
@@ -143,9 +165,11 @@ public class FinishMinigameManager : MonoBehaviour
                 {
                     case true:
                         GameObject.Find("Obj_SuperPc3A").GetComponent<BoxProgression>().CallFinish();
+                        GameObject.Find("BaseManager").GetComponent<BaseManager>().RPCActivate(true,17);
                         break;
                     case false:
                         GameObject.Find("Obj_SuperPc3B").GetComponent<BoxProgression>().CallFinish();
+                        GameObject.Find("BaseManager").GetComponent<BaseManager>().RPCActivate(false,35);
                         break;
                 }
                 break;

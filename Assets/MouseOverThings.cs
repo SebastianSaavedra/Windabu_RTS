@@ -50,7 +50,11 @@ public class MouseOverThings : MonoBehaviour
                 {
                     canBuy.SetActive(true);
                 }
-                if (manager.canBuy_3 && manager.canBuy_0)
+                if (!manager.canBuy_3 && manager.canBuy_0)
+                {
+                    requiere.SetActive(true);
+                }  
+                if (!manager.canBuy_3 && !manager.canBuy_0)
                 {
                     requiere.SetActive(true);
                 }
@@ -64,7 +68,11 @@ public class MouseOverThings : MonoBehaviour
                 {
                     canBuy.SetActive(true);
                 }
-                if (manager.canBuy_4 && manager.canBuy_2)
+                if (!manager.canBuy_4 && manager.canBuy_2)
+                {
+                    requiere.SetActive(true);
+                }
+                if (!manager.canBuy_4 && !manager.canBuy_2)
                 {
                     requiere.SetActive(true);
                 }
@@ -78,7 +86,11 @@ public class MouseOverThings : MonoBehaviour
                 {
                     canBuy.SetActive(true);
                 }
-                if (manager.canBuy_5 && manager.canBuy_1)
+                if (!manager.canBuy_5 && manager.canBuy_1)
+                {
+                    requiere.SetActive(true);
+                }
+                if (!manager.canBuy_5 && !manager.canBuy_1)
                 {
                     requiere.SetActive(true);
                 }
