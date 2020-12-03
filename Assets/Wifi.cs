@@ -10,6 +10,7 @@ public class Wifi : MonoBehaviourPunCallbacks
     [SerializeField] GameObject celu,wifi, wifint;
     [SerializeField] Animator celuAnim;
     [SerializeField] GameObject player;
+    [SerializeField] bool team;
     private void OnTriggerStay2D(Collider2D collision)
     {
         
@@ -19,16 +20,22 @@ public class Wifi : MonoBehaviourPunCallbacks
             {
                 if (collision.GetComponent<PlayerId>().id == PhotonNetwork.LocalPlayer.ActorNumber)
                 {
+                    if (collision.GetComponent<PlayerTeam>().team == team) 
+                    {
                 celuAnim.SetTrigger("OpenCell");
                 collision.GetComponent<TEST_Movement>().enabled = false;
+                    }
                 }
             }
             if (Input.GetKeyDown(KeyCode.Escape))
             {
                 if (collision.GetComponent<PlayerId>().id == PhotonNetwork.LocalPlayer.ActorNumber)
                 {
-                collision.GetComponent<TEST_Movement>().enabled = true;
+                    if (collision.GetComponent<PlayerTeam>().team == team)
+                    {
+                        collision.GetComponent<TEST_Movement>().enabled = true;
                 celuAnim.SetTrigger("CloseCell");
+                }
                 }
             }
             wifint.SetActive(false);

@@ -50,11 +50,15 @@ public class MouseOverThings : MonoBehaviour
                 {
                     canBuy.SetActive(true);
                 }
-                if (manager.canBuy_3 && manager.canBuy_0)
+                if (!manager.canBuy_3 && manager.canBuy_0)
+                {
+                    requiere.SetActive(true);
+                }  
+                if (!manager.canBuy_3 && !manager.canBuy_0)
                 {
                     requiere.SetActive(true);
                 }
-                if (!manager.canBuy_3)
+                if (!manager.canBuy_3 && manager.impreArmada)
                 {
                     sold.SetActive(true);
                 }
@@ -64,11 +68,15 @@ public class MouseOverThings : MonoBehaviour
                 {
                     canBuy.SetActive(true);
                 }
-                if (manager.canBuy_4 && manager.canBuy_2)
+                if (!manager.canBuy_4 && manager.canBuy_2)
                 {
                     requiere.SetActive(true);
                 }
-                if (!manager.canBuy_4)
+                if (!manager.canBuy_4 && !manager.canBuy_2)
+                {
+                    requiere.SetActive(true);
+                }
+                if (!manager.canBuy_4 && manager.chapArmada)
                 {
                     sold.SetActive(true);
                 }
@@ -78,11 +86,15 @@ public class MouseOverThings : MonoBehaviour
                 {
                     canBuy.SetActive(true);
                 }
-                if (manager.canBuy_5 && manager.canBuy_1)
+                if (!manager.canBuy_5 && manager.canBuy_1)
                 {
                     requiere.SetActive(true);
                 }
-                if (!manager.canBuy_5)
+                if (!manager.canBuy_5 && !manager.canBuy_1)
+                {
+                    requiere.SetActive(true);
+                }
+                if (!manager.canBuy_5 && manager.imp3dArmada)
                 {
                     sold.SetActive(true);
                 }

@@ -68,7 +68,7 @@ public class BarMovement : MonoBehaviourPunCallbacks        //Literal este codig
 
     IEnumerator IniciarAct()
     {
-        yield return new WaitForSeconds(.5f);
+        yield return new WaitForSeconds(1.8f);
         speed = initialSpeed;
         moving = true;
         yield break;
