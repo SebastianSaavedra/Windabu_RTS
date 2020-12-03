@@ -381,7 +381,7 @@ public class ShopManager : MonoBehaviourPunCallbacks
             if (MinigameManager.dineroB >= impresoraCost && canBuy_0)// volver a referencia teamManager
             {
                 RPCcor(impresoraDelay,0);
-                MinigameManager.dineroB -= (int)impresoraCost;
+                Minijuegos.compraB((int)impresoraCost);
                 uiMan.CallRpc(team, 0);
                 photonView.RPC("cantBuy", RpcTarget.AllViaServer, 0);
                 //gameObject.GetComponent<TeamManager>().money -= impresoraCost;
@@ -414,7 +414,7 @@ public class ShopManager : MonoBehaviourPunCallbacks
             if (MinigameManager.dineroB >= (int)imp3dCost && canBuy_1)// volver a referencia teamManager
             {
                 RPCcor(imp3dDelay, 1);
-                MinigameManager.dineroB -= (int)imp3dCost;
+                Minijuegos.compraB((int)imp3dCost);
                 uiMan.CallRpc(team, 1);
                 photonView.RPC("cantBuy", RpcTarget.AllViaServer, 1);
                 //gameObject.GetComponent<TeamManager>().money -= impresoraCost;
@@ -447,7 +447,7 @@ public class ShopManager : MonoBehaviourPunCallbacks
             if (MinigameManager.dineroB >= (int)chapitaCost && canBuy_2)// volver a referencia teamManager
             {
                 RPCcor(chapitaDelay, 2);
-                MinigameManager.dineroB -= (int)chapitaCost;
+                Minijuegos.compraB((int)chapitaCost);
                 uiMan.CallRpc(team, 2);
                 photonView.RPC("cantBuy", RpcTarget.AllViaServer,2);
                 //gameObject.GetComponent<TeamManager>().money -= impresoraCost;
@@ -480,7 +480,7 @@ public class ShopManager : MonoBehaviourPunCallbacks
             if (MinigameManager.dineroB >= (int)ploterCost && (canBuy_3 && !canBuy_0))// volver a referencia teamManager
             {
                 RPCcor(ploterDelay, 3);
-                MinigameManager.dineroB -= (int)ploterCost;
+                Minijuegos.compraB((int)ploterCost);
                 uiMan.CallRpc(team, 3);
                 photonView.RPC("cantBuy", RpcTarget.AllViaServer, 3);
                 //gameObject.GetComponent<TeamManager>().money -= impresoraCost;
@@ -513,7 +513,7 @@ public class ShopManager : MonoBehaviourPunCallbacks
             if (MinigameManager.dineroB >= (int)merchCost && (canBuy_4 && !canBuy_1))// volver a referencia teamManager
             {
                 RPCcor(merchDelay, 4);
-                MinigameManager.dineroB -= (int)merchCost;
+                Minijuegos.compraB((int)merchCost);
                 uiMan.CallRpc(team, 4);
                 photonView.RPC("cantBuy", RpcTarget.AllViaServer, 4);
                 //gameObject.GetComponent<TeamManager>().money -= impresoraCost;
@@ -546,7 +546,7 @@ public class ShopManager : MonoBehaviourPunCallbacks
             if (MinigameManager.dineroB >= (int)impIndusCost && (canBuy_5 && !canBuy_2))// volver a referencia teamManager
             {
                 RPCcor(impIndusDelay, 5);
-                MinigameManager.dineroB -= (int)impIndusCost;
+                Minijuegos.compraB((int)impIndusCost);
                 uiMan.CallRpc(team, 5);
                 photonView.RPC("cantBuy", RpcTarget.AllViaServer, 5);
                 //gameObject.GetComponent<TeamManager>().money -= impresoraCost;
@@ -579,7 +579,7 @@ public class ShopManager : MonoBehaviourPunCallbacks
             if (MinigameManager.dineroB >= (int)scCost && (sc0 || sc1 || sc2))// volver a referencia teamManager
             {
                 ActSuperPc(scDelay, howManySc);
-                MinigameManager.dineroB -= (int)scCost;
+                Minijuegos.compraB((int)impIndusCost);
                 uiMan.CallRpc(team, 6);
                 photonView.RPC("cantBuy", RpcTarget.AllViaServer, 6);
             }
@@ -594,7 +594,6 @@ public class ShopManager : MonoBehaviourPunCallbacks
     public void RPCcor(float time, int whatItem) 
     {
          photonView.RPC("StartCor", RpcTarget.AllViaServer,time,whatItem);
-        //StartCor(time, whatItem);
     }
 
     [PunRPC]
@@ -665,21 +664,6 @@ public class ShopManager : MonoBehaviourPunCallbacks
             case 5:
                 impIndus.SetActive(true);
                 break;
-            //case 6:
-            //    Debug.Log("Cuantas super "+ howManySc);
-            //    switch (howManySc) 
-            //    {
-            //        case 1:
-            //            superComputadora_1.SetActive(true);
-            //            break;
-            //        case 2:
-            //            superComputadora_2.SetActive(true);
-            //            break;
-            //        case 3:
-            //            superComputadora_3.SetActive(true);
-            //            break;
-            //    }
-            //    break;
         }       
         yield break;
     }
