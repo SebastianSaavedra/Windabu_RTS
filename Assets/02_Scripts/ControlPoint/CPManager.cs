@@ -128,12 +128,12 @@ public class CPManager :MonoBehaviourPunCallbacks,IPunObservable
         if (team)
         {
             teamManager1.GetComponent<TeamManager>().fameA += points;
-            slider.fillAmount += (fameAdded * 0.2f);
+            slider.fillAmount = slider.fillAmount+(fameAdded);
         }
         else
         {
             teamManager1.GetComponent<TeamManager>().fameB += points;
-            slider2.fillAmount += (fameAdded * 0.2f);
+            slider2.fillAmount = slider2.fillAmount+(fameAdded);
         }
     }
     [PunRPC]
@@ -143,12 +143,12 @@ public class CPManager :MonoBehaviourPunCallbacks,IPunObservable
         if(whatTeamInControl)
         {
             teamManager1.GetComponent<TeamManager>().fameA += fameAdded;
-            slider.fillAmount += (fameAdded*0.2f);
+            slider.fillAmount += (fameAdded);
         }
         else 
         {
             teamManager1.GetComponent<TeamManager>().fameB += fameAdded;
-            slider2.fillAmount += (fameAdded * 0.2f);
+            slider2.fillAmount += (fameAdded);
         }
     }
 
@@ -233,7 +233,6 @@ public class CPManager :MonoBehaviourPunCallbacks,IPunObservable
         {
            slider.fillAmount =(float)stream.ReceiveNext();
            slider2.fillAmount =(float)stream.ReceiveNext();
-        }
-      
+        }    
       }        
 }
