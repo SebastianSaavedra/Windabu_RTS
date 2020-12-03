@@ -22,6 +22,7 @@ public class ItemSlot : MonoBehaviour, IDropHandler
                 eventData.pointerDrag.GetComponent<DragDropStay>().locked = true;
 
                 // Complete MJ
+                FindObjectOfType<AudioManager>().Play("DragDropPositive");
                 GetComponentInParent<FinishMinigameManager>().AddSlotCounter();
 
                 //Disable
@@ -30,7 +31,7 @@ public class ItemSlot : MonoBehaviour, IDropHandler
             // Failed Scan
             else
             {
-                Debug.Log("Aqui no es bro");
+                FindObjectOfType<AudioManager>().Play("DragDropNegative");
             }
         }
     }
