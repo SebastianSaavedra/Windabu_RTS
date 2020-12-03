@@ -3671,11 +3671,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Upgrade_Imp3D
       objectReference: {fileID: 0}
-    - target: {fileID: 8008031638613725891, guid: a5df328a53538cb48943cf3d71e3b3f8,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a5df328a53538cb48943cf3d71e3b3f8, type: 3}
 --- !u!1 &577962023
@@ -31403,21 +31398,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1216706948}
     m_Modifications:
-    - target: {fileID: 1392908899042858226, guid: a0b67b9995efafe40a56f7c80a341033,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1678028217286559887, guid: a0b67b9995efafe40a56f7c80a341033,
-        type: 3}
-      propertyPath: maxPartes
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 2060381049416135644, guid: a0b67b9995efafe40a56f7c80a341033,
-        type: 3}
-      propertyPath: finishedMinigameId
-      value: 16
-      objectReference: {fileID: 0}
     - target: {fileID: 8889438373606068684, guid: a0b67b9995efafe40a56f7c80a341033,
         type: 3}
       propertyPath: m_LocalPosition.x
