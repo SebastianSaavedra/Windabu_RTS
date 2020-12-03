@@ -564,7 +564,7 @@ public class ShopManager : MonoBehaviourPunCallbacks
             if (MinigameManager.dineroA >= (int)scCost && (sc0 || sc1 || sc2))// volver a referencia teamManager
             {
                 Debug.Log(howManySc);
-                ActSuperPc(scDelay, howManySc);
+                ScCor(scDelay, howManySc);
                 Minijuegos.compraA((int)scCost);
                 uiMan.CallRpc(team, 6);
                 photonView.RPC("cantBuy", RpcTarget.AllViaServer, 6);
@@ -578,8 +578,8 @@ public class ShopManager : MonoBehaviourPunCallbacks
         {
             if (MinigameManager.dineroB >= (int)scCost && (sc0 || sc1 || sc2))// volver a referencia teamManager
             {
-                ActSuperPc(scDelay, howManySc);
-                Minijuegos.compraB((int)impIndusCost);
+                ScCor(scDelay, howManySc);
+                Minijuegos.compraB((int)scCost);
                 uiMan.CallRpc(team, 6);
                 photonView.RPC("cantBuy", RpcTarget.AllViaServer, 6);
             }
@@ -594,6 +594,10 @@ public class ShopManager : MonoBehaviourPunCallbacks
     public void RPCcor(float time, int whatItem) 
     {
          photonView.RPC("StartCor", RpcTarget.AllViaServer,time,whatItem);
+    }
+    public void ScCor(float time, int pc) 
+    {
+        photonView.RPC("ActSuperPc",RpcTarget.AllViaServer,time,pc);
     }
 
     [PunRPC]
