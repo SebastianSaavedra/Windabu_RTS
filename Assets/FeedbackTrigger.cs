@@ -35,10 +35,15 @@ public class FeedbackTrigger : MonoBehaviourPunCallbacks
     // Update is called once per frame
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.GetComponent<TaskDropDown>()) 
+        if (collision.GetComponent<TaskDropDown>())
         {
             eKey.SetActive(true);
-           // escKey.SetActive(true);
+            // escKey.SetActive(true);
+        }
+        if (collision.GetComponent<Wifi>())
+        {
+            eKey.SetActive(true);
+            escKey.SetActive(true);
         }
         //if (collision.GetComponent<ColSaver>()) 
         //{

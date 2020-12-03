@@ -99,7 +99,7 @@ public class TaskDropDown : MonoBehaviourPunCallbacks,I_Interactable
     {
         canInteract = false;
         managerMinijuegos.minijuegos[(int)thisMinigame].completado = true;
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(45f);
         managerMinijuegos.minijuegos[(int)thisMinigame].completado = false;
         canInteract = true;
         yield break;

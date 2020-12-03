@@ -199,7 +199,7 @@ public class CPManager :MonoBehaviourPunCallbacks,IPunObservable
     {
         teamACartel_Locked.SetActive(true);
         teamBCartel.SetActive(false);
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(45f);
         teamACartel_Locked.SetActive(false);      
         yield break;
     }
@@ -208,7 +208,7 @@ public class CPManager :MonoBehaviourPunCallbacks,IPunObservable
     {
         teamBCartel_Locked.SetActive(true);
         teamACartel.SetActive(false);
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(45f);
         teamBCartel_Locked.SetActive(false);
         yield break;
     }
