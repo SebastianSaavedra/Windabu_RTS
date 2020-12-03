@@ -22,7 +22,7 @@ public class TeamManager : MonoBehaviourPunCallbacks
     }
     IEnumerator SelectWinnerA() 
     {
-        yield return new WaitUntil(() => fameA >= 1);
+        yield return new WaitUntil(() => fameA >= 2);
         print("TeamA Gano");
         photonView.RPC("WinA", RpcTarget.AllViaServer);
         StopAllCoroutines();
@@ -30,7 +30,7 @@ public class TeamManager : MonoBehaviourPunCallbacks
     }
     IEnumerator SelectWinnerB()
     {
-        yield return new WaitUntil(() => fameB >= 1);
+        yield return new WaitUntil(() => fameB >= 2);
         photonView.RPC("WinB", RpcTarget.AllViaServer);
         print("TeamB Gano");
         StopAllCoroutines();
