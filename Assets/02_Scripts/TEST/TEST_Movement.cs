@@ -69,15 +69,6 @@ namespace Com.MaluCompany.TestGame
 
         Vector2 moveInput = new Vector2(Input.GetAxisRaw("Horizontal"),Input.GetAxisRaw("Vertical"));
         objVelocity = moveInput.normalized * movSpeed;
-            
-        if (Input.GetKeyDown(KeyCode.LeftShift))
-        {
-            movSpeed += runSpeed;
-        }
-        else if (Input.GetKeyUp(KeyCode.LeftShift))
-        {
-            movSpeed -= runSpeed;
-        }
         }
     }
         public override void OnPlayerEnteredRoom(Player newPlayer)
