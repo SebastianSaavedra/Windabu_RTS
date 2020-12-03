@@ -68,8 +68,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 6405431597534643833, guid: 1a4c821e7dd5d5f419af15c9f1b423c1,
-    type: 3}
+  m_Sprite: {fileID: 918862199728818741, guid: 73e1fb1dbc7cbeb47ad995c451992f81, type: 3}
   m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -105,6 +104,8 @@ MonoBehaviour:
   teamA: 0
   teamB: 0
   counter: {fileID: 0}
+  imageA: {fileID: 6405431597534643833, guid: 1a4c821e7dd5d5f419af15c9f1b423c1, type: 3}
+  imageB: {fileID: 918862199728818741, guid: 73e1fb1dbc7cbeb47ad995c451992f81, type: 3}
 --- !u!114 &3121282714107356422
 MonoBehaviour:
   m_ObjectHideFlags: 0

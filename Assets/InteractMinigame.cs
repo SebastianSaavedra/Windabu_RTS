@@ -37,7 +37,6 @@ public class InteractMinigame : MonoBehaviourPunCallbacks
         {
                 if (!objectToInteract.GetComponent<TaskDropDownMinigame>().cantClosePanel)
                 {
-                    Debug.Log("Cagaste hermano no podi cerrar el panel");
                 if (!objectToInteract.GetComponent<TaskDropDownMinigame>().stopoutsiders)
                 {
                     objectToInteract.GetComponent<I_Interactable>().OnLeavePanel(true);
@@ -63,7 +62,6 @@ public class InteractMinigame : MonoBehaviourPunCallbacks
                     objectToInteract.GetComponent<TaskDropDownMinigame>().StopOther(true);
                     }
                     GetComponent<TEST_Movement>().enabled = false;
-                    // objectToInteract.GetComponent<I_Interactable>().OnInteract(true);
                     objectToInteract.GetComponent<I_Interactable>().OnInteract(GetComponent<PlayerTeam>().team);
                     alreadyInteracted = true;
                 }
@@ -82,7 +80,6 @@ public class InteractMinigame : MonoBehaviourPunCallbacks
                         objectToInteract.GetComponent<TaskDropDownMinigame>().StopOther(true);
                     }
                     GetComponent<TEST_Movement>().enabled = false;
-                    // objectToInteract.GetComponent<I_Interactable>().OnInteract(true);
                     objectToInteract.GetComponent<I_Interactable>().OnInteract(GetComponent<PlayerTeam>().team);
                     alreadyInteracted = true;
                 }

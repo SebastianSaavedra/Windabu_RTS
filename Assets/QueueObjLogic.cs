@@ -16,6 +16,7 @@ public class QueueObjLogic : MonoBehaviour
     public bool teamA, teamB;
     [SerializeField]
     UIManager counter;
+    [SerializeField] Sprite imageA, imageB;
 
     private void Awake()
     {
@@ -33,10 +34,13 @@ public class QueueObjLogic : MonoBehaviour
                 if (teamA) 
                 {
                     counter.DeValueCounterA();
+                    panelTimer.sprite = imageA;
+
                 }
                 else if (teamB) 
                 {
                     counter.DeValueCounterB();
+                    panelTimer.sprite = imageB;
                 }
                 Destroy(gameObject);
             }
@@ -52,7 +56,6 @@ public class QueueObjLogic : MonoBehaviour
                 timeToDissapear = quedeData[0].Timer;
                 normalizedValue = timeToDissapear;
                 canStart = true;
-                //StartCoroutine(Matate());
                 break;      
                 
             case 1:
@@ -60,7 +63,6 @@ public class QueueObjLogic : MonoBehaviour
                 timeToDissapear = quedeData[1].Timer;
                 normalizedValue = timeToDissapear;
                 canStart = true;
-                //StartCoroutine(Matate());
                 break;    
                 
             case 2:
@@ -68,7 +70,6 @@ public class QueueObjLogic : MonoBehaviour
                 timeToDissapear = quedeData[2].Timer;
                 normalizedValue = timeToDissapear;
                 canStart = true;
-                //StartCoroutine(Matate());
                 break;
 
             case 3:
