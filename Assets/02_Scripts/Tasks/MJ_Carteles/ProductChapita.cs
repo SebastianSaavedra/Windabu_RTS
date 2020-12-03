@@ -88,4 +88,15 @@ public class ProductChapita : MonoBehaviour, IDropHandler
             }
         }
     }
+
+    public void Buffer()
+    {
+        StartCoroutine(Buffering());
+    }
+
+    IEnumerator Buffering()
+    {
+        yield return new WaitForSeconds(1.4f);
+        AddChapita();
+    }
 }
