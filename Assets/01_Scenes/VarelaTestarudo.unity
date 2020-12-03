@@ -1493,8 +1493,8 @@ MonoBehaviour:
   fameA: 0
   fameB: 0
   fake: {fileID: 1261384795}
-  GanoA: {fileID: 2400004127516317299}
-  GanoB: {fileID: 5539752226634239117}
+  GanoA: {fileID: 1261384803}
+  GanoB: {fileID: 1261384802}
 --- !u!4 &158597914
 Transform:
   m_ObjectHideFlags: 0
@@ -32619,6 +32619,18 @@ GameObject:
 --- !u!1 &1261384801 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8907970100695288719, guid: ab18c6628d0850e4c9ae0891f311f1fd,
+    type: 3}
+  m_PrefabInstance: {fileID: 1261384794}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1261384802 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2570950037644222907, guid: ab18c6628d0850e4c9ae0891f311f1fd,
+    type: 3}
+  m_PrefabInstance: {fileID: 1261384794}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1261384803 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5621188554612669253, guid: ab18c6628d0850e4c9ae0891f311f1fd,
     type: 3}
   m_PrefabInstance: {fileID: 1261384794}
   m_PrefabAsset: {fileID: 0}
