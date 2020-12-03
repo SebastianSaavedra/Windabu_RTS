@@ -38,7 +38,7 @@ public class FeedbackTrigger : MonoBehaviourPunCallbacks
         if (collision.GetComponent<TaskDropDown>()) 
         {
             eKey.SetActive(true);
-            escKey.SetActive(true);
+           // escKey.SetActive(true);
         }
         //if (collision.GetComponent<ColSaver>()) 
         //{
