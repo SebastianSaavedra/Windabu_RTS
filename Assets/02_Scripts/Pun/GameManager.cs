@@ -16,16 +16,11 @@ public class GameManager : MonoBehaviourPunCallbacks
         [SerializeField] GameObject playerPref;
         [SerializeField] GameObject joinedPlayer;
         [SerializeField] GameObject lobbyCanvas;
-        [SerializeField] GameObject buttonStart;
         #endregion
 
         private void Start()
         {
-                lobbyCanvas.SetActive(true);
-            if (PhotonNetwork.IsMasterClient) 
-            {
-                buttonStart.SetActive(true);
-            }       
+                lobbyCanvas.SetActive(true);    
         }
         #region Photon call
 

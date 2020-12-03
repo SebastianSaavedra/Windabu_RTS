@@ -14,7 +14,7 @@ public class ShopManager : MonoBehaviourPunCallbacks
     float impresoraCost = 100f, impresoraDelay = 15f, imp3dCost = 200f, imp3dDelay = 30f, chapitaCost = 150f, chapitaDelay = 20f, ploterCost = 300f, ploterDelay = 15f,
           merchCost = 350f, merchDelay = 30f, impIndusCost = 500f, impIndusDelay = 60f, scCost = 300f, scDelay = 30f;
     public bool canBuy_0, canBuy_1, canBuy_2, canBuy_3, canBuy_4, canBuy_5;
-    [SerializeField] bool sc0, sc1, sc2;
+    public bool sc0, sc1, sc2;
     int howManySc;
     //Prefabs
     public GameObject impresora, imp3d, chapita, impIndus, merch, plotter, superComputadora_1, superComputadora_2, superComputadora_3;
@@ -638,7 +638,6 @@ public class ShopManager : MonoBehaviourPunCallbacks
     {
         yield return new WaitForSeconds(waitTime);
         superComputadora_3.SetActive(true);
-        scbut.gameObject.SetActive(false);
         yield break;
     }
 
@@ -650,27 +649,21 @@ public class ShopManager : MonoBehaviourPunCallbacks
         {
             case 0:
                 impresora.SetActive(true);
-                impresbut.gameObject.SetActive(false);
                 break;
             case 1:
                 imp3d.SetActive(true);
-                impre3dbut.gameObject.SetActive(false);
                 break;
             case 2:
                 chapita.SetActive(true);
-                chapbut.gameObject.SetActive(false);
                 break;
             case 3:
                 plotter.SetActive(true);
-                plotbut.gameObject.SetActive(false);
                 break;
             case 4:
                 merch.SetActive(true);
-                merchbut.gameObject.SetActive(false);
                 break;
             case 5:
                 impIndus.SetActive(true);
-                indbut.gameObject.SetActive(false);
                 break;
             //case 6:
             //    Debug.Log("Cuantas super "+ howManySc);
