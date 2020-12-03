@@ -12,7 +12,7 @@ public class ProductChapita : MonoBehaviour, IDropHandler
     public GameObject resetPos;
 
     public int chapitaIn;
-    int chapitaCounter;
+    [SerializeField]int chapitaCounter;
     public int maxChapitas;
 
     public void OnDrop(PointerEventData eventData)
@@ -29,6 +29,7 @@ public class ProductChapita : MonoBehaviour, IDropHandler
                 chapita = eventData.pointerDrag;
 
                 // Move to slot
+                FindObjectOfType<AudioManager>().Play("DragDropPositive");
                 chapita.GetComponent<RectTransform>().anchoredPosition = GetComponent<RectTransform>().anchoredPosition;
                 chapita.GetComponent<DragDropStay>().locked = true;
                 GetComponentInParent<ChapaCountet>().AddChapa();
@@ -36,7 +37,7 @@ public class ProductChapita : MonoBehaviour, IDropHandler
             // Failed Scan
             else
             {
-                Debug.Log("Aqui no es bro");
+                FindObjectOfType<AudioManager>().Play("DragDropNegative");
             }
         }
     }
@@ -66,12 +67,15 @@ public class ProductChapita : MonoBehaviour, IDropHandler
 
     public void ResetPos()
     {
-        chapitaCounter++;
-        if (chapitaCounter != maxChapitas)
+        if (GetComponentInParent<ChapaCountet>().chapas == 3)
         {
-            chapita.transform.position = resetPos.transform.position;
-            chapita.GetComponent<DragDropStay>().locked = false;
-            chapita.GetComponent<CanvasGroup>().blocksRaycasts = true;
+            chapitaCounter++;
+            if (chapitaCounter != maxChapitas)
+            {
+                chapita.transform.position = resetPos.transform.position;
+                chapita.GetComponent<DragDropStay>().locked = false;
+                chapita.GetComponent<CanvasGroup>().blocksRaycasts = true;
+            }
         }
     }
 }

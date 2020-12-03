@@ -184,6 +184,7 @@ public class FinishMinigameManager : MonoBehaviour
 
             // Chapita
             case 13:
+                Debug.Log("Chapa Finish");
                 LocalPlayerManager.chapaCounter++;
                 Debug.Log(LocalPlayerManager.chapaCounter);
                 switch (GetComponentInParent<WhatTeamIsCalling>().team)
@@ -240,6 +241,7 @@ public class FinishMinigameManager : MonoBehaviour
                         GameObject.Find("Obj_ImpIndusB").GetComponent<BoxProgression>().FinishedMinigame();
                         break;
                 }
+                Debug.Log("finished");
                 break;
 
 
